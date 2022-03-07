@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Bassins versants</h2><p/>
+        <h2><img src="../images/GUID-AF749369-8C2D-46FF-9D74-2CF7CAB7C7B0-web.png" alt="T&acirc;che Bassins versants"></h2>
+        <hr/>
+    <p>Cet outil d&eacute;termine la surface de captation au-dessus d&rsquo;un ensemble de cellules d&rsquo;un raster.
+    </p>
+    <p> Un point en entr&eacute;e sur le Mississipi en Louisiane cr&eacute;e une entit&eacute; de bassin versant qui s&rsquo;&eacute;tend de New York au Montana, jusqu&rsquo;au Canada.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputFlowDirectionRaster">
+        <div><h2>Choisir la couche de direction de flux</h2></div>
+        <hr/>
+        <div>
+            <p>Raster en entr&eacute;e qui montre la direction du flux sortant de chaque cellule.
+            </p>
+            <p>Le raster de sens de circulation peut &ecirc;tre cr&eacute;&eacute; &agrave; l&rsquo;aide de la fonction raster Flow Direction (Sens de circulation), ex&eacute;cut&eacute;e avec le type de sens de circulation  <b>D8</b> par d&eacute;faut.
+            </p>
+        </div>
+    </div>
+    <div id="inPourPointRasterOrFeatures">
+        <div><h2>Spécifier les emplacements des points d’écoulement en entrée</h2></div>
+        <hr/>
+        <div>
+            <p>Emplacements des points d'&eacute;coulement en entr&eacute;e.
+            </p>
+            <p>Il peut s&rsquo;agir d&rsquo;un raster ou d&rsquo;un entit&eacute; ponctuelle. Pour un raster, il s'agit des cellules au-dessus desquelles la surface de captation est d&eacute;termin&eacute;e. Toutes les cellules n'ayant pas la valeur NoData sont utilis&eacute;es en tant que cellules sources. Pour une entr&eacute;e ponctuelle, il s&rsquo;agit des emplacements au-dessus desquels la surface de captation est d&eacute;termin&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="pourPointField">
+        <div><h2>Choisir un champ de point d’écoulement</h2></div>
+        <hr/>
+        <div>
+            <p>Le champ utilis&eacute; pour attribuer des valeurs aux emplacements de points d&rsquo;&eacute;coulement.
+            </p>
+            <p>Si la couche du point d&rsquo;&eacute;coulement en entr&eacute;e est un raster,  <i>Value</i> est utilis&eacute;. S&rsquo;il s&rsquo;agit d&rsquo;une entit&eacute;, un champ num&eacute;rique est utilis&eacute;. Si le champ contient des valeurs &agrave; virgule flottante, celles-ci sont remplac&eacute;es par des entiers.
+            </p>
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Nom de la couche de résultat</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Le nom de la couche qui sera cr&eacute;&eacute;e dans la page  <b>My Content (Mon contenu)</b> et ajout&eacute;e &agrave; la carte. Le nom par d&eacute;faut repose sur le nom de l'outil et sur le nom de la couche en entr&eacute;e. Si la couche existe d&eacute;j&agrave;, vous &ecirc;tes invit&eacute; &agrave; fournir un autre nom.
+            </p>
+            <p>Vous pouvez sp&eacute;cifier le nom d&rsquo;un dossier dans  <b>My Content (Mon contenu)</b>, dans lequel le r&eacute;sultat sera enregistr&eacute; via la zone de liste d&eacute;roulante <b>Save result in (Enregistrer le r&eacute;sultat dans)</b>. Si vous avez les privilèges permettant de créer des couches tuilées et d’images dynamiques, vous pouvez spécifier le type de couche à générer en sortie à l’aide de la zone déroulante Save result as (Enregistrer le résultat sous). </p>
+        </div>
+    </div>
+</div>
+</html>

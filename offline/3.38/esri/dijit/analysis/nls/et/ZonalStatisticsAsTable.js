@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/et/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Valige tsooni raster v\u00f5i objektid",outputTableName:"Tulemtabeli nimi",zoneField:"Tsooni v\u00e4li",inputValueRaster:"Valige v\u00e4\u00e4rtusraster",ignoreNodata:"Eira arvutustes v\u00e4\u00e4rtust NoData (valikuline)",ignore:"Eira",statisticType:"Statistika t\u00fc\u00fcp (valikuline)",percentileValues:"Protsentiili v\u00e4\u00e4rtused (valikuline)",percentileInterpolationType:"Protsentiili interpoleerimise t\u00fc\u00fcp (valikuline)",
+processAsMultidimensional:"T\u00f6\u00f6tle mitmem\u00f5\u00f5tmelisena (valikuline)",allSlices:"K\u00f5ik l\u00f5igud",outputZonalStatsName:"Tsoonip\u00f5hine statistika ${valuelayername} kohta kihi ${layername} piires",itemDescription:"Anal\u00fc\u00fcsi objektitabel, mis on genereeritud tsoonip\u00f5hisest statistikast tabelina",itemTags:"Rasteranal\u00fc\u00fcsi tulemus, tsoonip\u00f5hine statistika tabelina, ${layername}, ${valuelayername}",autoDetect:"Automaatne tuvastamine",nearest:"L\u00e4him",
+linear:"Lineaarne"});

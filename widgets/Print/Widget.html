@@ -1,0 +1,74 @@
+﻿<div class="secondary-pane">
+  <div class="add-url-pane-container">
+    <div class="add-url-pane-container--inner">
+      <div id="print_map" data-dojo-attach-point="print_map" data-dojo-type="dijit/layout/ContentPane"
+        data-dojo-props="region:'center'"></div>
+      <label>${nls.ReportType}</label>
+      <select class="url-textbox jimu-input" data-dojo-attach-point="selectedReport" name="InformationType"
+        data-dojo-attach-event="onchange:onReportChange">
+        <option value="0">${nls.Ptitle}</option>
+        <option value="1">${nls.Ctitle}</option>
+        <option value="2">${nls.Dtitle}</option>
+        <option value="3">${nls.Ftitle}</option>
+      </select>
+      <span id="factoryFilter" style="display: none">
+      <label>Filter By</label>
+      <select class="url-textbox jimu-input" data-dojo-attach-point="selectedFilter" name="drpFilter"
+        data-dojo-attach-event="onchange:onFilterChange">
+        <option value="0">${nls.Cpinnumber}</option>
+        <option value="1">${nls.Cfirmname}</option>
+        <option value="2">${nls.Cplotnumber}</option>
+      </select>
+    </span>
+      <span id="pin" style="display: none">
+        <label>${nls.Cpinnumber}</label>
+        <div  id="pinNo_r"></div>
+        <!-- <select class="url-textbox jimu-input" data-dojo-attach-point="selectedPin" name="pin"
+          data-dojo-attach-event="onchange:drpPinchange">
+          <option value="0">--select--</option>
+          <option value="81050402">81050402</option>
+        </select> -->
+      </span>
+      <span id="firm" style="display: none">
+        <label>${nls.Cfirmname}</label>
+        <div id="firmName"></div>
+      </span>
+      <span id="plot" style="display: none">
+        <label>${nls.Cplotnumber}</label>
+        <div id="plotno"></div>
+      </span>
+      <!-- <span id="factoryFilter" style="display: none">
+        
+      </span> -->
+      <span id="output">
+      <label>${nls.OutputType}</label>
+      <select class="url-textbox jimu-input" data-dojo-attach-point="selectedReportData" name="InformationDataType"
+        data-dojo-attach-event="onchange:drpDatachange">
+        <option value="1">${nls.Map}</option>
+        <option value="2">${nls.Data}</option>
+      </select>
+    </span>
+      <!-- <span>Report Format</span> &nbsp;&nbsp; -->
+      <!-- <input type="radio" id="css" name="fav_language" value="CSS">
+            <span for="html"><img src="widgets/PlotAllocation/images/pdf.png" alt="pdf"></span>
+           
+          <input type="radio" id="html" name="fav_language" value="HTML">
+            <span for="css"><img src="widgets/PlotAllocation/images/Xcel.png" alt="pdf"></span> -->
+      <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="symFormDijit" id="fileType">
+        <span>${nls.FileFormat}</span> &nbsp;&nbsp;
+        <input data-dojo-attach-point="rdoYes" checked="true" type="radio" value="pdf" />
+        <span data-dojo-attach-point="rdoYesLabel">
+          <span for="html"><img src="widgets/PlotAllocation/images/pdf.png" alt="pdf"></span></span>&nbsp;&nbsp;
+        <input data-dojo-attach-point="rdoNo" type="radio" value="excel" />
+        <span data-dojo-attach-point="rdoNoLabel"> 
+          <span for="css"><img src="widgets/PlotAllocation/images/Xcel.png" alt="xcel"></span></span>
+      </div>
+      <br>
+      <div class="action-bar" style="text-align:center;">
+        <a id="aprint" class="jimu-btn" href="#" data-dojo-attach-point="Report"
+          data-dojo-attach-event="onclick:_onClickReportBtn">${nls.GenerateReport}</a>
+      </div>
+
+    </div>
+  </div>
+</div>

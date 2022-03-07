@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/2d/engine/Evented",["require","exports","../../../core/tsSupport/extendsHelper","dojo/aspect","dojo/on"],function(h,g,l,k,f){Object.defineProperty(g,"__esModule",{value:!0});h=function(){function d(){}d.prototype.on=function(a,b){return k.after(this,"on"+a,b,!0)};d.prototype.once=function(a,b){return f.once(this,a,b)};d.prototype.emit=function(a){f.emit(this,a,this)};d.prototype.hasEventListener=function(a){a="on"+a;return!(!this[a]||!this[a].after)};return d}();
+g.Evented=h;g.EventedMixin=function(d){return function(a){function b(){return null!==a&&a.apply(this,arguments)||this}l(b,a);b.prototype.on=function(c,e){return k.after(this,"on"+c,e,!0)};b.prototype.once=function(c,e){return f.once(this,c,e)};b.prototype.emit=function(c,e){f.emit(this,c,e)};b.prototype.hasEventListener=function(c){c="on"+c;return!(!this[c]||!this[c].after)};return b}(d)}});

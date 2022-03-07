@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/dataProvider/commands/createHTML/CSSFilesLoader",["esri/dijit/geoenrichment/Deferred","require"],function(g,h){return{AVENIR_FONTS:["../../../themes/fonts/AvenirNext.css"],_loadPromise:null,_loadedFiles:null,loadCssFontFiles:function(){if(this._loadedFiles)return this._loadedFiles;this._loadPromise||(this._loadPromise=this._loadFiles(this.AVENIR_FONTS));return this._loadPromise},_loadFiles:function(k){var l=this,f=new g;h(k.map(function(b){return"dojo/text!"+
+b}),function(){for(var b=[],c=0;c<arguments.length;c++)(function(a){for(var d=[];;){var e=a.indexOf("}");if(5E3>e){a&&d.push(a);break}d.push(a.substr(0,e+1).trim());a=a.substr(e+1).trim()}return d})(arguments[c]).forEach(function(a){b.push(a)});l._loadedFiles=b;f.resolve(b)});return f.promise}}});

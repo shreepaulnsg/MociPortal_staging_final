@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/FindTask","dojo/_base/declare dojo/_base/lang dojo/_base/array dojo/_base/Deferred dojo/has ../kernel ../request ../deferredUtils ./Task ./FindResult".split(" "),function(e,h,m,n,p,q,r,t,u,v){e=e(u,{declaredClass:"esri.tasks.FindTask",constructor:function(a,d){this._url.path+="/find";this._handler=h.hitch(this,this._handler);this.gdbVersion=d&&d.gdbVersion},_handler:function(a,d,f,k,g){try{var b=[];m.forEach(a.results,function(c,l){b[l]=new v(c)});this._successHandler([b],"onComplete",
+f,g)}catch(c){this._errorHandler(c,k,g)}},execute:function(a,d,f){a=this._encode(h.mixin({},this._url.query,{f:"json"},a.toJson()));var k=this._handler,g=this._errorHandler;this.gdbVersion&&(a.gdbVersion=this.gdbVersion);var b=new n(t._dfdCanceller);b._pendingDfd=r({url:this._url.path,content:a,callbackParamName:"callback",load:function(c,l){k(c,l,d,f,b)},error:function(c){g(c,f,b)}});return b},onComplete:function(){}});p("extend-esri")&&h.setObject("tasks.FindTask",e,q);return e});

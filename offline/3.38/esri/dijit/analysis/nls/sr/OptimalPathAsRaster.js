@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sr/OptimalPathAsRaster",{inputDestinationRasterOrFeatures:"Odaberite raster ili geoobjekte odredi\u0161ta",destinationField:"Polje odredi\u0161ta (opciono)",inputDistanceAccumulationRaster:"Odaberite raster akumulacije rastojanja",inputBackDirectionRaster:"Odaberite raster povratnog smera ili smera toka",pathType:"Tip putanje (opciono)",bestSingle:"Najbolja pojedina\u010dna",eachCell:"Svaka \u0107elija",eachZone:"Svaka zona",outputRasterName:"Naziv sloja rastera sa rezultatima",
+outputLayerName:"Optimalna putanja kao raster ${layername}",drawSourcePointLayerName:"Izvorne ta\u010dke",itemDescription:"Sloj geoobjekata nastao usled pokretanja optimalne putanje kao rastera na ${layername}. ",itemTags:"Rezultat analize, Optimalna putanja kao raster, ${layername} ${fieldname}",itemSnippet:"Sloj geoobjekata generisan iz optimalne putanje kao rastera."});

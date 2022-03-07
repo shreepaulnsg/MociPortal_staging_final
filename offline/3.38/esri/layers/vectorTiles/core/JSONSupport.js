@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/JSONSupport","require exports ./tsSupport/declareExtendsHelper ./tsSupport/decorateHelper ./Accessor ./declare ./accessorSupport/decorators ./accessorSupport/read ./accessorSupport/write".split(" "),function(q,r,k,l,m,f,g,n,p){function h(a,c){if(!a)return null;if(a.declaredClass)throw Error("JSON object is already hydrated");var b=new this;b.read(a,c);return b}var e=function(a){function c(){return null!==a&&a.apply(this,arguments)||this}k(c,a);c.prototype.read=
+function(b,d){n.default(this,b,d);return this};c.prototype.write=function(b,d){return p.default(this,b||{},d)};c.prototype.toJSON=function(b){return this.write(null,b)};c.fromJSON=function(b,d){return h.call(this,b,d)};return c=l([g.subclass("esri.core.JSONSupport")],c)}(g.declared(m));e.prototype.toJSON.isDefaultToJSON=!0;f.after(function(a){f.hasMixin(a,e)&&(a.fromJSON=h.bind(a))});return e});

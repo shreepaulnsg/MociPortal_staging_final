@@ -1,0 +1,108 @@
+<div class="updpane">
+  <div style="height: 85%;">
+    <div class="plotselect">
+      <!-- //<div id ="myDiv" class="selbtn btn-primary btnimg" ><img src="widgets/UpdateAttributes/images/select.png" ></img>Select</div>
+    //<button id="btnSelect"  class= "btn btncolor2" data-dojo-type="dijit/form/Button"  type="button">Select Plot</button> -->
+    <div id ="drawGeom" class="selbtn btn-primary btnimg" >${nls.Select}</div>
+  </div>
+  <div class="attrgrid">
+      <table class="setting-table">
+        <!-- <thead>Planning Regulations:</thead> -->
+        <tr class="rows">
+          <td class="attrlabels">
+            <label><b>${nls.PlanningRegulations}</b></label>
+          </td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.PlotCoverage}(M<sup>2</sup>)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtPlotCover" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.PlotCoverage}(%)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtPlotCoverPerc" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.PermeableArea}(M<sup>2</sup>)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtPermArea" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.PermeableArea}(%)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtPermAreaPerc" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.PlantingArea}(M<sup>2</sup>)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtPlantArea" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.PlantingArea}(%)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtPlantAreaPerc" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.BuildingFrontage}(%)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtBuildFrontPerc" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.BuildingHeight}(M)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtBuildHeight" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">
+            <label><b>
+              ${nls.UtilityDemand}
+            </b></label>
+          </td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.CoolingMethod}</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtCoolMet" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.ElectricityDemand}(KVA)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtEleDemand" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.PotableWaterDemand}(M<sup>3</sup>/Day)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtPotWaterDemand" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.SewarageLoad}(M<sup>3</sup>/Day)</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtSewLoad" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.ConnectedtoGas}</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtGasConn" /></td>
+        </tr>
+        <tr class="rows">
+          <td class="attrlabels">${nls.ConnectedtoTSE}</td>
+          <td class="updvals"><input type="text" class="attrtext" data-dojo-type="dijit/form/TextBox"
+              data-dojo-props="trim:true" id="txtTseConn" /></td>
+        </tr>
+        </tr>
+      </table>
+    </div>
+    <div class="updateops">
+      <div class="selbtn btn-primary" id="updAttributes">${nls.Update}</div>
+      <div class="selbtn btn-secondary" id="clearValues">${nls.Clear} </div>
+
+      <!-- // <button id="btnupdate"  class= "btn btncolor2" data-dojo-type="dijit/form/Button"  type="button">Update</button>
+    //<button id="btnclear" class="btn btncolor1" data-dojo-type="dijit/form/Button"  type="button">Clear</button>  -->
+    </div>
+  </div>
+  <div id="errpane" class="errgrid">
+    <div id="errMsg" class="errmsg"></div>
+  </div>
+
+</div>

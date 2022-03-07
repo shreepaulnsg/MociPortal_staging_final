@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="regularsize">
+        <h2>Povzemi raster znotraj</h2><p/>
+        <h2><img src="../images/GUID-D61C156C-2B2C-488C-BF28-B6CB9277BF4B-web.png" alt="Orodje Povzemi raster znotraj"></h2>
+        <hr/>
+    <p>To orodje povzema vrednosti rastra znotraj območij drugega sklopa podatkov.
+    </p>
+    <p>Nekaj primerov uporabe tega orodja vključuje naslednje:
+        <ul>
+            <li>Podana sta sloja razvodnic in rabe tal. Izračunajte skupno kmetijsko povr&scaron;ino po tipu rabe tal za vsako razvodje.
+                
+
+            </li>
+            <li>Podana sta sloj parcel v okrožju in sloj mej mesta. Povzemite povprečno vrednost nepozidanih parcel znotraj vsake meje mesta.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>Če je obkljukana možnost  <b>Uporabi trenutni obseg karte</b>, bodo analizirani samo tisti geoobjekti vhodnega sloja in sloja, ki ga je treba povzeti, ki so vidni znotraj trenutnega obsega karte. Če je možnost odkljukana, bodo analizirani vsi geoobjekti tako na vhodnem sloju kot na sloju, ki ga je treba povzeti, tudi če so zunaj trenutnega obsega karte.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="sumWithinLayer">
+        <div><h2>Izberi poligonski sloj za povzetek sloja rastra znotraj določenih meja</h2></div>
+        <hr/>
+        <div>
+            <p>Vnos, ki določa meje območij ali povr&scaron;in, ki bodo povzete.
+            </p>
+            <p>Vnos je lahko raster celega &scaron;tevila ali geoobjektni podatki. Za rastre se cone določajo glede na vse lokacije v vhodnem sloju, ki imajo enako vrednost celice. Za geoobjekte se lahko območja prekrivajo. Za povr&scaron;ine ni nujno, da so sosednje.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Izberi polje za določanje meja</h2></div>
+        <hr/>
+        <div>
+            <p>Polje, ki vsebuje vrednosti, ki določajo vsako območje.
+            </p>
+            <p>To je lahko polje s celim &scaron;tevilom ali besedilno polje območnega sklopa podatkov.
+            </p>
+        </div>
+    </div>
+    <div id="sumRasterLayer">
+        <div><h2>Izberi sloj rastra za povzemanje</h2></div>
+        <hr/>
+        <div>
+            <p>Raster, ki vsebuje vrednosti za izračun statistike.
+            </p>
+            <p>Lahko je celo &scaron;tevilo ali plavajoča vejica. Vendar pri plavajoči vejici možnosti za izračun večine, manj&scaron;ine in razlike niso na voljo.
+            </p>
+        </div>
+    </div>
+    <div id="sumStatistic">
+        <div><h2>Izberi statistiko za izračun</h2></div>
+        <hr/>
+        <div>
+            <p>Določi tip statistike, ki bo izračunana.
+            </p>
+            <p> Vnos je lahko nekaj od naslednjega: <b>Povprečje</b>, <b>Večina</b>, <b>Maksimum</b>, <b>Sredina</b>, <b>Minimum</b>, <b>Manj&scaron;ina</b>, <b>Percentil</b>, <b>Obseg</b>, <b>Standardni odklon</b>, <b>Vsota</b> ali <b>Razlika</b>. Privzeta možnost je <b>Povprečje</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Vrednost percentila</h2></div>
+        <hr/>
+        <div>
+            <p>Percentil za izračun. Privzeta vrednost je 90, ki označuje 90. percentil.
+            </p>
+            <p>Vrednost se giblje od 0 do 100. Rezultat določitve percentila 0 je pravzaprav enakovreden najmanj&scaron;i, percentil 100 pa največji statistični vrednosti. Vrednost 50 bo pravzaprav ustvarila enak rezultat kot srednja statistična vrednost.
+            </p>
+            <p> Ta parameter je podprt samo, če je parameter <b>Izberi statistiko za izračun</b> nastavljen na <b>Percentil</b>.
+            </p>
+        </div>
+    </div>
+    <div id="missingValues">
+        <div><h2>Prezri manjkajoče vrednosti v izračunu</h2></div>
+        <hr/>
+        <div>
+            <p> Določi ali se bo v analizi prezrlo manjkajoče vrednosti.
+            </p>
+            <ul>
+                <li>Potrjeno &ndash; Analiza bo vključevala celice, ki imajo vrednost v vhodnem rastru vrednosti znotraj katerega koli določenega območja za določanje izhodne vrednosti za to območje. Celice z vrednostjo Brez podatkov v rastru vrednosti bodo v statističnem izračunu prezrte. To je privzeto.
+                </li>
+                <li>Nepotrjeno &ndash; Rezultat analize bo brez podatkov, če so znotraj katerega določenega območja kakr&scaron;ne koli vrednosti Brez podatkov za celice rastra vrednosti.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Obdelaj kot večdimenzionalno</h2></div>
+        <hr/>
+        <div>
+            <p>Določi, kako bodo vhodne storitve večdimenzionalne slike obdelane, če bodo večdimenzionalne.
+            </p>
+            <ul>
+                <li>Potrjeno &ndash; Statistika bo izračunana iz trenutnega izseka vhodnega večdimenzionalnega sklopa podatkov. To je privzeto.
+                    
+
+                </li>
+                <li>Nepotrjeno &ndash; Statistika bo izračunana za vse dimenzije vhodnega večdimenzionalnega sklopa podatkov.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Ime sloja z rezultati</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Ime sloja, ki bo ustvarjen v odseku  <b>Moja vsebina</b> in dodan na karto. Privzeto ime temelji na imenu orodja in imenu vhodnega sloja. Če sloj že obstaja, bo od vas zahtevano, da vnesete drugo ime.
+            </p>
+            <p>Lahko navedete ime mape v  <b>Moji vsebini</b>, kjer bo rezultat shranjen s pomočjo spustnega menija <b>Shrani rezultat v</b>. Če imate pravice za ustvarjanje ploščičnih in dinamičnih slikovnih slojev, lahko določite tudi katero vrsto sloja želite ustvariti v izhodu z uporabo spustnega menija Shrani rezultat kot. </p>
+        </div>
+    </div>
+</div>
+</html>

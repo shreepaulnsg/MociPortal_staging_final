@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/vectorTiles/Feature",["require","exports","../2d/engine/webgl/Geometry"],function(m,n,k){return function(){function l(a,b){this.values={};var g=b.keys;for(b=b.values;a.next();)switch(a.tag()){case 1:this.id=a.getUInt64();break;case 2:for(var h=a.getMessage(),f=this.values;!h.empty();){var d=h.getUInt32(),e=h.getUInt32();f[g[d]]=b[e]}break;case 3:this.type=a.getUInt32();break;case 4:this._pbfGeometry=a.getMessage();break;default:a.skip()}}l.prototype.getGeometry=
+function(a){if(void 0!==this._geometry)return this._geometry;var b=this._pbfGeometry,g;a?a.reset(this.type):g=[];for(var h=1,f=0,d=0,e=0;!b.empty();)switch(0===f&&(f=b.getUInt32(),h=f&7,f>>=3),f--,h){case 1:d+=b.getSInt32();e+=b.getSInt32();if(a)a.moveTo(d,e);else{c&&g.push(c);var c=[];c.push(new k.Point(d,e))}break;case 2:d+=b.getSInt32();e+=b.getSInt32();a?a.lineTo(d,e):c.push(new k.Point(d,e));break;case 7:a?a.close():c&&!c[0].equals(d,e)&&c.push(c[0].clone());break;default:throw Error("Invalid path operation");
+}a?a=a.result():(c&&g.push(c),a=g);return this._geometry=a};return l}()});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sk/SummarizeCenterAndDispersion",{inputLayerLabel:"Vybra\u0165 vrstvu na opis",summaryTypes:"Typy zhrnutia",centralFeature:"Centr\u00e1lny prvok",meanCenter:"Geografick\u00fd priemern\u00fd stred prvkov",medianCenter:"Geografick\u00fd medi\u00e1nov\u00fd stred prvkov",ellipse:"Elipsa",weightBy:"V\u00e1ha pod\u013ea (volite\u013en\u00e9)",groupBy:"Zoskupi\u0165 pod\u013ea (volite\u013en\u00e9)",resultLayerName:"N\u00e1zov v\u00fdslednej vrstvy",outputLayerName:"Op\u00edsa\u0165 rozdelenie ${layerName}",
+none:"\u017diadne",itemDescription:"Vrstvy prvkov generovan\u00e9 n\u00e1strojom Zhrn\u00fa\u0165 stred a rozptyl na vrstve${layerName}. ",itemTags:"V\u00fdsledok anal\u00fdzy, Zhrn\u00fa\u0165 stred a rozptyl, ${layerName}",itemSnippet:"Vrstvy prvkov generovan\u00e9 n\u00e1strojom Zhrn\u00fa\u0165 stred a rozptyl"});

@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/form/iso/gemet/ConceptDialog","dojo/_base/declare dojo/_base/lang dojo/dom-class dojo/has dijit/_WidgetBase dojo/i18n!../../../nls/i18nBase dojo/i18n!../../../nls/i18nIso dijit/Dialog ./ConceptPane ../../../../../kernel".split(" "),function(c,b,e,f,g,p,h,k,l,m){c=c([g],{dialog:null,gxeDocument:null,initialValue:null,title:h.gemet.concept.dialogTitle,postCreate:function(){this.inherited(arguments)},onSelect:function(a){},show:function(){var a=null,d=new l({dialogBroker:this,
+gxeDocument:this.gxeDocument,initialValue:this.initialValue,onSelect:b.hitch(this,function(n){this.onSelect(n);a&&a.hide()}),onCancelClick:b.hitch(this,function(){a&&a.hide()})});a=this.dialog=new k({"class":"gxeDialog gxePopupDialog gxeGemetDialog",title:this.title,content:d,autofocus:!1});this.isLeftToRight()||e.add(a.domNode,"gxeRtl");this.own(a.on("hide",b.hitch(this,function(){setTimeout(b.hitch(this,function(){d.destroyRecursive(!1);a.destroyRecursive(!1);this.destroyRecursive(!1)}),300)})));
+a.show()}});f("extend-esri")&&b.setObject("dijit.metadata.form.iso.gemet.ConceptDialog",c,m);return c});

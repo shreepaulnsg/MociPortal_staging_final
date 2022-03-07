@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/types/arcgis/form/InputMaxNumber","dojo/_base/declare dojo/_base/lang dojo/query dijit/registry dojo/has ../../../../../kernel ../../../base/etc/docUtil ../../../form/InputNumber".split(" "),function(b,e,m,n,f,g,h,k){b=b([k],{postCreate:function(){this.inherited(arguments)},emitInteractionOccurred:function(p){this.inherited(arguments);try{var c=this.parentXNode.target,a=null;"maxVal"===c?a="minVal":"rdommax"===c?a="rdommin":"vertMaxVal"===c&&(a="vertMinVal");if(null!==
+a){var d=h.findInputWidget(this.parentXNode.parentElement.gxePath+"/"+a,this.parentXNode.domNode.parentNode);d&&d.emitInteractionOccurred()}}catch(l){console.error(l)}}});f("extend-esri")&&e.setObject("dijit.metadata.types.arcgis.form.InputMaxNumber",b,g);return b});

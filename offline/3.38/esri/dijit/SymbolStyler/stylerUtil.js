@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/SymbolStyler/stylerUtil",["dijit/popup","dojo/number"],function(e,g){return{bindSliderAndTextBox:function(a,d){a.on("change",function(b){d.set("value",b,!1)});d.on("change",function(b){"string"===typeof b&&(b=g.parse(b));if(isNaN(b))this.set("value",a.get("value"),!1);else{var c=this.get("constraints");var f=c.min;c=c.max;b=b>c?c:b<f?f:b;this.set("value",b,!1);a.set("value",b,!1)}})},silentlyUpdateIntermediateChangingValueWidget:function(a,d){a.intermediateChanges=!1;a.set("value",
+d,!1);a.intermediateChanges=!0},ensureEnabledChildSelection:function(a){if((a.selectedChildWidget||{}).disabled){var d=a.getChildren();var b=d.length;for(var c=0;c<b;c++)if(!d[c].disabled){a.selectChild(d[c]);break}}},enable:function(a){a.set("disabled",!1)},disable:function(a){a.set("disabled",!0)},popUp:function(a,d){var b=a.on("styling-commit",function(){b.remove();c.remove();e.close(a)});var c=a.on("styling-stop",function(){b.remove();c.remove();e.close(a)});e.open({popup:a,around:d,orient:["above"]})}}});

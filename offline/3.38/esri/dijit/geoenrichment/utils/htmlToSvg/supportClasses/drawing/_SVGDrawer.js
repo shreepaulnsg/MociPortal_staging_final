@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/utils/htmlToSvg/supportClasses/drawing/_SVGDrawer",["../dom-style","../ElementBuilder","../StyleParser","esri/dijit/geoenrichment/utils/SVGUtil"],function(e,f,m,n){return{drawSVG:function(a,c,p){var g=e.toPixelValue(a,a.getAttribute("x")),h=e.toPixelValue(a,a.getAttribute("y")),k=Math.round(100*(g+c.box.x))/100,l=Math.round(100*(h+c.box.y))/100;a.setAttribute("x","0px");a.setAttribute("y","0px");var d=a.getAttribute("style")||"";if(d){a.setAttribute("style","");var b=
+m.parseStyleString(d);b.width&&a.setAttribute("width",b.width);b.height&&a.setAttribute("height",b.height)}b=n.getOuterHTML(a);if(k||l)var q=f.buildElement("g",{transform:"translate("+k+" "+l+")"},b);c=f.buildElement("g",{opacity:c.style.opacity,clipParams:p,transform:c.style.transform},q||b);a.setAttribute("x",g+"px");a.setAttribute("y",h+"px");a.setAttribute("style",d);return c}}});

@@ -1,0 +1,48 @@
+  <div >
+    <div class="goto">
+    <table class="setting-table">
+      <tbody class="setting-table">
+        <tr class="rows">
+          <td class="labels" style="text-align: right;">
+            <label class="yesnotext" style="text-align: center;" for="radioTwo">
+              <input class="yesno" type="radio" data-dojo-type="dijit/form/RadioButton" id="LatLong" name="rbMUnits" checked value="Latitude/Longitude"/>
+              <span style="padding-left: 10px;">${nls.LatitudeLongitude}</span>
+            </label>
+             
+          </td>
+          <td class="labels" style="text-align: left; padding-left: 46px;">
+            <label class="yesnotext"  for="radioTwo">
+              <input class="yesno" type="radio" data-dojo-type="dijit/form/RadioButton" id="Meters" name="rbMUnits" value="Meters"/>
+              <span style="padding-left: 10px;">${nls.Meters}</span>
+              
+            </label>
+            <!--<div  id="selUnits" class="units"></div>
+             <div>
+              <select class="units" id ="selUnits" data-dojo-attach-event="onChange:cmbchange"  data-dojo-type="dijit/form/ComboBox">
+                 <option value="esrimeters">Meters</option>
+                <option value="esriLatLong" selected="selected">Lat/Long</option> 
+              </select>
+            </div> -->
+          </td>
+        </tr>
+        <tr class="rows">
+          <td id="lblMUnits1"  style="text-align: center;"  class="labels">${nls.Latitude}</td>
+          <td class="labels"><input type="text" style="padding: 5px;" class="units unitbox"  data-dojo-type="dijit/form/TextBox" data-dojo-props="trim:true"  id="txtLatrNorth" /></td>
+        </tr>
+        <tr class="rows">
+          <td id="lblMUnits2" style="text-align: center;"  class="labels">${nls.Longitude}</td>
+          <td class="labels"><input type="text" style="padding: 5px;" class="units unitbox" data-dojo-type="dijit/form/TextBox" data-dojo-props="trim:true" id="txtLongrEast" /></td>
+        </tr>
+      </tbody>
+      </table>
+      </div> 
+          <div class="labelsops">
+            <div id="btnZoom" class="selbtn btn-primary" data-dojo-attach-event="onclick:_onClickZoombtn">${nls.Zoom}</div>
+            <div id="btnClear"  class="selbtn btn-secondary" data-dojo-attach-event="onclick:_clrValues">${nls.Clear}</div>
+            <!-- <button id="btnZoom"  class= "btn btncolor2" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick:zoomToLoc"  type="button">Zoom</button>
+            <button id="btnClear" class="btn btncolor1" data-dojo-attach-point="clearButton" data-dojo-attach-event="onClick:clearValues"  type="button">Clear</button> -->
+        </div> 
+          <div class="errlabel">
+            <div id="errMsg" class="errmsg"> </div>
+          </div>
+  </div>

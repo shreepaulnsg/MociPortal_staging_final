@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/2d/engine/webgl/collisions/Metric",["require","exports","./BoundingBox"],function(g,h,k){Object.defineProperty(h,"__esModule",{value:!0});g=function(){function d(a,e,b,c,f){void 0===c&&(c=255);void 0===f&&(f=0);this.bounds=a;this.range=e;this.index=b;this.minZoom=c;this.maxZoom=f}d.prototype.serialize=function(a){this.bounds.serialize(a);a.writeInt32(this.range.from);a.writeInt32(this.range.count);a.writeInt32(this.index);return a};d.deserialize=function(a){var e=
+k.default.deserialize(a),b=a.readInt32(),c=a.readInt32();b={from:b,count:c};a=a.readInt32();return new d(e,b,a)};return d}();h.default=g});

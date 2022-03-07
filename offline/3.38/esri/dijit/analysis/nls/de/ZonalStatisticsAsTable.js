@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/de/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Zonen-Raster oder -Features ausw\u00e4hlen",outputTableName:"Name der Ergebnistabelle",zoneField:"Zonenfeld",inputValueRaster:"Werte-Raster ausw\u00e4hlen",ignoreNodata:"NoData-Werte in Berechnungen ignorieren (optional)",ignore:"Ignorieren",statisticType:"Statistiktyp (optional)",percentileValues:"Perzentilwerte (optional)",percentileInterpolationType:"Perzentil-Interpolationstyp (optional)",processAsMultidimensional:"Als mehrdimensional verarbeiten (optional)",
+allSlices:"Alle Ausschnitte",outputZonalStatsName:"Zonale Statistiken f\u00fcr ${valuelayername} in ${layername}",itemDescription:'\u00dcber "Zonale Statistiken als Tabelle" erstellte Analyse-Feature-Tabelle',itemTags:"Raster-Analyseergebnis, Zonale Statistiken als Tabelle, ${layername}, ${valuelayername}",autoDetect:"Automatisch erkennen",nearest:"N\u00e4chster",linear:"Linear"});

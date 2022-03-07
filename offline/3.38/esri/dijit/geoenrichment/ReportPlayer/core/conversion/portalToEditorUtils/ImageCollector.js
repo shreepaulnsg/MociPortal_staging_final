@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/conversion/portalToEditorUtils/ImageCollector",["esri/dijit/geoenrichment/when","esri/dijit/geoenrichment/promise/all","esri/dijit/geoenrichment/utils/DataUtil","esri/dijit/geoenrichment/utils/ImageUtil","esri/dijit/geoenrichment/utils/ImageInfoUtil"],function(e,f,g,h,k){return{collectImageResources:function(b,c,l){function m(a){return e(k.getImageInfo(c[a],a),null,function(){/\.svg$/.test(a)||delete c[a]})}b&&b.files&&b.files.forEach(function(a){var d=
+g.getContentType(a.name);d&&"image/"===d.substr(0,6)&&(c[l(a.name)]=h.base64DataToDataURL(a.data,d))});b=[];for(var n in c)b.push(m(n));return f(b)}}});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/geometry/Geometry",["dojo/_base/declare","dojo/_base/lang","dojo/has","../kernel","../SpatialReference"],function(b,c,d,e,f){b=b(null,{declaredClass:"esri.geometry.Geometry",spatialReference:null,type:null,cache:void 0,setSpatialReference:function(a){this.spatialReference=a;return this},verifySR:function(){this.spatialReference||this.setSpatialReference(new f(4326))},getExtent:function(){return null},clearCache:function(){this.cache=void 0},getCacheValue:function(a){return this.cache&&
+this.cache[a]},setCacheValue:function(a,g){this.cache||(this.cache={});this.cache[a]=g}});d("extend-esri")&&c.setObject("geometry.Geometry",b,e);return b});

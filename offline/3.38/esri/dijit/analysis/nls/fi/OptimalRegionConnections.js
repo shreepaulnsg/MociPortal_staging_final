@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/fi/OptimalRegionConnections",{inputRegionRasterOrFeatures:"Valitse vy\u00f6hykerasteri tai -kohde",inputCostRaster:"Valitse kustannusrasteri (valinnainen)",inputBarrierRasterOrFeatures:"Valitse esterasteri tai -kohde (valinnainen)",distanceMethod:"Et\u00e4isyysmenetelm\u00e4 (valinnainen)",connectionsWithinRegions:"Yhteydet alueissa (valinnainen)",generateConnections:"Luo yhteydet",noConnections:"Ei yhteyksi\u00e4",planar:"Planaarinen",geoDesic:"Geodeettinen",outputOptimalLinesName:"Tuloksena oleva optimaalisten yhdistyvyysviivojen kohdekarttatason nimi",
+outputNeighborConnectionsName:"Tuloksena oleva viereisten yhteyksien kohdekarttatason nimi (valinnainen)",outputLayerName:"Optimaaliset alueen yhteydet: ${layername}",drawSourcePointLayerName:"L\u00e4hteen pisteet",itemDescription:"Kohdekarttataso on luotu suorittamalla Optimaaliset alueen yhteydet -toiminto karttatasolle ${layername}. ",itemTags:"Analyysin tulos, Optimaaliset alueen yhteydet, ${layername} ${fieldname}",itemSnippet:"Kohdekarttataso on luotu suorittamalla Optimaaliset alueen yhteydet -toiminto.",
+noValueMessage:"Arvo on pakollinen"});

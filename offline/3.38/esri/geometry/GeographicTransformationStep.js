@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/geometry/GeographicTransformationStep",["require","exports"],function(e,f){var c=0;return function(){function b(a){void 0===a&&(a=null);this.uid=c++;a?(this._wkt=void 0!==a.wkt?a.wkt:null,this._wkid=void 0!==a.wkid?a.wkid:-1,this._isInverse=void 0!==a.isInverse?!0===a.isInverse:!1):(this._wkt=null,this._wkid=-1,this._isInverse=!1)}b.fromGE=function(a){var d=new b;d._wkt=a.wkt;d._wkid=a.wkid;d._isInverse=a.isInverse;return d};Object.defineProperty(b.prototype,"wkt",{get:function(){return this._wkt},
+set:function(a){this._wkt=a;this.uid=c++},enumerable:!0,configurable:!0});Object.defineProperty(b.prototype,"wkid",{get:function(){return this._wkid},set:function(a){this._wkid=a;this.uid=c++},enumerable:!0,configurable:!0});Object.defineProperty(b.prototype,"isInverse",{get:function(){return this._isInverse},set:function(a){this._isInverse=a;this.uid=c++},enumerable:!0,configurable:!0});b.prototype.getInverse=function(){var a=new b;a._wkt=this.wkt;a._wkid=this._wkid;a._isInverse=!this.isInverse;
+return a};return b}()});

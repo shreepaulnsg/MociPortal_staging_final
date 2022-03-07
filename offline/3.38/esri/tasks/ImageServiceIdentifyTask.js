@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/ImageServiceIdentifyTask","dojo/_base/declare dojo/_base/lang dojo/has ../kernel ../request ../geometry/normalizeUtils ./Task ./ImageServiceIdentifyResult".split(" "),function(b,f,m,n,p,q,r,t){b=b(r,{declaredClass:"esri.tasks.ImageServiceIdentifyTask",constructor:function(a){this._url.path+="/identify";this._handler=f.hitch(this,this._handler)},__msigns:[{n:"execute",c:3,a:[{i:0,p:["geometry"]}],e:2}],_handler:function(a,l,e,c,d){try{var g=new t(a);this._successHandler([g],"onComplete",
+e,d)}catch(h){this._errorHandler(h,c,d)}},execute:function(a,l,e,c){var d=c.assembly;a=this._encode(f.mixin({},this._url.query,{f:"json"},a.toJson(d&&d[0])));var g=this._handler,h=this._errorHandler;return p({url:this._url.path,content:a,callbackParamName:"callback",load:function(k,u){g(k,u,l,e,c.dfd)},error:function(k){h(k,e,c.dfd)}})},onComplete:function(){}});q._createWrappers(b);m("extend-esri")&&f.setObject("tasks.ImageServiceIdentifyTask",b,n);return b});

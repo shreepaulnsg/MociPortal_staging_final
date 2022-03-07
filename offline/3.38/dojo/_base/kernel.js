@@ -1,0 +1,12 @@
+/*
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+//>>built
+define("dojo/_base/kernel",["../global","../has","./config","require","module"],function(h,f,k,l,c){var e,g={},p={},b={config:k,global:h,dijit:g,dojox:p};g={dojo:["dojo",b],dijit:["dijit",g],dojox:["dojox",p]};c=l.map&&l.map[c.id.match(/[^\/]+/)[0]];for(e in c)g[e]?g[e][0]=c[e]:g[e]=[c[e],{}];for(e in g)c=g[e],c[1]._scopeName=c[0],k.noGlobals||(h[c[0]]=c[1]);b.scopeMap=g;b.baseUrl=b.config.baseUrl=l.baseUrl;b.isAsync=l.async;b.locale=k.locale;h="$Rev:$".match(/[0-9a-f]{7,}/);b.version={major:1,minor:16,
+patch:4,flag:"",revision:h?h[0]:NaN,toString:function(){var a=b.version;return a.major+"."+a.minor+"."+a.patch+a.flag+" ("+a.revision+")"}};f("csp-restrictions")||Function("d","d.eval \x3d function(){return d.global.eval ? d.global.eval(arguments[0]) : eval(arguments[0]);}")(b);b.exit=function(){};f("host-webworker");f.add("console-as-object",function(){return Function.prototype.bind&&console&&"object"===typeof console.log});"undefined"!=typeof console||(console={});c="assert count debug dir dirxml error group groupEnd info profile profileEnd time timeEnd trace warn log".split(" ");
+var m;for(h=0;m=c[h++];)console[m]?f("console-as-object")&&(console[m]=Function.prototype.bind.call(console[m],console)):function(){var a=m+"";console[a]="log"in console?function(){var d=Array.prototype.slice.call(arguments);d.unshift(a+":");console.log(d.join(" "))}:function(){};console[a]._fake=!0}();f.add("dojo-debug-messages",!!k.isDebug);b.deprecated=b.experimental=function(){};f("dojo-debug-messages")&&(b.deprecated=function(a,d,n){a="DEPRECATED: "+a;d&&(a+=" "+d);n&&(a+=" -- will be removed in version: "+
+n);console.warn(a)},b.experimental=function(a,d){a="EXPERIMENTAL: "+a+" -- APIs subject to change without notice.";d&&(a+=" "+d);console.warn(a)});if(k.modulePaths){b.deprecated("dojo.modulePaths","use paths configuration");f={};for(e in k.modulePaths)f[e.replace(/\./g,"/")]=k.modulePaths[e];l({paths:f})}b.moduleUrl=function(a,d){b.deprecated("dojo.moduleUrl()","use require.toUrl","2.0");var n=null;a&&(n=l.toUrl(a.replace(/\./g,"/")+(d?"/"+d:"")+"/*.*").replace(/\/\*\.\*/,"")+(d?"":"/"));return n};
+b._hasResource={};return b});

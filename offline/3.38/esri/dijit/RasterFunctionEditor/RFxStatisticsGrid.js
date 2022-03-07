@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/RasterFunctionEditor/RFxStatisticsGrid","dojo/_base/declare dojo/has dojo/_base/lang dojo/_base/array dojo/i18n!../../nls/jsapi ../../kernel ./RFxBandMatrix".split(" "),function(b,f,d,k,e,g,h){b=b("esriRFxStatisticsGrid",[h],{constructor:function(){var a=e.common;a=d.mixin(a,e.widgets.rasterFunctionEditor);this.displayNames=[a.min,a.max,a.mean,a.rfxStatisticsGrid.stdDev];this.nCols=4;this.inherited(arguments)},_createComplexValue:function(a){0===a.length&&(this.value=[]);var c=
+this.value&&this.value.elements?{elements:[]}:[];c.elements?c.elements=a:c=a;return c},_getProcessedValue:function(){if(this.value)return this.value&&this.value.elements||this.value}});f("extend-esri")&&d.setObject("dijit.RasterFunctionEditor.RFxStatisticsGrid",b,g);return b});

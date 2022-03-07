@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Watershed</h2><p/>
+        <h2><img src="../images/GUID-AF749369-8C2D-46FF-9D74-2CF7CAB7C7B0-web.png" alt="Watershed-taak"></h2>
+        <hr/>
+    <p>Dit hulpmiddel bepaalt het bijdragende gebied boven een set cellen in een raster.
+    </p>
+    <p> Een invoerpunt op de rivier de Mississippi in Louisiana maakt een stroomgebiedfunctie aan die gebieden van New York tot Montana en tot in Canada omvat.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputFlowDirectionRaster">
+        <div><h2>Kies stroomrichtingslaag</h2></div>
+        <hr/>
+        <div>
+            <p>Het invoerraster dat de richting van de flow uit elke cel toont.
+            </p>
+            <p>Het raster voor de stroomrichting kan met behulp van de rasterfunctie Stroomrichting worden aangemaakt, met standaardstroomrichtingstype  <b>D8</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inPourPointRasterOrFeatures">
+        <div><h2>Bepaal de invoerstortpuntlocaties</h2></div>
+        <hr/>
+        <div>
+            <p>De locaties van het ingangsstortpunt
+            </p>
+            <p>Dit kan een raster zijn of een puntobject. Voor een raster zijn dit de cellen waarboven het bijdragende gebied, of het stroomgebied, zal worden bepaald. Alle cellen die geen NoData zijn, worden gebruikt als broncellen. Voor een puntinvoer zijn dit de locaties waarboven het bijdragende gebied, of het stroomgebied, zal worden bepaald.
+            </p>
+        </div>
+    </div>
+    <div id="pourPointField">
+        <div><h2>Kies het gietpuntveld</h2></div>
+        <hr/>
+        <div>
+            <p>Het veld dat wordt gebruikt om waarden toe te wijzen aan de gietmeetpunten.
+            </p>
+            <p>Als de invoerstortpuntlaag een raster is, wordt  <i>Value</i> gebruikt. Als het een object is, wordt een numeriek veld gebruikt. Als het veld zwevendekommagetalwaarden bevat, worden deze afgekapt tot gehele getallen.
+            </p>
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Resultaat laagnaam</h2></div>
+        <hr/>
+        <div>
+            
+            <p>De naam van de laag die in  <b>Mijn Content</b> wordt gemaakt en aan de kaart wordt toegevoegd. De standaardnaam is gebaseerd op de toolnaam en de naam van de invoerlaag. Als de laag al bestaat, wordt u gevraagd een nieuwe naam te geven.
+            </p>
+            <p>U kunt de naam van een map opgeven in  <b>Mijn Content</b>, waar het resultaat wordt opgeslagen met het vervolgkeuzemenu <b>Resultaat opslaan in</b>. Als u de machtigingen hebt om zowel getegelde als dynamische beeldlagen aan te maken, kunt u specificeren welk layertype wordt gegenereerd in de uitvoer met het vervolgkeuzemenu Resultaat opslaan als. </p>
+        </div>
+    </div>
+</div>
+</html>

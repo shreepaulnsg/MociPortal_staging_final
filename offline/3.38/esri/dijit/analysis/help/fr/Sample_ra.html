@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Echantillon</h2><p/>
+        <h2><img src="../images/GUID-3950CCA3-C1D0-493F-A33D-93673443ADD2-web.png" alt="Echantillon"></h2>
+        <hr/>
+    <p>Cet outil cr&eacute;e une table ou une classe d&rsquo;entit&eacute;s ponctuelles indiquant les valeurs de cellules d&rsquo;un raster ou d&rsquo;un jeu de rasters, pour des localisations d&eacute;finies. Les localisations sont d&eacute;finies par des cellules raster, des entit&eacute;s surfaciques, des entit&eacute;s polylignes ou par un ensemble de points.
+    </p>
+    <p>Voici les quelques exemples d&rsquo;applications de cet outil&nbsp;:
+        <ul>
+            <li> Extraire les attributs de la localisation d&rsquo;une antenne-relais &agrave; partir de plusieurs rasters, comme l&rsquo;utilisation du sol, le type de sol, l&rsquo;&eacute;l&eacute;vation et la distance par rapport &agrave; la route.
+            </li>
+            <li>Extraire la temp&eacute;rature du sol &agrave; des profondeurs diff&eacute;rentes pour un ensemble donn&eacute; de points.
+            </li>
+            <li>&Agrave; partir de 30&nbsp;ann&eacute;es de donn&eacute;es mensuelles de temp&eacute;rature &agrave; la surface de la mer, r&eacute;capitulez les localisations de pr&eacute;sence animale ou les observations d&rsquo;une esp&egrave;ce animale pendant des plages temporelles donn&eacute;es.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Si l&rsquo;option  <b>Use current map extent (Utiliser l&rsquo;&eacute;tendue courante de la carte)</b> est s&eacute;lectionn&eacute;e, les variables ou les canaux de la couche qui sont visibles au sein de l&rsquo;&eacute;tendue courante de la carte seront analys&eacute;s. Si cette option n&rsquo;est pas s&eacute;lectionn&eacute;e, les variables ou les canaux de toute la couche seront analys&eacute;s, m&ecirc;me s&rsquo;ils se trouvent en dehors de l&rsquo;&eacute;tendue courante de la carte.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div><h2>Choisir des couches d’imagerie à échantillonner</h2></div>
+        <hr/>
+        <div>
+            <p>Image unique ou liste d&rsquo;images dont les valeurs sont &eacute;chantillonn&eacute;es en fonction des donn&eacute;es de localisation en entr&eacute;e. 
+            </p>
+            <p>Pour &eacute;chantillonner toutes les tranches d&rsquo;une couche d&rsquo;imagerie multidimensionnelle, ce doit &ecirc;tre le seul raster en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div><h2>Choisir la couche de localisants</h2></div>
+        <hr/>
+        <div>
+            <p>Donn&eacute;es identifiant les positions &agrave; &eacute;chantillonner.
+            </p>
+            <p>Les donn&eacute;es de localisation en entr&eacute;e peuvent &ecirc;tre un raster, ou une classe d&rsquo;entit&eacute;s ponctuelles, polylignes ou surfaciques.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div><h2>Spécifier le champ d’ID unique</h2></div>
+        <hr/>
+        <div>
+            <p>Champ qui contient une valeur diff&eacute;rente pour chaque localisation ou entit&eacute; de la classe d&rsquo;entit&eacute;s ou du raster de localisation en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div><h2>Spécifier les informations d’acquisition des données de localisation (facultatif)</h2></div>
+        <hr/>
+        <div>
+            <p>Sp&eacute;cifiez la dimension temporelle, la profondeur ou d&rsquo;autres donn&eacute;es d&rsquo;acquisition associ&eacute;es aux entit&eacute;s ou cellules de localisation.
+            </p>
+            <p>Pour chaque dimension, trois options permettent de sp&eacute;cifier les informations d&rsquo;acquisition associ&eacute;es aux entit&eacute;s ou cellules de localisation&nbsp;:
+            </p>
+            <ul>
+                <li> <b>Single field or value (Champ ou valeur unique)</b>&nbsp;: lorsque cette option est s&eacute;lectionn&eacute;e, les informations suivantes doivent &ecirc;tre sp&eacute;cifi&eacute;es&nbsp;:
+                    <ul>
+                        <li> <b>Dimension field or value (Champ ou valeur de dimension)</b>&nbsp;: s&eacute;lectionnez un champ de valeurs de dimension &agrave; partir des donn&eacute;es de localisation ou entrez une valeur de dimension sp&eacute;cifique.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+                <li> <b>Single field or value with relative values (Valeur ou champ unique avec valeurs relatives)</b>&nbsp;: si cette option est s&eacute;lectionn&eacute;e, vous devez sp&eacute;cifier les informations ci-dessous afin de d&eacute;finir la plage dans laquelle les statistiques sont calcul&eacute;es pour les variables&nbsp;:
+                    <ul>
+                        <li> <b>Dimension field or value (Champ ou valeur de dimension)</b>&nbsp;: s&eacute;lectionnez un champ de valeurs de dimension &agrave; partir des donn&eacute;es de localisation.
+                        </li>
+                        <li> <b>Relative value before (Valeur relative avant)</b>&nbsp;: sp&eacute;cifiez un nombre non n&eacute;gatif &agrave; soustraire de <b>Dimension field or value (Champ ou valeur de dimension)</b> pour d&eacute;finir le d&eacute;but d&rsquo;une plage de valeurs de dimension. Cette valeur repr&eacute;sente le nombre de jours si la dimension est temporelle.
+                        </li>
+                        <li> <b>Relative value after (Valeur relative apr&egrave;s)</b>&nbsp;: sp&eacute;cifiez un nombre non n&eacute;gatif &agrave; ajouter &agrave; <b>Dimension field or value (Champ ou valeur de dimension)</b> pour d&eacute;finir la fin d&rsquo;une plage de valeurs de dimension. Cette valeur repr&eacute;sente le nombre de jours si la dimension est temporelle.
+                        </li>
+                    </ul>
+                    
+                </li>
+                <li> <b>Start and end fields or values (Valeurs ou champs de d&eacute;but et de fin)</b>&nbsp;: si cette option est s&eacute;lectionn&eacute;e, vous devez sp&eacute;cifier les informations ci-dessous afin de d&eacute;finir la plage dans laquelle les statistiques sont calcul&eacute;es pour les variables&nbsp;:
+                    <ul>
+                        <li> <b>Start field or values (Valeurs ou champ de d&eacute;but)</b>&nbsp;: s&eacute;lectionnez un champ de valeurs de dimension &agrave; partir des donn&eacute;es de localisation ou entrez une valeur de dimension sp&eacute;cifique pour d&eacute;finir le d&eacute;but d&rsquo;une plage de valeurs de dimension.
+                        </li>
+                        <li> <b>End field or values (Valeurs ou champ de fin)</b>&nbsp;: s&eacute;lectionnez un champ de valeurs de dimension &agrave; partir des donn&eacute;es de localisation ou entrez une valeur de dimension sp&eacute;cifique pour d&eacute;finir la fin d&rsquo;une plage de valeurs de dimension.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+            </ul>
+            
+            <p>Ce param&egrave;tre est disponible uniquement lorsque le param&egrave;tre  <b>Choose imagery layer(s) to sample (S&eacute;lectionner les couches d&rsquo;images &agrave; &eacute;chantillonner)</b> est un raster multidimensionnel.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div><h2>Spécifier une valeur ou un champ de distance de la zone tampon</h2></div>
+        <hr/>
+        <div>
+            <p>Distance sp&eacute;cifi&eacute;e autour des entit&eacute;s de donn&eacute;es d&rsquo;emplacement. La distance de la zone tampon est sp&eacute;cifi&eacute;e dans les unit&eacute;s lin&eacute;aires de la r&eacute;f&eacute;rence spatiale de l&rsquo;entit&eacute; de localisation. Si l&rsquo;entit&eacute; utilise une r&eacute;f&eacute;rence g&eacute;ographique, l&rsquo;unit&eacute; sont les degr&eacute;s.
+            </p>
+            <p>Les statistiques sont calcul&eacute;es dans cette zone tampon.
+            </p>
+            <p>Ce param&egrave;tre est disponible uniquement lorsque le param&egrave;tre  <b>Choose imagery layer(s) to sample (S&eacute;lectionner les couches d&rsquo;images &agrave; &eacute;chantillonner)</b> est un raster multidimensionnel.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div><h2>Choisir le type de statistique</h2></div>
+        <hr/>
+        <div>
+            <p>Type de statistique &agrave; calculer.
+            </p>
+            <ul>
+                <li> <b>Minimum</b>&nbsp;: recherche la valeur minimale dans la plage sp&eacute;cifi&eacute;e.
+                </li>
+                <li> <b>Maximum</b>&nbsp;: recherche la valeur maximale dans la plage sp&eacute;cifi&eacute;e.
+                </li>
+                <li> <b>Median (M&eacute;diane)</b>&nbsp;: recherche la valeur m&eacute;diane dans la plage sp&eacute;cifi&eacute;e.
+                </li>
+                <li> <b>Mean (Moyenne)</b>&nbsp;: calcule la moyenne de la plage sp&eacute;cifi&eacute;e.
+                </li>
+                <li> <b>Sum (Somme)</b>&nbsp;: calcule la somme des variables dans la plage sp&eacute;cifi&eacute;e.
+                </li>
+                <li> <b>Majority (Majorit&eacute;)</b>&nbsp;: recherche la valeur qui survient le plus fr&eacute;quemment.
+                </li>
+                <li> <b>Minority (Minorit&eacute;)</b>&nbsp;: recherche la valeur qui survient le moins fr&eacute;quemment.
+                </li>
+                <li> <b>Standard Deviation (&Eacute;cart type)</b>&nbsp;: calcule l&rsquo;&eacute;cart type.
+                </li>
+                <li> <b>Percentile (Pourcentage)</b>&nbsp;: calcule un pourcentage d&eacute;fini dans la plage sp&eacute;cifi&eacute;e.
+                </li>
+            </ul>
+            
+            <p>Ce param&egrave;tre est disponible uniquement lorsque le param&egrave;tre  <b>Choose imagery layer(s) to sample (S&eacute;lectionner les couches d&rsquo;images &agrave; &eacute;chantillonner)</b> est un raster multidimensionnel, et que les param&egrave;tres <b>Choose location layer (Choisir la couche de localisants)</b> sont des polylignes ou des polygones, ou que le param&egrave;tre <b>Specify buffer distance field or value (Optional) (Sp&eacute;cifier le champ ou la valeur de distance de la zone tampon (Facultatif))</b> est sp&eacute;cifi&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Valeur du percentile</h2></div>
+        <hr/>
+        <div>
+            <p>Cette valeur peut &ecirc;tre comprise entre 0 et 100. La valeur par d&eacute;faut est 90.
+            </p>
+            <p>Ce param&egrave;tre est disponible uniquement lorsque le param&egrave;tre  <b>Choose statistics Type (Choisir le type de statistiques)</b> est d&eacute;fini sur <b>Percentile (Centile)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div><h2>Spécifier la technique de rééchantillonnage</h2></div>
+        <hr/>
+        <div>
+            <p>Algorithme de r&eacute;&eacute;chantillonnage utilis&eacute; lors de l'&eacute;chantillonnage d'un raster.
+            </p>
+            <ul>
+                <li> <b>Nearest (Le plus proche)</b>&nbsp;: m&eacute;thode du voisin le plus proche qui utilise la valeur de la cellule la plus proche pour affecter une valeur &agrave; la cellule en sortie lors du r&eacute;&eacute;chantillonnage. Il s&rsquo;agit de l&rsquo;option par d&eacute;faut.
+                </li>
+                <li> <b>Bilinear (Bilin&eacute;aire)</b>&nbsp;: m&eacute;thode de l&rsquo;interpolation bilin&eacute;aire qui d&eacute;termine la nouvelle valeur d&rsquo;une cellule en fonction d&rsquo;une distance moyenne pond&eacute;r&eacute;e des valeurs des centres des quatre cellules en entr&eacute;e les plus proches.
+                </li>
+                <li> <b>Cubic (Cubique)</b>&nbsp;: m&eacute;thode de convolution cubique qui d&eacute;termine la nouvelle valeur d&rsquo;une cellule en ajustant une courbe liss&eacute;e suivant les valeurs des centres des 16&nbsp;cellules en entr&eacute;e les plus proches.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="layout">
+        <div><h2>Spécifier la mise en page en sortie</h2></div>
+        <hr/>
+        <div>
+            <p>Sp&eacute;cifie si les valeurs &eacute;chantillonn&eacute;es apparaissent sur des lignes ou dans des colonnes dans la table en sortie.
+            </p>
+            <ul>
+                <li> <b>Sampled values appear in row (Les valeurs &eacute;chantillonn&eacute;es apparaissent sur des lignes)</b>&nbsp;: les valeurs &eacute;chantillonn&eacute;es apparaissent sur des lignes distinctes dans la table en sortie. Il s&rsquo;agit de l&rsquo;option par d&eacute;faut.
+                </li>
+                <li> <b>Sampled values appear in column (Les valeurs &eacute;chantillonn&eacute;es apparaissent dans des colonnes)</b>&nbsp;: les valeurs &eacute;chantillonn&eacute;es apparaissent dans des colonnes distinctes dans la table en sortie.
+                </li>
+            </ul>
+            
+            <p>Ce param&egrave;tre est disponible uniquement lorsque le param&egrave;tre  <b>Choose imagery layer(s) to sample (S&eacute;lectionner les couches d&rsquo;images &agrave; &eacute;chantillonner)</b> est un raster multidimensionnel et qu&rsquo;il contient une variable et une dimension, et que chaque tranche est un raster monocanal.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div><h2>Spécifier le type en sortie</h2></div>
+        <hr/>
+        <div>
+            <p>Indique si une classe d&rsquo;entit&eacute;s ponctuelles doit &ecirc;tre g&eacute;n&eacute;r&eacute;e avec des valeurs &eacute;chantillonn&eacute;es dans sa table, ou uniquement une table avec des valeurs &eacute;chantillonn&eacute;es.
+            </p>
+            <ul>
+                <li> <b>Table</b>&nbsp;: g&eacute;n&egrave;re une table avec des valeurs &eacute;chantillonn&eacute;es. Il s&rsquo;agit de l&rsquo;option par d&eacute;faut.
+                </li>
+                <li> <b>Features (Entit&eacute;s)</b>&nbsp;: g&eacute;n&egrave;re une classe d&rsquo;entit&eacute;s ponctuelles avec des valeurs &eacute;chantillonn&eacute;es dans sa table. Si les param&egrave;tres <b>Choose location layer (Choisir la couche de localisants)</b> sont des polylignes ou des polygones, chaque point de la sortie est le centro&iuml;de de chaque g&eacute;om&eacute;trie des entit&eacute;s de localisation en entr&eacute;e. 
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputName">
+        <div><h2>Nom de la couche de résultat</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Le nom de la couche qui sera cr&eacute;&eacute;e dans la page  <b>My Content (Mon contenu)</b> et ajout&eacute;e &agrave; la carte. Le nom par d&eacute;faut repose sur le nom de l'outil et sur le nom de la couche en entr&eacute;e. Si la couche existe d&eacute;j&agrave;, vous &ecirc;tes invit&eacute; &agrave; fournir un autre nom.
+            </p>
+            <p>Vous pouvez sp&eacute;cifier le nom d&rsquo;un dossier dans  <b>My Content (Mon contenu)</b>, dans lequel le r&eacute;sultat sera enregistr&eacute; via la zone de liste d&eacute;roulante <b>Save result in (Enregistrer le r&eacute;sultat dans)</b>.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="raToolbox">
+        <p>An&aacute;lisis de r&aacute;ster le permite realizar an&aacute;lisis de datasets r&aacute;ster grandes utilizando  ArcGIS Image Server. Esto le permite analizar m&aacute;s datos con mayor rapidez aprovechando la potencia del servidor.Los conjuntos de herramientas que actualmente est&aacute;n disponibles mediante la experiencia de usuario web de Portal for ArcGIS son:  <b>Resumir datos</b>, <b>Analizar patrones</b>, <b>Utilizar proximidad</b>, <b>Analizar imagen</b>, <b>Analizar terreno</b>, <b>Administrar datos</b>, <b>Aprendizaje profundo</b> y <b>An&aacute;lisis multidimensional</b>.
+        </p>
+    </div>
+    <div id="SummarizeDataCategory" class="regularsize">
+        <h2>Resumir datos</h2>
+        <hr/>
+        <p>Estas herramientas se utilizan para calcular estad&iacute;sticas para una capa r&aacute;ster dentro de los l&iacute;mites de &aacute;rea (zonas) definidas por el usuario.
+            <ul>
+                <li> <b>Resumir r&aacute;ster dentro de</b> calcula estad&iacute;sticas para celdas r&aacute;ster que quedan dentro de los l&iacute;mites de &aacute;rea definidos.
+                </li>
+                <li> <b>Estad&iacute;sticas zonales como tabla</b> resume los valores de un r&aacute;ster dentro de las zonas de otro dataset e informa los resultados en una tabla.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="SummarizeRasterWithinTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Resumir ráster dentro de</h2></td>
+                    <td>
+                    <img src="../images/GUID-D61C156C-2B2C-488C-BF28-B6CB9277BF4B-web.png" class="titleImage" alt="Herramienta Resumir r&aacute;ster dentro de">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta resume el valor de un r&aacute;ster dentro de las zonas de otro dataset.
+            </p>
+            <br/>
+        </div>
+        <div id="ZonalStatisticsAsTableTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Estadísticas zonales como tabla</h2></td>
+                    <td>
+                    <img src="../images/GUID-2847466F-BF22-4545-BDCE-7EB7B1D15F2D-web.png" class="titleImage" alt="Diagrama Estad&iacute;sticas zonales como tabla">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta resume los valores de un r&aacute;ster dentro de las zonas de otro dataset y notifica los resultados en una tabla.
+            </p>
+            <br/>
+        </div>
+    <div id="AnalyzePatternsCategory" class="regularsize">
+        <h2>Analizar patrones</h2>
+        <hr/>
+        <p>Estas herramientas te ayudan a identificar, cuantificar y visualizar los patrones espaciales de tus datos. 
+
+            <ul>
+                <li> <b>Calcular densidad</b> toma cantidades conocidas de un fen&oacute;meno y crea un mapa de densidad expandiendo estas cantidades por el mapa.
+                    
+
+                </li>
+                <li> <b>Interpolar puntos</b> predice los valores de las nuevas ubicaciones en funci&oacute;n de las mediciones encontradas en un conjunto de puntos.
+                    
+
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="CalculateDensityRasterTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Calcular densidad</h2></td>
+                    <td>
+                    <img src="../images/GUID-4EE4838C-E210-43CE-99C7-1A648A18C10B-web.png" class="titleImage" alt="Herramienta Calcular densidad">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>An&aacute;lisis de densidad toma cantidades conocidas de un fen&oacute;meno y crea un mapa de densidad expandiendo estas cantidades por el mapa. Puedes usar esta herramienta, por ejemplo, para mostrar concentraciones de rayos o de tornados, acceso a las instalaciones m&eacute;dicas y densidades de poblaci&oacute;n.
+            </p>
+            <br/>
+        </div>
+        <div id="InterpolatePointsEBKTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Interpolar puntos</h2></td>
+                    <td>
+                    <img src="../images/GUID-06D80BB3-7154-4FAA-9C9B-D665450EF3BC-web.png" class="titleImage" alt="Herramienta Interpolar puntos">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta te permite predecir los valores de nuevas ubicaciones en funci&oacute;n de las mediciones encontradas en un conjunto de puntos. La herramienta toma los datos de puntos con valores en cada punto y devuelve &aacute;reas clasificadas por los valores predichos. Puedes usar esta herramienta, por ejemplo, para predecir los niveles de precipitaciones en una cuenca hidrogr&aacute;fica a partir de las mediciones realizadas en los distintos pluvi&oacute;metros.
+            </p>
+            <br/>
+        </div>
+    <div id="UseProximityCategory" class="largesize">
+        <h2>Utilizar proximidad</h2>
+        <hr/>
+        <p>Estas herramientas le ayudan a responder algunas de las preguntas m&aacute;s comunes sobre el an&aacute;lisis espacial: &iquest;Qu&eacute; est&aacute; cerca de qu&eacute;? y &iquest;Cu&aacute;l es la ruta &oacute;ptima?
+            <ul>
+                <li> <b>Calcular distancia</b> calcula la distancia euclidiana, la direcci&oacute;n y la asignaci&oacute;n desde un solo origen o un conjunto de or&iacute;genes.
+                    
+
+                </li>
+                <li> <b>Determinar red de coste de viaje &oacute;ptimo</b> calcula la red con coste &oacute;ptimo a partir de un conjunto de regiones de entrada.
+                    
+
+                </li>
+                <li> <b>Determinar ruta de coste de viaje como polil&iacute;nea</b> calcula la ruta de polil&iacute;nea de m&iacute;nimo coste entre destinos y or&iacute;genes conocidos.
+                    
+
+                </li>
+                <li> <b>Acumulaci&oacute;n de distancia</b> calcula la distancia acumulada de cada celda a los or&iacute;genes, teniendo en cuenta la distancia en l&iacute;nea recta, coste-distancia y la verdadera distancia de superficie, as&iacute; como los factores de vertical y horizontal.
+                    
+
+                </li>
+                <li> <b>Asignaci&oacute;n de distancia</b> calcula la asignaci&oacute;n de distancia para cada celda a los or&iacute;genes proporcionados en funci&oacute;n de la distancia en l&iacute;nea recta, coste-distancia y la verdadera distancia de superficie, as&iacute; como factores de vertical y horizontal.
+                    
+
+                </li>
+                <li> <b>Ruta &oacute;ptima como l&iacute;nea</b> calcula la ruta &oacute;ptima de destinos a or&iacute;genes como l&iacute;nea.
+                    
+
+                </li>
+                <li> <b>Ruta &oacute;ptima como r&aacute;ster</b> calcula la ruta &oacute;ptima de destinos a or&iacute;genes como r&aacute;ster.
+                    
+
+                </li>
+                <li> <b>Conexiones de regi&oacute;n &oacute;ptimas</b> calcula la red de conectividad &oacute;ptima entre dos o m&aacute;s regiones de entrada.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="CalculateDistanceTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Calcular distancia</h2></td>
+                    <td>
+                    <img src="../images/GUID-34E2E6F3-2F60-43F5-B499-D5735DE08602-web.png" class="titleImage" alt="Calcular distancia">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta calcula la distancia euclidiana, direcci&oacute;n y asignaci&oacute;n a partir de un solo origen o un conjunto de or&iacute;genes.
+            </p>
+            <br/>
+        </div>
+        <div id="DetermineOptimumTravelCostNetworkTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Determinar red de gastos de viaje óptimos</h2></td>
+                    <td>
+                    <img src="../images/GUID-097BDD6E-0AD8-44F2-BB70-C5395F4B1AF4-web.png" class="titleImage" alt="Ilustraci&oacute;n de la herramienta Determinar red de gastos de viaje &oacute;ptimos">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta calcula la red de coste &oacute;ptimo a partir de un conjunto de regiones de entrada.
+            </p>
+            <br/>
+        </div>
+        <div id="DetermineTravelCostPathAsPolylineTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Determinar ruta de coste de viaje como polilínea</h2></td>
+                    <td>
+                    <img src="../images/GUID-9A27DEB7-0276-483C-A12F-3E70D636550D-web.png" class="titleImage" alt="Ilustraci&oacute;n de la herramienta Determinar ruta de coste de viaje como polil&iacute;nea">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta calcula la ruta de polil&iacute;nea de m&iacute;nimo coste entre or&iacute;genes y destinos.
+            </p>
+            <br/>
+        </div>
+        <div id="DistanceAccumulationTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Acumulación de distancia</h2></td>
+                    <td>
+                    <img src="../images/GUID-758B6DFA-6820-45B8-8089-5A2B7AB20A0D-web.png" class="titleImage" alt="Ilustraci&oacute;n de la herramienta Acumulaci&oacute;n de distancia">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta calcula la distancia acumulada para cada celda a los or&iacute;genes, teniendo en cuenta la distancia en l&iacute;nea recta, coste-distancia, verdadera distancia de superficie y factores de coste vertical y horizontal.
+            </p>
+            <br/>
+        </div>
+        <div id="DistanceAllocationTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Asignación de distancia</h2></td>
+                    <td>
+                    <img src="../images/GUID-2843B88C-B69A-43FB-A93B-B8D7ABCF95EA-web.png" class="titleImage" alt="Ilustraci&oacute;n de la herramienta Asignaci&oacute;n de distancia">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta calcula la asignaci&oacute;n de distancia para cada celda a los or&iacute;genes proporcionados en funci&oacute;n de la distancia en l&iacute;nea recta, coste-distancia, verdadera distancia de superficie y factores de coste vertical y horizontal.
+            </p>
+            <br/>
+        </div>
+        <div id="OptimalPathAsLineTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Ruta óptima como línea</h2></td>
+                    <td>
+                    <img src="../images/GUID-754B49AB-28D7-4758-A24C-5C67339666BA-web.png" class="titleImage" alt="Ilustraci&oacute;n de la herramienta Ruta &oacute;ptima como l&iacute;nea">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta calcula la ruta &oacute;ptima de destinos a or&iacute;genes como l&iacute;nea.
+            </p>
+            <br/>
+        </div>
+        <div id="OptimalPathAsRasterTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Ruta óptima como ráster</h2></td>
+                    <td>
+                    <img src="../images/GUID-75C94369-AAAA-4556-8F89-9B6AA39012C9-web.png" class="titleImage" alt="Ilustraci&oacute;n de la herramienta Ruta &oacute;ptima como r&aacute;ster">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta calcula la ruta &oacute;ptima de destinos a or&iacute;genes como r&aacute;ster.
+            </p>
+            <br/>
+        </div>
+        <div id="OptimalRegionConnectionsTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Conexiones de región óptimas</h2></td>
+                    <td>
+                    <img src="../images/GUID-85027C62-D35A-428B-B050-4F52D2B4ADE4-web.png" class="titleImage" alt="Ilustraci&oacute;n de la herramienta Conexiones de regi&oacute;n &oacute;ptimas">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta calcula la red de conectividad &oacute;ptima entre dos o m&aacute;s regiones de entrada.
+            </p>
+            <br/>
+        </div>
+    <div id="AnalyzeImageCategory" class="smallsize">
+        <h2>Analizar imagen</h2>
+        <hr/>
+        <p>La siguiente herramienta de la categor&iacute;a de herramientas  <b>Analizar imagen</b> le ayuda a analizar im&aacute;genes:
+            <ul>
+                <li> <b>Supervisar vegetaci&oacute;n</b> detecta la cobertura de vegetaci&oacute;n relativa de una imagen, bas&aacute;ndose en operaciones aritm&eacute;ticas sobre las bandas. A la hora de analizar im&aacute;genes, existen numerosos &iacute;ndices de vegetaci&oacute;n y suelos.
+                    
+
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="MonitorVegetationTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Supervisar vegetación</h2></td>
+                    <td>
+                    <img src="../images/GUID-7763FCC0-2EA1-463B-98D0-4EBDF6150907-web.png" class="titleImage" alt="Herramienta Supervisar vegetaci&oacute;n para Portal">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Realiza una operaci&oacute;n aritm&eacute;tica en las bandas de un dataset r&aacute;ster multibanda para mostrar la informaci&oacute;n de la cobertura de vegetaci&oacute;n.
+            </p>
+            <br/>
+        </div>
+    <div id="AnalyzeTerrainCategory" class="regularsize">
+        <h2>Analizar terreno</h2>
+        <hr/>
+        <p>Estas herramientas le ayudan a analizar superficies de r&aacute;ster. 
+            <ul>
+                <li> <b>Calcular pendiente</b> calcula la inclinaci&oacute;n del terreno.
+                    
+
+                </li>
+                <li> <b>Derivar orientaci&oacute;n</b> calcula la direcci&oacute;n de la pendiente m&aacute;s inclinada para cada ubicaci&oacute;n.
+                    
+
+                </li>
+                <li> <b>Crear cuenca visual</b> identifica lo que se puede ver desde cualquier punto del paisaje.
+                    
+
+                </li>
+                <li> <b>Cuenca hidrogr&aacute;fica</b> calcula el &aacute;rea de la cuenca contribuyente sobre las ubicaciones identificadas en una superficie.
+                    
+
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="CalculateSlopeTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Calcular pendiente</h2></td>
+                    <td>
+                    <img src="../images/GUID-D33862C6-01BB-445E-B0C3-BC8B8C1858DA-web.png" class="titleImage" alt="Herramienta Calcular pendiente para Portal">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Identifica una superficie que muestra la pendiente de los datos de elevaci&oacute;n de entrada. La pendiente representa la tasa de cambio de elevaci&oacute;n para cada celda de modelo digital de elevaci&oacute;n (DEM).
+            </p>
+            <br/>
+        </div>
+        <div id="DeriveAspectTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Derivar orientación</h2></td>
+                    <td>
+                    <img src="../images/GUID-D03FF025-0530-4D0D-87A3-B25D6716F8F0-web.png" class="titleImage" alt="Herramienta Derivar orientaci&oacute;n para Portal">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Identifica la direcci&oacute;n descendente de la velocidad m&aacute;xima de cambio en el valor desde cada celda a las celdas vecinas. La orientaci&oacute;n puede pensarse como la direcci&oacute;n de la pendiente.
+            </p>
+            <br/>
+        </div>
+        <div id="CreateViewshedRasterTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Crear cuenca visual</h2></td>
+                    <td>
+                    <img src="../images/GUID-BB8B8CAF-330E-4C41-9D94-AF4728D0D0F3-web.png" class="titleImage" alt="Herramienta Crear cuenca visual">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Determina las ubicaciones en una superficie de r&aacute;ster que est&aacute;n visibles para un conjunto de observadores.
+            </p>
+            <br/>
+        </div>
+        <div id="WatershedTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Cuenca hidrográfica</h2></td>
+                    <td>
+                    <img src="../images/GUID-AF749369-8C2D-46FF-9D74-2CF7CAB7C7B0-web.png" class="titleImage" alt="Tarea Cuenca hidrogr&aacute;fica">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Determina el &aacute;rea de contribuci&oacute;n por sobre un conjunto de celdas de un r&aacute;ster.
+            </p>
+            <br/>
+        </div>
+    <div id="ManageDataCategory" class="regularsize">
+        <h2>Administrar datos</h2>
+        <hr/>
+        <p>Estas herramientas se usan para la administraci&oacute;n diaria de los datos geogr&aacute;ficos y para combinar datos antes del an&aacute;lisis. 
+            <ul>
+                <li> <b>Extraer r&aacute;ster</b> recorta porciones de un dataset r&aacute;ster para an&aacute;lisis posteriores.
+                    
+
+                </li>
+                <li> <b>Reasignar valores</b> asigna distintos valores a celdas r&aacute;ster.
+                    
+
+                </li>
+                <li> <b>Convertir entidad a r&aacute;ster</b> rasteriza datos vectoriales.
+                    
+
+                </li>
+                <li> <b>Convertir r&aacute;ster a entidad</b> vectoriza datos r&aacute;ster.
+                    
+
+                </li>
+                <li> <b>Muestra</b> extrae datos en ubicaciones definidas de un r&aacute;ster, o conjunto de r&aacute;steres.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="ExtractRasterTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Extraer ráster</h2></td>
+                    <td>
+                    <img src="../images/GUID-DC9CBCB9-A07C-42D3-A0CB-2FB1483CBF4C-web.png" class="titleImage" alt="Herramienta Extraer r&aacute;ster para Portal">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Extrae celdas de un r&aacute;ster seg&uacute;n el valor, la forma o la extensi&oacute;n de un dataset diferente.
+            </p>
+            <br/>
+        </div>
+        <div id="RemapValuesTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Nueva representación cartográfica de valores</h2></td>
+                    <td>
+                    <img src="../images/GUID-4006E442-A60B-469A-891D-5ED442F64CB8-web.png" class="titleImage" alt="Herramienta Reasignar valores para Portal">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Cambia valores individuales o rangos de valores de celda por valores nuevos.
+            </p>
+            <br/>
+        </div>
+        <div id="ConvertFeatureToRasterTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Convertir entidad a ráster</h2></td>
+                    <td>
+                    <img src="../images/GUID-FC535A9C-A946-419A-9A85-95EB31E4D3A0-web.png" class="titleImage" alt="Herramienta Convertir entidad a r&aacute;ster">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Crea un nuevo dataset r&aacute;ster a partir de un dataset existente.
+            </p>
+            <br/>
+        </div>
+        <div id="ConvertRasterToFeatureTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Convertir ráster a entidad</h2></td>
+                    <td>
+                    <img src="../images/GUID-7BBBCE28-2FDA-46B8-99D7-65F560AB2F2B-web.png" class="titleImage" alt="Herramienta Convertir r&aacute;ster a entidad">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Crea un nuevo dataset de entidades a partir de un dataset r&aacute;ster existente.
+            </p>
+            <br/>
+        </div>
+        <div id="SampleTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Muestra</h2></td>
+                    <td>
+                    <img src="../images/GUID-3950CCA3-C1D0-493F-A33D-93673443ADD2-web.png" class="titleImage" alt="Muestra">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Crea una tabla o una clase de entidad de punto con valores de datos en ubicaciones definidas extra&iacute;das de un r&aacute;ster o un conjunto de r&aacute;steres.
+            </p>
+            <br/>
+        </div>
+    <div id="DeepLearningCategory" class="largesize">
+        <h2>Aprendizaje profundo</h2>
+        <hr/>
+        <p>Estas herramientas se utilizan para detectar o clasificar entidades espec&iacute;ficas en una imagen o clasificar p&iacute;xeles en un dataset r&aacute;ster. El aprendizaje profundo es un m&eacute;todo de aprendizaje de m&aacute;quina de inteligencia artificial que detecta entidades en im&aacute;genes con varias capas en redes neuronales, en las que cada capa puede extraer una o varias entidades &uacute;nicas de la imagen. Estas herramientas utilizan modelos entrenados para detectar entidades espec&iacute;ficas en marcos de aprendizaje profundo de terceros, tales como TensorFlow, CNTK y Keras, y generan entidades o mapas de clases.
+            <ul>
+                <li> <b>Clasificar p&iacute;xeles con aprendizaje profundo</b> genera un r&aacute;ster clasificado utilizando un modelo de aprendizaje profundo entrenado.
+                </li>
+                <li> <b>Detectar objetos con aprendizaje profundo</b> genera una clase de entidad que contiene los objetos que encuentra en un r&aacute;ster de entrada con un modelo de aprendizaje profundo entrenado.
+                </li>
+                <li> <b>Clasificar objetos con aprendizaje profundo</b> genera una clase de entidad o tabla en la que a cada objeto de entrada en un r&aacute;ster de entrada se le asigna una etiqueta de clase usando un modelo de aprendizaje profundo entrenado.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="ClassifyPixelsUsingDeepLearningTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Clasificar píxeles con aprendizaje profundo</h2></td>
+                    <td>
+                    <img src="../images/GUID-88BE63A6-B06C-4C61-9AB1-8DA5A08C6783-web.png" class="titleImage" alt="Clasificar p&iacute;xeles con aprendizaje profundo">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta ejecuta un modelo de aprendizaje profundo entrenado en un r&aacute;ster de entrada para generar un r&aacute;ster clasificado, donde cada p&iacute;xel v&aacute;lido tiene asignada una etiqueta de clase.
+            </p>
+            <br/>
+        </div>
+        <div id="DetectObjectsUsingDeepLearningTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Detectar objetos con aprendizaje profundo</h2></td>
+                    <td>
+                    <img src="../images/GUID-EE76A33E-0B8F-48EE-94F8-782FAD241D72-web.png" class="titleImage" alt="Detectar objetos con aprendizaje profundo">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta ejecuta un modelo de aprendizaje profundo entrenado en un r&aacute;ster de entrada para generar una clase de entidad con los objetos que encuentre. Las entidades pueden ser cuadros o pol&iacute;gonos de delimitaci&oacute;n alrededor de los objetos encontrados o puntos en el centro de los objetos.
+            </p>
+            <br/>
+        </div>
+        <div id="ClassifyObjectsUsingDeepLearningTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Clasificar objetos con aprendizaje profundo</h2></td>
+                    <td>
+                    <img src="../images/GUID-F31B4A21-3E5C-4667-B66B-155CC35CD62B-web.png" class="titleImage" alt="Clasificar objetos con aprendizaje profundo">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta ejecuta un modelo de aprendizaje profundo entrenado en un r&aacute;ster de entrada y una clase de entidad opcional para generar una clase de entidad o tabla en la que cada objeto de entrada tenga asignada una etiqueta de clase.
+            </p>
+            <br/>
+        </div>
+    <div id="MultidimensionalAnalysisCategory" class="largesize">
+        <h2>Análisis multidimensional</h2>
+        <hr/>
+        <p>Las herramientas del conjunto de herramientas An&aacute;lisis multidimensional permiten realizar an&aacute;lisis en datos cient&iacute;ficos a trav&eacute;s de varias dimensiones y variables.
+        </p>
+        <p>Los datos multidimensionales representan datos capturados en distintos momentos, profundidades y alturas. Este tipo de datos se usa com&uacute;nmente en ciencias atmosf&eacute;ricas, oceanogr&aacute;ficas y de la tierra. En este conjunto de herramientas, puede analizar datos r&aacute;ster multidimensionales en varios formatos, por ejemplo, netCDF, HDF, GRIB, el dataset de mosaico multidimensional y el formato r&aacute;ster de nube (CRF) de Esri.
+        </p>
+        <p>La siguiente tabla enumera las herramientas de an&aacute;lisis multidimensional y proporciona una breve descripci&oacute;n de cada una.
+            <ul>
+                <li> <b>Agregar r&aacute;ster multidimensional</b> genera un dataset r&aacute;ster multidimensional al agregar variables de r&aacute;ster multidimensional existentes a lo largo de una dimensi&oacute;n.
+                </li>
+                <li> <b>Generar anomal&iacute;a multidimensional</b> calcula la anomal&iacute;a de cada porci&oacute;n en un r&aacute;ster multidimensional para generar un r&aacute;ster multidimensional.
+                </li>
+                <li> <b>Generar r&aacute;ster de tendencia</b> estima la tendencia de cada p&iacute;xel a lo largo de una dimensi&oacute;n para una o varias variables de un r&aacute;ster multidimensional.
+                </li>
+                <li> <b>Predecir con r&aacute;ster de tendencia</b> calcula un r&aacute;ster multidimensional previsto usando el r&aacute;ster de tendencia de salida de la herramienta <b>Generar r&aacute;ster de tendencia</b>.
+                </li>
+                <li> <b>Hallar estad&iacute;sticas de argumentos</b> extrae el valor de dimensi&oacute;n o &iacute;ndice de banda en el que se consigue una determinada estad&iacute;stica para cada p&iacute;xel en un r&aacute;ster multidimensional o multibanda.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="AggregateMultidimensionalRasterTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Agregar ráster multidimensional</h2></td>
+                    <td>
+                    <img src="../images/GUID-2C2320A3-EC6E-4FFC-B59B-9551BB02C545-web.png" class="titleImage" alt="Agregar r&aacute;ster multidimensional">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta genera un dataset r&aacute;ster multidimensional al agregar variables de r&aacute;ster multidimensional existentes a lo largo de una dimensi&oacute;n.
+            </p>
+            <br/>
+        </div>
+        <div id="FindArgumentStatisticsTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Hallar estadísticas de argumentos</h2></td>
+                    <td>
+                    <img src="../images/GUID-6DE9D49F-C9CA-48B8-B14F-C8EF05FBFA42-web.png" class="titleImage" alt="Hallar estad&iacute;sticas de argumentos">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta extrae el valor de dimensi&oacute;n o el &iacute;ndice de banda en el que se consigue una determinada estad&iacute;stica para cada p&iacute;xel de un r&aacute;ster multidimensional o multibanda.
+            </p>
+            <br/>
+        </div>
+        <div id="GenerateMultidimensionalAnomalyTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Generar anomalía multidimensional</h2></td>
+                    <td>
+                    <img src="../images/GUID-8D54C66F-5C16-4EE5-93E9-80722D10AF12-web.png" class="titleImage" alt="Generar anomal&iacute;a multidimensional">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta calcula la anomal&iacute;a de cada porci&oacute;n en un r&aacute;ster multidimensional para generar un r&aacute;ster multidimensional.
+            </p>
+            <br/>
+        </div>
+        <div id="GenerateTrendRasterTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Generar ráster de tendencia</h2></td>
+                    <td>
+                    <img src="../images/GUID-A95F821A-8CAF-45F3-93E5-14BDF5DA0BCD-web.png" class="titleImage" alt="Generar r&aacute;ster de tendencia">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta estima la tendencia de cada p&iacute;xel a lo largo de una dimensi&oacute;n para una o varias variables de un r&aacute;ster multidimensional.
+            </p>
+            <br/>
+        </div>
+        <div id="PredictUsingTrendRasterTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Predecir con ráster de tendencia</h2></td>
+                    <td>
+                    <img src="../images/GUID-E3758820-51A9-46DE-AAF6-E27B68DE4012-web.png" class="titleImage" alt="Predecir con r&aacute;ster de tendencia">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Esta herramienta calcula un r&aacute;ster multidimensional previsto utilizando el r&aacute;ster de tendencia de salida de la herramienta  <b>Generar r&aacute;ster de tendencia</b>.
+            </p>
+            <br/>
+        </div>
+</div>
+</html>

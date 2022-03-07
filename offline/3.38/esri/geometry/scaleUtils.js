@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/geometry/scaleUtils",["dojo/_base/lang","dojo/has","../kernel","../config","../WKIDUnitConversion"],function(l,r,h,t,u){function m(a,b,c){return a&&b?a.getWidth()/b*(c||k)*39.37*n.screenDPI:0}function p(a,b,c,d,f){return a.expand(d*b/(39.37*((f?c:g.values[g[c]])||k)*n.screenDPI)/a.getWidth())}var k=6370997*Math.PI/180,n=t.defaults,g=u,e={getUnitValueForSR:function(a){return this.getUnitValue(a)||k},getUnitValue:function(a){if(a)if("object"===typeof a){var b=a.wkid;var c=a.wkt}else"number"===
+typeof a?b=a:"string"===typeof a&&(c=a);if(b)var d=g.values[g[b]];else c&&-1!==c.search(/^PROJCS/i)&&(a=/UNIT\[([^\]]+)\]\]$/i.exec(c))&&a[1]&&(d=parseFloat(a[1].split(",")[1]));return d},getScale:function(a,b,c){if(1<arguments.length&&null!=b&&!b.declaredClass){var d=a;var f=b;b=null;var q=e.getUnitValue(c)}else d=b||a.extent,f=a.width,q=e.getUnitValue(d&&d.spatialReference);return m(d,f,q)},getExtentForScale:function(a,b,c){return p(c||a.extent,a.width,e.getUnitValue(a.spatialReference),b,!0)}};
+r("extend-esri")&&(l.mixin(l.getObject("geometry",!0,h),e),h.geometry._getScale=m,h.geometry._getExtentForScale=p);return e});

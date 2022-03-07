@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/et/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Valige sihtraster v\u00f5i objektid",destinationField:"Sihtkoha v\u00e4li (valikuline)",inputDistanceAccumulationRaster:"Valige kauguse akumulatsiooni raster",inputBackDirectionRaster:"Valige tagasisuuna v\u00f5i voolusuuna raster",pathType:"Tee t\u00fc\u00fcp (valikuline)",bestSingle:"Parim \u00fcksik",eachCell:"Iga piksel",eachZone:"Iga tsoon",outputFeatureName:"Tulemobjektikihi nimi",outputLayerName:"Optimaalne tee kihi ${layername} joonena",
+drawSourcePointLayerName:"L\u00e4htepunktid",itemDescription:"Objektikiht koostati optimaalse tee joonena k\u00e4itamise teel kihil ${layername}. ",itemTags:"Anal\u00fc\u00fcsi tulemus, optimaalne tee joonena, ${layername} ${fieldname}",itemSnippet:"Objektikiht koostati optimaalse tee joonena k\u00e4itamise teel."});

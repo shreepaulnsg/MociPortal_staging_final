@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/vectorTiles/GeometryUtils",["require","exports"],function(g,a){function e(b,c){b%=c;return 0<=b?b:b+c}Object.defineProperty(a,"__esModule",{value:!0});a.C_INFINITY=Number.POSITIVE_INFINITY;a.C_PI=Math.PI;a.C_2PI=2*a.C_PI;a.C_PI_BY_2=a.C_PI/2;a.C_RAD_TO_256=128/a.C_PI;a.C_256_TO_RAD=a.C_PI/128;a.C_DEG_TO_256=256/360;a.C_DEG_TO_RAD=a.C_PI/180;a.C_SQRT2=1.414213562;a.C_SQRT2_INV=1/a.C_SQRT2;var f=1/Math.LN2;a.positiveMod=e;a.radToByte=function(b){return e(b*a.C_RAD_TO_256,
+256)};a.degToByte=function(b){return e(b*a.C_DEG_TO_256,256)};a.log2=function(b){return Math.log(b)*f};a.sqr=function(b){return b*b};a.clamp=function(b,c,d){return Math.min(Math.max(b,c),d)};a.interpolate=function(b,c,d){return b*(1-d)+c*d};a.between=function(b,c,d){return b>=c&&b<=d||b>=d&&b<=c}});

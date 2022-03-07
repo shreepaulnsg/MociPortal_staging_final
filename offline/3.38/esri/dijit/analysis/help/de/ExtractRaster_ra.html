@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Raster extrahieren</h2><p/>
+        <h2><img src="../images/GUID-DC9CBCB9-A07C-42D3-A0CB-2FB1483CBF4C-web.png" alt="Werkzeug &quot;Raster extrahieren&quot; f&uuml;r Portal"></h2>
+        <hr/>
+    <p>Mit diesem Werkzeug kann ein Raster auf eine Grenze zugeschnitten werden. Dies kann eine rechteckige Fl&auml;che sein oder eine Form, die Sie interaktiv auf dem Bildschirm definieren. Sie k&ouml;nnen das Raster auf die Ausdehnung der Fl&auml;che ausschneiden, die aktuell auf der Karte angezeigt wird, oder auf das Untersuchungsgebiet, das durch ein Polygon definiert wird.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div><h2>Zu extrahierende Eingabedaten auswählen</h2></div>
+        <hr/>
+        <div>
+            <p>Der auszuschneidende Eingabe-Layer.
+            </p>
+        </div>
+    </div>
+    <div id="clippingGeometry">
+        <div><h2>Ausschneidegeometrie festlegen</h2></div>
+        <hr/>
+        <div>
+            <p>W&auml;hlen Sie den Ausdehnungstyp aus, der beim Ausschneiden der Geometrie des Layers verwendet werden soll:
+                <ul>
+                    <li>Aktuelle Ausdehnung verwenden: Die aktuelle Kartenausdehnung dient zum Ausschneiden des resultierenden Layers. Dies ist die Standardeinstellung.
+                        
+
+                    </li>
+                    <li>Untersuchungsgebiet ausw&auml;hlen: Erm&ouml;glicht das Definieren einer Geometrie zum Ausschneiden mit dem Zeichenwerkzeug.
+                        
+
+                    </li>
+                    <li>Layer ausw&auml;hlen: W&auml;hlen Sie einen Feature- oder Bilddaten-Layer aus, um die Ausdehnung zu definieren, oder w&auml;hlen Sie einen Polygon-Feature-Layer aus, um die Geometrie zum Ausschneiden zu definieren. Wenn ein Polygon-Feature-Layer ausgew&auml;hlt wird, wird ein Kontrollk&auml;stchen angezeigt, mit dem angegeben werden kann, ob Eingabe-Features als Geometrie zum Ausschneiden verwendet werden sollen. Diese Option ist standardm&auml;&szlig;ig deaktiviert. Zum Definieren der Ausdehnung wird in diesem Fall der Eingabe-Feature-Layer verwendet. Ist das Kontrollk&auml;stchen aktiviert, werden die Eingabe-Features als Geometrie zum Ausschneiden verwendet.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="clippingType">
+        <div><h2>Ausschneidetyp festlegen</h2></div>
+        <hr/>
+        <div>
+            <p>Geben Sie an, ob Sie die Fl&auml;che innerhalb oder au&szlig;erhalb der Ausschneidegeometrie beibehalten m&ouml;chten:
+                <ul>
+                    <li>Daten innerhalb der Geometrie: Bilddaten innerhalb der Ausschneideausdehnung werden extrahiert. Dies ist die Standardeinstellung.
+                        
+
+                    </li>
+                    <li>Daten au&szlig;erhalb der Geometrie: Bilddaten au&szlig;erhalb der Ausschneideausdehnung werden extrahiert.
+                        
+
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLayer">
+        <div><h2>Name des Ergebnis-Layers</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Der Name des Layers, der in  <b>Eigene Inhalte</b> erstellt und der Karte hinzugef&uuml;gt wird. Der Standardname basiert auf dem Werkzeugnamen und dem Namen des Eingabe-Layers. Wenn der Layer bereits vorhanden ist, werden Sie aufgefordert, einen anderen Namen einzugeben.
+            </p>
+            <p>Sie k&ouml;nnen den Namen eines Ordners in  <b>Eigene Inhalte</b> angeben, in dem das Ergebnis &uuml;ber das Dropdown-Feld <b>Ergebnis speichern in</b> gespeichert wird. Wenn Sie über Berechtigungen zum Erstellen gekachelter und dynamischer Bilddaten-Layer verfügen, können Sie angeben, welcher Layer-Typ in der Ausgabe generiert werden soll, indem Sie das Dropdown-Feld "Ergebnis speichern als" verwenden. </p>
+        </div>
+    </div>
+</div>
+</html>

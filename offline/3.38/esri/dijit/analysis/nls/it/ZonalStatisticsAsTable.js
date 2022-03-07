@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/it/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Scegliere raster di zona o feature",outputTableName:"Risultato nome tabella",zoneField:"Campo Zona",inputValueRaster:"Scegliere value raster",ignoreNodata:"Ignora valore NoData nei calcoli (facoltativo)",ignore:"Ignora",statisticType:"Tipo statistiche (facoltativo)",percentileValues:"Valori percentili (facoltativo)",percentileInterpolationType:"Tipo di interpolazione percentile (facoltativo)",processAsMultidimensional:"Elabora come multidimensionale (facoltativo)",
+allSlices:"Tutte le sezioni",outputZonalStatsName:"Statistiche zonali per ${valuelayername}all'interno di ${layername}",itemDescription:"Tabella delle caratteristiche di analisi generata da statistiche zonali come tabella",itemTags:"Risultato analisi raster, statistiche zonali come tabella, ${layername}, ${valuelayername}",autoDetect:"Rilevamento automatico",nearest:"Pi\u00f9 vicino",linear:"Lineare"});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/SymbolStyler/IconSelect","../../kernel dijit/form/Select dojo/_base/array dojo/_base/declare dojo/_base/lang dojo/dom-class dojo/has".split(" "),function(g,c,d,h,k,e,l){c=h("esri.dijit.SymbolStyler.IconSelect",[c],{baseClass:"esriIconSelect dijitSelect dijitValidationTextBox",_extraIconClass:null,addIconOptions:function(b,a){a=a||"";b=d.map(b,function(f){return{value:f,iconClass:a+" "+f}});this.addOption(b)},_getMenuItemForOption:function(b){var a=this.inherited(arguments);a.set("iconClass",
+b.iconClass);return a},_setValueAttr:function(b){this.inherited(arguments);var a=this.containerNode;e.remove(a,this._getAllIconClasses());e.add(a,this.get("selectedOptions").iconClass)},_getAllIconClasses:function(){return d.map(this.options,function(b){return b.iconClass})}});l("extend-esri")&&k.setObject("dijit.SymbolStyler.IconSelect",c,g);return c});

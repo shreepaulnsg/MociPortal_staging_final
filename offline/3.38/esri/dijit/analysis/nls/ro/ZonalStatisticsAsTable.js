@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/ro/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Alege\u021bi rasterul zonei sau obiectele spa\u021biale",outputTableName:"Numele tabelului rezultat",zoneField:"C\u00e2mp zon\u0103",inputValueRaster:"Alege\u021bi raster valoare",ignoreNodata:"Ignora\u021bi NoData \u00een calcula\u021bii (op\u021bional)",ignore:"Ignorare",statisticType:"Tipul statisticii (op\u021bional)",percentileValues:"Valori percentil\u0103 (op\u021bional)",percentileInterpolationType:"Tip de interpolare a percentilei (op\u021bional)",
+processAsMultidimensional:"Procesa\u021bi ca multidimensional (op\u021bional)",allSlices:"Toate sectoarele",outputZonalStatsName:"Statistici zonale pentru ${valuelayername} \u00een limitele ${layername}",itemDescription:"Tabel de obiecte spa\u021biale pentru analiz\u0103 generat din statistica zonal\u0103 sub form\u0103 de tabel",itemTags:"Rezultat analiz\u0103 raster, statistic\u0103 zonal\u0103 sub form\u0103 de tabel, ${layername}, ${valuelayername}",autoDetect:"Detectare automat\u0103",nearest:"Cel mai apropiat",
+linear:"Liniar"});

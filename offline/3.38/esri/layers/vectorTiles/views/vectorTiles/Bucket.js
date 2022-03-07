@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/vectorTiles/Bucket",["require","exports"],function(d,e){return function(){function b(a,c){this.layerExtent=4096;this._features=[];this.layer=a;this.zoom=c;this._filter=a.getFeatureFilter()}b.prototype.pushFeature=function(a){this._filter.filter(a)&&this._features.push(a)};b.prototype.hasFeatures=function(){return 0<this._features.length};b.prototype.processFeatures=function(a,c){};b.prototype.assignBufferInfo=function(a){};return b}()});

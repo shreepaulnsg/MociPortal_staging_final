@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/lv/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Izv\u0113lieties zonas rastru vai elementus",outputTableName:"Rezult\u0101tu tabulas nosaukums",zoneField:"Zonas lauks",inputValueRaster:"Izv\u0113lieties v\u0113rt\u012bbu rastru",ignoreNodata:"Apr\u0113\u0137inos ignor\u0113t NoData\u00a0(papildiesp\u0113ja)",ignore:"Ignor\u0113t",statisticType:"Statistikas veids\u00a0(papildiesp\u0113ja)",percentileValues:"Procentiles v\u0113rt\u012bbas\u00a0(papildiesp\u0113ja)",
+percentileInterpolationType:"Procentiles interpol\u0101cijas veids\u00a0(papildiesp\u0113ja)",processAsMultidimensional:"Apstr\u0101d\u0101t k\u0101 multidimension\u0101lu\u00a0(papildiesp\u0113ja)",allSlices:"Visi sektori",outputZonalStatsName:"${valuelayername} zonas statistika atbilsto\u0161i ${layername}",itemDescription:"Anal\u012bzes elementu tabula, kas \u0123ener\u0113ta no risin\u0101juma Zonas statistika tabul\u0101",itemTags:"Rastra anal\u012bzes rezult\u0101ts, Zonas statistika tabul\u0101, ${layername}, ${valuelayername}",
+autoDetect:"Noteikt autom\u0101tiski",nearest:"Tuv\u0101kais",linear:"Line\u0101rs"});

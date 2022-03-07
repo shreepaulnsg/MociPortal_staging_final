@@ -1,0 +1,26 @@
+
+.jimu-widget-homebutton {
+  background-color: #fff;
+  /*border-radius: 5px;*/
+  border: 1px solid #57585A;
+    /*box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);*/
+    color: #8D0034;
+}
+
+.jimu-widget-homebutton .HomeButton .home {
+  background-color: #fff;
+  background-image: url(/MociPortal/widgets/HomeButton/images/icon.png) !important;
+}
+
+.jimu-widget-homebutton.inHome {
+	background-color: #efefef;color: #8D0034;
+}
+
+.jimu-widget-homebutton .HomeButton .home:hover {
+  background-color: #8D0034;color: #fff;
+  background-image: url(/MociPortal/widgets/HomeButton/images/icon1.png) !important;
+} 
+
+.jimu-widget-homebutton.inHome .HomeButton .home {
+	/*background-color: #8D0034;color: #fff;*/s
+}

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sk/AppendData",{inputLayerLabel:"Vybra\u0165 vrstvu na pripojenie k",inputWarningLabel:"Upozornenie: Vrstva, ktor\u00fa prip\u00e1jate, bude upraven\u00e1.",inputHostedLayerWarning:"Vybran\u00e1 vrstva nebola hostovan\u00e1 vrstva prvkov. Vyberte hostovan\u00fa vrstvu prvkov na pripojenie.",appendLayerLabel:"Vybra\u0165 vrstvu na pripojenie",filterLabel:"Pripoji\u0165 v\u0161etky prvky alebo definova\u0165 podmno\u017einu (volite\u013en\u00e9)",fieldMappingLabel:"Vybra\u0165, ako pripoji\u0165 polia (volite\u013en\u00e9)",
+inputField:"Vstupn\u00e9 pole",appendValue:"Hodnota pripojenia",expression:"V\u00fdraz"});

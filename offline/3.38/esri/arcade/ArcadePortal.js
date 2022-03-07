@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+var __extends=this&&this.__extends||function(){var f=function(d,a){f=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(b,c){b.__proto__=c}||function(b,c){for(var e in c)Object.prototype.hasOwnProperty.call(c,e)&&(b[e]=c[e])};return f(d,a)};return function(d,a){function b(){this.constructor=d}if("function"!==typeof a&&null!==a)throw new TypeError("Class extends value "+String(a)+" is not a constructor or null");f(d,a);d.prototype=null===a?Object.create(a):(b.prototype=a.prototype,new b)}}();
+define("esri/arcade/ArcadePortal",["require","exports","./Dictionary"],function(f,d,a){return function(b){function c(e){var g=b.call(this)||this;g.immutable=!1;g.setField("url",e);g.immutable=!0;return g}__extends(c,b);return c}(a)});

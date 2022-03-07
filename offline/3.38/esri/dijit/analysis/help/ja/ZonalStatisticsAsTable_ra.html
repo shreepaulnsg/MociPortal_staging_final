@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>ゾーン統計をテーブルに出力</h2><p/>
+        <h2><img src="../images/GUID-2847466F-BF22-4545-BDCE-7EB7B1D15F2D-web.png" alt="ゾーン統計をテーブルに出力の図"></h2>
+        <hr/>
+    <p>このツールは、他のデータセットのゾーンごとにラスター値を集約し、その結果をテーブルに出力します。
+    </p>
+    <p>このツールの適用例のいくつかを次に示します。
+        <ul>
+            <li>集水域境界線のレイヤーと、土地利用タイプ別土地利用境界線のレイヤーを基に、各集水域の土地利用タイプの総面積を計算する。
+                
+
+            </li>
+            <li>郡の土地区画のレイヤーと都市の境界線のレイヤーを基に、各都市の境界線内にある空き地の平均値を求める。
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p> <b>[現在のマップ範囲を使用]</b> をオンにすると、現在のマップ範囲内に表示されている入力レイヤーと集計対象レイヤーのフィーチャだけが解析されます。 オフの場合、入力レイヤーと集計されるレイヤーのすべてのフィーチャが、現在のマップ範囲内になくても解析されます。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div><h2>ゾーン ラスターまたはフィーチャの選択</h2></div>
+        <hr/>
+        <div>
+            <p>集計対象のゾーン (エリア) の境界を定義する入力。
+            </p>
+            <p>入力には、整数ラスターまたはフィーチャ データを使用できます。 ラスターの場合、ゾーンは、同じセル値が設定された入力内のすべての場所で定義されます。 フィーチャの場合は、ゾーンは重なっていてもかまいません。 エリアは連続していなくてもかまいません。
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>ゾーン フィールド</h2></div>
+        <hr/>
+        <div>
+            <p>各ゾーンを定義する値を格納するフィールド。
+            </p>
+            <p>ゾーン データセットの整数フィールドまたは文字列フィールドを使用できます。
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div><h2>値ラスターの選択</h2></div>
+        <hr/>
+        <div>
+            <p>統計情報を計算する値を含むラスター。
+            </p>
+            <p>整数でも浮動小数点でもかまいません。 ただし、浮動小数点タイプの場合、最頻値、最少頻値、種類を計算するためのオプションは使用できません。
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div><h2>計算時に NoData を除外 (オプション)</h2></div>
+        <hr/>
+        <div>
+            <p> 解析で NoData 値を無視するかどうかを指定します。
+            </p>
+            <ul>
+                <li>オン - 解析には、特定のゾーン内の入力値ラスターで値を持つセルが含まれます。このセルは、そのゾーンの出力値の決定に使用されます。 値ラスターの NoData セルは、統計情報の計算時に無視されます。 これがデフォルトです。
+                </li>
+                <li>オフ - 特定のゾーン内の値ラスターのセルに NoData 値が存在する場合、解析結果は NoData になります。
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="statisticType">
+        <div><h2>統計情報の種類 (オプション)</h2></div>
+        <hr/>
+        <div>
+            <p>計算する統計情報の種類を指定します。
+            </p>
+            <p> 入力は、 <b>[すべて]</b>、 <b>[平均値]</b>、 <b>[最頻値]</b>、 <b>[最大値]</b>、 <b>[中央値]</b>、 <b>[最小値]</b>、 <b>[最少頻値]</b>、 <b>[パーセンタイル]</b>、 <b>[範囲値]</b>、 <b>[標準偏差]</b>、 <b>[合計]</b>、 <b>[種類]</b>、 <b>[最小と最大]</b>、 <b>[平均値および標準偏差]</b>、 <b>[最小値、最大値および平均値]</b> のいずれかです。 デフォルトは <b>[すべて]</b> です。
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div><h2>パーセンタイル値 (オプション)</h2></div>
+        <hr/>
+        <div>
+            <p>計算するパーセンタイル。 デフォルトは 90 で、90 番目のパーセンタイルを示します。
+            </p>
+            <p>値の範囲は 0 〜 100 です。 0 番目のパーセンタイルは最小値の統計情報と実質的に同じであり、100 番目のパーセンタイルは最大値と同じです。 値が 50 の場合、基本的に中央値の統計情報と同じ結果になります。
+            </p>
+            <p> このパラメーターは、 <b>[統計情報の種類]</b> パラメーターが <b>[パーセンタイル]</b> か <b>[すべて]</b> に設定されている場合にのみサポートされます。
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div><h2>パーセンタイル内挿タイプ (オプション)</h2></div>
+        <hr/>
+        <div>
+            <p>計算される入力ラスターの値の数が偶数である場合に使用されるパーセンタイル内挿の方法を指定します。
+            </p>
+            <ul>
+                <li>  <b>[自動検出]</b> - 入力値ラスターが整数ピクセル タイプである場合は、 <b>[最近隣内挿法]</b> が使用されます。 入力値ラスターが浮動小数点ピクセル タイプである場合は、 <b>[リニア]</b> 内挿法が使用されます。 これがデフォルトです。
+                </li>
+                <li> <b>[最近隣内挿法]</b> - 目的のパーセンタイルに使用できる最近隣の値が使用されます。
+                </li>
+                <li> <b>[リニア]</b> - 目的のパーセンタイルからの 2 つの周囲値の加重平均が使用されます。
+                </li>
+            </ul>
+            
+            <p> このパラメーターは、 <b>[統計情報の種類]</b> パラメーターが <b>[パーセンタイル]</b> か <b>[すべて]</b> に設定されている場合にのみサポートされます。
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>多次元として処理 (オプション)</h2></div>
+        <hr/>
+        <div>
+            <p>多次元の場合の入力多次元イメージ サービスの処理方法を指定します。
+            </p>
+            <ul>
+                <li>オン - 統計情報は入力多次元データセットの現在のスライスから計算されます。 これがデフォルトです。
+                    
+
+                </li>
+                <li>オフ - 統計情報は、入力多次元データセットのすべての次元に対して計算されます。
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div><h2>結果テーブル名</h2></div>
+        <hr/>
+        <div>
+            <p> <b>[マイ コンテンツ]</b> に作成され、マップに追加されるレイヤーの名前。 デフォルトの名前は、ツール名と入力レイヤー名に基づいて設定されます。 レイヤーがすでに存在する場合は、別の名前を指定するよう求められます。
+            </p>
+            <p> <b>[出力の保存場所]</b> ドロップダウン ボックスを使用して、結果を保存する <b>[マイ コンテンツ]</b> 内のフォルダーの名前を指定できます。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

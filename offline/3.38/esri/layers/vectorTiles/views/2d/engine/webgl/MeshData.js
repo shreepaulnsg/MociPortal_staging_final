@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/2d/engine/webgl/MeshData",["require","exports"],function(f,g){return function(){function b(){this.vertexData=new Map;this.vertexCount=0;this.indexData=[]}b.prototype.clear=function(){this.vertexData.clear();this.vertexCount=0;this.indexData=[]};b.prototype.update=function(c,d,e){for(var a in c)this.vertexData.set(a,c[a]);for(a in this.vertexData)null===c[a]&&this.vertexData.delete(a);this.vertexCount=d;this.indexData=e};return b}()});

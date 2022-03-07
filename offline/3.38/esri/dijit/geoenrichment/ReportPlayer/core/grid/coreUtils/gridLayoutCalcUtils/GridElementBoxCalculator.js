@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/grid/coreUtils/gridLayoutCalcUtils/GridElementBoxCalculator",[],function(){function k(a,b,c,f,g){function h(l){return f&&void 0!==f.places?Number(l.toFixed(f.places)):l}if(!b||!c)return null;var p=e.calculator[g?"getFieldWidth":"calcFieldWidth"](a,b,c);g=e.calculator[g?"getDataHeight":"calcDataHeight"](a,b,c);for(var m=0,n=0,q=e.calculator.fieldToColumn(a,c),d=0;d<q.index;d++)m+=e.calculator.getFieldWidth(a,b,a.columns[d].field);for(d=0;d<b.index;d++)n+=
+e.calculator.getDataHeight(a,a.rows[d],c);return{x:h(m),y:h(n),w:h(p),h:h(g)}}var e={calculator:null,calcCellBox:function(a,b){return k(a.parentGrid,a.row,a.column.field,b,!1)},calcDataBox:function(a,b,c,f){return k(a,b,c,f,!0)}};return e});

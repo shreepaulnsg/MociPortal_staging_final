@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Extragere raster</h2><p/>
+        <h2><img src="../images/GUID-DC9CBCB9-A07C-42D3-A0CB-2FB1483CBF4C-web.png" alt="Instrument Extragere raster pentru portal"></h2>
+        <hr/>
+    <p>Acest instrument poate ataşa un raster la o limită, la o suprafaţă dreptunghiulară sau la o formă definită interactiv pe ecran. Puteţi ataşa la extinderea suprafeţei pe care aţi afişat-o &icirc;n mod curent pe hartă sau prin suprafaţa de studiu definită de un poligon.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div><h2>Selectare date de intrare pentru extragere</h2></div>
+        <hr/>
+        <div>
+            <p>Stratul tematic care va fi ataşat.
+            </p>
+        </div>
+    </div>
+    <div id="clippingGeometry">
+        <div><h2>Specificare geometrie de decupare</h2></div>
+        <hr/>
+        <div>
+            <p>Alegeţi tipul de extindere care va fi utilizat atunci c&acirc;nd ataşaţi geometria stratului tematic:
+                <ul>
+                    <li>Utilizare extindere curentă a hărţii - Extinderea curentă a hărţii va fi utilizată pentru a ataşa stratul tematic ataşat. Aceasta este acţiunea implicită.
+                        
+
+                    </li>
+                    <li>Alegere suprafaţă de studiu - Vă permite să definiți o geometrie de decupare cu ajutorul instrumentului de trasare.
+                        
+
+                    </li>
+                    <li>Alegere strat tematic &mdash; Alegeți un strat tematic de obiecte spațiale sau un strat tematic de imagini satelitare pentru a defini extinderea sau alegeți un strat tematic de poligoane pentru a defini geometria de decupare. Atunci c&acirc;nd este selectat un strat tematic de obiecte spațiale poligonale, este afișată o casetă de validare pentru a specifica dacă sunt utilizate obiecte spațiale de intrare pentru geometria de decupare. &Icirc;n mod implicit, această opțiune este debifată. Măsoară un strat tematic de obiecte spațiale de intrare pentru a defini extinderea. Dacă este bifată opțiunea, măsoară obiectele spațiale de intrare utilizate pentru geometria de decupare.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="clippingType">
+        <div><h2>Specificați tipul de decupare</h2></div>
+        <hr/>
+        <div>
+            <p>Specificați dacă doriți să păstrați zona &icirc;n interiorul sau &icirc;n afara geometriei de decupare:
+                <ul>
+                    <li>Date &icirc;n interiorul geometriei &mdash; Vor fi extrase imaginile din spațiile delimitate de decupare. Aceasta este acţiunea implicită.
+                        
+
+                    </li>
+                    <li>Date &icirc;n afara geometriei &mdash; Vor fi extrase imaginile din afara spațiilor delimitate de decupare.
+                        
+
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLayer">
+        <div><h2>Nume strat tematic rezultat</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Acesta este numele stratului tematic ce va fi creat &icirc;n  <b>Conținutul Meu</b> și va fi adăugat pe hartă. Numele implicit se bazează pe numele instrumentului şi numele stratului tematic de intrare. Dacă stratul tematic rezultat există deja, vi se va solicita să furnizaţi un alt nume.
+            </p>
+            <p>Puteți specifica numele folderului &icirc;n  <b>Resursele mele</b> unde se va salva rezultatul folosind caseta drop-down <b>Salvați rezultatele &icirc;n</b>. Dacă aveți privilegiile pentru a crea atât straturi tematice de imagine înclinate, cât și dinamice, puteți menționa ce tip de strat tematic doriți să generați la ieșire din lista derulantă Salvare rezultat ca. </p>
+        </div>
+    </div>
+</div>
+</html>

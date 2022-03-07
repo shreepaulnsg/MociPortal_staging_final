@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/types/arcgis/form/GeorectPosElement","dojo/_base/declare dojo/_base/lang dojo/_base/array dojo/has ../../../../../kernel ../../../form/OpenElement dojo/i18n!../../../nls/i18nArcGIS dojo/i18n!../../../nls/i18nBase".split(" "),function(b,f,k,l,m,n,p,q){b=b([n],{postCreate:function(){this.inherited(arguments)},beforeValidateValue:function(c,g,a){if(null!==a&&0!==f.trim(a).length){var d=!0;c=a.split(" ");k.some(c,function(r){try{var h=!1,e=Number(f.trim(r));"undefined"!==typeof e&&
+null!==e&&!isNaN(e)&&isFinite(e)&&(h=!0);h||(d=!1)}catch(t){console.error(t),d=!1}if(!d)return!0});d||(c=q.validation.pattern,a=p.hints.listOfDoubles,g.isValid=!1,g.message=c.replace("{label}",g.label).replace("{message}",a))}}});l("extend-esri")&&f.setObject("dijit.metadata.types.arcgis.form.GeorectPosElement",b,m);return b});

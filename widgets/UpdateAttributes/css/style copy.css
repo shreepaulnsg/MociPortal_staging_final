@@ -1,0 +1,44 @@
+.jimu-widget-PlotFactoryInfo div:first-child{
+  color: red;
+}
+.btn{
+  height: 30px;
+  width: 32%;
+  color:#f1eaed;
+  border-radius: 10px;
+}
+.attrgrid{
+  height: 85%;
+  overflow-y: auto;
+  border:ridge; width: 100% !important;
+}
+.btncolor1{
+  background-color: #8c8383d9;
+}
+.btncolor2{
+  background-color: #8D0034;
+}
+.attr-row{
+  font-size: medium;
+  padding: 10px 50px 10px 10px;
+  display: inline-flex ;
+}
+.attrtext{
+  width: 100%;
+  height: 30px;
+  border-radius: 4px;
+  font-size: medium;
+  padding-left: 5px;
+}
+td{
+  height: 50px;
+  border:none;
+}
+.updategrid{
+  height: 15%;
+  margin: 5px;
+  padding-top: 10px;
+}
+.lbltext{
+  font-size: medium;
+}

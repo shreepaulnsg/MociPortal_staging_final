@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/types/arcgis/form/InputSysTime","dojo/_base/declare dojo/_base/lang dojo/date/locale dojo/has ../../../../../kernel ../../../form/InputText".split(" "),function(a,c,d,e,f,g){a=a([g],{useNow:!1,postCreate:function(){this.inherited(arguments)},connectXNode:function(b,h){this.inherited(arguments);h||("/metadata/Esri/CreaTime"===b.gxePath||this.useNow)&&this.setInputValue(this.formatTime(b.gxeDocument.datestamp))},formatTime:function(b){return d.format(b,{timePattern:"HH:mm:ss.SS",
+selector:"time"})},getXmlValue:function(){return"/metadata/Esri/ModTime"===this.parentXNode.gxePath?this.formatTime(this.parentXNode.gxeDocument.datestamp):this.inherited(arguments)}});e("extend-esri")&&c.setObject("dijit.metadata.types.arcgis.form.InputSysTime",a,f);return a});

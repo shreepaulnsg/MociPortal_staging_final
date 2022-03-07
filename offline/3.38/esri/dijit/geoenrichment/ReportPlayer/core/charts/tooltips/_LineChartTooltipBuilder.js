@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/charts/tooltips/_LineChartTooltipBuilder",["dojo/dom-construct","./_BuilderUtil","dojo/i18n!esri/nls/jsapi"],function(l,b,c){c=c.geoenrichment.dijit.ReportPlayer.ChartTooltip;return{buildLineChartTooltip:function(a,e){var f=[];a.showTitle&&b.addTitle(e,a.label);a.richTextFieldInfo&&b.buildRichText(a,e);var g=l.create("div",{"class":"chartTooltip_row esriGERowHigh"},e);b.addColor(a,g);f.push(b.addLabel(b.buildSeriesLabel(a),g));a.isBenchmarked?b.addBenchmarkValue(a,
+g):b.addValue(a.valueLabel,g);g.style.display=a.showValue?"":"none";var k;a.isMultiFeature?k=b.buildStatLabels(a,e,c.weightInAreas,c.minValueInAreas,c.maxValueInAreas,c.avgValueInAreas):a.isBenchmarked||(k=b.buildStatLabels(a,e,c.weightInSeries,c.minValueInSeries,c.maxValueInSeries,c.avgValueInSeries,c.weightInStack));k&&(f=f.concat(k));a.showValue&&a.getGroup().forEach(function(d){if(a.id!==d.id){var h=l.create("div",{"class":"chartTooltip_row esriGERowHigh"},e);b.addColor(d,h);f.push(b.addLabel(b.buildSeriesLabel(d),
+h));d.isUnavailableData?b.addValue(c.unavailableData,h):d.isBenchmarked?b.addBenchmarkValue(d,h):b.addValue(d.valueLabel,h)}});b.formatTable(f)}}});

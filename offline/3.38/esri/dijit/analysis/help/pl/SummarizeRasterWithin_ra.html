@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="regularsize">
+        <h2>Podsumuj raster w ramach</h2><p/>
+        <h2><img src="../images/GUID-D61C156C-2B2C-488C-BF28-B6CB9277BF4B-web.png" alt="Narzędzie Podsumuj raster w ramach"></h2>
+        <hr/>
+    <p>To narzędzie tworzy podsumowanie wartości rastra w obrębie stref z innego zestawu danych.
+    </p>
+    <p>Poniżej przedstawiono przykładowe zastosowania tego narzędzia:
+        <ul>
+            <li>Mając warstwę zlewni i warstwę granic użytkowania terenu według typu użytkowania terenu, oblicz całkowity areał typ&oacute;w użytkowania terenu dla każdej zlewni.
+                
+
+            </li>
+            <li>Uwzględniając warstwę działek w powiecie i warstwę granic miast, podsumuj średnią wartość działek wystawionych na sprzedaż w granicach każdego miasta.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>Jeśli jest zaznaczona opcja  <b>Użyj bieżącego zasięgu mapy</b>, przeanalizowane zostaną tylko obiekty w&nbsp;warstwie wejściowej i&nbsp;warstwie sumowania widoczne w&nbsp;bieżącym zasięgu mapy. Jeśli powyższa opcja nie jest zaznaczona, analizowane będą wszystkie obiekty w&nbsp;warstwie wejściowej i&nbsp;warstwie sumowania, nawet jeśli znajdują się poza bieżącym zasięgiem mapy.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="sumWithinLayer">
+        <div><h2>Wybierz warstwę powierzchniową do zsumowania warstwy rastrowej w obrębie zdefiniowanych granic</h2></div>
+        <hr/>
+        <div>
+            <p>Dane wejściowe definiujące granice stref lub obszar&oacute;w, kt&oacute;re zostaną podsumowane.
+            </p>
+            <p>Dane wejściowe mogą zawierać całkowitoliczbowe dane rastrowe lub obiektowe. W przypadku rastr&oacute;w strefy są definiowane przez wszystkie lokalizacje w danych wejściowych, kt&oacute;re mają tą samą wartość kom&oacute;rki. W przypadku obiekt&oacute;w strefy te mogą się nakładać. Obszary nie muszą być ciągłe.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Wybierz pole do zdefiniowania granic</h2></div>
+        <hr/>
+        <div>
+            <p>Pole zawierające wartości definiujące poszczeg&oacute;lne strefy.
+            </p>
+            <p>Może to być pole całkowitoliczbowe lub znakowe zestawu danych strefy.
+            </p>
+        </div>
+    </div>
+    <div id="sumRasterLayer">
+        <div><h2>Wybierz warstwę rastrową do sumowania</h2></div>
+        <hr/>
+        <div>
+            <p>Raster zawierający wartości, na podstawie kt&oacute;rych są obliczane statystyki.
+            </p>
+            <p>Może być typu całkowitoliczbowego lub zmiennoprzecinkowego. Jednak jeśli jest on typu zmiennoprzecinkowego, opcje obliczania większości, mniejszości i zr&oacute;żnicowania strefy nie będą dostępne.
+            </p>
+        </div>
+    </div>
+    <div id="sumStatistic">
+        <div><h2>Wybierz statystykę do obliczenia</h2></div>
+        <hr/>
+        <div>
+            <p>Wskazuje typ statystyki do obliczenia.
+            </p>
+            <p> Można używać następujących wartości wejściowych: <b>Średnia</b>, <b>Większość</b>, <b>Maksimum</b>, <b>Mediana</b>, <b>Minimum</b>, <b>Mniejszość</b>, <b>Percentyl</b>, <b>Zakres</b>, <b>Odchylenie standardowe</b>, <b>Sum</b> lub <b>Zr&oacute;żnicowanie</b>. Wartością domyślną jest <b>Średnia</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Wartość percentylowa</h2></div>
+        <hr/>
+        <div>
+            <p>Percentyl do obliczenia. Wartość domyślna to 90. Oznacza ona 90. percentyl.
+            </p>
+            <p>Wartość należy do zakresu od 0 do 100. Wynik podania zerowego percentyla jest właściwie r&oacute;wnoważny statystyce Minimum, a setny percentyl odpowiada statystyce Maksimum. Wartość 50 da praktycznie taki sam wynik jak statystyka Mediana.
+            </p>
+            <p> Ten parametr jest obsługiwany tylko wtedy, gdy parametr <b>Wybierz statystykę do obliczenia</b> jest ustawiony na wartość <b>Percentyl</b>.
+            </p>
+        </div>
+    </div>
+    <div id="missingValues">
+        <div><h2>W obliczeniach ignoruj brakujące wartości</h2></div>
+        <hr/>
+        <div>
+            <p> Określa, czy w analizie są ignorowane brakujące wartości.
+            </p>
+            <ul>
+                <li>Zaznaczone &mdash; podczas przeprowadzania tej analizy zostaną dołączone kom&oacute;rki, kt&oacute;re mają wartość w wejściowym rastrze wartości w obrębie każdej strefy, aby określić wartość wynikową dla tej strefy. Kom&oacute;rki z wartościami NoData w rastrze wartości będą ignorowane podczas obliczeń statystyk. Jest to opcja domyślna.
+                </li>
+                <li>Niezaznaczone &mdash; wynikiem analizy będzie wartość NoData, jeśli dla kom&oacute;rek rastra wartości w ramach określonej strefy występują jakiekolwiek wartości NoData.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Przetwarzaj jako wielowymiarowe</h2></div>
+        <hr/>
+        <div>
+            <p>Decyduje o tym, jak będą przetwarzane wejściowe wielowymiarowe usługi obrazowe (jeśli są one wielowymiarowe).
+            </p>
+            <ul>
+                <li>Zaznaczone &ndash; statystyki zostaną obliczone z bieżącego przekroju zestawu danych wielowymiarowych. Jest to opcja domyślna.
+                    
+
+                </li>
+                <li>Niezaznaczone &ndash; statystyki zostaną obliczone dla wszystkich wymiar&oacute;w wejściowego zestawu danych wielowymiarowych.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Nazwa warstwy wynikowej</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona w obszarze  <b>Moje zasoby</b> i dodana do mapy. Nazwa domyślna jest tworzona w oparciu o nazwę narzędzia i&nbsp;nazwę warstwy wejściowej. Jeśli warstwa już istnieje, wyświetlony zostanie komunikat z monitem o podanie innej nazwy.
+            </p>
+            <p>Za pomocą listy rozwijanej  <b>Zapisz wynik w</b> można podać nazwę folderu w obszarze <b>Moje zasoby</b>, gdzie zostanie zapisany wynik. Jeśli masz uprawnienia do tworzenia zarówno kafelkowych, jak i dynamicznych warstw zobrazowań, możesz zdecydować, który typ warstwy ma być używany go generowania danych wynikowych, używając pola rozwijanego Zapisz wyniki jako. </p>
+        </div>
+    </div>
+</div>
+</html>

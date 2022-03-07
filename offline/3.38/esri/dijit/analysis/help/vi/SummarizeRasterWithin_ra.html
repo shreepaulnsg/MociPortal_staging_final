@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Tổng hợp Raster Trong phạm vi</h2><p/>
+        <h2><img src="../images/GUID-D61C156C-2B2C-488C-BF28-B6CB9277BF4B-web.png" alt="C&ocirc;ng cụ Tổng hợp Raster Trong phạm vi"></h2>
+        <hr/>
+    <p>C&ocirc;ng cụ n&agrave;y tổng kết c&aacute;c gi&aacute; trị của một raster trong c&aacute;c v&ugrave;ng của một bộ dữ liệu kh&aacute;c.
+    </p>
+    <p>Một số ứng dụng mẫu của c&ocirc;ng cụ n&agrave;y bao gồm:
+        <ul>
+            <li>Với một lớp c&aacute;c ranh giới lưu vực v&agrave; một lớp c&aacute;c ranh giới sử dụng đất theo loại h&igrave;nh sử dụng đất, h&atilde;y t&iacute;nh to&aacute;n tổng diện t&iacute;ch c&aacute;c loại đất sử dụng cho từng lưu vực.
+                
+
+            </li>
+            <li>Với một lớp thửa đất trong một quận v&agrave; một lớp ranh giới th&agrave;nh phố, h&atilde;y t&iacute;nh gi&aacute; trị trung b&igrave;nh c&aacute;c thửa đất trống trong từng ranh giới th&agrave;nh phố.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>Nếu chọn  <b>Sử dụng phạm vi bản đồ hiện tại</b>, th&igrave; chỉ c&aacute;c đối tượng nh&igrave;n thấy trong lớp đầu v&agrave;o v&agrave; lớp cần tổng kết trong phạm vi bản đồ hiện tại mới được ph&acirc;n t&iacute;ch. Nếu bỏ chọn, tất cả c&aacute;c tổng hợp trong cả lớp đầu v&agrave;o v&agrave; lớp cần tổng hợp sẽ được ph&acirc;n t&iacute;ch, ngay cả khi ch&uacute;ng ở ngo&agrave;i phạm vi bản đồ hiện tại.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="sumWithinLayer">
+        <div><h2>Chọn lớp khu vực để tổng hợp lớp raster trong ranh giới đã xác định</h2></div>
+        <hr/>
+        <div>
+            <p>Th&ocirc;ng tin đầu v&agrave;o x&aacute;c định ranh giới của v&ugrave;ng hoặc khu vực sẽ được tổng kết.
+            </p>
+            <p>Th&ocirc;ng tin đầu v&agrave;o c&oacute; thể l&agrave; dữ liệu đối tượng hoặc raster số nguy&ecirc;n. Đối với raster, c&aacute;c v&ugrave;ng được x&aacute;c định theo tất cả vị tr&iacute; trong đầu v&agrave;o c&oacute; c&ugrave;ng gi&aacute; trị &ocirc;. Đối với đối tượng, c&aacute;c v&ugrave;ng c&oacute; thể chồng ch&eacute;o nhau. C&aacute;c khu vực kh&ocirc;ng cần liền kề.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Chọn trường để xác định ranh giới</h2></div>
+        <hr/>
+        <div>
+            <p>Trường c&oacute; chứa c&aacute;c gi&aacute; trị x&aacute;c định từng v&ugrave;ng.
+            </p>
+            <p>Đ&oacute; c&oacute; thể l&agrave; một số nguy&ecirc;n hoặc trường chuỗi của bộ dữ liệu v&ugrave;ng.
+            </p>
+        </div>
+    </div>
+    <div id="sumRasterLayer">
+        <div><h2>Chọn lớp raster để tổng hợp</h2></div>
+        <hr/>
+        <div>
+            <p>Raster c&oacute; chứa c&aacute;c gi&aacute; trị để t&iacute;nh to&aacute;n thống k&ecirc;.
+            </p>
+            <p>Đ&acirc;y c&oacute; thể l&agrave; một số nguy&ecirc;n hoặc một điểm nổi. Tuy nhi&ecirc;n, khi thuộc kiểu điểm nổi, c&aacute;c t&ugrave;y chọn t&iacute;nh to&aacute;n đa số, thiểu số v&agrave; h&agrave;ng loạt sẽ kh&ocirc;ng khả dụng.
+            </p>
+        </div>
+    </div>
+    <div id="sumStatistic">
+        <div><h2>Chọn số liệu thống kê để tính toán</h2></div>
+        <hr/>
+        <div>
+            <p>Chỉ định kiểu số liệu cần t&iacute;nh to&aacute;n.
+            </p>
+            <p> Đầu v&agrave;o c&oacute; thể l&agrave; một trong c&aacute;c th&ocirc;ng tin sau đ&acirc;y: <b>Trung b&igrave;nh</b>, <b>Đa số</b>, <b>Tối đa</b>, <b>B&igrave;nh qu&acirc;n</b>, <b>Tối thiểu</b>, <b>Thiểu số</b>, <b>Ph&acirc;n Vị</b>, <b>Phạm vi</b>, <b>Độ lệch ti&ecirc;u chuẩn</b>, <b>Tổng số</b> hoặc <b>H&agrave;ng loạt</b>. Gi&aacute; trị mặc định l&agrave; <b>Trung b&igrave;nh</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Giá trị phân vị</h2></div>
+        <hr/>
+        <div>
+            <p>Tỷ lệ phần trăm cần t&iacute;nh. Mặc định l&agrave; 90, biểu thị cho ph&acirc;n vị thứ 90.
+            </p>
+            <p>Gi&aacute; trị c&oacute; thể nằm trong khoảng từ 0 đến 100. Về cơ bản, kết quả của việc chỉ định ph&acirc;n vị thứ 0 tương đương với số liệu tối thiểu v&agrave; ph&acirc;n vị thứ 100 tương đương với số tối đa. Gi&aacute; trị l&agrave; 50 về cơ bản sẽ tạo ra kết quả tương tự như số liệu trung b&igrave;nh.
+            </p>
+            <p> Th&ocirc;ng số n&agrave;y chỉ được hỗ trợ nếu tham số <b>Chọn số liệu thống k&ecirc; để t&iacute;nh to&aacute;n</b> được thiết lập th&agrave;nh <b>Ph&acirc;n vị</b>.
+            </p>
+        </div>
+    </div>
+    <div id="missingValues">
+        <div><h2>Bỏ qua các giá trị thiếu trong tính toán</h2></div>
+        <hr/>
+        <div>
+            <p> Chỉ định liệu c&aacute;c gi&aacute; trị bị thiếu c&oacute; bị bỏ qua trong ph&acirc;n t&iacute;ch kh&ocirc;ng.
+            </p>
+            <ul>
+                <li>Được chọn&mdash;Ph&acirc;n t&iacute;ch sẽ bao gồm c&aacute;c &ocirc; c&oacute; gi&aacute; trị trong raster gi&aacute; trị đầu v&agrave;o thuộc bất kỳ v&ugrave;ng cụ thể n&agrave;o để x&aacute;c định gi&aacute; trị đầu ra cho v&ugrave;ng đ&oacute;. C&aacute;c &ocirc; NoData trong raster gi&aacute; trị sẽ bị bỏ qua khi t&iacute;nh to&aacute;n số liệu. Đ&acirc;y l&agrave; mặc định.
+                </li>
+                <li>Kh&ocirc;ng được chọn&mdash;Ph&acirc;n t&iacute;ch sẽ cho kết quả NoData nếu c&oacute; bất kỳ gi&aacute; trị NoData n&agrave;o cho c&aacute;c &ocirc; của raster gi&aacute; trị thuộc một v&ugrave;ng cụ thể.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Xử lý dưới dạng Đa chiều</h2></div>
+        <hr/>
+        <div>
+            <p>Chỉ định c&aacute;ch xử l&yacute; dịch vụ h&igrave;nh ảnh đa chiều đầu v&agrave;o nếu ch&uacute;ng đa chiều.
+            </p>
+            <ul>
+                <li>Đ&atilde; chọn&mdash;Số liệu sẽ được t&iacute;nh to&aacute;n từ l&aacute;t hiện tại của bộ dữ liệu đa chiều đầu v&agrave;o. Đ&acirc;y l&agrave; mặc định.
+                    
+
+                </li>
+                <li>Kh&ocirc;ng được chọn&mdash;Số liệu sẽ được t&iacute;nh to&aacute;n cho tất cả c&aacute;c chiều của bộ dữ liệu đa chiều đầu v&agrave;o.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Tên lớp kết quả</h2></div>
+        <hr/>
+        <div>
+            
+            <p>T&ecirc;n lớp sẽ được tạo trong  <b>Nội dung của t&ocirc;i</b> v&agrave; được th&ecirc;m v&agrave;o bản đồ. T&ecirc;n mặc định dựa v&agrave;o t&ecirc;n c&ocirc;ng cụ v&agrave; t&ecirc;n lớp đầu v&agrave;o. Nếu lớp đ&atilde; tồn tại, bạn sẽ được y&ecirc;u cầu cung cấp t&ecirc;n kh&aacute;c.
+            </p>
+            <p>Bạn c&oacute; thể chỉ định t&ecirc;n của một thư mục trong  <b>Nội dung của t&ocirc;i</b> m&agrave; tại đ&oacute; kết quả sẽ được lưu bằng c&aacute;ch sử dụng hộp xổ xuống <b>Lưu kết quả v&agrave;o</b>. Nếu bạn có quyền tạo cả lớp hình ảnh động và hình ảnh dạng tile, bạn có thể chỉ định loại lớp hình ảnh đầu ra bằng cách sử dụng thanh thả xuống Lưu kết quả thành. </p>
+        </div>
+    </div>
+</div>
+</html>

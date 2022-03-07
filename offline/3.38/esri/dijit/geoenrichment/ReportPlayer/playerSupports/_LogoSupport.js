@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/playerSupports/_LogoSupport",["dojo/_base/declare","esri/dijit/geoenrichment/when","../core/annotations/supportClasses/DynamicBehaviors","../core/supportClasses/images/DefaultLogoLoader"],function(g,d,h,k){return g(null,{_getReportLogo:function(e,a,f){function l(){return d(b._reportData.attachmentsStore&&b._reportData.attachmentsStore.getImages(),function(c){return d(c&&c[0]&&c[0].getThumbnail(),function(m){return m||b._getDefaultLogo(a,f)})})}var b=this;
+switch(e){case h.ATTACHMENTS:return l();default:return this._getDefaultLogo(a,f)}},_getDefaultLogo:function(e,a){return this._reportData.customLogo||a||k.getDefaultLogo(this._viewModel.getDocumentDefaultStyles())}})});

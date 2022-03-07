@@ -1,0 +1,554 @@
+
+{
+  "theme": {
+    "name": "FoldableTheme",
+    "styles": [
+      "default",
+      "black",
+      "blue",
+      "cyan",
+      "green",
+      "purple",
+      "red",
+      "yellow"
+    ],
+    "version": "2.20",
+    "sharedTheme": {
+      "isPortalSupport": false,
+      "useHeader": false,
+      "useLogo": false
+    }
+  },
+  "portalUrl": "http://shreepauln.maps.arcgis.com",
+  "appId": "",
+  "authorizedCrossOriginDomains": [],
+  "title": "Industrial Estate Map Viewer - Department Users",
+  "subtitle": "",
+  "keepAppState": true,
+  "logo": "images/app-logo.png", 
+  "geometryService": "https://utility.arcgisonline.com/arcgis/rest/services/Geometry/GeometryServer",
+  "links": [],
+  "widgetOnScreen": {
+    "widgets": [
+      {
+        "uri": "themes/FoldableTheme/widgets/HeaderController/Widget",
+        "position": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "height": 50,
+          "relativeTo": "browser"
+        },
+        "version": "2.20",
+        "id": "themes_FoldableTheme_widgets_HeaderController_Widget_1",
+        "name": "HeaderController"
+      },
+      
+      {
+        "uri": "widgets/ZoomSlider/Widget",
+        "position": {
+          "top": 17,
+          "right": 7,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_ZoomSlider_Widget_15",
+        "name": "ZoomSlider"
+      },
+      {
+        "uri": "widgets/HomeButton/Widget",
+        "position": {
+          "right": 7,
+          "top": 80,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_HomeButton_Widget_11",
+        "name": "HomeButton"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 113,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_0",
+        "name": "AddData",
+        "version": "2.20",
+        "closeable": true,
+        "uri": "widgets/AddData/Widget",
+        "config": "configs/AddData/config__0.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 146,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_5",
+        "name": "Bookmark",
+        "version": "2.20",
+        "closeable": true,
+        "uri": "widgets/Bookmark/Widget",
+        "config": "configs/Bookmark/config__5.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 179,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_6",
+        "name": "Measurement",
+        "version": "2.20",
+        "closeable": true,
+        "uri": "widgets/Measurement/Widget",
+        "config": "configs/Measurement/config__6.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 212,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_7",
+        "name": "BasemapGallery",
+        "label": "Basemap Gallery",
+        "version": "2.20",
+        "closeable": true,
+        "uri": "widgets/BasemapGallery/Widget",
+        "config": "configs/BasemapGallery/config__7.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 245,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_8",
+        "name": "Select",
+        "version": "2.20",
+        "closeable": true,
+        "uri": "widgets/Select/Widget",
+        "config": "configs/Select/config__8.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 278,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_9",
+        "name": "Edit",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/Edit/Widget",
+        "config": "configs/Edit/config__9.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 311,
+          "height": 750,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_10",
+        "name": "SearchAll",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/SearchAll/Widget",
+        "config": "configs/SearchAll/config__10.json"
+      },
+      {
+        "position": { 
+          "right": 7,
+          "top": 344,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_11",
+        "name": "PlotFactoryInfo",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/PlotFactoryInfo/Widget",
+        "config": "configs/PlotFactoryInfo/config__11.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 377,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_12",
+        "name": "ViewAttachedPhotosVideos",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/ViewAttachedPhotosVideos/Widget",
+        "config": "configs/ViewAttachedPhotosVideos/config__12.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 410,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_13",
+        "name": "PlotAllocation",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/PlotAllocation/Widget",
+        "config": "configs/PlotAllocation/config__13.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 443,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_14",
+        "name": "ConstructionStatus",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/ConstructionStatus/Widget",
+        "config": "configs/ConstructionStatus/config__14.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 476,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_15",
+        "name": "DelayedPayments",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/DelayedPayments/Widget",
+        "config": "configs/DelayedPayments/config__15.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 509,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_16",
+        "name": "FactoryReport",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/FactoryReport/Widget",
+        "config": "configs/FactoryReport/config__16.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 550,
+          "height": 270,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_17",
+        "name": "GoToCoordinates",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/GoToCoordinates/Widget"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 278,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_18",
+        "name": "UpdateAttributes",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/UpdateAttributes/Widget"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 590,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_19",
+        "name": "ZoomIn",
+        "version": "2.20",
+        "closeable": false,
+        "IsController": false,
+        "uri": "widgets/ZoomIn/Widget"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 630,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_20",
+        "name": "ZoomOut",
+        "version": "2.20",
+        "closeable": false,
+        "IsController": false,
+        "uri": "widgets/ZoomOut/Widget"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 670,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_21",
+        "name": "Pan",
+        "version": "2.20",
+        "closeable": false,
+        "IsController": false,
+        "uri": "widgets/Pan/Widget"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 710,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_30",
+        "name": "Identify",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/Identify/Widget"
+      },
+
+{
+  "a":" ABOVE ARE SIDE WIDGERTS"
+},
+
+
+
+
+
+
+
+      {
+        "uri": "widgets/Scalebar/Widget",
+        "position": {
+          "left": 220,
+          "bottom": 4,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_Scalebar_Widget_2",
+        "name": "Scalebar"
+      },
+      
+      {
+        "uri": "widgets/Coordinate/Widget",
+        "position": {
+          "left": 7,
+          "bottom": 5,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_Coordinate_Widget_4",
+        "name": "Coordinate"
+      },      
+      {
+        "position": {
+          "right": 7,
+          "top": 30,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_9",
+        "name": "Test",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/Test/Widget",
+        "config": "configs/Test/config__9.json"
+      }, 
+      {
+        "uri": "widgets/OverviewMap/Widget",
+        "position": {
+          "bottom": 0,
+          "right": 0,
+          "zIndex": 1,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_OverviewMap_Widget_10",
+        "name": "OverviewMap"
+      }, 
+      {
+        "uri": "widgets/AttributeTable/Widget",
+        "position": {
+          "relativeTo": "browser"
+        },
+        "version": "2.20",
+        "id": "widgets_AttributeTable_Widget_13",
+        "name": "AttributeTable"
+      },
+      {
+        "uri": "widgets/Splash/Widget",
+        "visible": false,
+        "position": {
+          "relativeTo": "browser"
+        },
+        "version": "2.20",
+        "id": "widgets_Splash_Widget_14",
+        "name": "Splash"
+      },      
+      {
+        "uri": "widgets/ExtentNavigate/Widget",
+        "visible": false,
+        "position": {
+          "top": 190,
+          "right": 7,
+          "relativeTo": "map"
+        },
+        "id": "widgets_ExtentNavigate_Widget_16",
+        "name": "ExtentNavigate",
+        "version": "2.20"
+      },
+      {
+        "uri": "widgets/FullScreen/Widget",
+        "visible": false,
+        "position": {
+          "top": 150,
+          "right": 7,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_FullScreen_Widget_17",
+        "name": "FullScreen"
+      }
+    ],
+    "panel": {
+      "uri": "jimu/OnScreenWidgetPanel",
+      "position": {
+        "relativeTo": "map"
+      }
+    }
+  },
+  "map": {
+    "3D": false,
+    "2D": true,
+    "position": {
+      "left": 0,
+      "top": 40,
+      "right": 0,
+      "bottom": 0
+    },
+    "itemId": "6e03e8c26aad4b9c92a87c1063ddb0e3",
+    "mapOptions": {
+      "extent": {
+        "xmin": -18000000,
+        "ymin": -12000000,
+        "xmax": 18000000,
+        "ymax": 16000000,
+        "spatialReference": {
+          "wkid": 102100
+        }
+      }
+    },
+    "id": "map",
+    "portalUrl": "https://shreepauln.maps.arcgis.com/"
+  },
+  "widgetPool": {
+    "panel": {
+      "uri": "themes/FoldableTheme/panels/FoldablePanel/Panel",
+      "position": {
+        "top": 5,
+        "right": 5,
+        "bottom": 5,
+        "zIndex": 5,
+        "relativeTo": "map"
+      }
+    },
+    "widgets": [
+      {
+        "uri": "widgets/Legend/Widget",
+        "version": "2.20",
+        "id": "widgets_Legend_Widget_18",
+        "name": "Legend",
+        "index": 0
+      },
+      {
+        "uri": "widgets/LayerList/Widget",
+        "version": "2.20",
+        "id": "widgets_LayerList_Widget_19",
+        "name": "LayerList",
+        "index": 1
+      }
+    ],
+    "groups": []
+  },
+  "mobileLayout": {
+    "widgetOnScreen": {
+      "widgets": {
+        "widgets/Scalebar/Widget": {
+          "position": {
+            "right": 7,
+            "bottom": 40
+          },
+          "version": "1.4"
+        },
+        "widgets/Coordinate/Widget": {
+          "position": {
+            "right": 7,
+            "bottom": 17
+          },
+          "version": "1.4"
+        }
+      }
+    }
+  },
+  "loadingPage": {
+    "backgroundColor": "#508dca",
+    "backgroundImage": {
+      "visible": false
+    },
+    "loadingGif": {
+      "visible": true,
+      "uri": "configs/loading/images/predefined_loading_1.gif",
+      "width": 58,
+      "height": 29
+    }
+  },
+  "wabVersion": "2.20",
+  "isTemplateApp": true,
+  "isWebTier": false,
+  "httpProxy": {
+    "useProxy": true,
+    "url": "https://nsgdev225.nsgindia.co.in:3344/proxy.js"
+  },
+  "dataSource": {
+    "dataSources": {},
+    "settings": {}
+  }
+}

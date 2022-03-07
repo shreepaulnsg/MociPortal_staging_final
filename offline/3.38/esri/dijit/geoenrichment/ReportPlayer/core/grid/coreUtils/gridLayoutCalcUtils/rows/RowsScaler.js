@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/grid/coreUtils/gridLayoutCalcUtils/rows/RowsScaler",["./RowDataUtil"],function(b){return{recalcRowsToFitHeight:function(a,g){function c(h){h.forEach(function(d){a.columns.some(function(e,k){if(!a.looseResize&&k)return!0;b.setDataHeight(a,d,e.field,b.getDataHeight(a,d,e.field)*f)})})}var l=b.recalcGridHeight(a),f=g/l;1!==f&&(c(a.rows),a._getSavedOriginalData()&&c(a._getSavedOriginalData()),b.recalcGridHeight(a))}}});

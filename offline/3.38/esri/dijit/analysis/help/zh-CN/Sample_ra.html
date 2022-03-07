@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>示例</h2><p/>
+        <h2><img src="../images/GUID-3950CCA3-C1D0-493F-A33D-93673443ADD2-web.png" alt="示例"></h2>
+        <hr/>
+    <p>此工具用于创建一个表或点要素类，其中显示从一个栅格或一组栅格提取的已定义位置的像元值。 这些位置可通过栅格像元或一组点进行定义。
+    </p>
+    <p>该工具的一些应用示例如下：
+        <ul>
+            <li> 从多个栅格中提取蜂窝基站位置的属性，例如土地使用、土壤类型、高程和与道路的距离。
+            </li>
+            <li>对于给定的点集，提取不同深度的土壤温度。
+            </li>
+            <li>根据 30 年的每月海平面温度数据，在观测到动物物种时的给定时间内，在动物位置或房屋范围内进行汇总。
+            </li>
+        </ul>
+        
+    </p>
+    <p>如果选中 <b>使用当前地图范围</b>，则仅对当前地图范围中可见的图层变量或波段进行分析。 如果未选中，则将分析完整图层中的变量或波段，包括超出当前地图范围的变量或波段。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div><h2>选择要采样的影像图层</h2></div>
+        <hr/>
+        <div>
+            <p>单个影像或影像列表，其值将根据输入位置数据进行采样。 
+            </p>
+            <p>要对多维影像图层中的所有剖切进行采样，则该图层必须是唯一的输入栅格。
+            </p>
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div><h2>选择位置图层</h2></div>
+        <hr/>
+        <div>
+            <p>用于确定您希望采样的位置的数据。
+            </p>
+            <p>输入位置数据可以是栅格、点、折线或面要素类。
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div><h2>指定唯一 ID 字段</h2></div>
+        <hr/>
+        <div>
+            <p>包含输入位置栅格或要素类中每个位置或要素不同值的字段。
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div><h2>指定位置数据的获取信息（可选）</h2></div>
+        <hr/>
+        <div>
+            <p>指定与位置像元或要素关联的时间、深度或其他采集数据。
+            </p>
+            <p>对于每个维度，都有三个选项用于指定与位置像元或要素关联的采集信息：
+            </p>
+            <ul>
+                <li> <b>单个字段或值</b> - 选择此选项时，必须指定以下信息：
+                    <ul>
+                        <li> <b>维度字段或值</b> - 从位置数据中选择维度值字段，或输入特定的维度值。
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+                <li> <b>具有相对值的单个字段或值</b> - 如果选择此选项，则必须一并指定以下信息，以定义将计算变量统计数据的范围：
+                    <ul>
+                        <li> <b>维度字段或值</b> - 从位置数据中选择维度值字段。
+                        </li>
+                        <li> <b>相对值之前</b> - 指定用于从 <b>维度字段或值</b>中减去的非负数，以定义维度值范围的起点。 如果维度为时间，则此值表示天数。
+                        </li>
+                        <li> <b>相对值之后</b> - 指定用于添加到 <b>维度字段或值</b>的非负数，以定义维度值范围的终点。 如果维度为时间，则此值表示天数。
+                        </li>
+                    </ul>
+                    
+                </li>
+                <li> <b>起始和结束字段或值</b> - 如果选择此选项，则必须一并指定以下信息，以定义将计算变量统计数据的范围：
+                    <ul>
+                        <li> <b>起始字段或值</b> - 从位置数据中选择维度值字段，或输入特定的维度值，以定义维度值范围的起点。
+                        </li>
+                        <li> <b>结束字段或值</b> - 从位置数据中选择维度值字段，或输入特定的维度值，以定义维度值范围的终点。
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+            </ul>
+            
+            <p>仅当 <b>选择要采样的影像图层</b>参数是多维栅格时，此参数才可用。
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div><h2>指定缓冲距离字段或值</h2></div>
+        <hr/>
+        <div>
+            <p>位置数据要素周围的指定距离。 缓冲距离以位置要素空间参考的线性单位指定。 如果要素使用地理参考，则单位将为度。
+            </p>
+            <p>将在此缓冲区区域内计算统计数据。
+            </p>
+            <p>仅当 <b>选择要采样的影像图层</b>是多维栅格时，此参数才可用。
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div><h2>选择统计类型</h2></div>
+        <hr/>
+        <div>
+            <p>要计算的统计类型。
+            </p>
+            <ul>
+                <li> <b>最小值</b> - 查找指定范围内的最小值。
+                </li>
+                <li> <b>最大值</b> - 查找指定范围内的最大值。
+                </li>
+                <li> <b>中值</b> - 查找指定范围内的中值。
+                </li>
+                <li> <b>平均值</b> - 计算指定范围的平均值。
+                </li>
+                <li> <b>总和</b> - 计算指定范围内变量的总和。
+                </li>
+                <li> <b>众数</b> - 查找出现最频繁的值。
+                </li>
+                <li> <b>少数</b> - 查找出现最不频繁的值。
+                </li>
+                <li> <b>标准差</b> - 计算标准差。
+                </li>
+                <li> <b>百分比数</b> - 计算指定范围内定义的百分比。
+                </li>
+            </ul>
+            
+            <p>仅当 <b>选择要采样的影像图层</b>参数是多维栅格时，此参数才可用。并且 <b>选择位置图层</b>参数是折线或面 或者指定了 <b>指定缓冲距离字段或值（可选）</b>。
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>百分比值</h2></div>
+        <hr/>
+        <div>
+            <p>该值范围可以介于 0 到 100 之间。 默认值为 90。
+            </p>
+            <p>仅在将 <b>选择统计数据类型</b>设置为 <b>百分比数</b>时，此参数才可用。
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div><h2>指定重采样技术</h2></div>
+        <hr/>
+        <div>
+            <p>对栅格进行采样时使用的重采样算法。
+            </p>
+            <ul>
+                <li> <b>最邻近</b> - 最邻近法，在重采样时使用最邻近像元的值将为输出像元分配值。 这是默认设置。
+                </li>
+                <li> <b>双线性</b> - 双线性插值法，基于四个最邻近输入像元中心的加权平均距离确定像元的新值。
+                </li>
+                <li> <b>三次</b> - 三次卷积插值法，通过拟合穿过 16 个最邻近输入像元中心的平滑曲线来确定像元的新值。
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="layout">
+        <div><h2>指定输出布局</h2></div>
+        <hr/>
+        <div>
+            <p>指定采样值在输出表中以行还是以列显示。
+            </p>
+            <ul>
+                <li> <b>以行显示的采样值</b> - 采样值将显示在输出表的单独行中。 这是默认设置。
+                </li>
+                <li> <b>以列显示的采样值</b> - 采样值将显示在输出表的单独列中。
+                </li>
+            </ul>
+            
+            <p>仅当 <b>选择要采样的影像图层</b>是多维栅格并包含一个变量和一个维度并且每个剖切为单波段栅格时，此参数才适用。
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div><h2>指定输出类型</h2></div>
+        <hr/>
+        <div>
+            <p>指定是生成在其表中具有采样值的点要素类，还是仅生成具有采样值的表。
+            </p>
+            <ul>
+                <li> <b>表</b> - 生成具有采样值的表。 这是默认设置。
+                </li>
+                <li> <b>要素</b> - 生成在其表中具有采样值的点要素类。 如果 <b>选择位置图层</b>参数是折线或面，则输出中的每个点都将是每个输入位置要素几何的质心。 
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputName">
+        <div><h2>结果图层名称</h2></div>
+        <hr/>
+        <div>
+            
+            <p>将在 <b>我的内容</b>中创建并添加到地图中的图层的名称。 默认名称基于工具名称以及输入图层名称。 如果该名称的图层已存在，则系统将提示您提供其他名称。
+            </p>
+            <p>您可以使用 <b>将结果保存在</b>下拉框指定 <b>我的内容</b>中的文件夹名称，结果将保存到该文件夹中。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

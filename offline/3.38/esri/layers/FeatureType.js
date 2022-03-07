@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/FeatureType","dojo/_base/declare dojo/_base/lang dojo/_base/array dojo/has ../kernel ../lang ../symbols/jsonUtils ./FeatureTemplate ./support/domainUtils".split(" "),function(e,f,k,l,m,n,p,q,r){e=e(null,{declaredClass:"esri.layers.FeatureType",constructor:function(b){if(b&&f.isObject(b)){this.id=b.id;this.name=b.name;var a=b.symbol;a&&(this.symbol=p.fromJson(a));a=b.domains;var d=this.domains={};for(c in a)a.hasOwnProperty(c)&&(d[c]=r.fromJson(a[c]));if(b=b.templates){var c=this.templates=
+[];for(a=0;a<b.length;a++)c.push(new q(b[a]))}}},toJson:function(){var b={id:this.id,name:this.name,symbol:this.symbol&&this.symbol.toJson()},a,d=this.domains,c=this.templates,g=n.fixJson;if(d){var h=b.domains={};for(a in d)d.hasOwnProperty(a)&&(h[a]=d[a]&&d[a].toJson());g(h)}c&&(b.templates=k.map(c,function(t){return t.toJson()}));return g(b)}});l("extend-esri")&&f.setObject("layers.FeatureType",e,m);return e});

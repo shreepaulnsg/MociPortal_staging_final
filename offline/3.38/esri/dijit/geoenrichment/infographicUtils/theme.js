@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/infographicUtils/theme","require dojo/_base/declare dojo/_base/lang dojo/Evented dojo/dom-class esri/dijit/geoenrichment/Deferred esri/extend".split(" "),function(g,e,m,n,h,p,q){function k(c,a){for(var b in a)if(a.hasOwnProperty(b))try{c[b]=a[b].constructor==Object?k(c[b],a[b]):a[b]}catch(f){c[b]=a[b]}return c}var d="common";e=new (e([n],{set:function(c,a){this.change(c,d,a);d=a;this.emit("change")},get:function(){return d},load:function(c){function a(){l&&l.remove();
+b.resolve(f)}var b=new p,f=null,l=g.on("error",a);g(["../themes/common/"+c],function(r){f=m.clone(r);d&&"common"!=d?g(["../themes/"+d+"/"+c],function(t){k(f,t);a()}):a()});return b.promise},change:function(c,a,b){a&&"common"!=a&&h.remove(c,a);b&&"common"!=b&&h.add(c,b)}}));q("esri.dijit.geoenrichment.theme",e);return e});

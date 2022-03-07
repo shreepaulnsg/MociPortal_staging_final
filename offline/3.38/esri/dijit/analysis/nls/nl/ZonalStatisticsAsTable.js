@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/nl/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Kies zoneraster of -kenmerken",outputTableName:"Naam resultatentabel",zoneField:"Zoneveld",inputValueRaster:"Kies waarderaster",ignoreNodata:"NoData negeren in berekeningen (optioneel)",ignore:"Negeren",statisticType:"Statistiektype (optioneel)",percentileValues:"Percentielwaarden (optioneel)",percentileInterpolationType:"Percentielinterpolatietype (optioneel)",processAsMultidimensional:"Verwerken als een multidimensionaal (optioneel)",
+allSlices:"Alle stukjes",outputZonalStatsName:"Gebiedsstatistieken voor ${valuelayername} in ${layername}",itemDescription:"Analyse objecttabel die is gegenereerd vanuit Gebiedsstatistieken als tabel",itemTags:"Rasteranalyseresultaat, Gebiedsstatistieken als tabel, ${layername}, ${valuelayername}",autoDetect:"Auto-detect",nearest:"Dichtstbijzijnde",linear:"Lineair"});

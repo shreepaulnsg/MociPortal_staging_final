@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/types/arcgis/form/MedDenUnitsElement","dojo/_base/declare dojo/_base/lang dojo/_base/array dojo/query dijit/registry dojo/has ../../../../../kernel ../../../form/OpenElement dojo/i18n!../../../nls/i18nBase".split(" "),function(b,e,g,h,k,l,m,n,f){b=b([n],{postCreate:function(){this.inherited(arguments)},beforeValidateValue:function(c,a,d){null!==d&&0!==e.trim(d).length||!this._hasDensityValue()||(c=f.validation.pattern,d=f.validation.empty,a.isValid=!1,a.message=c.replace("{label}",
+a.label).replace("{message}",d))},_hasDensityValue:function(){var c=h("[data-gxe-path\x3d'"+(this.parentElement.gxePath+"/medDensity']"),this.domNode.parentNode);return g.some(c,function(a){if((a=k.byNode(a))&&a.inputWidget)return a=a.inputWidget.getInputValue(),!(null===a||0===e.trim(a).length)})}});l("extend-esri")&&e.setObject("dijit.metadata.types.arcgis.form.MedDenUnitsElement",b,m);return b});

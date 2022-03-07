@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sr/TraceProximityEvents",{inputLayer:"Odaberite sloj iz koga c\u0301ete nac\u0301i bliske doga\u0111aje",entityField:"Izaberite polje za identifikaciju doga\u0111aja",entityLayer:"Izaberite sloj da biste naveli entitete interesovanja",defineDistanceLabel:"Defini\u0161ite udaljenost prostornog pretra\u017eivanja",distMethodLabel:"Izaberite metod za izra\u010dunavanje rastojanja",temporalSearchLabel:"Defini\u0161ite vremenski raspon pretrage",optionsLabel:"Napredne opcije",
+maxTraceDepth:"Maksimalna dubina staze",attributeMatchLabel:"Izaberite jedan ili vi\u0161e atributa entiteta za uklapanje",includeTracksLayer:"Uklju\u010duje sloj putanja",itemDescription:"Sloj geoobjekata nastao usled pokretanja re\u0161enja Pra\u0107enje doga\u0111aja za blizinu za ${inputLayername}.",itemTags:"Rezultat analize, doga\u0111aji za pra\u0107enje blizine, ${inputLayername}",itemSnippet:"Sloj geoobjekata nastao iz zadatka Pra\u0107enje doga\u0111aja za blizinu.",outputLayerName:"Pra\u0107enje bliskosti doga\u0111aja za ${inputLayername}",
+noEntityFieldMsg:"Sloj doga\u0111aja za bliskost i entiteti za sloj interesovanja nemaju zajedni\u010dka polja."});

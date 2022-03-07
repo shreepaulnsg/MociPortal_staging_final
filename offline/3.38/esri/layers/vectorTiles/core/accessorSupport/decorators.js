@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/accessorSupport/decorators","require exports ./decorators/aliasOf ./decorators/autoDestroy ./decorators/cast ./decorators/declared ./decorators/property ./decorators/reader ./decorators/shared ./decorators/subclass ./decorators/writer".split(" "),function(q,b,e,f,g,h,k,l,m,n,p){function a(d){for(var c in d)b.hasOwnProperty(c)||(b[c]=d[c])}Object.defineProperty(b,"__esModule",{value:!0});a(e);a(f);a(g);a(h);a(k);a(l);a(m);a(n);a(p)});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/arcade/featureset/support/cache",["require","exports"],function(d,e){return function(){function b(){this._databaseTypeMetaData={};this._layerInfo={}}b.prototype.clearDatabaseType=function(a){void 0===this._databaseTypeMetaData[a]&&delete this._databaseTypeMetaData[a]};b.prototype.getDatabaseType=function(a){return"MUSTBESET"===a||void 0===this._databaseTypeMetaData[a]?null:this._databaseTypeMetaData[a]};b.prototype.setDatabaseType=function(a,c){this._databaseTypeMetaData[a]=c};b.prototype.getLayerInfo=
+function(a){return void 0===this._layerInfo[a]?null:this._layerInfo[a]};b.prototype.setLayerInfo=function(a,c){this._layerInfo[a]=c};b.prototype.clearLayerInfo=function(a){void 0!==this._layerInfo[a]&&delete this._layerInfo[a]};b.applicationCache=null;return b}()});

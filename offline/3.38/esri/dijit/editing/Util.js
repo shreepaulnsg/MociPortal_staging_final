@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/editing/Util",["dojo/_base/lang","dojo/_base/array","dojo/has","../../kernel"],function(m,e,n,p){var l={};l={findFeatures:function(f,a,b){var c=a.objectIdField;a=e.filter(a.graphics,function(g){return e.some(f,function(d){return g.attributes[c]===d.objectId})});if(b)b(a);else return a},getSelection:function(f){var a=[];e.forEach(f,function(b){b=b.getSelectedFeatures();e.forEach(b,function(c){a.push(c)})});return a},sortFeaturesById:function(f,a){var b=e.map(f,function(c){return c.featureLayer});
+a.sort(function(c,g){var d=c.getLayer(),h=g.getLayer();if(!d)return-1;if(!h)return 1;var k=e.indexOf(b,d);h=e.indexOf(b,h);k-=h;k||(d=d.objectIdField,k=c.attributes[d]-g.attributes[d]);return k});return a}};n("extend-esri")&&m.setObject("dijit.editing.Util.LayerHelper",l,p);return l});

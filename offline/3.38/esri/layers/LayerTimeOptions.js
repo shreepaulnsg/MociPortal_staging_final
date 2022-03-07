@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/LayerTimeOptions",["dojo/_base/declare","dojo/_base/lang","dojo/has","../kernel","../lang"],function(a,b,d,e,f){a=a(null,{declaredClass:"esri.layers.LayerTimeOptions",constructor:function(c){c&&b.mixin(this,c)},toJson:function(){return f.fixJson({timeDataCumulative:this.timeDataCumulative,timeOffset:this.timeOffset,timeOffsetUnits:this.timeOffsetUnits,useTime:this.useTime})}});d("extend-esri")&&b.setObject("layers.LayerTimeOptions",a,e);return a});

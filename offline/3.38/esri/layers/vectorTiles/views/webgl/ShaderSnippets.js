@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/webgl/ShaderSnippets",["require","exports","dojox/xml/parser"],function(t,u,p){return function(){function h(a){if(a)for(var b in a)this[b]=a[b]}h.parse=function(a,b){a=p.parse(a).getElementsByTagName("snippet");for(var c=/\$[a-zA-Z][a-zA-Z0-9]*(?:\([^\(\)]*\))?[ \t]*/,k=/[\$\s]+/g,m=/\(([^\(\)]*)\)/,d=0;d<a.length;d++){for(var q=a[d].getAttribute("name"),e=a[d].textContent;;){var l=e.match(c);if(null==l)break;var f=l[0].replace(k,""),n=f.match(m),g=void 0;n&&
+(g=n[1].split(",").map(function(r){return r.trim()}));f=f.replace(m,"");g=b._instantiate(f,g);e=e.replace(l[0],g)}b[q]=e}};h.prototype._instantiate=function(a,b){a=this[a];for(b||(b=[]);;){var c=a.match(/\$(\d+)/);if(null==c)break;var k=parseInt(c[1],10);a=a.replace(c[0],b[k])}return a};return h}()});

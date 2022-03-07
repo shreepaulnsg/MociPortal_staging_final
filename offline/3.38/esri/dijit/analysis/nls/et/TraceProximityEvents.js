@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/et/TraceProximityEvents",{inputLayer:"Valige kiht, millelt soovite l\u00e4his\u00fcndmusi leida",entityField:"Valige v\u00e4li, mida soovite s\u00fcndmuste tuvastamiseks kasutada",entityLayer:"Valige huvipakkuvate \u00fcksuste m\u00e4\u00e4ramiseks kiht",defineDistanceLabel:"Ruumilise otsitava vahemaa m\u00e4\u00e4ratlemine",distMethodLabel:"Valige vahemaa arvutamise meetod",temporalSearchLabel:"Ajalise otsitava vahemaa m\u00e4\u00e4ratlemine",optionsLabel:"T\u00e4iendavad v\u00f5imalused",
+maxTraceDepth:"J\u00e4lgimise maksimaalne s\u00fcgavus",attributeMatchLabel:"Valige vastendamiseks \u00fcks v\u00f5i mitu olemiatribuuti",includeTracksLayer:"Kaasa rajakiht",itemDescription:"Objektikiht loodi l\u00e4his\u00fcndmuste j\u00e4lgimise lahenduse k\u00e4itamise kaudu, ${inputLayername}.",itemTags:"Anal\u00fc\u00fcsitulemused, l\u00e4his\u00fcndmuste j\u00e4lgimine, ${inputLayername}",itemSnippet:"Objektikiht loodi l\u00e4his\u00fcndmuste j\u00e4lgimise kaudu",outputLayerName:"L\u00e4his\u00fcndmuste j\u00e4lgimine, ${inputLayername}",
+noEntityFieldMsg:"L\u00e4his\u00fcndmuste kihil ja huvipakkuvate \u00fcksuste kihil pole \u00fchiseid v\u00e4lju."});

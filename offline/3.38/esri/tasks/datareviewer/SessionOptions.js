@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/datareviewer/SessionOptions",["dojo/_base/declare","dojo/json","dojo/has","dojo/_base/lang","../../kernel"],function(a,c,d,e,f){a=a(null,{declaredClass:"esri.tasks.datareviewer.SessionOptions",userName:null,versionName:null,duplicateFilter:null,storeGeometry:!1,constructor:function(g,b,h,k){this.userName=g;void 0!==b&&(this.versionName=b);this.duplicateFilter=h;this.storeGeometry=k},toJsonSessionOptions:function(){return c.stringify({userName:this.userName,versionName:this.versionName,
+duplicateFilter:this.duplicateFilter,storeGeometry:this.storeGeometry})}});d("extend-esri")&&e.setObject("tasks.datareviewer.SessionOptions",a,f);return a});

@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/types/fgdc/base/DocumentType","dojo/_base/declare dojo/_base/lang dojo/has ../../../base/DocumentType ./Root ./PortalItemTransformer dojo/i18n!../../../nls/i18nFgdc ../../../../../kernel".split(" "),function(c,e,f,g,h,k,d,l){c=c(g,{caption:d.documentTypes.fgdc.caption,description:d.documentTypes.fgdc.description,key:"fgdc",metadataStandardName:"FGDC Content Standard for Digital Geospatial Metadata",metadataStandardVersion:"FGDC-STD-001-1998",beforeInitializeElement:function(m,
+a){var b=a.gxePath;"/metadata/idinfo/ptcontac/cntinfo"===b?a.label=d.idinfo.ptcontac:"/metadata/dataqual/lineage/srcinfo/srccite/citeinfo"===b?a.label=d.dataqual.srcinfo.srccite:"/metadata/dataqual/lineage/procstep/proccont/cntinfo"===b?a.minOccurs=1:"/metadata/distinfo/distrib/cntinfo"===b?a.minOccurs=1:"/metadata/metainfo/metc/cntinfo"===b?a.minOccurs=1:this.inherited(arguments)},newPortalItemTransformer:function(m){return new k},newRootDescriptor:function(){return new h}});f("extend-esri")&&e.setObject("dijit.metadata.types.fgdc.base.DocumentType",
+c,l);return c});

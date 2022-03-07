@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/MapPool",["require","exports","./ObjectPool"],function(c,h,f){c=function(){function b(a,d){void 0===a&&(a=50);void 0===d&&(d=50);this._pool=new f(Map,!1,function(g){return g.clear()},d,a)}b.prototype.acquire=function(){return this._pool.acquire()};b.prototype.release=function(a){this._pool.release(a)};b.acquire=function(){return e.acquire()};b.release=function(a){return e.release(a)};return b}();var e=new c(100);return c});

@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ToggleButton",["dojo/_base/declare","dojo/Stateful","dojo/on","dojo/dom-construct","dojo/dom-class"],function(f,g,h,k,c){return f(g,{domNode:null,checked:!1,disabled:!1,mode:"toggle",constructor:function(a,b,l){b=b||{};var d=b["class"];this.checked=!!b.checked;this.mode=b.mode||"toggle";this.domNode=k.create("div",{"class":(d?d+" ":"")+"esriGEToggleButton"},a,l);this._updateClass();h(this.domNode,"click",function(e){this.disabled||(e.checked=this.toggle(),this.onClick(e))}.bind(this))},
+postscript:function(){},_checkedSetter:function(a){this.checked=!!a;this._updateClass()},_modeSetter:function(a){this.mode=a;this._updateClass()},_disabledSetter:function(a){this.disabled=a;this._updateClass()},_updateClass:function(){c.remove(this.domNode,"checked unchecked switch toggle");c.add(this.domNode,"toggle"===this.mode?"toggle":"switch");c.add(this.domNode,this.checked?"checked":"unchecked");c[this.disabled?"add":"remove"](this.domNode,"disabled")},onClick:function(a){},toggle:function(){this.set("checked",
+!this.checked);return this.checked}})});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+var merge=function(a,d,f){a&&"object"==typeof a&&(d=d||{},Object.keys(a).forEach(function(e){void 0!==a[e]&&(d[e]=a[e])},f||this));return d},mixin=function(a,d){return merge(d,a.prototype)},geomToBbox=function(a){function d(b,c){b.length||(b=[Infinity,Infinity,-Infinity,-Infinity]);c[0]<b[0]&&(b[0]=c[0]);c[1]<b[1]&&(b[1]=c[1]);2<c.length?(c[2]>b[2]&&(b[2]=c[2]),c[3]>b[3]&&(b[3]=c[3])):(c[0]>b[2]&&(b[2]=c[0]),c[1]>b[3]&&(b[3]=c[1]));return b}var f=[];if(a.x&&a.y)return[a.x,a.y,a.x,a.y];if(a.points){var e=
+a.points,g=e.length;for(a=-1;++a<g;)f=d(f,e[a]);return f}if(a.paths||a.rings){e=a.paths||a.rings;g=e.length;var h;for(a=-1;++a<g;){var k=e[a];var l=k.length;for(h=-1;++h<l;)f=d(f,k[h])}return f}};

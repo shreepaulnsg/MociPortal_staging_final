@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sv/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"V\u00e4lj zonraster eller geoobjekt",outputTableName:"Resultattabellens namn",zoneField:"Zonf\u00e4lt",inputValueRaster:"V\u00e4lj v\u00e4rderaster",ignoreNodata:"Ignorera NoData i ber\u00e4kningar (valfritt)",ignore:"Ignorera",statisticType:"Statistiktyp (valfritt)",percentileValues:"Percentilv\u00e4rden (valfritt)",percentileInterpolationType:"Interpoleringstyp f\u00f6r percentil (valfritt)",processAsMultidimensional:"Bearbeta flerdimensionellt (valfritt)",
+allSlices:"Alla sektorer",outputZonalStatsName:"Zonbaserad statistik f\u00f6r ${valuelayername} inom ${layername}",itemDescription:"Analysgeoobjekttabell genererad fr\u00e5n zonbaserad statistik som tabell",itemTags:"Rasteranalysresultat, zonbaserad statistik som tabell, ${layername}, ${valuelayername}",autoDetect:"Autoidentifiering",nearest:"N\u00e4rmaste",linear:"Linj\u00e4r"});

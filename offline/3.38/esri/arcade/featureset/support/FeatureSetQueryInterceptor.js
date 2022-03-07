@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/arcade/featureset/support/FeatureSetQueryInterceptor",["require","exports"],function(b,a){Object.defineProperty(a,"__esModule",{value:!0});a.FeatureSetQueryInterceptor=void 0;b=function(){return function(c,d){this.preLayerQueryCallback=c;this.preRequestCallback=d;this.preLayerQueryCallback||(this.preLayerQueryCallback=function(e){});this.preRequestCallback||(this.preLayerQueryCallback=function(e){})}}();a.FeatureSetQueryInterceptor=b});

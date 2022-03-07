@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Водозбірна область</h2><p/>
+        <h2><img src="../images/GUID-AF749369-8C2D-46FF-9D74-2CF7CAB7C7B0-web.png" alt="Задача &laquo;Водозбірна область&raquo;"></h2>
+        <hr/>
+    <p>Цей інструмент визначає водозбірну область, розташовану вище набору осередків у растрі.
+    </p>
+    <p> Вхідна точка на річці Міссісіпі в Луїзіані створить водозбірну область, що охоплює райони від Нью-Йорка до Монтани та Канади.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputFlowDirectionRaster">
+        <div><h2>Вибрати шар напрямку потоку</h2></div>
+        <hr/>
+        <div>
+            <p>Вхідний растр, який показує напрямок потоку для кожного осередку.
+            </p>
+            <p>Растр напрямків стоку можна створити за допомогою растрової функції &laquo;Напрямок стоку&raquo;, обравши за замовчуванням тип напрямку стоку  <b>D8</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inPourPointRasterOrFeatures">
+        <div><h2>Указати вхідні місця розташування точок гирла</h2></div>
+        <hr/>
+        <div>
+            <p>Вхідні місця розташування точок гирла.
+            </p>
+            <p>Це може бути растр або точковий об'єкт. Для растру цей параметр представляє осередки, вище яких буде визначатися водозбірна область або басейн. У якості вхідних осередків будуть використовуватися всі осередки, значення яких відрізняється від NoData. Для набору точкових цей параметр представляє місця розташування, вище яких буде визначатися водозбірна область або басейн.
+            </p>
+        </div>
+    </div>
+    <div id="pourPointField">
+        <div><h2>Вибрати поле точки гирла</h2></div>
+        <hr/>
+        <div>
+            <p>Поле, яке використовується для присвоювання значень місцям розташування точок гирла.
+            </p>
+            <p>Якщо вхідний шар точок гирла &mdash; растр, використовуйте  <i>Value</i>. Якщо ці дані &mdash; векторні, використовуйте числове поле. Якщо поле містить значення з плаваючою точкою, вони будуть округлені до цілих чисел.
+            </p>
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Ім'я шару результатів</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Назва шару, який буде створено в  <b>Мої ресурси</b> і додано до карти. Ім'я за замовчуванням визначається на основі імені інструменту та імені вхідного шару. Якщо шар уже існує, вам буде запропоновано вказати іншу назву.
+            </p>
+            <p>Використовуючи розкривний список  <b>Зберегти результат у</b>, можна вказати ім'я папки в <b>Мій вміст</b>, де зберігатиметься результат. Якщо у вас є права на створення як шарів зображень з тайлами, так і динамічних шарів зображень, ви можете вказати, який тип шару необхідно згенерувати для виводу, використовуючи розкривне меню Зберегти результат як </p>
+        </div>
+    </div>
+</div>
+</html>

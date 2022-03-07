@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/infographics/locator/SummaryCalculator",["../../../dataProvider/supportClasses/data/AreaDataUtil","esri/dijit/geoenrichment/ReportPlayer/core/supportClasses/templateJsonUtils/fieldInfo/FieldInfoRenderer"],function(h,k){return{calculateSummaryValue:function(c){var d=c.count,e=c.stats,a=c.json,l=c.areaIndex;c=c.viewModel;var b=0,g=a.summarizeField;b=e.ranges.filter(function(f){return f.fieldName===g})[0];b=g?b&&b.sumShown||0:d;if("average"===a.summarizeType)b=
+d?b/d:0;else if("normalize"===a.summarizeType)d=0,d="string"===typeof a.summarizeFractionField?(e=e.ranges.filter(function(f){return f.fieldName===a.summarizeFractionField})[0])&&e.sumShown||0:c.dynamicReportInfo?h.getAreaDataValue({fieldName:a.summarizeFractionField.templateName,fieldData:c.dynamicReportInfo.fieldData,featureIndex:l}):k.renderFieldInfoInTableCell(a.summarizeFractionField,{previewValues:!0}).value||123,b=d?b/d:0;else if(a.summarizeType)return NaN;return b*=a.summarizeMultiplier||
+1}}});

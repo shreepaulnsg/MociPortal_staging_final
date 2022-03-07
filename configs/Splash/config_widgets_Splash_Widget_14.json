@@ -1,0 +1,35 @@
+{
+  "splash": {
+    "splashContent": "<div> </div>\n\t<div align=\"center\"><font size=\"1\"><img alt=\"PageLogo.png\" id=\"img_1634543508453\" src=\"widgets\\Splash\\images\\PageLogo.png\" /></font><br /></div>",
+    "requireConfirm": false,
+    "confirm": {
+      "text": "",
+      "color": "#ffffff",
+      "height":"120px",
+      "transparency": 0
+    },
+    "showOption": false,
+    "confirmEverytime": true,
+    "contentVertical": "top",
+    "size": {
+      "mode": "wh",
+      "wh": {
+        "w": 880,
+        "h": 485
+      }
+    },
+    "background": {
+      "mode": "color",
+      "image": null,
+      "type": "fill",
+      "fileName": "No%20file%20chosen",
+      "color": "#485566",
+      "transparency": 0
+    },
+    "button": {
+      "color": "#518dca",
+      "transparency": 0,
+      "text": "OK"
+    }
+  }
+}

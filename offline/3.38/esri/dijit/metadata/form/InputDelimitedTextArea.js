@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/form/InputDelimitedTextArea","dojo/_base/declare dojo/_base/lang dojo/_base/array dojo/has ./InputTextArea dojo/i18n!../nls/i18nBase ../../../kernel".split(" "),function(d,f,g,h,k,l,m){d=d([k],{_supportsMultipleValues:!0,delimiter:",",hint:l.hints.delimitedTextArea,subTarget:null,postCreate:function(){this.inherited(arguments)},getDisplayValue:function(){if(!this.focusNode)return null;var a=[],b,c="";this._mergeTokens(a,this.focusNode.value);if(0<a.length)for(b=0;b<a.length;b++)0<
+c.length&&(c+=this.delimiter),c+=a[b];return 0<c.length?c:null},getInputValue:function(){if(!this.focusNode)return null;var a=[];this._mergeTokens(a,this.focusNode.value);return 1===a.length?a[0]:1<a.length?a:null},importValues:function(a,b){var c=[],e="";for(a=0;a<b.length;a++)this._mergeTokens(c,b[a]);for(a=0;a<c.length;a++)0<e.length&&(e+=this.delimiter),e+=c[a];this.setInputValue(e)},_mergeTokens:function(a,b){null!=b&&(b=b.replace(/(\r\n|\r|\n|\n\r)/g,this.delimiter),b=b.split(this.delimiter),
+g.forEach(b,function(c){c=f.trim(c);0<c.length&&a.push(c)}))}});h("extend-esri")&&f.setObject("dijit.metadata.form.InputDelimitedTextArea",d,m);return d});

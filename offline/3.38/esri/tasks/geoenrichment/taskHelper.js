@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/geoenrichment/taskHelper",["dojo/_base/lang","dojo/Deferred","dojo/json","../../request","../../extend"],function(k,n,p,q,r){var m={invokeMethod:function(a,c,b,t,u,v){function w(d){try{var l=t(d)}catch(x){g(x);return}e&&e.resolve(l);a[u](l)}function g(d){e&&e.reject(d);a[v](d)}var f=null,e=null;e=new n(function(){f&&(f.cancel(),f=null)});try{var h=b?b():{};h.f="json";a.token&&(h.token=a.token);f=q({url:a.url+c,content:h,handleAs:"json"});f.then(w,g)}catch(d){g(d)}return e.promise},
+jsonToRest:function(a,c){c=k.mixin({},c);for(var b in a)k.isString(a[b])?c[b]=a[b]:c[b]=p.stringify(a[b]);return c},throwEmptyResponse:function(){throw Error("Geoenrichment service returned empty response");}};r("esri.tasks.geoenrichment.taskHelper",m);return m});

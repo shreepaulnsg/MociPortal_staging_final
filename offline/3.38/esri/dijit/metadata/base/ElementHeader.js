@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+require({cache:{"url:esri/dijit/metadata/base/templates/ElementHeader.html":'\x3cdiv class\x3d"gxeElementHeader"\x3e\r\n  \x3cdiv data-dojo-attach-point\x3d"labelNode"\x3e\x3c/div\x3e\r\n\x3c/div\x3e\r\n'}});
+define("esri/dijit/metadata/base/ElementHeader","dojo/_base/declare dojo/_base/lang dojo/dom-class dojo/dom-construct dojo/dom-style dojo/has ../../../kernel ./Templated ./LabelMixin dojo/text!./templates/ElementHeader.html".split(" "),function(b,e,c,f,r,g,h,k,l,m){b=b([k,l],{label:null,parentElement:null,templateString:m,postCreate:function(){this.inherited(arguments)},initialize:function(a){this.parentElement=a;f.place(this.domNode,a.containerNode,"before");c.add(a.domNode,"single gxeIndent");this.label=
+a.getLabelString();var d=0===a.minOccurs,n=a.preferOpen,p=this.labelNode,q=a.containerNode;a.noToggle||!d?(this.labelNode.innerHTML=this.label,d?c.add(this.labelNode,"gxeOptionalLabel"):c.add(this.labelNode,"gxeMandatoryLabel")):this.initializeLabel(this.label,d,n,p,q)},whenOptionalContentToggled:function(a){this.parentElement._isOptionallyOff=a}});g("extend-esri")&&e.setObject("dijit.metadata.base.ElementHeader",b,h);return b});

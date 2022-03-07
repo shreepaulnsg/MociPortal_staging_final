@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/dataProvider/supportClasses/stdGeographies/StdGeographiesModel",["dojo/_base/declare"],function(c){return c(null,{_levelsCache:null,_levels:null,constructor:function(a){this._initWithLevels(a.levels)},_initWithLevels:function(a){this._levels=a;this._levelsCache={};this._levels.forEach(function(b){delete b.description;this._levelsCache[b.id]=b;b.adminLevel&&(this._levelsCache[b.adminLevel]=b)},this)},getLevels:function(a){return a?this._levels.filter(function(b){return!b.isWholeCountry}):
+this._levels.slice()},getLevel:function(a){return this._levelsCache[a]},getLevelPluralName:function(a){return(a=this.getLevel(a))?a.name||a.pluralName:null},toJson:function(){return{levels:this._levels}}})});

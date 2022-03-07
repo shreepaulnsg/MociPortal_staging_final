@@ -1,0 +1,973 @@
+/*******************************************************************************************************************
+      jimu-theme.css defines appearance of common components and jimu/dijits, it doesn't define layout.
+      User can override this css style to meet new appearance.
+********************************************************************************************************************/
+@import url("jimu.css");
+@font-face {
+  font-family: 'wab_2d';
+  src:  url('fonts/wab_2d.eot?l74ffv');
+  src:  url('fonts/wab_2d.eot?l74ffv#iefix') format('embedded-opentype'),
+    url('fonts/wab_2d.ttf?l74ffv') format('truetype'),
+    url('fonts/wab_2d.woff?l74ffv') format('woff'),
+    url('fonts/wab_2d.svg?l74ffv#wab_2d') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'Themefont';
+    src: url('fonts/Themefont.eot?cwzds4');
+    src: url('fonts/Themefont.eot?cwzds4#iefix') format('embedded-opentype'),
+         url('fonts/Themefont.ttf?cwzds4') format('truetype'),
+         url('fonts/Themefont.woff?cwzds4') format('woff'),
+         url('fonts/Themefont.svg?cwzds4#Themefont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* css for jimu-main- */
+.jimu-main-background{
+  background-color: #8D0034;
+  background-color: #8D0034;
+}
+
+.jimu-main-font{
+  /*font-family: Verdana,Arial,sans-serif;*/
+  /*font-size: 63%;*/
+}
+
+/* css for jimu-title and jimu-subtitle */
+.jimu-title{
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.jimu-subtitle{
+  font-size: 12px;
+  font-weight: normal;
+  color: #ffffff;
+  font-family: 'PF Din Text Universal' !important;
+}
+
+/* css for jimu-footer */
+.jimu-footer{
+  font-size: 10px;
+  color: #ffffff;
+  font-weight: normal;
+}
+
+/* css for jimu-link */
+.jimu-link{
+  font-size: 14px;
+  font-weight: normal;
+  color: #ffffff;
+  font-family: 'PF Din Text Universal' !important;
+}
+
+.jimu-link:link, .jimu-link:visited{
+  text-decoration: none;
+}
+
+.jimu-link:hover{
+  text-decoration: underline;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.jimu-link:active{
+  text-decoration: none;
+  color: #ececec;
+}
+
+/* css for jimu-widget- */
+.jimu-widget{
+  font-size: 15px;
+  font-weight: normal;
+  color: #000;
+}
+
+.jimu-widget-title{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.jimu-widget-note{
+  font-size: 12px;
+  font-weight: normal;
+  color: #a4a4a4;
+}
+
+.jimu-widget-placeholder{
+  background-color: #231F20;
+  filter:alpha(opacity=20);
+  opacity: 0.5;
+  border-radius: 4px;
+  border: 1px dashed #a0acbf;
+}
+
+.jimu-widget-placeholder:hover{
+  filter:alpha(opacity=40);
+  opacity: 0.7;
+}
+
+.jimu-widget-placeholder .inner {
+  background-color: #000;
+  filter:alpha(opacity=80);
+  opacity: 0.8;
+}
+
+.jimu-widget-tooltip{
+  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: normal;
+  color: #838383;
+}
+
+.jimu-widget-offpanel-background{
+  background-color: #ffffff;
+  border: 0;
+}
+
+.jimu-widget-onscreen-icon{
+  border: 1px solid #57585A;
+  color: #8D0034;
+
+  background-color: #fff;
+  /* border: 1px solid transparent; */
+   color: #8D0034;
+   /* box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);*/
+}
+.jimu-widget-onscreen-icon:hover{
+  background-color: #8D0034; color: #fff;border: 1px solid #fff;
+}
+.jimu-widget-onscreen-icon.jimu-state-selected{
+  background-color: #8D0034;
+   color: #fff;border: 1px solid #fff;
+  /* background-image: url(/widgets/PlotFactoryInfo/images/icon1.png) !important; */
+}
+
+
+.jimu-panel-title{
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #8D0034;
+}
+
+/* interaction states*/
+.jimu-state-error{
+  background: #e84b4b;
+  color: #fff;
+}
+
+/*.jimu-panel-content{}*/
+
+/* css for jimu-overlay */
+.jimu-overlay{
+  background-color: #231F20;
+  filter:alpha(opacity=30);
+  opacity: 0.3;
+}
+
+/* css for jimu-btn */
+.jimu-btn{
+  background-color: #8D0034;
+  color: #ffffff;
+}
+
+.jimu-btn-vacation{
+  border: 1px solid #8D0034;
+  background-color: #fff;
+  color: #8D0034;
+}
+
+.jimu-btn:hover{
+  background-color: #596d87;
+  color: #ffffff;
+}
+
+.jimu-btn-vacation:hover{
+  background-color: #f4f4f4;
+  color: #8D0034;
+}
+
+.jimu-btn:active{
+  background-color: #8D0034;
+  color: #ffffff;
+}
+
+.jimu-btn.jimu-state-disabled{
+  background-color: #adadad;
+  color: #d8d8d8;
+}
+
+.jimu-btn.jimu-priority-secondary{
+  background-color: #f5f5f5;
+  color: #636363;
+  border: 1px solid #cbcbcb;
+}
+
+.jimu-btn.jimu-priority-secondary:hover{
+  background-color: #ffffff;
+  color: #636363;
+  border: 1px solid #cbcbcb;
+}
+
+.jimu-btn.jimu-priority-secondary:active{
+  background-color: #ebebeb;
+  color: #636363;
+  border: 1px solid #cbcbcb;
+}
+
+.jimu-btn.jimu-priority-secondary.jimu-state-disabled{
+  background-color: #ffffff;
+  color: #d0d0d0;
+  border: 0;
+}
+
+/* css for add-with-icon */
+.add-with-icon{
+  color: #067EAA;
+}
+
+/* css for jimu-table */
+.jimu-table-header{
+  background-color: #efefef;
+  font-size: 12px;
+  font-weight: bold;
+  color: #838383;
+}
+
+.jimu-table-row{
+  font-size: 12px;
+  color: #838383;
+}
+
+.jimu-table-row:hover{
+  border: 1px solid #cbcbcb;
+  font-weight: normal;
+  color: #838383;
+}
+
+.jimu-table-row.jimu-state-active{
+  border: 1px solid #cbcbcb;
+  font-weight: bold;
+  color: #838383;
+}
+
+.jimu-table-row-separator{
+  border-bottom: 1px solid #cbcbcb;
+}
+
+/* css for SimpleTable dijit */
+.jimu-simple-table .head-section{
+  /*background-color: #518dca;*/
+  background-color: #888888;
+}
+
+.jimu-simple-table .simple-table-title{
+  color: #ffffff;
+	font-size: 14px;
+}
+
+.jimu-simple-table .simple-table-row:hover{
+  /*background-color: #edf2f5;*/
+  background-color: #eee;
+  color: #7989a0;
+}
+
+.jimu-simple-table .simple-table-row.jimu-state-active{
+  /*background-color: #e3ecf2;*/
+  background-color: #ddd;
+  color: #596679;
+}
+
+/* css for ItemSelector dijit */
+.jimu-item-selector .signin-tip{
+  color: #d6d6d6;
+  font-size: 13px;
+}
+
+/* css for _ItemTable dijit */
+.jimu-item-table .item-border{
+	border: 3px solid #24B5CC;
+  /*-webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -o-border-radius:5px;
+  -ms-border-radius:5px;
+  border-radius:5px;*/
+}
+
+.jimu-item-table .item-thumbnail{
+	background-repeat:no-repeat;
+  background-position:center center;
+  border:1px solid #d2dae2;
+  /*-webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -o-border-radius:5px;
+  -ms-border-radius:5px;
+  border-radius:5px;*/
+  color: #666;
+	background-size:cover;
+  cursor: default;
+}
+
+.jimu-item-table .item-details{
+  text-decoration: none;
+  color: #15a4fa;
+}
+
+.jimu-item-table .jimu-state-error-text{
+  font-size: 13px;
+  color: #ff0000;
+}
+
+/* css for TabContainer3 dijit */
+.jimu-tab3 .tab-item-td{
+  color: #898989;
+	border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 1px solid #ccc;
+  font-family: 'PF Din Text Universal' !important;
+}
+
+/*.jimu-tab3 .tab-item-td.jimu-state-active{
+  color: #48494B;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 2px solid #15a4fa;
+  border-bottom: 0;
+}*/
+
+.jimu-tab3 .tab-item-td.jimu-state-active{
+  color: #48494B;
+  border-bottom: 2px solid #24B5CC;
+  font-family: "'PF Din Text Universal' !important";
+  color: #24B5CC;
+}
+
+/* css for LayerChooserFromMap dijit */
+.jimu-basic-layer-chooser-from-map .jimu-state-error-text{
+  color: #ff0000;
+}
+
+/* css for DrawBox dijit */
+@font-face {
+  font-family: 'draw box';
+
+  src: url('fonts/drawbox.eot');
+  src: url('fonts/drawbox.eot?#iefix') format('embedded-opentype'),
+  url('fonts/drawbox.woff') format('woff'),
+  url('fonts/drawbox.ttf') format('truetype'),
+  url('fonts/drawbox.svg#drawbox') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.jimu-draw-box .draw-item.jimu-state-active{
+  background-color: #DDDDDD;
+  border: 2px solid #231F20;
+}
+/*.jimu-draw-box.enabled .draw-item:hover{
+  background-color: #c0c0c0;
+}*/
+
+.jimu-draw-box .draw-item {
+  font-family: 'draw box' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgba(0,0,0,0.5);
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+}
+
+.jimu-draw-box .point-icon:before{
+  content: '\e90c';
+}
+
+.jimu-draw-box .arrow-icon:before{
+  content: '\e913';
+}
+
+.jimu-draw-box .line-icon:before{
+  content: '\e90b';
+}
+
+.jimu-draw-box .polyline-icon:before{
+  content: '\e90e';
+}
+
+.jimu-draw-box .freehand-polyline-icon:before{
+  content: '\e908';
+}
+
+.jimu-draw-box .triangle-icon:before{
+  content: '\e910';
+}
+
+.jimu-draw-box .extent-icon:before{
+  content: '\e905';
+}
+
+.jimu-draw-box .circle-icon:before{
+  content: '\e907';
+}
+
+.jimu-draw-box .ellipse-icon:before{
+  content: '\e904';
+}
+
+.jimu-draw-box .polygon-icon:before{
+  content: '\e90d';
+}
+
+.jimu-draw-box .freehand-polygon-icon:before{
+  content: '\e90a';
+}
+
+.jimu-draw-box .text-icon:before{
+  content: '\e900';
+}
+
+.jimu-draw-box .drawings-clear{
+  font-family: 'draw box' !important;
+  background-color: #D0021B !important;
+  color: white !important;
+}
+.jimu-draw-box .drawings-clear:before{
+  content: '\e914';
+}
+
+.jimu-draw-box.enabled .drawings-clear:hover{
+  background-color: #B60016;
+}
+
+/**********calendar styles***************/
+.dijitCalendarPopup {
+  position: absolute;
+  margin: 1px 0 0 0;
+  padding: 0;
+}
+.dijitCalendarPopup .dijitCalendar {
+  background: #fff;
+  text-align: center;
+  border: none;
+}
+.dijitCalendarPopup .dijitCalendarHover,
+.dijitCalendarPopup .dijitCalendar:hover,
+.dijitCalendarPopup .dijitCalendarActive {
+  background-color: #fff;
+  border: none;
+}
+
+/*month dropdown*/
+.dijitCalendarPopup .dijitCalendar .dijitDropDownButton .dijitButtonNode {
+  background-color: transparent;
+  background-image: none;
+  padding: 0;
+  padding-top: 3px;
+  border: none;
+}
+.dijitCalendarPopup .dijitCalendar .dijitDropDownButtonHover .dijitButtonNode,
+.dijitCalendarPopup .dijitCalendar .dijitDropDownButton:hover .dijitButtonNode {
+  background-color: transparent;
+  border: inherit;
+}
+.dijitCalendarPopup .dijitCalendarMonthContainer .dijitButtonText {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  padding-right: 10px;
+  padding-left: 0;
+}
+.dijitPopup .dijitCalendarMonthMenu .dijitCalendarMonthLabel {
+  padding: 7px 0;
+  border: none;
+  font-size: 13px;
+}
+.dijitPopup .dijitCalendarMonthMenu .dijitCalendarMonthLabelHover,
+.dijitPopup .dijitCalendarMonthMenu .dijitCalendarMonthLabelActive {
+  border: none;
+  background-color: #eee;
+  background-image: none;
+  filter: none;
+}
+.dijitCalendarPopup .dijitCalendarMonthContainer .dijitButtonText .dijitCalendarMonthLabel{
+  font-size: 14px;
+}
+
+/*month prev-next*/
+.dijitCalendarPopup .dijitCalendarArrow {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+.dijitCalendarPopup .dijitCalendarArrow > img {
+  display: none;/*disable current img mode*/
+}
+.dijitCalendarPopup .dijitCalendarDecrementArrow {
+  float: left;
+  background: url(images/arrow_left_dark.svg) no-repeat center center transparent;
+}
+.dijitCalendarPopup .dijitCalendarIncrementArrow {
+  background: url(images/arrow_right_dark.svg) no-repeat center center transparent;
+}
+.jimu-rtl .dijitCalendarPopup .dijitCalendarDecrementArrow {
+  float: right;
+  background: url(images/arrow_right_dark.svg) no-repeat center center transparent;
+}
+.jimu-rtl .dijitCalendarPopup .dijitCalendarIncrementArrow {
+  background: url(images/arrow_left_dark.svg) no-repeat center center transparent;
+}
+.dijitCalendarPopup .dijitCalendarDecrementArrow.dijitCalendarArrowHover,
+.dijitCalendarPopup .dijitCalendarIncrementArrow.dijitCalendarArrowHover {
+  background-color: #eee;
+}
+.dijitCalendarPopup .dijitDropDownButton .dijitArrowButtonInner {
+  background: url(images/arrow_down_dark.svg) no-repeat center center transparent;
+}
+
+/*days*/
+.dijitCalendarPopup .dijitCalendar table{
+  width: 100%;
+  margin-top: 7px;
+}
+.dijitCalendarPopup .dijitCalendar table .dijitCalendarDayLabelTemplate{
+  border-bottom: 1px solid #eee;
+}
+.dijitCalendarPopup .dijitCalendarDateTemplate,
+.dijitCalendarPopup .dijitCalendarPreviousMonth,
+.dijitCalendarPopup .dijitCalendarNextMonth {
+  background-color: #fff;
+  background-image: none;
+  border: none;
+  font-size: 12px;
+  line-height: 20px;
+}
+.dijitCalendarPopup .dijitCalendarDateTemplate .dijitCalendarDateLabel{
+  color: #333;
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  transition-duration: 0s;
+}
+.dijitCalendarPopup .dijitCalendarPreviousMonth .dijitCalendarDateLabel,
+.dijitCalendarPopup .dijitCalendarNextMonth .dijitCalendarDateLabel{
+  color: #999;
+  /* border: none; */
+  border: 1px solid #fff;
+}
+
+.dijitCalendarPopup .dijitCalendarEnabledDate.dijitCalendarPreviousMonth:hover .dijitCalendarDateLabel,
+.dijitCalendarPopup .dijitCalendarEnabledDate.dijitCalendarNextMonth:hover .dijitCalendarDateLabel {
+  background-color: #eee;
+  color: #999;
+}
+.dijitCalendarPopup .dijitCalendarHoveredDate .dijitCalendarDateLabel,
+.dijitCalendarPopup .dijitCalendarEnabledDate:hover .dijitCalendarDateLabel {
+  background-color: #eee;
+  border: 1px solid #fff;
+  color: inherit;
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  transition-duration: 0s;
+}
+.dijitCalendarPopup .dijitCalendarSelectedDate .dijitCalendarDateLabel,
+.dijitCalendarPopup .dijitCalendarSelectedDate.dijitCalendarHoveredDate .dijitCalendarDateLabel {
+  color: #fff;
+  background-color: #666;
+  border-color: #fff;
+}
+
+
+/*year prev-next*/
+.dijitCalendarYearContainer .dijitCalendarYearLabel{
+  padding: 3px 0;
+  margin: 0 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.dijitCalendarYearContainer .dijitCalendarSelectedYear{
+  color:#000;
+  font-weight: bold;
+  font-size: 16px;
+  /* width: 50%; */
+  width: calc(50% - 18px);
+}
+.dijitCalendarYearContainer .dijitCalendarNextYear,
+.dijitCalendarYearContainer .dijitCalendarPreviousYear {
+  font-size: 14px;
+  color: #666;
+  padding: 4px 6px 4px 6px;
+}
+.dijitCalendarYearContainer .dijitCalendarNextYearHover,
+.dijitCalendarYearContainer .dijitCalendarNextYear:hover,
+.dijitCalendarYearContainer .dijitCalendarPreviousYearHover,
+.dijitCalendarYearContainer .dijitCalendarPreviousYear:hover {
+  color: #000;
+  border: none;
+  background-color: #eee;
+  padding: 4px 6px 4px 6px;
+}
+
+
+/*time picker*/
+.jimu-dateTimeBox {
+  height: 100%;
+  background: #fff;
+}
+.jimu-dateTimeBox .jimu-calendar {
+  width: 100%;
+  border: none;
+  border-radius: inherit;
+}
+.jimu-dateTimeBox .timeTextContainer {
+  margin: 3px 10px 2px 10px;
+}
+.jimu-dateTimeBox .timeTextContainer .timeGroup .timeLabel,
+.jimu-dateTimeBox .timeTextContainer .timeGroup .dijitTextBox{
+  width: calc(33.3% - 4px);
+  padding: 0 2px;
+}
+.jimu-dateTimeBox .timeTextContainer .timeGroup .timeLabel{
+  font-size: 13px;
+  display: inline-block;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.jimu-dateTimeBox .timeTextContainer .dijitTextBox{
+  background-color: #fff;
+  height: 30px;
+}
+.jimu-dateTimeBox .timeTextContainer.timeTextContainerRuntime .dijitTextBox{
+  width: 100%;
+  margin: auto 3px;
+  padding-left: 32px;
+}
+.jimu-dateTimeBox .timeTextContainer .dijitTextBox .dijitInputField{
+  padding: 1px 8px;
+}
+.jimu-dateTimeBox .timeTextContainer .dijitTextBox .dijitInputInner{
+  font-size: 13px;
+}
+.jimu-dateTimeBox .timeTextContainer .timeTextIcon{
+  position: absolute;
+  left: 25px;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  background-image: url(images/schedule.svg);
+  background-repeat: no-repeat;
+}
+.jimu-dateTimeBox .timeTextContainer .jimu-toggle-button{
+  margin: 5px;
+}
+
+.dijitTimePickerPopup .dijitTimePicker{
+  background-color: #fff;
+}
+.dijitTimePickerPopup .dijitTimePickerItem{
+  color: #000;
+  line-height: 18px;
+  border-top: solid 1px #fff;
+  border-bottom: solid 1px #fff;
+  background-image: none;
+}
+.dijitTimePickerPopup .dijitTimePickerTick {
+  background-color: #fff;
+  font-size: 11px;
+}
+.dijitTimePickerPopup .dijitTimePickerMarker {
+  background-color: #eee;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.dijitTimePickerPopup .dijitTimePickerMarkerSelected,
+.dijitTimePickerPopup .dijitTimePickerTickSelected {
+  font-size: 1em;
+}
+
+.dijitTimePickerPopup .dijitTimePickerTickHover,
+.dijitTimePickerPopup .dijitTimePickerMarkerHover {
+  background-color: #999;
+}
+.dijitTimePickerPopup .dijitTimePickerMarkerSelected,
+.dijitTimePickerPopup .dijitTimePickerTickSelected {
+  color: #fff;
+  background-color: #666;
+}
+.dijitTimePickerPopup .dijitTimePickerMarkerSelected.dijitTimePickerMarkerHover,
+.dijitTimePickerPopup .dijitTimePickerTickSelected.dijitTimePickerTickHover {
+  background-color: #666;
+}
+
+.jimu-popup.jimu-popup-date-time-picker .content{
+  overflow-y: hidden;
+}
+.jimu-popup.jimu-popup-date-time-picker .button-container{
+  width: calc(100% - 20px);
+  padding: 15px 0;
+  margin: 0 10px;
+}
+.jimu-popup.jimu-popup-date-time-picker .button-container .jimu-popup-action-btn{
+  width: 49%;
+  margin: 0 1%;
+  background: #666 !important;
+}
+.jimu-popup.jimu-popup-date-time-picker .button-container .jimu-btn-vacation{
+  margin-right: 0;
+  color: #000;
+  background: #fff !important;
+  border: 1px solid #999 !important;
+}
+
+
+.jimu-widget-onscreen-icon img{
+  width: 20px !important;
+    height: 20px !important;
+    display: block;
+    margin-right: 6px !important;
+    margin-left: 5px !important;
+    margin-top: 5px !important;
+    /* margin: 6px !important; */
+}
+.jimu-widget-onscreen-icon{
+  width: 32px !important;
+    height: 32px !important;
+    padding: 0px !important;
+    margin: auto !important;
+    z-index: auto !important;
+}
+
+ 
+.ZoomButton_en{
+    right: 0px !important;
+}
+
+.ZoomButton_ar{
+  left: 0px !important;
+}
+ 
+
+
+
+/* css for jimu-panel- */
+.jimu-panel{
+  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ffffff;
+  /*left: auto !important;*/
+  /* right: 200px !important; 
+  top: 16px !important;  
+  bottom: 16px !important; */
+}
+#widgets_Scalebar_Widget_2{
+  inset: auto 7px 20px auto !important;
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  .jimu-panel{
+    height: 80% !important; 
+    width: 28% !important; 
+  }
+   #_6_panel, #_5_panel{
+    height: 49% !important; 
+  }
+  #_10_panel{
+    height: 88% !important;
+  }
+  #_16_panel{
+    height: 74% !important;
+  }
+  #_12_panel{
+    height: 53% !important;
+    width: 30% !important;
+}
+  #_13_panel{
+    height: 80% !important;
+  }
+  #_11_panel{
+    height: 65% !important;
+  }
+  #_18_panel{
+    height: 60% !important;
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .jimu-panel{
+    height: 80% !important;
+    width: 28% !important; 
+  }
+  #_12_panel, #_6_panel, #_5_panel{
+    height: 45% !important;
+  }
+  #_10_panel{
+    height: 90% !important;
+  }
+  #_16_panel{
+    height: 55% !important;
+  }
+  #_13_panel{
+    height: 60% !important;
+  }
+  #_11_panel{
+    height: 65% !important;
+  }
+  #_18_panel{
+    height: 60% !important;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  .jimu-panel{
+    
+    width: 30% !important; 
+  }
+  #widgets_Legend_Widget_18_panel, #widgets_Legend_Widget_20_panel, #widgets_LayerList_Widget_19_panel{
+    height: 50% !important;
+  }
+  #_5_panel{
+    height: 22% !important;
+  }
+  #_6_panel{
+    height: 22% !important;
+  }
+  #_12_panel{
+    height: 24% !important;    width: 32% !important;
+  }
+  #_18_panel{
+    height: 22% !important;
+  }
+  #_10_panel{
+    height: 75% !important;
+  }
+  #_16_panel{
+    height: 32% !important;
+  }
+  #_13_panel{
+    height: 55% !important;
+  }
+  #_11_panel{
+    height: 30% !important;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  .jimu-panel{
+    height: 60% !important;    width: 30% !important;
+  }
+  #widgets_Legend_Widget_18_panel, #widgets_Legend_Widget_20_panel, #widgets_LayerList_Widget_19_panel{
+    height: 55% !important;
+  }
+  #_18_panel, #_12_panel, #_6_panel, #_5_panel{
+    height: 48% !important;
+  }
+  #_10_panel{
+    height: 82% !important;
+  }
+  #_16_panel{
+    height: 48% !important;
+  }
+  #_13_panel{
+    height: 75% !important;
+  }
+  #_11_panel{
+    height: 75% !important;
+  }
+}
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  .jimu-panel{
+    height: 60% !important; width: 50% !important; 
+  }
+  #widgets_Legend_Widget_18_panel, #widgets_Legend_Widget_20_panel, #widgets_LayerList_Widget_19_panel{
+    height: 78% !important;
+  }
+  #_18_panel, #_12_panel, #_6_panel, #_5_panel{
+    height: 85% !important;
+  }
+  #_10_panel{
+    height: 70% !important;
+  }
+  #_16_panel{
+    height: 75% !important;
+  }
+  #_13_panel{
+    height: 60% !important;
+  }
+  #_11_panel{
+    height: 65% !important;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  .jimu-panel{
+    height: 60% !important;
+    width: 84% !important; 
+    /* inset: auto !important;    top: 14% !important;    left: 2% !important; */
+  }
+  #widgets_Legend_Widget_18_panel, #widgets_Legend_Widget_20_panel, #widgets_LayerList_Widget_19_panel{
+    height: 50% !important;
+  }
+  #_18_panel, #_6_panel, #_5_panel{
+    height: 35% !important;
+  }
+  #_12_panel{
+    height: 35% !important;    width: 90% !important;
+  }
+  #_10_panel{
+    height: 70% !important;
+  }
+  #_16_panel{
+    height: 55% !important;
+  }
+  #_13_panel{
+    height: 60% !important;
+  }
+  #_11_panel{
+    height: 65% !important;
+  }
+}
+.jimu-widget-homebutton{
+  border-radius: 4px;
+}
+.info {
+  width: 100%;
+}

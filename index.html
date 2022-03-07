@@ -1,0 +1,994 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+  <title>ArcGIS Web Application</title>
+  <link rel="shortcut icon" href="images/shortcut.ico">
+
+  <script src="./offline/jquery-3.5.1.min.js"></script>
+  <script src="./offline/kinetic.js"></script>
+  <script src="./offline/jquery.scrollTo.min.js"></script>
+
+ 
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" />
+  
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+  <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css"  href="jimu.js/css/jimu-ie.css" />
+  <![endif]-->
+
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+    }
+
+    .customloader{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background:url(./images/loading.gif) 
+              50% 50% no-repeat #508dca
+   
+}
+/* predefined_loading_1 */
+    .BasemapGallery {
+      display: block;
+    }
+
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #main-loading {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #main-page {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    #jimu-layout-manager {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    #unsupported-browser-message {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: rgba(0, 0, 0, 0.6);
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .browser-message {
+      width: 700px;
+      max-width: 100%;
+      max-height: 100%;
+      overflow-y: auto;
+      background: #fff;
+      color: #333;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .browser-button-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .browser-button-container button {
+      cursor: pointer;
+      border: none;
+      background: transparent;
+    }
+
+    .browser-button-container img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .browser-message-title {
+      color: #002625;
+      font-weight: 300;
+      margin: 1.5rem auto;
+      font-size: 2.5rem;
+      line-height: 2rem;
+    }
+
+    .browser-message-content {
+      color: #3d6665;
+      font-weight: 400;
+      font-size: 1.1rem;
+      line-height: 2rem;
+    }
+
+    #browser-logo-list {
+      display: flex;
+      align-items: center;
+      margin: 2rem 1rem 0 1rem;
+      padding: 0;
+    }
+
+    .browser-logo {
+      display: inline-block;
+      margin: 0 auto;
+    }
+
+    .browser-logo img {
+      width: 3rem;
+      height: auto;
+    }
+
+    @media (min-width:700px) {
+      .browser-logo img {
+        width: 4rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="configs/loading/loading.css" />
+  <script>
+    /*******************************
+     * This is the function you can modify to customize the loading page
+     * This function will be invoked when one resource is loaded.
+     ********************************/
+    // var progress;
+    // function loadingCallback(url, i, count) {
+    // 	var loading = document.getElementById('main-loading-bar');
+    // 	loading.setAttribute('title', url);
+    //   if(!progress){
+    //     progress = document.createElement('div');
+    //     progress.setAttribute('class', 'loading-progress');
+    //     loading.appendChild(progress);
+    //   }
+    //   progress.style.width = (((i - 1)/count) * 100) + '%';
+    // }
+
+    // A $( document ).ready() block.
+        // $("[alt='Splash']").addClass("Splash1");
+        // $("[alt='Layer List']").addClass("LayerList");
+        // $("[alt='Legend']").addClass("Legend");
+        // $("[alt='Basemap Gallery']").addClass("BasemapGallery1");
+        // $("[alt='Arabic']").addClass("EngArbLang");
+        // $("[alt='Arabic']").addClass("EngArbLang1");
+
+    $(document).ready(function () {
+
+      // localStorage.already = undefined;
+      // localStorage.noofnext_user_clicked = 0;
+      var alt_splash;var alt_Logout;var alt_layerList;var alt_legend;var alt_basemapGallery;var alt_arabic;
+
+      var alt_UtilityDashboard;
+      var alt_AllocationStatusDashboard;
+      var alt_DelayedPaymentsDashboard;
+      var alt_ProjectPhasesAndDelayedProjects;
+
+      var pageUrl = window.location.href;
+      if (pageUrl.includes("/?locale=ar")) {
+
+        alt_UtilityDashboard="Utility Dashboard";
+        alt_AllocationStatusDashboard="Allocation Status Dashboard";
+        alt_DelayedPaymentsDashboard="Delayed Payments Dashboard";
+        alt_ProjectPhasesAndDelayedProjects="Project Phases & Delayed Projects";
+
+        alt_splash="دخول";
+        alt_Logout="Logout";
+
+        alt_layerList="قائمة الطبقات";
+        alt_legend="وسيلة إيضاح";
+        alt_basemapGallery="معرض خرائط الأساس";
+        
+        //alt_arabic="Arabic";
+        $("[alt='Arabic']").addClass("EngArbLang1");
+        var bodyTag = document.getElementsByTagName('body')[0];
+        //alert("")
+        bodyTag.classList.add("ArabicClass");
+        //enjoyhint_instance.run();
+        setInterval(function () {
+          $("[alt='Arabic']").addClass("EngArbLang1");
+          var img = $(".EngArbLang1").attr("src", "/MociPortal/widgets/EngArbLang/images/EN.png?wab_dv=2.20");
+
+          $(".EngArbLang1").closest("div").mouseleave(function () {
+
+            var img = $(".EngArbLang1").attr("src", "/MociPortal/widgets/EngArbLang/images/EN.png?wab_dv=2.20");
+
+          });
+          $(".EngArbLang1").closest("div").mouseover(function () {
+            // setInterval(function () {
+            //   $("[alt='Arabic']").addClass("EngArbLang1");
+            // }, 1000);
+            var img = $(".EngArbLang1").attr("src", "/MociPortal/widgets/EngArbLang/images/EN1.png?wab_dv=2.20");
+
+          });
+
+         
+        }, 1000);
+      }
+      else {
+        alt_UtilityDashboard="Utility Dashboard";
+        alt_AllocationStatusDashboard="Allocation Status Dashboard";
+        alt_DelayedPaymentsDashboard="Delayed Payments Dashboard";
+        alt_ProjectPhasesAndDelayedProjects="Project Phases & Delayed Projects";
+
+        alt_splash="Login";
+        alt_Logout="Logout";
+        alt_layerList="Layer List";
+        alt_legend="Legend";
+        alt_basemapGallery="Basemap Gallery";
+        //alt_arabic="Arabic";
+        $("[alt='Arabic']").addClass("EngArbLang");
+        var bodyTag = document.getElementsByTagName('body')[0];
+        bodyTag.classList.remove("ArabicClass");
+        //bodyTag.classList.add("ArabicClass");
+ 
+
+      }      
+      setTimeout(() => {
+       // alert("......")
+        $("[alt='"+alt_UtilityDashboard+"']").addClass("UtilityDashboard");
+        $("[alt='"+alt_AllocationStatusDashboard+"']").addClass("AllocationStatusDashboard");
+        $("[alt='"+alt_DelayedPaymentsDashboard+"']").addClass("DelayedPaymentsDashboard");
+        $("[alt='"+alt_ProjectPhasesAndDelayedProjects+"']").addClass("ProjectPhasesAndDelayedProjects");
+
+        $("[alt='"+alt_splash+"']").addClass("Splash1");
+        $("[alt='"+alt_Logout+"']").addClass("Logout");
+        $("[alt='"+alt_layerList+"']").addClass("LayerList");
+        $("[alt='"+alt_legend+"']").addClass("Legend");
+        $("[alt='"+alt_basemapGallery+"']").addClass("BasemapGallery1");
+        $("[alt='Arabic']").addClass("EngArbLang");
+
+        $("[alt='Clear Graphics']").addClass("ClearButton");
+        
+
+
+       // $("[alt='Arabic']").addClass("EngArbLang1");        
+
+        if (localStorage.already == undefined || localStorage.already != "clicked") { // loading enjoyhint or app tour guid
+
+          var enjoyhint_instance = new EnjoyHint({});
+
+          var enjoyhint_script_steps = [];
+          var enjoyhint_script_steps_EN = [
+            {
+              'next .Legend': 'View the description of the layers and layer themes displayed on the map.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 0;
+              }
+            },
+            {
+              'next .BasemapGallery1': 'Provide the user to select the basemap required to be displayed as the background.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 1;
+              }
+            },
+            {
+              'next .LayerList': 'Provides the list of layers in the web map. User can switch on or switch off the required layers for display.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 2;
+              }
+            },
+            {
+              'next .Splash1': 'Application will navigate to specific list of functionalities for Investors and Organization users.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 3;
+              }
+            },
+            {
+              'next .zoom-in': 'Map display will be zoomed in by a fixed scale.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 4;
+              }
+            },
+            {
+              'next .zoom-out': 'Map display will be zoomed out by a fixed scale.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 5;
+              }
+            },
+            {
+              'next .home': 'Map display will zoom to the extent of Industrial estate Area of Interest.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 6;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_6': 'Map display will be zoomed in the display to the user defined box.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 7;
+              }
+            }, {
+              'next #dijit__WidgetBase_7': 'Map display will be zoomed out based on the area and location of the user defined box.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 8;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_0': 'Provides option to save the displayed map extents with a user provided title.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 9;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_1': 'Provides the user an option to measure linear lengths in meter and Kilometer and area in Sq. M and Sq. KM.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 10;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_6': 'Provides the attribute information of the GIS feature.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 11;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_4': 'Zooms to user provided coordinates.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 12;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_2': 'Provides the user to search the plots based on various criteria.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 13;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_3': 'Provides the information of the plot categorized by Plot & Factory Details',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 14;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_9': 'Generate reports based on Plot Allocation Status, Construction Status, Delayed Payments & Factory Details.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 15;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_5': 'Provides option to update the Key Planning Regulations and Utility Demand Details.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 16;
+              }
+            },
+            {
+              'click #widgets_Search_Widget_22': 'To make it easier for users to find features in your map.',
+              // "nextButton": { className: "myNext", text: "", show: false },
+              nextButton: false,
+              skipButton: { text: "Finish" },
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 17;
+                localStorage.already = "clicked";
+              }
+            },
+
+          ];
+          var enjoyhint_script_steps_AR = [
+            {
+              'next .Legend': 'عرض وصف الطبقات المعروضة على الخريطة.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 0;
+              }
+            },
+            {
+              'next .BasemapGallery1': 'يقدم للمستخدم تحديد الخريطة الرئيسية المطلوب عرضها كخلفية.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 1;
+              }
+            },
+            {
+              'next .LayerList': 'يوفر قائمة الطبقات في الخريطة , ويمكن للمستخدم تشغيل أو إيقاف تشغيل الطبقات المطلوبة للعرض.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 2;
+              }
+            },
+            {
+              'next .Splash1': 'سينتقل التطبيق إلى قائمة الوظائف المحددة للمستثمرين ومستخدمي وزارة التجارة والصناعة.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 3;
+              }
+            },
+            {
+              'next .zoom-in': 'سيتم تكبير عرض الخريطة بمقياس ثابت.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 4;
+              }
+            },
+            {
+              'next .zoom-out': 'سيتم تصغير عرض الخريطة بمقياس ثابت.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 5;
+              }
+            },
+            {
+              'next .home': 'سيتم تكبير عرض الخريطة لنطاق المنطقة الصناعية.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 6;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_6': 'سيتم تكبير عرض الخريطة في العرض للمربع المحدد من قبل المستخدم.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 7;
+              }
+            }, {
+              'next #dijit__WidgetBase_7': 'سيتم تصغير عرض الخريطة بناءً على منطقة وموقع المربع المحدد من قبل المستخدم.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 8;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_0': 'يوفر خيارًا لحفظ نطاقات الخريطة المعروضة مع العنوان المقترح من مستخدم النظام.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 9;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_1': 'يوفر للمستخدم خيار قياس الأطوال الخطية بالمتر والكيلومتر والمساحة بالمتر المُربع.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 10;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_6': 'يوفر معلومات السمة علي الخريطة.',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 11;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_4': 'تكبير إلى الإحداثيات المقدمة',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 12;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_2': 'يزود المستخدم بالبحث بناءً على معايير مختلفة',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 13;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_3': 'يوفر معلومات عن قطعة الأرض مصنفة حسب تفاصيل قطعة الأرض والمصنع',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 14;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_9': 'إنشاء تقارير بناءً على حالة تخصيص قطعة الأرض وحالة البناء والمدفوعات المتأخرة وتفاصيل المصنع',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 15;
+              }
+            },
+            {
+              'next #dijit__WidgetBase_5': 'يوفر خيارًا لتحديث لوائح التخطيط الرئيسية وتفاصيل طلب المرافق',
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 16;
+              }
+            },
+            {
+              'click #widgets_Search_Widget_22': 'لتسهيل بحث المستخدمين على المعالم في في الخريطة',
+              // "nextButton": { className: "myNext", text: "", show: false },
+              nextButton: false,
+              skipButton: { text: "Finish" },
+              onBeforeStart: function () {
+                localStorage.noofnext_user_clicked = 17;
+                localStorage.already = "clicked";
+              }
+            },
+
+          ];
+
+          var pageUrl_ = window.location.href;
+          //alert(pageUrl_)
+          if (pageUrl_.includes("/?locale=ar")) {
+            enjoyhint_script_steps =  enjoyhint_script_steps_AR;
+          }else{
+            enjoyhint_script_steps =  enjoyhint_script_steps_EN; 
+          }
+          if (localStorage.noofnext_user_clicked == undefined) {
+            localStorage.noofnext_user_clicked = 0
+          }
+          if (localStorage.noofnext_user_clicked != 17) {
+
+            var enjoyhint_script_steps_new = [];
+
+            for (var i = localStorage.noofnext_user_clicked; i <= 20; i++) {
+              // if (localStorage.noofnext_user_clicked == 6) {
+              //   i++;
+              // }
+              enjoyhint_script_steps_new.push(enjoyhint_script_steps[i]);
+            }
+            console.log(enjoyhint_script_steps_new)
+            enjoyhint_instance.set(enjoyhint_script_steps_new);
+
+            enjoyhint_instance.run();
+
+             
+            $("canvas",".kineticjs-content").css("position","fixed");
+
+          }
+
+        }
+
+        changeicon();
+
+        $(".customloader").hide();
+
+        
+
+      }, 10000);
+
+      //.............
+
+      function changeicon() {
+        // $("[alt='Splash']").addClass("Splash1");
+        // $("[alt='Layer List']").addClass("LayerList");
+        // $("[alt='Legend']").addClass("Legend");
+        // $("[alt='Basemap Gallery']").addClass("BasemapGallery1");
+        // $("[alt='Arabic']").addClass("EngArbLang");
+         
+ 
+        $('[data-dojo-attach-point="tableListTable"]').css("display","none")
+
+        if (pageUrl.includes("/?locale=ar")) { 
+        $(".ClearButton").closest("div").attr("title", "مسح الرسومات"); 
+        $(".Logout").closest("div").attr("title", "خروج"); 
+
+
+        $(".UtilityDashboard").closest("div").attr("title", "لوحة شبكات المرافق"); 
+        $(".AllocationStatusDashboard").closest("div").attr("title", "لوحة حالة تخصيص الأراضي"); 
+        $(".DelayedPaymentsDashboard").closest("div").attr("title", "لوحة معلومات المدفوعات المتأخرة"); 
+        $(".ProjectPhasesAndDelayedProjects").closest("div").attr("title", "مراحل المشروع والمشاريع المتأخرة"); 
+
+
+
+
+        }
+        $(".ClearButton").closest("div").mouseover(function () {
+          var img = $(".ClearButton").attr("src", "/MociPortal/widgets/ClearButton/images/icon1.png?wab_dv=2.20"); 
+        });
+        $(".ClearButton").closest("div").mouseleave(function () {
+          var img = $(".ClearButton").attr("src", "/MociPortal/widgets/ClearButton/images/icon.png?wab_dv=2.20");
+        });
+ 
+      // $(".ClearButton").click(function () {
+      //   alert("button clicked img") 
+      // });
+
+        $(".Legend").closest("div").mouseover(function () {
+          var img = $(".Legend").attr("src", "/MociPortal/widgets/Legend/images/icon1.png?wab_dv=2.20");
+
+        });
+        $(".Legend").closest("div").mouseleave(function () {
+          var img = $(".Legend").attr("src", "/MociPortal/widgets/Legend/images/icon.png?wab_dv=2.20");
+        });
+        $(".LayerList").closest("div").mouseover(function () {
+          var img = $(".LayerList").attr("src", "/MociPortal/widgets/LayerList/images/icon1.png?wab_dv=2.20");
+
+        });
+        $(".LayerList").closest("div").mouseleave(function () {
+          var img = $(".LayerList").attr("src", "/MociPortal/widgets/LayerList/images/icon.png?wab_dv=2.20");
+        });
+        $(".EngArbLang").closest("div").mouseleave(function () {
+
+          var img = $(".EngArbLang").attr("src", "/MociPortal/widgets/EngArbLang/images/icon.png?wab_dv=2.20");
+
+        });
+        $(".EngArbLang").closest("div").mouseover(function () {
+
+          var img = $(".EngArbLang").attr("src", "/MociPortal/widgets/EngArbLang/images/icon1.png?wab_dv=2.20");
+
+        });
+        $(".BasemapGallery1").closest("div").mouseleave(function () {
+
+          var img = $(".BasemapGallery1").attr("src", "/MociPortal/widgets/BasemapGallery/images/icon.png?wab_dv=2.20");
+
+        });
+        $(".BasemapGallery1").closest("div").mouseover(function () {
+
+          var img = $(".BasemapGallery1").attr("src", "/MociPortal/widgets/BasemapGallery/images/icon1.png?wab_dv=2.20");
+
+        });
+
+        $("._zoomin").closest("div").mouseleave(function () {
+          if($("._zoomin").closest("div").hasClass('jimu-state-selected')){
+          var img = $("._zoomin").attr("src", "/MociPortal/widgets/ZoomIn/images/icon1.png?wab_dv=2.20");
+          }else{
+          var img = $("._zoomin").attr("src", "/MociPortal/widgets/ZoomIn/images/icon.png?wab_dv=2.20");
+          }
+        });
+        $("._zoomin").closest("div").mouseover(function () {
+          var img = $("._zoomin").attr("src", "/MociPortal/widgets/ZoomIn/images/icon1.png?wab_dv=2.20");
+        });
+
+        $("._zoomout").closest("div").mouseleave(function () {
+          if($("._zoomout").closest("div").hasClass('jimu-state-selected')){
+            var img = $("._zoomout").attr("src", "/MociPortal/widgets/ZoomOut/images/icon1.png?wab_dv=2.20");
+          }else{
+            var img = $("._zoomout").attr("src", "/MociPortal/widgets/ZoomOut/images/icon.png?wab_dv=2.20");
+          }          
+        });
+
+
+        $("._zoomout").closest("div").mouseover(function () { 
+          var img = $("._zoomout").attr("src", "/MociPortal/widgets/ZoomOut/images/icon1.png?wab_dv=2.20");
+        });
+
+        // $(".BasemapGallery1").mouseleave(function () {
+        //   var img = $(this).attr("src", "/MociPortal/widgets/BasemapGallery/images/icon.png?wab_dv=2.20");  
+        // });
+        // $(".BasemapGallery1").mouseover(function () {
+        //   var img = $(this).attr("src", "/MociPortal/widgets/BasemapGallery/images/icon1.png?wab_dv=2.20");   
+        // });
+
+        // $(".close-btn").click(function () { 
+        //   alert($("#dijit__WidgetBase_1").hasClass('jimu-state-selected'))
+        //   if (!$("#dijit__WidgetBase_1").hasClass('jimu-state-selected')) {
+        //     alert("closing")
+        //     var img = $(this).find("img"),
+        //       len = img.length;
+        //     if (len > 0) {
+        //       var attrID = img.first().attr("src", "/MociPortal/widgets/Measurement/images/icon.png?wab_dv=2.20");
+        //     }
+        //   } 
+        // });
+       
+        $(".ProjectPhasesAndDelayedProjects").closest("div").mouseover(function () {
+          var img = $(".ProjectPhasesAndDelayedProjects").attr("src", "/MociPortal/widgets/ConstructionStatusDashboard/images/icon1.png?wab_dv=2.20");
+        });
+        $(".ProjectPhasesAndDelayedProjects").closest("div").mouseleave(function () {
+          var img = $(".ProjectPhasesAndDelayedProjects").attr("src", "/MociPortal/widgets/ConstructionStatusDashboard/images/icon.png?wab_dv=2.20");
+        });
+
+        $(".DelayedPaymentsDashboard").closest("div").mouseover(function () {
+          var img = $(".DelayedPaymentsDashboard").attr("src", "/MociPortal/widgets/DelayedPaymentsDashboard/images/icon1.png?wab_dv=2.20");
+        });
+        $(".DelayedPaymentsDashboard").closest("div").mouseleave(function () {
+          var img = $(".DelayedPaymentsDashboard").attr("src", "/MociPortal/widgets/DelayedPaymentsDashboard/images/icon.png?wab_dv=2.20");
+        });
+
+        $(".AllocationStatusDashboard").closest("div").mouseover(function () {
+          var img = $(".AllocationStatusDashboard").attr("src", "/MociPortal/widgets/AllocationDashboard/images/icon1.png?wab_dv=2.20");
+        });
+        $(".AllocationStatusDashboard").closest("div").mouseleave(function () {
+          var img = $(".AllocationStatusDashboard").attr("src", "/MociPortal/widgets/AllocationDashboard/images/icon.png?wab_dv=2.20");
+        });
+
+        $(".UtilityDashboard").closest("div").mouseover(function () {
+          var img = $(".UtilityDashboard").attr("src", "/MociPortal/widgets/UtilityDashboard/images/icon1.png?wab_dv=2.20");
+        });
+        $(".UtilityDashboard").closest("div").mouseleave(function () {
+          var img = $(".UtilityDashboard").attr("src", "/MociPortal/widgets/UtilityDashboard/images/icon.png?wab_dv=2.20");
+        });
+
+
+        $(".Splash1").closest("div").mouseover(function () {
+          var img = $(".Splash1").attr("src", "/MociPortal/widgets/Splash/images/icon1.png?wab_dv=2.20");
+
+        });
+        $(".Splash1").closest("div").mouseleave(function () {
+          var img = $(".Splash1").attr("src", "/MociPortal/widgets/Splash/images/icon.png?wab_dv=2.20");
+        });
+
+        $(".Logout").closest("div").mouseover(function () {
+          var img = $(".Logout").attr("src", "/MociPortal/widgets/Logout/images/icon1.png?wab_dv=2.20");
+
+        });
+        $(".Logout").closest("div").mouseleave(function () {
+          var img = $(".Logout").attr("src", "/MociPortal/widgets/Logout/images/icon.png?wab_dv=2.20");
+        });
+         
+
+
+
+        $("#dijit__WidgetBase_0").mouseover(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/Bookmark/images/icon1.png?wab_dv=2.20");
+          }
+        });
+        $("#dijit__WidgetBase_0").mouseleave(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/Bookmark/images/icon.png?wab_dv=2.20");
+          }
+
+          if ($("#dijit__WidgetBase_0").hasClass('jimu-state-selected')) {
+
+            var img = $(this).find("img"),
+              len = img.length;
+            if (len > 0) {
+              var attrID = img.first().attr("src", "/MociPortal/widgets/Bookmark/images/icon1.png?wab_dv=2.20");
+            }
+          }
+        });
+        
+        $("#dijit__WidgetBase_1").mouseover(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/Measurement/images/icon1.png?wab_dv=2.20");
+          }
+        });
+        $("#dijit__WidgetBase_1").mouseleave(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/Measurement/images/icon.png?wab_dv=2.20");
+          }
+
+          if ($("#dijit__WidgetBase_1").hasClass('jimu-state-selected')) {
+
+            var img = $(this).find("img"),
+              len = img.length;
+            if (len > 0) {
+              var attrID = img.first().attr("src", "/MociPortal/widgets/Measurement/images/icon1.png?wab_dv=2.20");
+            }
+          }
+
+        });
+ 
+        $("#dijit__WidgetBase_2").mouseover(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/Identify/images/icon1.png?wab_dv=2.20");
+          }
+        });
+        $("#dijit__WidgetBase_2").mouseleave(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/Identify/images/icon.png?wab_dv=2.20");
+          }
+          if ($("#dijit__WidgetBase_2").hasClass('jimu-state-selected')) {
+
+            var img = $(this).find("img"),
+              len = img.length;
+            if (len > 0) {
+              var attrID = img.first().attr("src", "/MociPortal/widgets/Identify/images/icon1.png?wab_dv=2.20");
+            }
+          }
+        });
+        
+        $("#dijit__WidgetBase_3").mouseover(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/GoToCoordinates/images/icon1.png?wab_dv=2.20");
+          }
+        });
+        $("#dijit__WidgetBase_3").mouseleave(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/GoToCoordinates/images/icon.png?wab_dv=2.20");
+          }
+          if ($("#dijit__WidgetBase_3").hasClass('jimu-state-selected')) {
+
+            var img = $(this).find("img"),
+              len = img.length;
+            if (len > 0) {
+              var attrID = img.first().attr("src", "/MociPortal/widgets/GoToCoordinates/images/icon1.png?wab_dv=2.20");
+            }
+          }
+        });
+        
+        $("#dijit__WidgetBase_4").mouseover(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/SearchAll/images/icon1.png?wab_dv=2.20");
+          }
+        });
+        $("#dijit__WidgetBase_4").mouseleave(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/SearchAll/images/icon.png?wab_dv=2.20");
+          }
+          if ($("#dijit__WidgetBase_4").hasClass('jimu-state-selected')) {
+
+            var img = $(this).find("img"),
+              len = img.length;
+            if (len > 0) {
+              var attrID = img.first().attr("src", "/MociPortal/widgets/SearchAll/images/icon1.png?wab_dv=2.20");
+            }
+          }
+        });
+
+        $("#dijit__WidgetBase_5").mouseover(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/PlotFactoryInfo/images/icon1.png?wab_dv=2.20");
+          }
+        });
+        $("#dijit__WidgetBase_5").mouseleave(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/PlotFactoryInfo/images/icon.png?wab_dv=2.20");
+          }
+          if ($("#dijit__WidgetBase_5").hasClass('jimu-state-selected')) {
+
+            var img = $(this).find("img"),
+              len = img.length;
+            if (len > 0) {
+              var attrID = img.first().attr("src", "/MociPortal/widgets/PlotFactoryInfo/images/icon1.png?wab_dv=2.20");
+            }
+          }
+        }); 
+        
+        $("#dijit__WidgetBase_6").mouseover(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/Print/images/icon1.png?wab_dv=2.20");
+          }
+        });
+        $("#dijit__WidgetBase_6").mouseleave(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/Print/images/icon.png?wab_dv=2.20");
+          }
+          if ($("#dijit__WidgetBase_6").hasClass('jimu-state-selected')) {
+
+            var img = $(this).find("img"),
+              len = img.length;
+            if (len > 0) {
+              var attrID = img.first().attr("src", "/MociPortal/widgets/Print/images/icon1.png?wab_dv=2.20");
+            }
+          }
+        });
+       
+        $("#dijit__WidgetBase_7").mouseover(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/UpdateAttributes/images/icon1.png?wab_dv=2.20");
+          }
+        });
+        $("#dijit__WidgetBase_7").mouseleave(function () {
+          var img = $(this).find("img"),
+            len = img.length;
+          if (len > 0) {
+            var attrID = img.first().attr("src", "/MociPortal/widgets/UpdateAttributes/images/icon.png?wab_dv=2.20");
+          }
+          if ($("#dijit__WidgetBase_7").hasClass('jimu-state-selected')) {
+
+            var img = $(this).find("img"),
+              len = img.length;
+            if (len > 0) {
+              var attrID = img.first().attr("src", "/MociPortal/widgets/UpdateAttributes/images/icon1.png?wab_dv=2.20");
+            }
+          }
+        });
+        
+      }
+    });
+
+  </script>
+
+<!-- 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/enjoyhint/4.0.1/enjoyhint.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/enjoyhint/4.0.1/enjoyhint.js"></script> -->
+
+<link rel="stylesheet" href="./offline/enjoyhint.min.css" integrity="sha512-X2RCHcIj0eAr0N9xwAeFe7jIclze0Kp4vdmKZoC/wp4EAETkfmytelfBvjeCvps+R53swTmUFT3WBWrYnjGskA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="./offline/enjoyhint.min.js" integrity="sha512-IXbvn8Vjrto6fV7nN3c9WV75sitvqXtl7o42L08vZAPtZCRE2umeAChtEyX8wvyY6KwpK4OTuHULHt7O9f2Cgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+</head>
+
+<body class="claro jimu-main-font ArabicClass">
+
+  <div class="customloader"></div>
+  <div id="main-loading">
+
+    <!-- This is section you can modify to customize the loading page -->
+    <div id="app-loading"></div>
+    <div id="loading-gif"></div>
+
+    
+    <!-- //////////////////    END    ////////////////////////////// -->
+    <!--[if IE 8]>
+    <div id="ie-note" style="display:none;">
+      <div class="hint-title">Error</div>
+      <div class="hint-img">Your browser is currently not supported.</div>
+      <p class="hint-text">
+        <span>
+          Please note that creating presentations is not supported in Internet Explorer versions 6, 7.
+        </span>
+        <br>
+        <span>
+          We recommend upgrading to the latest Internet Explorer, Google Chrome, or Firefox.
+        </span>
+        <br>
+        <span>
+          If you are using IE 8 or later, make sure you turn off "Compatibility View".
+        </span>
+      </p>
+    </div>
+    <![endif]-->
+  </div>
+  <div id="main-page" role="application">
+    <div class="trapLinkNode" tabindex="0"></div>
+    <div id="jimu-layout-manager"></div>
+    <div id="plotDiv" style="display: none;"></div>
+    <div id="projDetailsDiv" style="display: none;"></div>
+    <div id="delayedPaymentsDiv" style="display: none;"></div>
+    <div id="factoryReportDiv" style="display: none;"></div>
+    <div id="skipContainer"></div>
+    <div class="trapLinkNode lastTrapLinkNode" tabindex="0"></div>
+  </div>
+
+  <div id="unsupported-browser-message">
+    <div class="browser-message">
+      <div class="browser-button-container">
+        <button><img src="./browser-message/close.png"></button>
+      </div>
+      <h1 class="browser-message-title" id="message-title"></h1>
+      <p class="browser-message-content" id="message-content-1"></p>
+      <p class="browser-message-content" id="message-content-2"></p>
+      <p class="browser-message-content" id="message-content-3"></p>
+      <ul id="browser-logo-list">
+        <li class="browser-logo"><a href="https://www.google.com/chrome/"><img alt="Chrome"
+              src="./browser-message/chrome.png"></a></li>
+        <li class="browser-logo"><a href="https://www.mozilla.org/firefox/"><img alt="Firefox"
+              src="./browser-message/firefox.png"></a></li>
+        <li class="browser-logo"><a href="https://www.apple.com/safari/"><img alt="Safari"
+              src="./browser-message/safari.png"></a></li>
+        <li class="browser-logo"><a href="https://www.microsoft.com/edge"><img alt="Edge"
+              src="./browser-message/edge.png"></a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- <div class="MOCIMono"><a href="#" target="_blank"><img alt="MOCI" src="./images/monoMOCI.png" height="50px"></a></div> -->
+  <div class="attribution">
+    <a id="contact" href="#">Contact Us</a>&nbsp;&nbsp;|&nbsp;
+    <a href="#" target="_blank">Privacy Statement</a>&nbsp;&nbsp;|&nbsp;
+    <a href="#" target="_blank">Terms</a>&nbsp;&nbsp;|&nbsp;
+    <a href="#" target="_blank">Report Vulnerability</a>
+  </div>
+
+  <script type="text/javascript" src="./service-worker-registration.js"></script>
+  <script type="text/javascript" src="env.js"></script>
+  <script type="text/javascript" src="browser-message/limited-unsupported-browser.js"></script>
+  <script type="text/javascript" src="simpleLoader.js"></script>
+  <script type="text/javascript" src="init.js"></script>
+
+
+</body>
+
+</html>

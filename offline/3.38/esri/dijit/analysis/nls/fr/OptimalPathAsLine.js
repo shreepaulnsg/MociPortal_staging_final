@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/fr/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Choisir des entit\u00e9s ou un raster de destination",destinationField:"Champ de destination (facultatif)",inputDistanceAccumulationRaster:"Choisir un raster d\u2019accumulation de distance",inputBackDirectionRaster:"Choisir un raster de direction arri\u00e8re ou de sens de circulation",pathType:"Type de chemin (facultatif)",bestSingle:"Le moins co\u00fbteux",eachCell:"Chaque cellule",eachZone:"Chaque zone",outputFeatureName:"Nom de la couche d\u2019entit\u00e9s de r\u00e9sultat",
+outputLayerName:"Chemin optimal comme ligne de ${layername}",drawSourcePointLayerName:"Points source",itemDescription:"Couche d\u2019entit\u00e9s g\u00e9n\u00e9r\u00e9e en ex\u00e9cutant Chemin optimal comme ligne sur ${layername}. ",itemTags:"R\u00e9sultat d\u2019analyse, Chemin optimal comme ligne, ${layername} ${fieldname}",itemSnippet:"Couche d\u2019entit\u00e9s g\u00e9n\u00e9r\u00e9e avec Chemin optimal comme ligne."});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/sections/dynamicSettings/areaDetails/_AreaDetailsSettingsBuilder",["dojo/aspect","esri/dijit/geoenrichment/when","../../../infographics/InfographicTypes"],function(c,d,h){return{provideAreaDetailsSettings:function(e){var b=e.getInfographic();return b&&b.getType()===h.AREA_DETAILS?d(b.getContentInitPromise(),function(){var a=b.getInnerInfographic();return d(a.getUpdatePromise(),function(){if(!a.getNumItemsTotal())return null;var f={hasTitle:a.hasTitle(),
+filter:{getNumItemsTotal:function(){return a.getNumItemsTotal()},getNumItemsShown:function(){return a.getNumItemsShown()},onContentUpdated:function(){}}};c.after(e,"fromJson",function(){var g=e.getInfographic();d(g.getContentInitPromise(),function(){a=g.getInnerInfographic();c.after(a,"onContentUpdated",function(){f.filter.onContentUpdated()})})});c.after(a,"onContentUpdated",function(){f.filter.onContentUpdated()});return f})}):null}}});

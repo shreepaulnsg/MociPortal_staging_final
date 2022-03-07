@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/da/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"V\u00e6lg destinationsraster eller -objekter",destinationField:"Destinationsfelt (valgfrit)",inputDistanceAccumulationRaster:"V\u00e6lg raster til afstandsakkumulering",inputBackDirectionRaster:"V\u00e6lg tilbageretnings- eller flowretningsraster",pathType:"Stitype (valgfrit)",bestSingle:"Bedste enkelt",eachCell:"Hver celle",eachZone:"Hver zone",outputFeatureName:"Navn p\u00e5 resultatvektorlag",outputLayerName:"Optimal rute som linje af ${layername}",
+drawSourcePointLayerName:"Kildepunkter",itemDescription:"Vektorlag genereret ud fra k\u00f8rsel af den optimale rute som linje p\u00e5 ${layername}. ",itemTags:"Analyseresultat, optimal rute som linje, ${layername} ${fieldname}",itemSnippet:"Vektorlag genereret ud fra den optimale rute som linje."});

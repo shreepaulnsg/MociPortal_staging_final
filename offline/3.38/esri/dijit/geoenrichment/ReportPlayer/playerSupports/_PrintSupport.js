@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/playerSupports/_PrintSupport",["require","dojo/_base/declare","esri/dijit/geoenrichment/Deferred","esri/dijit/geoenrichment/when","../ReportPlayerState"],function(h,k,l,d,e){function f(){var a=new l;h(["../printing/PrintableContainer"],function(b){a.resolve(b)});return a.promise}return k(null,{_getPrintableContainer:function(a){var b=this;e.isAnimationSuspended=!0;return b._showWaiting(f(),"loadPrintModules").then(function(m){var g=new m(b,b._viewModel);
+a.onShowWaiting=function(c){b._showWaiting(c,"initPrintContainer")};return d(g.initialize(a),function(c){e.isAnimationSuspended=!1;return c?c:d(g.stop(),function(){return null})})})},_getPrintDialogSettings:function(){var a=this;return f().then(function(b){return(new b(a,a._viewModel)).getPrintDialogSettings()})}})});

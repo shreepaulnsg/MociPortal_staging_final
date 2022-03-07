@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Estadísticas zonales como tabla</h2><p/>
+        <h2><img src="../images/GUID-2847466F-BF22-4545-BDCE-7EB7B1D15F2D-web.png" alt="Diagrama Estad&iacute;stiques zonals com a taula"></h2>
+        <hr/>
+    <p>Aquesta eina resumeix els valors d'un r&agrave;ster dins de les zones d'un altre dataset o informa dels resultats en una taula.
+    </p>
+    <p>Exemples d'aplicacions d'aquesta eina:
+        <ul>
+            <li>Donada una capa de l&iacute;mits de conques hidrogr&agrave;fiques i una capa de l&iacute;mits d'&uacute;s del s&ograve;l per tipus d'&uacute;s, calcular la superf&iacute;cie total del tipus d'&uacute;s del s&ograve;l per a cada conca hidrogr&agrave;fica.
+                
+
+            </li>
+            <li>Donada una capa de parcel&middot;les d'un comtat i una capa de l&iacute;mits de ciutats, resumir el valor mitj&agrave; de les parcel&middot;les buides en cada l&iacute;mit de la ciutat.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>Si s'ha activat  <b>Utilitza l'extensi&oacute; del mapa actual</b>, nom&eacute;s s'analitzaran les entitats de la capa d'entrada i la capa que es resumir&agrave; que siguin visibles a l'extensi&oacute; de mapa actual. Si l'opci&oacute; est&agrave; desactivada, s'analitzaran totes les entitats de la capa d'entrada i la capa que es resumir&agrave;, encara que estiguin fora de l'extensi&oacute; de mapa actual.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div><h2>Trieu les entitats o el ràster de zona</h2></div>
+        <hr/>
+        <div>
+            <p>Entrada que defineix els l&iacute;mits de les zones o &agrave;rees que es resumiran.
+            </p>
+            <p>L'entrada pot ser de dades de r&agrave;ster o entitat de tipus enter. Per als r&agrave;sters, les zones es defineixen mitjan&ccedil;ant totes les ubicacions de l'entrada que tenen el mateix valor de cel&middot;la. En el cas de les entitats, les zones es poden superposar. No &eacute;s necessari que les &agrave;rees siguin contig&uuml;es.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Campo de zona</h2></div>
+        <hr/>
+        <div>
+            <p>Camp que cont&eacute; els valors que defineixen cada zona.
+            </p>
+            <p>Puede ser un campo de enteros o de cadenas de caracteres del dataset zonal.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div><h2>Trieu el ràster de valor</h2></div>
+        <hr/>
+        <div>
+            <p>R&agrave;ster que cont&eacute; els valors sobre els quals es calcula una estad&iacute;stica.
+            </p>
+            <p>Pot ser un enter o un punt flotant. Aix&ograve; no obstant, si &eacute;s un punt flotant, les opcions per calcular els valors de majoria, minoria i varietat no estaran disponibles.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div><h2>Ignora NoData als càlculs (opcional)</h2></div>
+        <hr/>
+        <div>
+            <p> Especifica si els valors NoData s'ignoraran a l'an&agrave;lisi.
+            </p>
+            <ul>
+                <li>Activat: l'an&agrave;lisi inclour&agrave; les cel&middot;les que tinguin un valor al r&agrave;ster de valor d'entrada en una zona concreta per determinar el valor de sortida de la zona. Les cel&middot;les NoData del r&agrave;ster de valor s'ignoraran al c&agrave;lcul estad&iacute;stic. Esta es la opci&oacute;n predeterminada.
+                </li>
+                <li>Desactivat: l'an&agrave;lisi tindr&agrave; com a resultat NoData si hi ha algun valor NoData per a les cel&middot;les del r&agrave;ster de valor en una zona concreta.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="statisticType">
+        <div><h2>Tipus d'estadística (opcional)</h2></div>
+        <hr/>
+        <div>
+            <p>Especifica el tipus d'estad&iacute;stica que es calcular&agrave;.
+            </p>
+            <p> L'entrada pot ser una de les opcions seg&uuml;ents: <b>Tot</b>, <b>Mitjana</b>, <b>Majoria</b>, <b>M&agrave;xim</b>, <b>Mediana</b>, <b>M&iacute;nim</b>, <b>Minoria</b>, <b>Percentil</b>, <b>Interval</b>, <b>Desviaci&oacute; est&agrave;ndard</b>, <b>Suma</b>, <b>Varietat</b>, <b>M&iacute;nim i m&agrave;xim</b>, <b>Mitjana i desviaci&oacute; est&agrave;ndard</b> o <b>M&iacute;nim, m&agrave;xim i mitjana</b>. El valor per defecte &eacute;s <b>Tot</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div><h2>Valors de percentil (opcional)</h2></div>
+        <hr/>
+        <div>
+            <p>Percentil que es calcular&agrave;. El valor per defecte &eacute;s 90, que indica el percentil 90.
+            </p>
+            <p>El valor pot ser de 0 a 100. El resultat d'especificar el percentil 0 &eacute;s b&agrave;sicament equivalent al de l'estad&iacute;stica m&iacute;nima, i el percentil 100 equival a la m&agrave;xima. Un valor de 50 produir&agrave; b&agrave;sicament el mateix resultat que l'estad&iacute;stica mediana.
+            </p>
+            <p> Aquest par&agrave;metre nom&eacute;s s'admet si el par&agrave;metre <b>Tipus d'estad&iacute;stica</b> es defineix com a <b>Percentil</b> o <b>Tots</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div><h2>Tipus d'interpolació del percentil (opcional)</h2></div>
+        <hr/>
+        <div>
+            <p>Especifica el m&egrave;tode d'interpolaci&oacute; del percentil que es far&agrave; servir quan el nombre de valors del r&agrave;ster d'entrada que s'hagin de calcular sigui parell.
+            </p>
+            <ul>
+                <li>  <b>Detecta autom&agrave;ticament</b>: si el r&agrave;ster de valor d'entrada &eacute;s de tipus de p&iacute;xel enter, es fa servir el m&egrave;tode <b>M&eacute;s proper</b>. Si el r&agrave;ster de valor d'entrada &eacute;s de tipus de p&iacute;xel de punt flotant, es fa servir el m&egrave;tode <b>Lineal</b>. Esta es la opci&oacute;n predeterminada.
+                </li>
+                <li> <b>M&eacute;s proper</b>: es fa servir el valor disponible m&eacute;s proper al percentil desitjat.
+                </li>
+                <li> <b>Lineal</b>: es fa servir la mitjana ponderada dels dos valors ve&iuml;ns del percentil desitjat.
+                </li>
+            </ul>
+            
+            <p> Aquest par&agrave;metre nom&eacute;s s'admet si el par&agrave;metre <b>Tipus d'estad&iacute;stica</b> es defineix com a <b>Percentil</b> o <b>Tots</b>.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Processa com a multidimensional (opcional)</h2></div>
+        <hr/>
+        <div>
+            <p>Especifica com es processaran els serveis d'imatges multidimensionals d'entrada si s&oacute;n multidimensionals.
+            </p>
+            <ul>
+                <li>Activat: les estad&iacute;stiques es calcularan a partir del sector actual del dataset multidimensional d'entrada. Esta es la opci&oacute;n predeterminada.
+                    
+
+                </li>
+                <li>Desactivat: les estad&iacute;stiques es calcularan per a totes les dimensions del dataset multidimensional d'entrada.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div><h2>Nom de la taula de resultats</h2></div>
+        <hr/>
+        <div>
+            <p>Nom de la capa que es crear&agrave; a  <b>El meu contingut</b> i s'afegir&agrave; al mapa. El nombre predeterminado se basa en el nombre de la herramienta y en el nombre de la capa de entrada. Si la capa ja existeix, se us demanar&agrave; que proporcioneu un altre nom.
+            </p>
+            <p>Podeu especificar el nom d'una carpeta de  <b>El meu contingut</b> on es desar&agrave; el resultat mitjan&ccedil;ant el quadre desplegable <b>Desa el resultat a</b>.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

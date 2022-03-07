@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/asyncUtils",["require","exports","./tsSupport/generatorHelper","./tsSupport/awaiterHelper","./promiseUtils"],function(n,d,k,l,h){Object.defineProperty(d,"__esModule",{value:!0});d.forEach=function(a,b,f){return l(this,void 0,void 0,function(){return k(this,function(c){switch(c.label){case 0:return[4,h.eachAlways(a.map(function(e,g){return b.apply(f,[e,g])}))];case 1:return c.sent(),[2]}})})};d.map=function(a,b,f){return l(this,void 0,void 0,function(){var c;return k(this,
+function(e){switch(e.label){case 0:return[4,h.eachAlways(a.map(function(g,m){return b.apply(f,[g,m])}))];case 1:return c=e.sent(),[2,c.map(function(g){return g.value})]}})})};d.maybe=function(a){return a.then(function(b){return{ok:!0,value:b}}).catch(function(b){return{ok:!1,error:b}})};d.assertMaybe=function(a){if(!0===a.ok)return a.value;throw a.error;};d.cancellable=function(a){var b,f=function(c){return b=c};return h.create(function(c,e){a(f).then(c,e)},function(c){return b&&b.cancel(c)})}});

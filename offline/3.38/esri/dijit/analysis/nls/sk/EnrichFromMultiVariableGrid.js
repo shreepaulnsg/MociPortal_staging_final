@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sk/EnrichFromMultiVariableGrid",{choosePointLyrLabel:"Vyberte bodov\u00e9 prvky pre obohatenie",chooseMVgridLyrLabel:"Vyberte si tabu\u013eku viacer\u00fdch premenn\u00fdch, ktor\u00e1 sa pou\u017eije pre obohatenie",chooseVariables:"Vyberte premenn\u00e9 pre pridanie",outputLayerName:"Obohaten\u00e9 ${inputFeatures} z ${gridLayer}",itemDescription:"Vrstvy prvkov generovan\u00e9 n\u00e1strojom Obohati\u0165 pomocou rie\u0161enia mrie\u017eky s viacer\u00fdmi premenn\u00fdmi pre ${inputFeatures}.",
+itemTags:"V\u00fdsledok anal\u00fdzy, Obohati\u0165 pomocou mrie\u017eky s viacer\u00fdmi premenn\u00fdmi ${inputFeatures},${gridLayer}",itemSnippet:"Vrstvy prvkov generovan\u00e9 n\u00e1strojom Obohati\u0165 pomocou mrie\u017eky s viacer\u00fdmi premenn\u00fdmi."});

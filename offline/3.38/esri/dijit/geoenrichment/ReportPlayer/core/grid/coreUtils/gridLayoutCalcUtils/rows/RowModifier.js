@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/grid/coreUtils/gridLayoutCalcUtils/rows/RowModifier",["../GridLayoutCalculatorQueryUtil","./RowDataUtil","./_RowModifierLoose","./_RowModifierNormal"],function(m,f,h,n){var g={},p={checkHeightLimit:function(a,b,c,d){if(a.getMaxHeight()){var e=0;a.rows.forEach(function(k){k!==b&&(e+=f.getDataHeight(a,k,c))});d=Math.min(a.getMaxHeight()-e,d)}return d}},l={findDataToMove:function(a,b,c,d){var e=m.getMovableData(a,b,c);e&&(a=f.calcDataHeight(a,b,c,e.index),
+d-=a);return{data:e||b,height:d}}},q={finalResizeGridCells:function(a){a.getCells().forEach(function(b){b.setHeight(f.calcDataHeight(a,b.row,b.column.field))})}};g.adjustRowHeight=function(a,b,c,d){d=p.checkHeightLimit(a,b,c,d);b=l.findDataToMove(a,b,c,d);(a.looseResize?h:n).adjustRowHeight(a,b.data,c,b.height);q.finalResizeGridCells(a)};g.getAffectedCells=function(a,b,c){return a.looseResize?h.getAffectedCells(a,l.findDataToMove(a,b,c).data,c):null};return g});

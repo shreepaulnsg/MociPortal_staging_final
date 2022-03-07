@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/locationproviders/LocationProviderClientBase","../../declare dojo/Deferred dojo/promise/all ../../graphic ./LocationProviderBase ../../SpatialReference ../../geometry/jsonUtils".split(" "),function(m,n,p,v,q,r,w){return m("esri.tasks.locationproviders.LocationProviderClientBase",q,{inSpatialReference:null,constructor:function(c){this.inSpatialReference||(this.inSpatialReference=new r(4326))},_locate:function(c,g){function h(){setTimeout(function(){for(var t=+new Date+100,a=[];t>
++new Date&&d<c.length;){var f=c[d],u=k.getGeometry(f);(f.geometry=u)&&a.push(f);++d}g.outSpatialReference?l.push(k._project(a,g.outSpatialReference).then(function(){b=b.concat(a);e.progress(a)})):(b=b.concat(a),e.progress(a));d<c.length?h():p(l).then(function(){e.resolve(b)})},25)}var l=[],b=[],e=new n,k=this,d=0;h();return e.promise}})});

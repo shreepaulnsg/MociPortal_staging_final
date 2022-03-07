@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/config",["esri/kernel"],function(a){function c(b){b=b.split(".");return Number((Number(b[0])+Number(b[1])/100).toFixed(2))}a=Math.max(c("3.37"),c(a.version)).toFixed(2);return{jsapiVersion:a,esriDijitCssUrl:"https://js.arcgis.com/"+a+"/dijit/themes/claro/claro.css",esriCssUrl:"https://js.arcgis.com/"+a+"/esri/css/esri.css",playerSourceRootUrl:"https://js.arcgis.com/"+a+"/",configScriptText:null,env:"prod",isPlayerOnServer:!1,updateVariableInfoFromDataXml:!0,
+runReportTask:{cacheResult:!0,ignoreErrors:!0,secondAttempt:!0},maps:{maxNumberOfMapsShownAtTheSameTime:6},charts:{showErrorIfHasUnavailableData:!1},tables:{leaveEmptyCellsUponError:!0,showUnavailableData:!0},createImageCommand:{skipSavingFile:!1},createPDFCommand:{skipSavingFile:!1,skipCreditConsumption:!1},createPlayerCommand:{loadMapPortalItems:!0,compressData:!1,prettifyDataJson:!1,skipCreditConsumption:!1},exportToExcel:{skipSavingFile:!1},modules:{exportCommands:!0,complexCellTooltips:!0,paths:{panoramicViewer:null}},
+generalization:{factor:-1,maxVerticesInAllFeatures:1E5,numVerticesPerFeature:5E4}}});

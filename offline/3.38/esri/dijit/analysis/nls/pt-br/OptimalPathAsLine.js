@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/pt-br/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Escolha o raster de destino ou fei\u00e7\u00f5es",destinationField:"Campo de destino (opcional)",inputDistanceAccumulationRaster:"Escolha o raster de acumula\u00e7\u00e3o de dist\u00e2ncia",inputBackDirectionRaster:"Escolha a dire\u00e7\u00e3o de volta ou raster de dire\u00e7\u00e3o de fluxo",pathType:"Tipo de caminho (opcional)",bestSingle:"Mais Simples",eachCell:"Cada c\u00e9lula",eachZone:"Cada zona",outputFeatureName:"Nome da camada de fei\u00e7\u00e3o do resultado",
+outputLayerName:"Caminho favor\u00e1vel como linha de ${layername}",drawSourcePointLayerName:"Ponto de origem",itemDescription:"Camada de fei\u00e7\u00e3o gerada a partir da execu\u00e7\u00e3o do caminho ideal como linha em ${layername}. ",itemTags:"Resultado da an\u00e1lise, caminho ideal como linha, ${layername} ${fieldname}",itemSnippet:"Camada de fei\u00e7\u00e3o gerada a partir do caminho ideal como linha."});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/Evented",["require","exports","dojo/aspect","dojo/on"],function(m,n,k,l){function h(c,a,b,f){var d;Array.isArray(a)?d=a:-1<a.indexOf(",")&&(d=a.split(/\s*,\s*/));if(d){var e=[];for(a=0;a<d.length;a++)e.push(h(c,d[a],b,f));e.remove=function(){for(var g=0;g<e.length;g++)e[g].remove()};return e}return f(c,a)}return function(){function c(){}c.prototype.emit=function(a,b){if(this.hasEventListener(a))return b=b||{},b.target||(b.target=this),l.emit(this,a,b)};c.prototype.on=
+function(a,b){return h(this,a,b,function(f,d){return k.after(f,"on"+d,b,!0)})};c.prototype.hasEventListener=function(a){a="on"+a;return!(!this[a]||!this[a].after)};return c}()});

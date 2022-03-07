@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Yoğunluk Hesapla</h2><p/>
+        <h2><img src="../images/GUID-4EE4838C-E210-43CE-99C7-1A648A18C10B-web.png" alt="Yoğunluğu Hesaplama aracı"></h2>
+        <hr/>
+    <p>Bu ara&ccedil;, bazı olayların bilinen miktarlarını (nokta veya &ccedil;izgi &ouml;znitelikleri olarak g&ouml;sterilen) haritada dağıtarak nokta veya &ccedil;izgi detaylı bir yoğunluk haritası oluşturur. Sonu&ccedil;ta ortaya en az yoğundan en fazla yoğun olana doğru sınıflanan bir alan katmanı &ccedil;ıkar.
+    </p>
+    <p>Bu aracın bazı &ouml;rnek uygulamaları aşağıda verilmiştir:
+        <ul>
+            <li>Polis merkezlerinin y&uuml;ksek su&ccedil; oranlı alanlara uygun kaynak tahsis etmesine yardımcı olmak amacıyla su&ccedil; yoğunluğu haritaları oluşturulması.
+                
+ 
+            </li>
+            <li>B&ouml;lgedeki hastane yoğunluğunu hesaplama. Sonu&ccedil; katmanı, y&uuml;ksek ve d&uuml;ş&uuml;k hastane erişimini g&ouml;sterir ve bu bilgiler yeni hastanelerin yapılması gereken yerleri belirlemek i&ccedil;in kullanılabilir.
+                
+ 
+            </li>
+            <li>Orman yangınlarının ge&ccedil;mişte oluştuğu yerlere g&ouml;re, orman yangını riskinin y&uuml;ksek olduğu alanların tanımlanması.
+                
+ 
+            </li>
+            <li>Yeni yolların nereye yapılması gerektiğini planlamak amacıyla ana yollardan uzakta yaşayan toplulukların belirlenmesi.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div><h2>Yoğunluğun hesaplanacağı girdi noktası veya çizgi katmanını seçin</h2></div>
+        <hr/>
+        <div>
+            <p>Yoğunluğu hesaplamak i&ccedil;in kullanılacak girdi noktası veya &ccedil;izgidir.
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div><h2>Sayma alanı kullan</h2></div>
+        <hr/>
+        <div>
+            <p>Her konumdaki olay sayısını belirten bir alan girin. &Ouml;rneğin, şehirleri g&ouml;steren noktalarınız varsa, hesaplama alanı olarak şehir n&uuml;fusunu g&ouml;steren bir alanı kullanabilirsiniz; sonu&ccedil; n&uuml;fus yoğunluğu katmanı, yoğun n&uuml;fusa sahip şehirlerin etrafındaki daha yoğun n&uuml;fus yoğunluklarını hesaplar.
+            </p>
+            <p>Varsayılan tercih olarak  <b>Hi&ccedil;biri</b> kullanılırsa, her konumun bir tek sayımı temsil ettiği varsayılır.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div><h2>Arama mesafesi</h2></div>
+        <hr/>
+        <div>
+            <p>Yoğunluk değerlerini hesaplarken, nokta veya &ccedil;izgi detayını bulmak i&ccedil;in ne kadar uzağın aranacağını belirten bir mesafe değeri girin. &Ouml;rneğin, 10.000 metrelik bir arama mesafesi girerseniz, &ccedil;ıktı katmanında bulunan herhangi bir konumun yoğunluğu konumun 10.000 metre etrafındaki detaylara dayanarak hesaplanır. 10.000 metre i&ccedil;inde hi&ccedil;bir olayı bulunmayan konuma sıfır yoğunluk değeri atanır.
+            </p>
+            <p>Herhangi bir mesafe değeri girilmezse, girdi detaylarının konumlarına ve hesaplama alanındaki (hesaplama alanı girilmişse) değerlere bağlı olarak bir varsayılan değer hesaplanır.
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div><h2>Çıktı alanı birimleri</h2></div>
+        <hr/>
+        <div>
+            <p>&Ccedil;ıktı alanı birimini belirtin. Yoğunluk, sayımın alana b&ouml;l&uuml;nmesiyle elde edilir ve bu parametre yoğunluk hesaplamasında alan birimini belirtir.
+            </p>
+            <p>Kullanılabilir alan birimleri şunlardır: Mil Kare, Fit Kare, Metrekare ve Kilometrekare.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div><h2>Hücre boyutu çıktısı</h2></div>
+        <hr/>
+        <div>
+            <p>&Ccedil;ıktı rasterları i&ccedil;in h&uuml;cre boyutu ve birimi.
+            </p>
+            <p>Birim, kilometre, metre, mil veya fit olarak belirtilebilir.
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div><h2>Engel detaylarını seç (isteğe bağlı)</h2></div>
+        <hr/>
+        <div>
+            <p>Engelleri tanımlayan veri k&uuml;mesi.
+            </p>
+            <p>Engeller, &ccedil;oklu &ccedil;izgi veya &ccedil;okgen detaylar i&ccedil;eren bir detay katmanı olabilir.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div><h2>Sonuç katmanı adı</h2></div>
+        <hr/>
+        <div>
+            
+            <p> <b>İ&ccedil;eriğim</b>'de oluşturulacak ve haritaya eklenecek katmanın adı. Varsayılan ad, ara&ccedil; adına ve girdi katmanı adına dayanır. Katman zaten mevcutsa, başka bir ad sağlamanız istenir.
+            </p>
+            <p> <b>İ&ccedil;eriğim</b>&rsquo;de, <b>Sonu&ccedil;ları Kaydet</b> a&ccedil;ılır kutusunu kullanarak sonucun kaydedileceği klas&ouml;r&uuml;n adını belirleyebilirsiniz. Hem döşemeli hem de dinamik görüntü katmanları oluşturma ayrıcalıklarınız varsa, Sonucu farklı kaydet açılır kutusunu kullanarak çıktıda hangi katman türünün oluşturulacağını belirtebilirsiniz. </p>
+        </div>
+    </div>
+</div>
+</html>

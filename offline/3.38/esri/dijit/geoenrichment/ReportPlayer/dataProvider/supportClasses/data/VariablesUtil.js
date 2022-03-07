@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/dataProvider/supportClasses/data/VariablesUtil",["../dataCollections/DataCollectionsLoader"],function(k){var g={preprocessVariables:function(e,d){var c=g.convertForEnrich(g._splitVariables(e)).filter(function(a){return a.itemid});return k.loadCustomDataVariables(c,{forceLowerCase:!0,portalUrl:d}).then(function(a){return g._splitVariables(e,a)})},_splitVariables:function(e,d){var c=[],a={};e.forEach(function(b){"string"===typeof b?c.push(b.toLowerCase()):
+b&&b.outFields&&b.outFields.forEach(function(h,f){f=b.itemid+"."+h;f=f.toLowerCase();c.push(f);a[f]={itemid:b.itemid,url:b.url,token:b.token,variable:d?d.fullNameToVariableCache[f]:{id:h}}})});return{fullNames:c,customDataMapping:a}},convertForEnrich:function(e){var d={},c=[];e.fullNames.forEach(function(a){var b=e.customDataMapping[a];b?(a=d[b.itemid],a||(a={itemid:b.itemid,url:b.url,token:b.token,outFields:[]},a.url||delete a.url,a.token||delete a.token),a.outFields.push(b.variable.id),d[a.itemid]||
+(d[a.itemid]=a,c.push(a))):c.push(a)});return c}};return g});

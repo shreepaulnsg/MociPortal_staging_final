@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/accessorSupport/set",["require","exports","dojo/has","../Logger","./get"],function(n,f,h,k,l){function e(d,a,c){if(d&&a)if("object"===typeof a){c=0;for(var g=Object.getOwnPropertyNames(a);c<g.length;c++){var b=g[c];e(d,b,a[b])}}else"_"!==a[0]&&(-1!==a.indexOf(".")?(a=a.split("."),b=a.splice(a.length-1,1)[0],e(l.default(d,a),b,c)):(h("dojo-debug-messages")&&(b=d.__accessor__,null==b||b.metadatas[a]||m.warn("setting unknown property '"+a+"' on instance of "+b.host.declaredClass)),
+d[a]=c))}Object.defineProperty(f,"__esModule",{value:!0});var m=k.getLogger("esri.core.accessorSupport.set");f.set=e;f.default=e});

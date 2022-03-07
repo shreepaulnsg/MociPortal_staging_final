@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/layers/support/LOD","require exports ../../core/tsSupport/declareExtendsHelper ../../core/tsSupport/decorateHelper ../../core/JSONSupport ../../core/accessorSupport/decorators ../../core/accessorSupport/ensureType".split(" "),function(l,m,g,d,h,c,k){return function(e){function a(b){b=e.call(this,b)||this;b.level=0;b.levelValue=null;b.resolution=0;b.scale=0;return b}g(a,e);var f=a;a.prototype.clone=function(){return new f({level:this.level,levelValue:this.levelValue,
+resolution:this.resolution,scale:this.scale})};d([c.property({type:k.Integer,json:{write:!0}})],a.prototype,"level",void 0);d([c.property({type:String,json:{write:!0}})],a.prototype,"levelValue",void 0);d([c.property({type:Number,json:{write:!0}})],a.prototype,"resolution",void 0);d([c.property({type:Number,json:{write:!0}})],a.prototype,"scale",void 0);return a=f=d([c.subclass("esri.layers.support.LOD")],a)}(c.declared(h))});

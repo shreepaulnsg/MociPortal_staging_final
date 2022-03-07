@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/supportClasses/tableJson/TableJsonResizeUtil",[],function(){var h={resizeTableJsonToFitWidth:function(c,e,b){b=b&&b.columnWidths;var g=0;c.columns.forEach(function(d){var a=d.style.width;"string"===typeof a&&-1!==a.indexOf("%")&&(a=Number(a.replace("%",""))/100*e,d.style.width=a);g+=a});c.style.width=e;var f=e/g;c.columns.forEach(function(d){d.style.width*=f});b&&b.length&&(b.forEach(function(d,a){if(a=c.columns[a])a.style.width=d}),h.resizeTableJsonToFitWidth(c,
+e))},resizeTableJsonToFitHeight:function(c,e){var b=0;c.rows.forEach(function(f){b+=f.style.height});var g=e/b;c.rows.forEach(function(f){f.style.height*=g})}};return h});

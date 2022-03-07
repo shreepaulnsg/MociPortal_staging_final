@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/dataProvider/commands/imageUtils/NodeToCanvasUtil",["esri/dijit/geoenrichment/Deferred","esri/dijit/geoenrichment/when","dojo/dom-construct","esri/dijit/geoenrichment/utils/SVGUtil","../createHTML/CSSFilesLoader"],function(q,r,c,t,u){return{svgNodeToCanvasFunc:function(d,e,f){return r(u.loadCssFontFiles(),function(g){var b=document.createElement("canvas");b.width=e;b.height=f;g.forEach(function(h){var l=document.createElementNS("http://www.w3.org/2000/svg",
+"defs"),m=document.createElementNS("http://www.w3.org/2000/svg","style");m.innerHTML=h;l.appendChild(m);d.insertBefore(l,d.firstElementChild)});var n=window.URL||window.webkitURL||window,a=new Image;a.width=e;a.height=f;g=new Blob([t.getOuterHTML(d)],{type:"image/svg+xml"});var p=n.createObjectURL(g),k=new q;a.onload=function(){a.onload=a.onerror=null;b.getContext("2d").drawImage(a,0,0,e,f);n.revokeObjectURL(p);c.destroy(a);k.resolve(b)};a.onerror=function(h){a.onload=a.onerror=null;c.destroy(a);
+k.reject(h)};c.place(a,document.body);a.src=p;return k.promise})}}});

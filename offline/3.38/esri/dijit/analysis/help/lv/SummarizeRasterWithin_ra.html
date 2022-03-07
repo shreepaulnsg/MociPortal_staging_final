@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="regularsize">
+        <h2>Apkopot rastru šajās robežās</h2><p/>
+        <h2><img src="../images/GUID-D61C156C-2B2C-488C-BF28-B6CB9277BF4B-web.png" alt="Rīks Apkopot rastru &scaron;ajās robežās:"></h2>
+        <hr/>
+    <p>&Scaron;is rīks apkopo rastra vērtības citas datu kopas zonās.
+    </p>
+    <p>Daži no &scaron;ī rīka pielietojumu piemēriem ietver:
+        <ul>
+            <li>Ņemot ūdens&scaron;ķirtņu robežas un zemes lieto&scaron;anas robežas, aprēķina kopējo zemes lieto&scaron;anas veidu katrai ūdens&scaron;ķirtnes robežai.
+                
+
+            </li>
+            <li>Ņemot zemes vienību slāni un novada un pilsētas robežu slāni, katrā pilsētas robežu slānī aprēķina vidējo vērtību ar pieejamajām zemes vienībām.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>Ja atzīmēts  <b>Lietot pa&scaron;reizējo kartes pārklājumu</b>, tiks analizēti tikai tie analīzes slāņa un apkopojamā slāņa elementi, kas ir redzami pa&scaron;reizējā kartes pārklājumā. Ja iespēja nav atzīmēta, visi elementi ievades un apkopojamajā slānī tiks analizēti&nbsp;&mdash; arī tad, ja tie atrodas ārpus pa&scaron;reizējā kartes pārklājuma.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="sumWithinLayer">
+        <div><h2>Izvēlēties laukuma slāni, lai definētajās robežās apkopotu rastra slāni</h2></div>
+        <hr/>
+        <div>
+            <p>Ievade, kas norāda zonu robežas vai apkopojamās teritorijas.
+            </p>
+            <p>Ievade var būt veselo skaitļu rastrs vai elementu dati. Rastru zonas definē visi ievadē eso&scaron;ie novietojumi ar vienādu &scaron;ūnas vērtību. Elementos zonas var pārklāties. Teritorijām nav jābūt nepārtrauktām.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Izvēlēties lauku robežu definēšanai</h2></div>
+        <hr/>
+        <div>
+            <p>Lauks, kas satur vērtības, kuras definē katru zonu.
+            </p>
+            <p>Tas var būt zonas datu kopas vesela skaitļa vai virknes lauks.
+            </p>
+        </div>
+    </div>
+    <div id="sumRasterLayer">
+        <div><h2>Izvēlēties apkopojamo rastra slāni</h2></div>
+        <hr/>
+        <div>
+            <p>Rastrs, kas satur vērtības, no kurām tiek aprēķināta statistika.
+            </p>
+            <p>Tas var būt vesels skaitlis vai peldo&scaron;ais punkts. Tomēr, ja tas ir peldo&scaron;ā punkta veids, vairākuma, mazākuma un varietātes aprēķinā&scaron;anas iespējas nebūs pieejamas.
+            </p>
+        </div>
+    </div>
+    <div id="sumStatistic">
+        <div><h2>Izvēlēties aprēķināmo statistiku</h2></div>
+        <hr/>
+        <div>
+            <p>Norāda aprēķināmās statistikas veidu.
+            </p>
+            <p> Ievade var būt &scaron;āda: <b>Vidējais</b>, <b>Vairākums</b>, <b>Maksimums</b>, <b>Mediāna</b>, <b>Minimums</b>, <b>Mazākums</b>, <b>Procentīle</b>, <b>Diapazons</b>, <b>Standartnovirze</b>, <b>Summa</b> vai <b>Varietāte</b>. Noklusējums ir <b>Vidējais</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Procentiles vērtība</h2></div>
+        <hr/>
+        <div>
+            <p>Aprēķināmā procentile Noklusējuma vērtība ir&nbsp;90, norādot 90.&nbsp;procentīli.
+            </p>
+            <p>Vērtība var būt diapazonā no 0 līdz 100. 0.&nbsp;procentīles norādī&scaron;anas rezultāts būtībā ir līdzvērtīgs minimālās statistikas rezultātam, un 100.&nbsp;procentīle ir līdzvērtīga maksimumam. Vērtība 50&nbsp;uzrādīs tādu pa&scaron;u rezultātu kā mediānas statistika.
+            </p>
+            <p> &Scaron;is parametrs tiek atbalstīts tikai tad, ja parametra <b>Izvēlēties aprēķināmo statistiku</b> iestatījums ir <b>Procentile</b>.
+            </p>
+        </div>
+    </div>
+    <div id="missingValues">
+        <div><h2>Ignorēt aprēķinā trūkstošās vērtības</h2></div>
+        <hr/>
+        <div>
+            <p> Norāda, vai analīzē tiek ignorētas trūksto&scaron;ās vērtības.
+            </p>
+            <ul>
+                <li>Atzīmēts&nbsp;&mdash; nosakot izvades vērtību, analīze ietvers &scaron;ūnas, kurām kādā noteiktā zonā ir vērtība ievades vērtību rastrā. Vērtību rastra NoData &scaron;ūnas statistiskajā aprēķinā tiks ignorētas. Tā ir noklusējuma vērtība.
+                </li>
+                <li>Neatzīmēts&nbsp;&mdash; analīzes rezultātā tiks uzrādīts NoData, ja kādā noteiktā zonā vērtības rastra &scaron;ūnām būs NoData vērtības.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Apstrādāt kā daudzdimensiju</h2></div>
+        <hr/>
+        <div>
+            <p>Norāda, kā tiks apstrādāti ievades multidimensionālo attēlu servisi, ja tie ir multidimensionāli.
+            </p>
+            <ul>
+                <li>Atzīmēts&nbsp;&mdash; statistika tiks aprēķināta no ievades daudzdimensiju datu kopas pa&scaron;reizējā sektora. Tā ir noklusējuma vērtība.
+                    
+
+                </li>
+                <li>Neatzīmēts&nbsp;&mdash; statistika tiks aprēķināta visām ievades daudzdimensiju datu kopas dimensijām.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Rezultātu slāņa nosaukums</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Slāņa nosaukums, kas tiks izveidots sadaļā  <b>Mans saturs</b> un pievienots kartei. Noklusējuma nosaukums ir balstīts uz rīka nosaukumu un ievades slāņa nosaukumu. Ja &scaron;āds slānis jau pastāv, jums tikts lūgts norādīt citu nosaukumu.
+            </p>
+            <p>Mapes nosaukumu var norādīt mapē  <b>Mans saturs,</b> kur rezultāts tiks saglabāts, izmantojot nolaižamo lodziņu <b>Saglabāt rezultātu</b>. Ja jums ir privilēģijas izveidot gan mozaīkas, gan dinamiskus attēlu slāņus, varat arī norādīt, kuru slāņa veidu ģenerēt izvadē, izmantojot nolaižamo lodziņu Saglabāt rezultātu kā. </p>
+        </div>
+    </div>
+</div>
+</html>

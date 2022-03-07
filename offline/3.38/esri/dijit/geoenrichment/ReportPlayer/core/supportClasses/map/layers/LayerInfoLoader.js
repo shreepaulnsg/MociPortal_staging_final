@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/supportClasses/map/layers/LayerInfoLoader",["esri/dijit/geoenrichment/utils/CacheUtil","esri/dijit/geoenrichment/utils/requests/UniversalClient","esri/dijit/geoenrichment/ReportPlayer/core/supportClasses/map/UrlToItemUtil","../WebMapsUtil"],function(d,e,f,g){return{getInfo:function(a){var c=d.get("LayerInfoLoader");c[a]||(c[a]=e.request(a).otherwise(function(){return g.executeItemUrl({url:a})}).then(function(b){var h=b.name||b.documentInfo&&b.documentInfo.Title||
+(f.tryCreateItemFromServerUrl(a)||{name:a}).name;return{url:a,name:h,rendererJson:b.drawingInfo&&b.drawingInfo.renderer,geometryType:b.geometryType}}).otherwise(function(b){console.log(b);return null}));return c[a]}}});

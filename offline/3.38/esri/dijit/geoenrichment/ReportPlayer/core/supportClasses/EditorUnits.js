@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/supportClasses/EditorUnits",["esri/dijit/geoenrichment/utils/ObjectUtil","dojo/i18n!esri/nls/jsapi"],function(e,c){c=c.geoenrichment.dijit.ReportPlayer.units;var b={},f=["px","pt","mm","cm","in"],g={px:0,pt:1,mm:1,cm:2,"in":2};b.getSupportedUnits=function(){return f};b.getShortName=function(a){return c.shortNames[a]};b.getLongName=function(a){return c.longNames[a]};b.getLongNameWithUnits=function(a){return c.longNamesWithUnits[a]};b.getPlaces=function(a){return g[a]||
+0};b.round=function(a,d){return e.roundNumber(a,b.getPlaces(d))};b.provideUnits=function(a,d){return a.replace("${units}",b.getShortName(d))};return b});

@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/charts/utils/plots/_MarkersClipOffset",["dojo/_base/declare","dojo/_base/lang"],function(c,d){return c(null,{cleanGroup:function(f,e){this.inherited(arguments);if(!e&&this.chart._nativeClip){var a=this.chart.offsets,b=this.chart.dim;a=d.mixin({},a);a.l=Math.max(0,a.l-10);a.t=Math.max(0,a.t-10);a.r=Math.max(0,a.r-10);a.b=Math.max(0,a.b-10);this.group.setClip({x:a.l,y:a.t,width:Math.max(0,b.width-a.l-a.r),height:Math.max(0,b.height-a.t-a.b)})}}})});

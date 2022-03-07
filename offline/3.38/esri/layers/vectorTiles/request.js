@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/request",["require","exports","esri/request","dojo/_base/lang","dojo/Deferred"],function(l,m,f,g,h){return function(a,c){a=g.mixin({},{url:a,failOk:!0},c);"array-buffer"===c.responseType?(a.handleAs="arraybuffer",delete a.responseType):c.responseType&&(a.handleAs=c.responseType,delete a.responseType);null!==c.query&&(a.content=a.query,delete a.query);if(c.hasOwnProperty("allowImageDataAccess")){var k={allowImageDataAccess:c.allowImageDataAccess};delete a.allowImageDataAccess}var d=
+new h(function(){e.isFulfilled()||e.cancel()});var e=f(a,k).then(function(b){d.resolve({data:b})}).catch(function(b){b&&null!=b.httpCode&&(b.details=b.details||{},b.details.httpStatus=b.httpCode);d.reject(b)});return d.promise}});

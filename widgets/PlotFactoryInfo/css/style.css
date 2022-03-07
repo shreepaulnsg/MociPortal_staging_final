@@ -1,0 +1,78 @@
+/* latin */
+@font-face {    font-family: 'PF Din Text Universal';
+  src: local('PF Din Text Universal Regular'), local('PF-Din-Text-Universal-Regular'),
+      url('../../../fontFamily/PFDinTextUniversal.woff2') format('woff2'),
+      url('../../../fontFamily/PFDinTextUniversal.woff') format('woff'),
+      url('../../../fontFamily/PFDinTextUniversal.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+.operations{
+  height: 15%;
+}
+.info{
+  height: 85%;
+  overflow-y: auto;
+}
+.mob-fact{
+  height: 40% !important;
+  width: 70% !important;
+}
+.dijitTabContainer{
+  visibility: visible !important;
+}
+.btn{
+  height: 30px;
+  width: 45%;
+  color:#f1eaed;
+  border-radius: 10px;
+  float: right;
+  margin-right: 4px;
+}
+.btnimg img{
+  float: left;
+  height: 21px;
+  margin-right: 4px;
+  cursor: default;
+}
+.infolablels, .infovals, .pics a{
+  font-size: 15px;
+  /* font-family: 'PF Din Text Universal'; */
+  font-family: 'PF Din Text Universal' !important; 
+}
+.infolablels, .infovals{
+  border: 1px solid #dddddd !important;
+  background-color: #fff !important; color: #000 !important;
+}
+.infolablels, .pics a{
+  color: blue;
+}
+.infolablels{
+  width: 45%;
+}
+.rightClass{
+  text-align: start;
+}
+.btncolor1{
+  background-color: #8c8383d9;
+}
+.btncolor2{
+  background-color: #8D0034;
+}
+
+
+#dijit_layout_ContentPane_1{
+  left: 0;
+  top:0;
+  width:100%;
+}
+.claro .dijitTabPaneWrapper,  .claro .dijitContentPane, .dijitTabController, .dijitTabListWrapper{
+  width: 100% !important;
+  visibility: visible;
+}
+.dijitTab .tabLabel {
+  color: #000;
+}
+.pics{
+  background-color: #fff;
+}

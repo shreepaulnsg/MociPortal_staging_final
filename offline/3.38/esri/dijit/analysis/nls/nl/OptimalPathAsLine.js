@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/nl/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Kies bestemmingsraster of -kenmerken",destinationField:"Bestemmingsveld (optioneel)",inputDistanceAccumulationRaster:"Kies afstand accumulatieraster",inputBackDirectionRaster:"Kies terugrichting of stroomrichting raster",pathType:"Padtype (optioneel)",bestSingle:"Beste enkel",eachCell:"Elke cel",eachZone:"Elke zone",outputFeatureName:"Naam resultaat feature layer",outputLayerName:"Optimaal pad als lijn van ${layername}",
+drawSourcePointLayerName:"Bronpunten",itemDescription:"Feature layer die is gegenereerd door uitvoering van het optimale pad als lijn op ${layername}. ",itemTags:"Analyseresultaat, Optimaal pad als lijn, ${layername} ${fieldname}",itemSnippet:"Feature layer die is gegenereerd door optimaal pad als lijn."});

@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/renderers/TemporalRenderer",["dojo/_base/declare","dojo/_base/lang","dojo/has","../kernel","./Renderer"],function(d,g,h,k,l){d=d(l,{declaredClass:"esri.renderer.TemporalRenderer",constructor:function(a,e,c,b){this.observationRenderer=a;this.latestObservationRenderer=e;this.trackRenderer=c;this.observationAger=b},getSymbol:function(a){var e=a.getLayer(),c=this.getObservationRenderer(a),b=c&&c.getSymbol(a),f=this.observationAger;e.timeInfo&&e._map.timeExtent&&c===this.observationRenderer&&
+f&&b&&(b=f.getAgedSymbol(b,a));return b},getObservationRenderer:function(a){return 0===a.getLayer()._getKind(a)?this.observationRenderer:this.latestObservationRenderer||this.observationRenderer},toJson:function(){var a={type:"temporal"};a.observationRenderer=this.observationRenderer.toJson();this.latestObservationRenderer&&(a.latestObservationRenderer=this.latestObservationRenderer.toJson());this.trackRenderer&&(a.trackRenderer=this.trackRenderer.toJson());this.observationAger&&(a.observationAger=
+this.observationAger.toJson());return a}});h("extend-esri")&&g.setObject("renderer.TemporalRenderer",d,k);return d});

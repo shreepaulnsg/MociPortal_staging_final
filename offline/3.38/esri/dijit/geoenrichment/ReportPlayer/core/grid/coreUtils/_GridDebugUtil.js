@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/grid/coreUtils/_GridDebugUtil",["esri/dijit/geoenrichment/when","../../../_devConfig"],function(l,f){var d={},m=0;d.refreshStart=function(a){f.table.printGridRefresh&&(a=d._getGridInfo(a,!0),console.log("AdjustableGrid.js "+a.key+" \x3d\x3e refresh \x3d\x3e start"))};d.refreshEnd=function(a){f.table.printGridRefresh&&l(a.getRenderPromise(),function(){var e=d._getGridInfo(a,!1);console.log("AdjustableGrid.js "+e.key+" \x3d\x3e refresh \x3d\x3e end ("+
+e.refreshTime+" ms)")})};d._getGridInfo=function(a,e){if(a.isReportContainerPageGrid)var b="Page grid";else{var c=[];for(b=a.parentWidget;b;){c.push(b);if(b.isReportContainerPageGrid)break;b=b.parentWidget}b=c[c.length-1].getCells().indexOf(c[c.length-2]);c=c.length;for(var g="",h=0;h<c;h++)g+="\x3e";void 0===a._debugId&&(a._debugId=m++);b="panel "+b+" "+g+"("+a._debugId+")"}var k;e?a._degubStartTime=(new Date).getTime():k=(new Date).getTime()-a._degubStartTime;return{key:b,refreshTime:k}};return d});

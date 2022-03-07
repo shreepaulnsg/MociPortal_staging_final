@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Uzorak</h2><p/>
+        <h2><img src="../images/GUID-3950CCA3-C1D0-493F-A33D-93673443ADD2-web.png" alt="Uzorak"></h2>
+        <hr/>
+    <p>Ovaj alat stvara tablicu ili klasu značajki točaka koja prikazuje vrijednosti ćelija iz rastera ili skupa rastera za određena mjesta. Lokacije su definirane rasterskim ćelijama, značajkama geoobjekata, karakteristikama polinoma ili skupom točaka.
+    </p>
+    <p>Neki primjeri primjena ovog alata uključuju sljedeće:
+        <ul>
+            <li> Izdvojite atribute za lokaciju tornja ćelija iz vi&scaron;e rastera, kao &scaron;to su upotreba zemlji&scaron;ta, vrsta tla, visina terena i udaljenost do ceste.
+            </li>
+            <li>Izdvojite temperaturu tla na različitim dubinama za zadani skup točaka.
+            </li>
+            <li>Od 30 godina mjesečnih podataka o temperaturi morske povr&scaron;ine, sažmite na životinjskim lokacijama ili unutar kućnih obuhvata za određeno vrijeme kada je primijećena životinjska vrsta.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Ako je označena opcija  <b>Upotrijebi trenutačni obuhvat karte</b>, analizirat će se varijable ili kanali geoobjekta koji su vidljivi unutar trenutačnog obuhvata karte. Ako opcija nije označena, analizirat će se varijable ili kanali cijelog geoobjekta čak i ako se nalaze izvan trenutačnog obuhvata karte.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div><h2>Odaberite sloj/eve slike za uzorkovanje</h2></div>
+        <hr/>
+        <div>
+            <p>Jedna slike ili popis slika čije će se vrijednosti uzorkovati na temelju ulaznih podataka o lokaciji. 
+            </p>
+            <p>Da biste uzeli uzorke svih isječaka iz vi&scaron;edimenzionalnog sloja slike, to mora biti jedini ulazni raster.
+            </p>
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div><h2>Odaberite sloj lokacije</h2></div>
+        <hr/>
+        <div>
+            <p>Podaci koji identificiraju pozicije koje želite uzorkovati.
+            </p>
+            <p>Ulazna vrijednost može biti raster ili točka, polilin, ili klasa poligonskih geoobjekata.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div><h2>Odredite jedinstveno polje ID-a</h2></div>
+        <hr/>
+        <div>
+            <p>Polje koje sadrži različite vrijednosti za svaku lokaciju ili geoobjekt u rasteru ulaza ili klasi geoobjekta.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div><h2>Navedite podatke o skupljanju podataka o lokaciji (opcionalno)</h2></div>
+        <hr/>
+        <div>
+            <p>Navedite vrijeme, dubinu ili druge podatke o skupljanju povezani s ćelijama ili geoobjektima lokacije.
+            </p>
+            <p>Za svaku dimenziju postoje tri mogućnosti određivanja informacija o akviziciji povezanih s ćelijama ili geoobjektima lokacije:
+            </p>
+            <ul>
+                <li> <b>Jedno polje ili vrijednost</b> - Kad je odabrana ta opcija, moraju se navesti sljedeće informacije:
+                    <ul>
+                        <li> <b>Dimenzijsko polje ili vrijednost</b> - Odaberite polje vrijednosti dimenzija iz podataka o lokaciji ili unesite određenu vrijednost dimenzije.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+                <li> <b>Jedno polje ili vrijednost s relativnim vrijednostima</b> - Ako je odabrana ta opcija, donji podaci moraju biti navedeni zajedno kako bi se definirao raspon u kojem će se statistika izračunati za varijable:
+                    <ul>
+                        <li> <b>Dimenzijsko polje ili vrijednost</b> - Odaberite polje vrijednosti dimenzija iz podataka o lokaciji.
+                        </li>
+                        <li> <b>Relativna vrijednost prije</b> - Navedite ne negativan broj koji se koristi za oduzimanje od <b>Dimenzijsko polje ili vrijednost</b> za definiranje početka raspona vrijednosti dimenzije. Ova vrijednost predstavlja broj dana ako je dimenzija vrijeme.
+                        </li>
+                        <li> <b>Relativna vrijednost poslije</b> - Navedite ne negativan broj koji se koristi za dodavanje od <b>Dimenzijsko polje ili vrijednost</b> za definiranje kraja raspona vrijednosti dimenzije. Ova vrijednost predstavlja broj dana ako je dimenzija vrijeme.
+                        </li>
+                    </ul>
+                    
+                </li>
+                <li> <b>Početna i zavr&scaron;na polja ili vrijednosti</b> - Ako je odabrana ta opcija, donji podaci moraju biti navedeni zajedno kako bi se definirao raspon u kojem će se statistika izračunati za varijable:
+                    <ul>
+                        <li> <b>Početno polje ili vrijednosti</b> - Odaberite polje vrijednosti dimenzija iz podataka o lokaciji ili unesite određenu vrijednost dimenzije raspon kako bi definirali početak raspona vrijednosti dimenzije.
+                        </li>
+                        <li> <b>Zavr&scaron;no polje ili vrijednosti</b> - Odaberite polje vrijednosti dimenzija iz podataka o lokaciji ili unesite određenu vrijednost dimenzije raspon kako bi definirali kraj raspona vrijednosti dimenzije.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+            </ul>
+            
+            <p>Ovaj je parametar dostupan samo kada je parametar  <b>Odaberite slojeve slika za uzorkovanje</b> vi&scaron;edimenzionalni raster.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div><h2>Odredite udaljenost polja ili vrijednosti pojasa</h2></div>
+        <hr/>
+        <div>
+            <p>Navedena udaljenost oko podataka o lokaciji geoobjekta. Udaljenost pojasa je navedena u linearnim jedinicama prostorne reference lokacije geoobjekta. Ako geoobjekt koristi geografsku referencu, jedinica će biti stupnjevi.
+            </p>
+            <p>Statistički podaci će se izračunati unutar ovog pojasa.
+            </p>
+            <p>Ovaj je parametar dostupan samo kada je  <b>Odaberite slojeve slika za uzorkovanje</b> vi&scaron;edimenzionalni raster.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div><h2>Odaberi vrstu statistike</h2></div>
+        <hr/>
+        <div>
+            <p>Vrsta statistike koji će se izračunati.
+            </p>
+            <ul>
+                <li> <b>Minimum</b>&mdash;Pronalazi minimalnu vrijednost unutar navedenog raspona.
+                </li>
+                <li> <b>Maksimum</b>&mdash;Pronalazi maksimalnu vrijednost unutar navedenog raspona.
+                </li>
+                <li> <b>Medijan</b>&mdash;Pronalazi srednju vrijednost unutar navedenog raspona.
+                </li>
+                <li> <b>Prosjek</b>&mdash;Izračunava prosjek za navedeni raspon.
+                </li>
+                <li> <b>Zbroj</b>&mdash;Izračunava zbroj varijabli unutar navedenog raspona.
+                </li>
+                <li> <b>Večina</b>&mdash;Pronalazi vrijednost koja se pojavljuje najče&scaron;će.
+                </li>
+                <li> <b>Manjina</b>&mdash;Pronalazi vrijednost koja se javlja najmanje često.
+                </li>
+                <li> <b>Standardno odstupanje</b>&mdash;Izračunava standardno odstupanje.
+                </li>
+                <li> <b>Postotak</b>&mdash;Izračunava definirani postotak unutar navedenog raspona.
+                </li>
+            </ul>
+            
+            <p>Ovaj je parametar dostupan samo kada je parametar  <b>Odaberi slojeve slika za uzorkovanje</b> vi&scaron;edimenzionalni raster i parametri <b>Odaberite sloj lokacije</b> su polilinije ili poligoni, ili <b>Odredite udaljenost polja ili vrijednosti pojasa (opcionalno)</b> je navedeno.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Postotna vrijednost</h2></div>
+        <hr/>
+        <div>
+            <p>Ova vrijednosti se može kretati od 0 do 100. Zadana je vrijednost 90.
+            </p>
+            <p>Ovaj je parametar dostupan samo kada je parametar  <b>Odaberite vrstu statistike</b> postavljen na <b>Postotak</b>.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div><h2>Navedite tehniku ponovnog uzorkovanja</h2></div>
+        <hr/>
+        <div>
+            <p>Algoritam ponovnog uzorkovanja koji se koristi pri uzorkovanju rastera.
+            </p>
+            <ul>
+                <li> <b>Najbliži</b> - Najbliži susjed, koji upotrebljava vrijednost najbliže ćelije za dodjeljivanje vrijednosti izlaznoj ćeliji kod ponovnog uzorkovanja. To je zadano.
+                </li>
+                <li> <b>Bilinearno</b> - Bilinearna interpolacija, koja određuje novu vrijednost ćelije na temelju prosječne udaljenosti između četiri najbliža sredi&scaron;ta ulaznih ćelija.
+                </li>
+                <li> <b>Kubično</b> - Kubična konvolucija, koja određuje novu vrijednost ćelija na temelju pode&scaron;avanja izglađene krivulje kroz 16 najbližih centara ulaznih ćelija.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="layout">
+        <div><h2>Odredite izgled izlaza</h2></div>
+        <hr/>
+        <div>
+            <p>Određuje prikazuju li se uzorkovane vrijednosti u redovima ili stupcima u izlaznoj tablici.
+            </p>
+            <ul>
+                <li> <b>Uzorkovana vrijednosti se pojavljuju u redu</b>&mdash;Uzorkovane vrijednosti se pojavljuju u odvojenim redovima u izlaznoj tablici. To je zadano.
+                </li>
+                <li> <b>Uzorkovana vrijednosti se pojavljuju u stupcu</b>&mdash;Uzorkovane vrijednosti se pojavljuju u odvojenim stupcima u izlaznoj tablici.
+                </li>
+            </ul>
+            
+            <p>Ovaj je parametar dostupan samo kada je parametar  <b>Odaberite slojeve slika za uzorkovanje</b> vi&scaron;edimenzionalni raster i sadrži jednu varijablu i jednu dimenziju, a svaki je isječak jednokanalni raster.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div><h2>Odredite tip izlaza</h2></div>
+        <hr/>
+        <div>
+            <p>Određuje hoće li generirati klasu točaka geoobjekta s uzorkovanim vrijednostima u svojoj tablici ili samo tablicu s uzorkovanim vrijednostima.
+            </p>
+            <ul>
+                <li> <b>Tablica</b>&mdash;Stvara tablicu s uzorkovanim vrijednostima. To je zadano.
+                </li>
+                <li> <b>Geoobjekti</b>&mdash;Stvara klasu točaka geoobjekta s uzorkovanim vrijednostima u svojoj tablici. Ako su parametri <b>Odaberite sloj lokacije</b> polilinije ili poligoni, tada je svaka točka u izlazu sredi&scaron;nji dio svake geometrije geoobjekta ulaznog mjesta. 
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputName">
+        <div><h2>Naziva sloja rezultata</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Naziv sloja koji će se stvoriti u stavci  <b>Moj sadržaj</b> i dodati karti. Zadani naziv temelji se na nazivu alata i nazivu sloja unosa. Ako sloj već postoji, od vas će se zatražiti da unesete drugi naziv.
+            </p>
+            <p>Možete odrediti naziv mape u  <b>Mojem sadržaju</b> gdje će se rezultat spremiti pomoću padajućeg izbornika <b>Spremi rezultat u</b>.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

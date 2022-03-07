@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/fi/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Valitse m\u00e4\u00e4r\u00e4np\u00e4\u00e4rasteri tai -kohteet",destinationField:"M\u00e4\u00e4r\u00e4np\u00e4\u00e4kentt\u00e4 (valinnainen)",inputDistanceAccumulationRaster:"Valitse et\u00e4isyyskertym\u00e4rasteri",inputBackDirectionRaster:"Valitse paluusuunnan tai virtaussuunnan rasteri",pathType:"Reitin tyyppi (valinnainen)",bestSingle:"Paras yksitt\u00e4inen",eachCell:"Jokainen solu",eachZone:"Jokainen vy\u00f6hyke",
+outputFeatureName:"Tuloskohdekarttatason nimi",outputLayerName:"Karttatason ${layername} optimaalinen reitti viivana",drawSourcePointLayerName:"L\u00e4hteen pisteet",itemDescription:"Kohdekarttataso on luotu suorittamalla optimaalinen reitti viivana karttatasolla ${layername}. ",itemTags:"Analyysin tulos, optimaalinen reitti viivana, ${layername} ${fieldname}",itemSnippet:"Kohdekarttataso on luotu optimaalisesta reitist\u00e4 viivana."});

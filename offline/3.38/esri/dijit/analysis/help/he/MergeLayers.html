@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="regularsize">
+        <h2>מיזוג שכבות</h2><p/>
+        <h2><img src="../images/GUID-BDDD6517-4EE7-4EEC-AE15-15DD9B709131-web.png" alt="מיזוג שכבות"></h2>
+        <hr/>
+    <p>כלי זה מעתיק ישויות משתי שכבות לשכבה חדשה. השכבות שמיועדות למיזוג צריכות לכלול אותם סוגי ישויות (נקודות, קווים או אזורים). באפשרותך לשלוט באופן שבו השדות משכבות הקלט מצורפים ומועתקים, למשל:
+        <ul>
+            <li>אם יש לך שכבה של בתי ספר ציבוריים ושכבה של בתי ספר פרטיים, וברצונך ליצור שכבה אחת עם כל בתי הספר.
+            </li>
+            <li>אם יש לך שתי שכבות וכל אחת מהן מכילה פרטי חלקות עבור שטחים מוניציפליים רציפים. אם ברצונך לצרף אותן יחד לשכבה אחת, תוך שמירה רק של השדות שיש להם אותו שם ואותו סוג בשתי שכבות הקלט.
+            </li>
+        </ul>
+        
+    </p>
+    <p>אם האפשרות  <b>השתמש בתיחום המפה הנוכחי</b> מסומנת, רק הישויות שנראות בתוך גבולות תיחום המפה הנוכחי ימוזגו. אם האפשרות הזו אינה מסומנת, כל הישויות בשכבת הקלט ימוזגו, גם אם הן מחוץ לתיחום המפה הנוכחי.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div><h2>בחר שכבה</h2></div>
+        <hr/>
+        <div>
+            <p>הישויות מסוג נקודה, קו או אזור שמיועדות למיזוג עם השכבה שמצוינת בהמשך.
+            </p>
+        </div>
+    </div>
+    <div id="MergeLayer">
+        <div><h2>בחר שכבה למיזוג</h2></div>
+        <hr/>
+        <div>
+            <p>בחר את השכבה למיזוג עם השכבה הראשונה.
+            </p>
+        </div>
+    </div>
+    <div id="MergingAttributes">
+        <div><h2>שנה שדות מיזוג</h2></div>
+        <hr/>
+        <div>
+            <p>כברירת מחדל, כל השדות משתי שכבות הקלט יועברו לשכבת הפלט. ניתן לשנות את האופן שבו השדות מועברים לפלט:
+                <ul>
+                    <li> <b>שנה שם</b> - יתבצע שינוי של שם השדה בפלט.
+                    </li>
+                    <li> <b>הסר</b> - השדה יוסר מהפלט.
+                    </li>
+                    <li> <b>התאם</b> - שמות השדות יהפכו לזהים. ערכים של השדה מהשכבה למיזוג יועתקו לשדה הפלט המותאם.
+                    </li>
+                </ul>
+                
+            </p>
+            <p>אם שתי השכבות מכילות שדה עם שם וסוג נתונים זהה, התוכן של שני השדות ימוזג לשדה אחד באותו שם. הדבר אינו חל על שדות שבהם נעשה שימוש באפשרות  <b>התאם</b> בפרמטר <b>שנה שדות מיזוג</b>.
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>שם שכבת התוצאה</h2></div>
+        <hr/>
+        <div>
+            <p>השם של השכבה שתיווצר ב <b>התוכן שלי</b> ותתווסף למפה. שם ברירת המחדל מבוסס על שם הכלי ושם שכבת הקלט. אם שם השכבה כבר קיים, תתבקש לספק שם אחר.
+            </p>
+            <p>בעזרת התפריט הנפתח  <b>שמור תוצאה ב</b>, באפשרותך לציין את שם התיקייה ב <b>תוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

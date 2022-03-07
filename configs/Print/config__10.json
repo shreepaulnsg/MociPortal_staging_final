@@ -1,0 +1,9 @@
+{
+  "serviceURL": "https://gisstg.moci.gov.qa/server/rest/services/Moci/ExportWebMap/GPServer/Export%20Web%20Map",
+  "defaultTitle": "ArcGIS Web Map",
+  "defaultAuthor": "ArcGIS Web AppBuilder",
+  "defaultCopyright": "",
+  "defaultFormat": "PDF",
+  "defaultLayout": "A3 Landscape",
+  "copyrightEditable": true
+}

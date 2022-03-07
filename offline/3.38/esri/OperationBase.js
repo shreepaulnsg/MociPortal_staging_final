@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/OperationBase",["dojo/_base/declare","dojo/has","./kernel"],function(a,c,d){a=a(null,{declaredClass:"esri.OperationBase",type:"not implemented",label:"not implemented",constructor:function(b){b=b||{};b.label&&(this.label=b.label)},performUndo:function(){console.log("performUndo has not been implemented")},performRedo:function(){console.log("performRedo has not been implemented")}});c("extend-esri")&&(d.OperationBase=a);return a});

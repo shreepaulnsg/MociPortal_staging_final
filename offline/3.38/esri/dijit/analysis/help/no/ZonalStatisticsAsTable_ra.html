@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Sonestatistikk som tabell</h2><p/>
+        <h2><img src="../images/GUID-2847466F-BF22-4545-BDCE-7EB7B1D15F2D-web.png" alt="Sonestatistikk som tabell-diagram"></h2>
+        <hr/>
+    <p>Dette verkt&oslash;yet summerer verdiene for et raster innenfor sonene til et annet datasett og rapporterer resultatene til en tabell.
+    </p>
+    <p>Eksempler p&aring; bruksomr&aring;der for dette verkt&oslash;yet er blant annet:
+        <ul>
+            <li>Hvis du har et lag med nedb&oslash;rsfeltgrenser og et lag med arealbruksgrenser etter arealbrukstype, kan du beregne samlet areal for arealbrukstypen for hvert nedb&oslash;rsfelt.
+                
+
+            </li>
+            <li>Hvis du har et lag med tomtene i et fylke og et lag med bygrenser, kan du summere gjennomsnittsverdien p&aring; ledige tomter innenfor hver enkelt bygrense.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>Hvis det er merket av for  <b>Bruk gjeldende kartutstrekning</b>, er det kun geoobjektene i inndatalaget og laget som skal summeres, som er synlige i gjeldende kartutstrekning, som analyseres. Hvis det ikke er merket av for dette alternativet, analyseres alle geoobjekter i b&aring;de inndatalaget og laget som skal summeres, selv om de befinner seg utenfor gjeldende kartutstrekning.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div><h2>Velg soneraster eller geoobjekter</h2></div>
+        <hr/>
+        <div>
+            <p>Inndataene som definerer grensene for sonene eller omr&aring;dene som skal summeres.
+            </p>
+            <p>Inndataene kan v&aelig;re et heltallsraster eller geoobjektdata. For raster blir sonene definert av alle steder i inndataene som har samme celleverdi. Sonene kan overlappe for geoobjekter. Omr&aring;dene beh&oslash;ver ikke v&aelig;re sammenhengende.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Sonefelt</h2></div>
+        <hr/>
+        <div>
+            <p>Feltet som inneholder verdiene som definerer hver sone.
+            </p>
+            <p>Det kan v&aelig;re et heltall eller et strengfelt i sonedatasettet.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div><h2>Velg verdiraster</h2></div>
+        <hr/>
+        <div>
+            <p>Rasteret som inneholder verdiene det skal beregnes statistikk p&aring;.
+            </p>
+            <p>Det kan v&aelig;re enten heltall eller flyttall. N&aring;r det er av typen flyttall, er imidlertid ikke alternativene for &aring; beregne majoritet, minoritet og variasjon tilgjengelige.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div><h2>Ignorer NoData i beregninger (valgfritt)</h2></div>
+        <hr/>
+        <div>
+            <p> Angir om NoData-verdier ignoreres i analysen.
+            </p>
+            <ul>
+                <li>Avmerket &mdash;Analysen inkluderer cellen som har en verdi i inndata-verdirasteret innenfor en bestemt sone til &aring; bestemme utdataverdien for denne sonen. NoData-celler i verdirasteret ignoreres i statistikkberegningen. Dette er standardalternativet.
+                </li>
+                <li>Ikke avmerket &ndash; Analysen resulterer i NoData hvis det finnes NoData-verdier for cellene i verdirasteret innenfor en bestemt sone.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="statisticType">
+        <div><h2>Statistikktype (valgfritt)</h2></div>
+        <hr/>
+        <div>
+            <p>Angir statistikktypen som skal beregnes.
+            </p>
+            <p> Inndata kan v&aelig;re ett av f&oslash;lgende: <b>Alle</b>, <b>Gjennomsnitt</b>, <b>Majoritet</b>, <b>Maksimum</b>, <b>Median</b>, <b>Minimum</b>, <b>Minoritet</b>, <b>Persentil</b>, <b>Omr&aring;de</b>, <b>Standardavvik</b>, <b>Sum</b>, <b>Varians</b>, <b>Minimum og maksimum</b>, <b>Gjennomsnitt og standardavvik</b> eller <b>Minimum, maksimum og gjennomsnitt</b>. Standardinnstillingen er <b>Alle</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div><h2>Persentilverdier (valgfritt)</h2></div>
+        <hr/>
+        <div>
+            <p>Persentilen som skal beregnes. Standardverdien er 90, som angir den 90.&nbsp;persentilen.
+            </p>
+            <p>Verdien kan v&aelig;re mellom 0 og 100. Resultatet av &aring; angi 0.&nbsp;persentil er i det vesentlige lik minimumsverdien, og 100.&nbsp;persentil er lik maksimumsverdien. En verdi p&aring; 50 gir i sin vesentlighet det samme resultatet som medianverdien.
+            </p>
+            <p> Denne parameteren st&oslash;ttes bare n&aring;r parameteren <b>Statistikktype</b> er satt til <b>Persentil</b> eller <b>Alle</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div><h2>Type interpolasjon av persentil (valgfritt)</h2></div>
+        <hr/>
+        <div>
+            <p>Bestemmer metoden som skal brukes til interpolasjon av persentil n&aring;r antall verdier fra inndatarasteret som skal beregnes, er partall.
+            </p>
+            <ul>
+                <li>  <b>Automatisk identifisering</b> &ndash;&nbsp;Hvis inndataverdirasteret er av pikseltypen heltall, brukes metoden <b>N&aelig;rmest</b>. Hvis inndataverdirasteret er av pikseltypen flyttall, brukes metoden <b>Line&aelig;r</b>. Dette er standardalternativet.
+                </li>
+                <li> <b>N&aelig;rmest</b> &ndash;&nbsp;Den tilgjengelige verdien som er n&aelig;rmest &oslash;nsket persentil, brukes.
+                </li>
+                <li> <b>Line&aelig;r</b> &ndash;&nbsp;Det vektede gjennomsnittet av de to verdiene som omgir &oslash;nsket persentil, brukes.
+                </li>
+            </ul>
+            
+            <p> Denne parameteren st&oslash;ttes bare n&aring;r parameteren <b>Statistikktype</b> er satt til <b>Persentil</b> eller <b>Alle</b>.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Behandle som flerdimensjonal (valgfritt)</h2></div>
+        <hr/>
+        <div>
+            <p>Angir hvordan flerdimensjonale bildetjenester som inndata blir behandlet hvis de er flerdimensjonale.
+            </p>
+            <ul>
+                <li>Avmerket &ndash; Statistikken beregnes ut fra gjeldende sektor av det flerdimensjonale inndatasettet. Dette er standardalternativet.
+                    
+
+                </li>
+                <li>Ikke avmerket &ndash; Statistikken beregnes for alle dimensjonene i det flerdimensjonale inndatasettet.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div><h2>Navn på resultattabell</h2></div>
+        <hr/>
+        <div>
+            <p>Navnet p&aring; laget som opprettes i  <b>Mitt innhold</b> og legges til kartet. Standardnavnet er basert p&aring; verkt&oslash;ynavnet og navnet p&aring; inndatalaget. Hvis laget finnes allerede, blir du bedt om &aring; oppgi et annet navn.
+            </p>
+            <p>Du kan angi navnet p&aring; en mappe i  <b>Mitt innhold</b>, der resultatet blir lagret via rullegardinlisten <b>Lagre resultat i</b>.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

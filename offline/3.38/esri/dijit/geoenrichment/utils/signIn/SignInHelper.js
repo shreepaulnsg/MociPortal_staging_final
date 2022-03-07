@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/utils/signIn/SignInHelper","esri/dijit/geoenrichment/Deferred esri/dijit/geoenrichment/when esri/arcgis/OAuthInfo esri/IdentityManager esri/kernel esri/dijit/geoenrichment/utils/UrlUtil".split(" "),function(h,k,l,c,d,m){return{signIn:function(a){var e=new h,b=m.getPortalUrl(a.portalUrl);a.forceFreshStart&&d.id.destroyCredentials();var g=function(){var f=d.id.findCredential(b+"/sharing")||d.id.credentials[0];k(a.callback&&a.callback(f),function(){e.resolve(f)})},n=
+new l({portalUrl:b,appId:a.appId,popup:!!a.popup});c.registerOAuthInfos([n]);c.checkSignInStatus(b+"/sharing").then(g).otherwise(function(){c.getCredential(b+"/sharing",{oAuthPopupConfirmation:!1}).then(g)});return e.promise}}});

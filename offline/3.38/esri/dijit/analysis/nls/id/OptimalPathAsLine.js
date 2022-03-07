@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/id/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Pilih raster atau fitur tujuan",destinationField:"Kolom tujuan (opsional)",inputDistanceAccumulationRaster:"Pilih raster akumulasi jarak",inputBackDirectionRaster:"Pilih arah balik atau raster arah aliran",pathType:"Jenis jalur (opsional)",bestSingle:"Tunggal terbaik",eachCell:"Setiap sel",eachZone:"Setiap zona",outputFeatureName:"Nama feature layer hasil",outputLayerName:"Jalur optimal sebagai garis ${layername}",
+drawSourcePointLayerName:"Titik sumber",itemDescription:"Feature layer dibuat dari menjalankan jalur optimal sebagai garis di ${layername}. ",itemTags:"Hasil Analisis, Jalur optimal Sebagai garis, ${layername} ${fieldname}",itemSnippet:"Feature layer dibuat dari jalur optimal sebagai garis."});

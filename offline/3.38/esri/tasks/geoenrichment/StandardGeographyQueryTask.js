@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/geoenrichment/StandardGeographyQueryTask","../../declare ../../urlUtils dojo/_base/array dojo/_base/lang ./taskHelper ../FeatureSet ./GeographyQueryBase ./GeographyQuery ./BatchGeographyQuery ./SubGeographyQuery".split(" "),function(e,f,n,g,c,h,k,l,d,m){return e("esri.tasks.geoenrichment.StandardGeographyQueryTask",null,{constructor:function(a){this.url=a||f.getProtocolForWebResource()+"//geoenrich.arcgis.com/arcgis/rest/services/World/GeoenrichmentServer"},execute:function(a){a instanceof
+k||(a=a.returnSubGeographyLayer?new m(a):a.geographyQueries||g.isArray(a.where)?new d(a):new l(a));return c.invokeMethod(this,a instanceof d?"/StandardGeographiesBatchQuery/execute":"/StandardGeographyQuery/execute",function(){return c.jsonToRest(a.toJson())},function(b){(!b.results||1>b.results.length||!b.results[0].value)&&c.throwEmptyResponse();return{featureSet:new h(b.results[0].value),messages:b.messages}},"onExecuteComplete","onError")},onExecuteComplete:function(a){},onError:function(a){}})});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/DataBrowser/DataBrowserContentFactory","dojo/_base/declare ../_WizardPage ../_PageButtons ./Breadcrumb ./DataBrowserBase ./DataBrowserManager ./DataCategoriesPage ./DataCollectionsPage ./DataVariablesPage ./DataVariableGrid dojo/i18n!../../../nls/jsapi".split(" "),function(k,n,p,q,d,r,t,u,v,w,x){return k(null,{createManager:function(a){return new r(a)},createBreadcrumb:function(a){return new q(a)},createPage:function(a,e){switch(a){case d.CATEGORIES_PAGE:var b=t;break;
+case d.COLLECTIONS_PAGE:b=u;break;case d.VARIABLES_PAGE:b=v}b=k([n,p,b],{buildRendering:function(){function f(l){var g=l.toLowerCase(),c=m[g+"Button"];!0===c&&(c=x.geoenrichment.dijit.WizardButtons[g]);c&&h.push({id:g,label:c,onClick:function(){m.emit(l,{bubbles:!1})}})}this.inherited(arguments);var h=[],m=this;f("Cancel");f("OK");f("Back");h.length?this.addButtons(h):this.buttonsNode&&(this.buttonsNode.style.display="none")}});return new b(e)},createVariableGrid:function(a,e){return new w(a,e)}})});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/2d/engine/webgl/fontUtils",["require","exports"],function(f,c){function e(a){a=a.toLowerCase().split(" ").join("-");switch(a){case "serif":return"noto-serif";case "sans-serif":return"arial-unicode-ms";case "monospace":return"ubuntu-mono";case "fantasy":return"cabin-sketch";case "cursive":return"redressed";default:return a}}Object.defineProperty(c,"__esModule",{value:!0});c.getFullyQualifiedFontName=function(a){a:{if(a.weight)switch(a.weight.toLowerCase()){case "bold":case "bolder":var b=
+"-bold";break a}b=""}a:{if(a.style)switch(a.style.toLowerCase()){case "italic":case "oblic":var d="-italic";break a}d=""}b+=d;return e(a.family)+(0<b.length?b:"-regular")};c.getFontDecorationOffset=function(a){switch(a.decoration.toLowerCase()){case "underline":return 8;case "line-through":return-3}return NaN}});

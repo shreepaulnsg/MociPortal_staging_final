@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/nb/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Velg m\u00e5lraster eller geoobjekter",destinationField:"M\u00e5lfelt (valgfritt)",inputDistanceAccumulationRaster:"Velg raster for avstandsakkumulering",inputBackDirectionRaster:"Velg tilbakeretning- eller str\u00f8mningsretningsraster",pathType:"Rutetype (valgfritt)",bestSingle:"Beste enkeltforekomst",eachCell:"Hver celle",eachZone:"Hver sone",outputFeatureName:"Navn p\u00e5 resultatgeoobjektlag",outputLayerName:"Optimal rute som linje av ${layername}",
+drawSourcePointLayerName:"Kildepunkter",itemDescription:"Geoobjektlag generert ved \u00e5 kj\u00f8re den optimale ruten som linje p\u00e5 ${layername}. ",itemTags:"Analyseresultat, optimal rute som linje, ${layername} ${fieldname}",itemSnippet:"Geoobjektlag generert fra optimal rute som linje."});

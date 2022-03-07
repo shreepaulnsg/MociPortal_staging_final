@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/utils/requests/ErrorUtil",["esri/dijit/geoenrichment/Deferred","esri/dijit/geoenrichment/when","require"],function(k,f,l){function m(a){var b=new k;l(["./DataResource"],function(c){f((new c(a)).getFileContent(),b.resolve,b.reject)});return b.promise}var e={getErrorFromBin:function(a){var b=/^text\/|^application\/json/;return a&&a.type&&!b.test(a.type)?null:f(a&&m(a),function(c){if(c){if(c.hasOwnProperty("contentType")&&!b.test(c.contentType))return null;try{var d=
+JSON.parse(decodeURIComponent(escape(c.data))),g=e.parseError(d);if(g)return g;if(d.messages&&d.messages.length){var h=d.messages[0];if("esriJobMessageTypeError"==h.type)return Error(h.description)}}catch(n){}}return Error("Binary data error.")})},parseError:function(a){var b;a.error?b=e.makeError(a.error):"error"===a.status&&(b=e.makeError(a));b&&b.code&&null==b.httpCode&&(b.httpCode=b.code);return b},makeError:function(a){null==a?a=Error():"string"===typeof a&&(a={message:a});if(!(a instanceof Error)&&
+"object"===typeof a){var b=a;a=Error();b.code&&(a.code=b.code);b.message&&(a.message=b.message);b.details&&(a.details=b.details)}a.log=dojoConfig.isDebug;return a}};return e});

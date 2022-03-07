@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/supportClasses/templateJsonUtils/fieldInfo/utils",["esri/dijit/geoenrichment/Deferred","require"],function(c,d){var a={},b;a.init=function(){if(b)return b.promise;b=new c;d("./FieldInfoBuilder ./FieldInfoFormatUtil ./FieldInfoNameUtil ./FieldInfoRenderer ./RichTextJsonUtil ./FieldLibrary".split(" "),function(e,f,g,h,k,l){a.builder=e;a.format=f;a.name=g;a.renderer=h;a.richText=k;a.fields=l;b.resolve()});return b.promise};a.init();return a});

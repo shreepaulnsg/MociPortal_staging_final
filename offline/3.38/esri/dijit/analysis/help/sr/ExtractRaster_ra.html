@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Ekstrahuj raster</h2><p/>
+        <h2><img src="../images/GUID-DC9CBCB9-A07C-42D3-A0CB-2FB1483CBF4C-web.png" alt="Alatka Ekstrahuj raster za portal"></h2>
+        <hr/>
+    <p>Ova alatka može da iseče raster prema granici, bilo u pravougaonu oblast ili u oblik koji interaktivno defini&scaron;ete na ekranu. Možete da isečete prema obuhvatu oblasti koju trenutno imate prikazanu na mapi ili prema oblasti ispitivanja definisanoj poligonom.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div><h2>Izaberite ulazne podatke za ekstrakciju</h2></div>
+        <hr/>
+        <div>
+            <p>Ulazni sloj za isecanje.
+            </p>
+        </div>
+    </div>
+    <div id="clippingGeometry">
+        <div><h2>Navedite geometriju isecanja</h2></div>
+        <hr/>
+        <div>
+            <p>Izaberite tip obuhvata za kori&scaron;ćenje prilikom isecanja geometrije sloja:
+                <ul>
+                    <li>Koristite trenutni obuhvat&mdash;trenutni obuhvat mape će se koristiti za isecanje rezultujućeg sloja. Ovo je podrazumevano.
+                        
+
+                    </li>
+                    <li>Izaberite oblast studije&mdash;Dozvoljava vam da defini&scaron;ete skraćenje geometrije kori&scaron;ćenjem alata za crtanje.
+                        
+
+                    </li>
+                    <li>Izaberite sloj&mdash;Izaberite sloj geoobjekta ili sloj slike da biste definisali opseg ili izaberite sloj geoobjekta poligona da biste definisali isečenu geometriju. Kada se izabere sloj komponente poligona, okvir za potvrdu se prikazuje da bi se navelo da li se koristi ulazna komponenta za geometriju isecanja. Podrazumevano, nije obeleženo. To znači da je sloj ulaznog geoobjekta upotrebljen za definiciju opsega. Ako je obeležen, to znači da su ulazne komponente upotrebljene za geometriju isecanja.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="clippingType">
+        <div><h2>Navedite tip isecanja</h2></div>
+        <hr/>
+        <div>
+            <p>Navedite da li želite da zadržite oblast unutra ili van isečene geometrije.
+                <ul>
+                    <li>Podaci u geometriji&mdash;Slika unutar opsega isečka biće ekstraktovana. Ovo je podrazumevano.
+                        
+
+                    </li>
+                    <li>Podaci van geometrije&mdash;Slika van opsega isečka biće ekstraktovana.
+                        
+
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLayer">
+        <div><h2>Naziv sloja sa rezultatima</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Naziv sloja koji će biti kreiran u  <b>Mom sadržaju</b> i dodat mapi. Podrazumevani naziv je zasnovan na nazivu alatke i nazivu ulaznog sloja. Ako sloj već postoji, bićete upitani da unesete drugi naziv.
+            </p>
+            <p>Možete da navedete ime fascikle u  <b>Mom sadržaju</b> gde će rezultat biti sačuvan kori&scaron;ćenjem padajućeg polja <b>Sačuvaj rezultat u</b>. Ako imate privilegije za kreiranje pločastih i dinamičkih slojeva snimaka, mozete da odredite koji tip sloja želite da generišete za izlaz pomoću Sačuvaj rezultat kao padajući okvir. </p>
+        </div>
+    </div>
+</div>
+</html>

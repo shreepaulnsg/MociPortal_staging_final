@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sk/DescribeDataset",{inputLayerLabel:"Vybra\u0165 \u00fadajov\u00fa sadu na opis",describeDataLabel:"Rozumie\u0165 va\u0161im \u00fadajom vytvoren\u00edm (volite\u013en\u00e9)",sampleLayer:"Vrstva vzorky",extentLayer:"Vrstva rozsahu",noOfFeaturesLabel:"Po\u010det prvkov na zahrnutie",outputLayerName:"N\u00e1zov v\u00fdslednej vrstvy",resultName:"Op\u00edsa\u0165 \u00fadaje ${layerName}",itemDescription:"Vrstvy prvkov generovan\u00e9 n\u00e1strojom Op\u00edsa\u0165 \u00fadajov\u00fa sadu na ${layerName} ",
+itemTags:"V\u00fdsledok anal\u00fdzy, Op\u00edsa\u0165 d\u00e1tov\u00fa sadu, ${layerName}",itemSnippet:"Vrstvy prvkov generovan\u00e9 n\u00e1strojom Op\u00edsa\u0165 d\u00e1tov\u00fa sadu."});

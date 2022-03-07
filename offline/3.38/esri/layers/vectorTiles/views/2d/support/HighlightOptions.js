@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/2d/support/HighlightOptions","require exports ../../../core/tsSupport/declareExtendsHelper ../../../core/tsSupport/decorateHelper ../../../Color ../../../core/Accessor ../../../core/accessorSupport/decorators".split(" "),function(k,l,g,c,f,h,b){return function(e){function a(){var d=null!==e&&e.apply(this,arguments)||this;d.color=new f([0,255,255]);d.haloOpacity=1;d.fillOpacity=.5;return d}g(a,e);c([b.property({type:f})],a.prototype,"color",void 0);c([b.property()],
+a.prototype,"haloOpacity",void 0);c([b.property()],a.prototype,"fillOpacity",void 0);return a=c([b.subclass("esri.views.2d.support.HighlightOptions")],a)}(b.declared(h))});

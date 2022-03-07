@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/supportClasses/map/layers/thisAreas/ThisAreasHighlighter",["../../symbols/HighlightedSymbolGenerator"],function(g){var e={registerThisLayersForHighlighing:function(a){a.thisAreasHighlightController&&a.thisAreaLayers.forEach(function(c,b){b=a.thisAreaLayerIndexToAreaIndex[b];e._registerLayer(c,"thisAreaLayer"+b,a.map,a.thisAreasHighlightController,a,b)})},_registerLayer:function(a,c,b,h,k,f){g.getHighlightSymbol({graphicsLayer:a}).then(function(l){var m=
+l.symbol;h.setThisAreaLayer(k.calculatorFieldName+";"+c,a,b,{thisAreaIndex:f,getGraphicForAreaIndexFunc:function(d){if(d===f)return a.graphics[0]},setGraphicHighlightedFunc:function(d,n){d.setSymbol(n?m:null)}})})}};return e});

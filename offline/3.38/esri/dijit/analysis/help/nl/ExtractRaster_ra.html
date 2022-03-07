@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Raster extraheren</h2><p/>
+        <h2><img src="../images/GUID-DC9CBCB9-A07C-42D3-A0CB-2FB1483CBF4C-web.png" alt="Tool Raster extraheren voor Portal"></h2>
+        <hr/>
+    <p>Deze tool kan een raster maken als grens, hetzij voor een ​​rechthoekig gebied of voor een ​​vorm die u interactief definieert op het scherm. U kunt het gebied dat u momenteel op uw kaart hebt weergegeven knippen of het onderzoeksgebied gedefinieerd door een polygoon.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div><h2>Kies invoergegevens om te extraheren</h2></div>
+        <hr/>
+        <div>
+            <p>De invoerlaag om te knippen.
+            </p>
+        </div>
+    </div>
+    <div id="clippingGeometry">
+        <div><h2>Geometrie om te gebruiken bij het afsnijden specificeren</h2></div>
+        <hr/>
+        <div>
+            <p>Kies het extenttype om te gebruiken bij het knippen van de geometrie van de laag:
+                <ul>
+                    <li>Huidige extent gebruiken&mdash;De huidige kaartextent wordt gebruikt om de resulterende laag uit te knippen. Dit is de standaardinstelling.
+                        
+
+                    </li>
+                    <li>Kies onderzoeksgebied&mdash;U kunt ook een knipgeometrie defini&euml;ren met behulp van de tekentool.
+                        
+
+                    </li>
+                    <li>Laag kiezen&mdash;Kies een objectlaag of afbeeldingslaag om de extent te bepalen of kies een polygoonobjectlaag om geometrie knippen te bepalen. Als er een polygoonobjectlaag wordt geselecteerd, wordt er een selectievakje weergegeven om te specificeren of er invoerobjecten gebruikt worden voor knipgeometrie. Standaard is dit niet aangevinkt. Dit betekent dat de invoerobjectlaag gebruikt wordt om de extent te bepalen. Als het is aangevinkt, worden de invoerobjecten gebruikt voor knipgeometrie.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="clippingType">
+        <div><h2>Kniptype opgeven</h2></div>
+        <hr/>
+        <div>
+            <p>Specificeer of u het gebied binnen of buiten de knipgeometrie wilt behouden.
+                <ul>
+                    <li>Data in de geometrie&mdash;Satellietbeelden binnen de knipomvang worden geextraheerd. Dit is de standaardinstelling.
+                        
+
+                    </li>
+                    <li>Data buiten de geometrie&mdash;Satellietbeelden binnen de knipomvang worden geextraheerd.
+                        
+
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLayer">
+        <div><h2>Resultaat laagnaam</h2></div>
+        <hr/>
+        <div>
+            
+            <p>De naam van de laag die in  <b>Mijn Content</b> wordt gemaakt en aan de kaart wordt toegevoegd. De standaardnaam is gebaseerd op de toolnaam en de naam van de invoerlaag. Als de laag al bestaat, wordt u gevraagd een nieuwe naam te geven.
+            </p>
+            <p>U kunt de naam van een map opgeven in  <b>Mijn Content</b>, waar het resultaat wordt opgeslagen met het vervolgkeuzemenu <b>Resultaat opslaan in</b>. Als u de machtigingen hebt om zowel getegelde als dynamische beeldlagen aan te maken, kunt u specificeren welk layertype wordt gegenereerd in de uitvoer met het vervolgkeuzemenu Resultaat opslaan als. </p>
+        </div>
+    </div>
+</div>
+</html>

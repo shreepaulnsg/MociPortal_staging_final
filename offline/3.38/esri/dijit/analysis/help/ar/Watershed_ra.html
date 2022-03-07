@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>مستجمعات المياه</h2><p/>
+        <h2><img src="../images/GUID-AF749369-8C2D-46FF-9D74-2CF7CAB7C7B0-web.png" alt="مهمة المستجمع المائي"></h2>
+        <hr/>
+    <p>تقوم هذه الأداة بتحديد المنطقة المساهمة المتواجدة أعلى مجموعة الخلايا في البيانات النقطية.
+    </p>
+    <p> ستنشئ نقطة إدخال على نهر المسيسيبي في لويزيانا معلم مستجمع مياه يمتد ليشمل مناطق من نيويورك إلى مونتانا وإلى كندا.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputFlowDirectionRaster">
+        <div><h2>اختيار طبقة اتجاه التدفق</h2></div>
+        <hr/>
+        <div>
+            <p>البيانات النقطية المدخلة التي تعرض اتجاه تدفق كل خلية.
+            </p>
+            <p>يمكن إنشاء البيانات النقطية لاتجاه التدفق باستخدام دالة البيانات النقطية &quot;اتجاه التدفق&quot; مع نوع اتجاه التدفق الافتراضي  <b>D8</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inPourPointRasterOrFeatures">
+        <div><h2>تحديد مواقع نقطة الصب المدخلة</h2></div>
+        <hr/>
+        <div>
+            <p>مواقع نقطة الصب المدخلة.
+            </p>
+            <p>يمكن أن يكون هذا بيانات نقطية أو معالم نقطية: في البيانات النقطية، يمثل ذلك الخلايا التي سيتم تحديد المنطقة المساهمة أو التجميع أعلاها. سيتم استخدام كل الخلايا التي ليست NoData كخلايا مصدر. في مدخلات النقطة، يمثل ذلك المواقع التي سيتم تحديد المنطقة المساهمة أو التجميع أعلاها.
+            </p>
+        </div>
+    </div>
+    <div id="pourPointField">
+        <div><h2>اختيار حقل نقطة الانصباب</h2></div>
+        <hr/>
+        <div>
+            <p>الحقل المستخدم لتعيين قيم لمواقع نقطة الصب.
+            </p>
+            <p>إذا كانت طبقة نقطة الصب المدخلة بيانات نقطية، يتم استخدام  <i>Value</i>. إذا كان معلمًا، يتم استخدام حقل رقمي. إذا احتوى الحقل على قيم نقطة عائمة، يتم اقتطاعها إلى أرقام صحيحة.
+            </p>
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>اسم طبقة النتيجة</h2></div>
+        <hr/>
+        <div>
+            
+            <p>سيتم إنشاء اسم الطبقة في  <b>المحتوى</b> وسيتم إضافته إلى الخريطة. يستند الاسم الافتراضي إلى اسم الأداة واسم الطبقة المدخلة. إذا وُجدت الطبقة بالفعل، سيطلب منك كتابة اسم آخر.
+            </p>
+            <p>يمكنك تحديد اسم مجلد في  <b>محتواي</b> حيث سيتم حفظ النتيجة باستخدام المربع المنسدل <b>حفظ النتيجة في</b> إذا كان لديك امتيازات لإنشاء طبقات صور متجانبة وديناميكية، فيمكنك تحديد نوع الطبقة لإنشاء الإخراج باستخدام مربع القائمة المنسدلة حفظ النتيجة كـ. </p>
+        </div>
+    </div>
+</div>
+</html>

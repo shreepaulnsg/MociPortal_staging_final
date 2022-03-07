@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/utils/htmlToSvg/supportClasses/SVGBuilder",["./VisualsCollector","./EncodeUtil"],function(k,l){return{buildSVG:function(d,m,b){(function(){var a=k.getNodeVisuals(m),c=[],g=b.fitParams.w||a.box.w,e=b.fitParams.h||a.box.h,n=("left"===b.fitParams.hAlign?"xMin":"right"===b.fitParams.hAlign?"xMax":"xMid")+("top"===b.fitParams.vAlign?"YMin":"bottom"===b.fitParams.vAlign?"YMax":"YMid")+" meet";if(b.autoTrimHeight&&"top"===b.fitParams.vAlign){var h=a.box.h/Math.max(a.box.w/
+g,a.box.h/e);h<e&&(e=h)}c.push('\x3csvg version\x3d"1.1" xmlns\x3d"http://www.w3.org/2000/svg" xmlns:xlink\x3d"http://www.w3.org/1999/xlink" x\x3d"'+Math.round(100*a.box.x)/100+'px" y\x3d"'+Math.round(100*a.box.y)/100+'px" width\x3d"'+Math.round(100*g)/100+'px" height\x3d"'+Math.round(100*e)/100+'px" viewBox\x3d"0 0 '+a.box.w+" "+a.box.h+'" xml:space\x3d"preserve" preserveAspectRatio\x3d"'+n+'"\x3e');b&&b.definitions&&b.definitions.length&&(c.push("\x3cdefs\x3e"),b.definitions.forEach(function(p){c.push(p)}),
+c.push("\x3c/defs\x3e"));d=c.concat(d)})();d.push("\x3c/svg\x3e");var f="";d.forEach(function(a){f="string"===typeof a?f+a:f+a.text});return l.encodeXML(f)}}});

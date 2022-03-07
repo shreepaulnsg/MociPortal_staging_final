@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Minta</h2><p/>
+        <h2><img src="../images/GUID-3950CCA3-C1D0-493F-A33D-93673443ADD2-web.png" alt="Minta"></h2>
+        <hr/>
+    <p>Ez az eszk&ouml;z t&aacute;bl&aacute;t vagy pontszerű vektoroselem-oszt&aacute;lyt hoz l&eacute;tre, amely meghat&aacute;rozott helyekre vonatkoz&oacute;an jelen&iacute;ti meg egy raszter (vagy raszterk&eacute;szlet) cell&aacute;inak &eacute;rt&eacute;k&eacute;t. A helyeket rasztercell&aacute;k, polygon t&iacute;pus&uacute; vektoros elemek, vonall&aacute;nc t&iacute;pus&uacute; vektoros elem, vonall&aacute;nc t&iacute;pus&uacute; vektoros elemek, vagy pontok k&eacute;szlete hat&aacute;rozza meg.
+    </p>
+    <p>Az eszk&ouml;z alkalmaz&aacute;s&aacute;ra az al&aacute;bbi n&eacute;h&aacute;ny p&eacute;lda hozhat&oacute;:
+        <ul>
+            <li> Attrib&uacute;tumok kinyer&eacute;se mobiltorony hely&eacute;hez t&ouml;bb raszterből, p&eacute;ld&aacute;ul felsz&iacute;nhaszn&aacute;latb&oacute;l, talajt&iacute;pusb&oacute;l, magass&aacute;gb&oacute;l &eacute;s &uacute;tt&oacute;l val&oacute; t&aacute;vols&aacute;gb&oacute;l.
+            </li>
+            <li>Talaj hőm&eacute;rs&eacute;klet&eacute;nek kinyer&eacute;se k&uuml;l&ouml;nb&ouml;ző m&eacute;lys&eacute;gekn&eacute;l adott ponthalmazokn&aacute;l.
+            </li>
+            <li>30 &eacute;v havi tengerfelsz&iacute;n-hőm&eacute;rs&eacute;kleti adataib&oacute;l foglalja &ouml;ssze az &aacute;llatok tart&oacute;zkod&aacute;si helyein vagy lak&oacute;hely&eacute;n bel&uuml;l egy adott időpontra vonatkoz&oacute; adatokat, amikor egy &aacute;llatfajt megfigyeltek.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Az  <b>Aktu&aacute;lis t&eacute;rk&eacute;pkiterjed&eacute;s haszn&aacute;lata</b> bejel&ouml;l&eacute;s&eacute;vel az alkalmaz&aacute;s csak az aktu&aacute;lis t&eacute;rk&eacute;pkiterjed&eacute;sen l&aacute;that&oacute; r&eacute;teg v&aacute;ltoz&oacute;it vagy s&aacute;vjait elemzi. Ha nincs bejel&ouml;lve, akkor a teljes r&eacute;teg minden v&aacute;ltoz&oacute;j&aacute;t vagy s&aacute;vj&aacute;t elemzi, akkor is, ha azok k&iacute;v&uuml;l esnek az aktu&aacute;lis t&eacute;rk&eacute;pkiterjed&eacute;sen.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div><h2>Mintavételezni kívánt képréteg(ek) kiválasztása</h2></div>
+        <hr/>
+        <div>
+            <p>Egyetlen k&eacute;p, vagy pedig azon k&eacute;pek list&aacute;ja, amelyből majd a mintav&eacute;telez&eacute;s t&ouml;rt&eacute;nik a bemeneti helyadatok alapj&aacute;n. 
+            </p>
+            <p>Ahhoz, hogy egy t&ouml;bbdimenzi&oacute;s k&eacute;pr&eacute;teg valamennyi szelet&eacute;ből mint&aacute;t lehessen venni, e k&eacute;pr&eacute;tegnek kell az egyed&uuml;li bemeneti raszternek lennie.
+            </p>
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div><h2>Helyréteg kiválasztása</h2></div>
+        <hr/>
+        <div>
+            <p>Azokat a helyeket azonos&iacute;t&oacute; adatok, amelyekből mint&aacute;t k&iacute;v&aacute;n venni.
+            </p>
+            <p>A bemeneti helyadat lehet raszter vagy pont, vonall&aacute;nc, illetve polygon t&iacute;pus&uacute; vektoros elem oszt&aacute;lya.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div><h2>Egyedi ID mező meghatározása</h2></div>
+        <hr/>
+        <div>
+            <p>A bemeneti helyraszterben vagy vektoroselem-oszt&aacute;lyban l&eacute;vő minden helyre vagy vektoros elemre vonatkoz&oacute;an elt&eacute;rő &eacute;rt&eacute;ket tartalmaz&oacute; mező.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div><h2>Helyadatok beszerzési adatainak meghatározása (opcionális)</h2></div>
+        <hr/>
+        <div>
+            <p>Hat&aacute;rozza meg a helyazonos&iacute;t&oacute; cell&aacute;khoz vagy vektoros elemekhez t&aacute;rs&iacute;tott idő, m&eacute;lys&eacute;g, vagy m&aacute;s beszerz&eacute;si adatokat.
+            </p>
+            <p>Mindegyik dimenzi&oacute; eset&eacute;ben h&aacute;rom lehetős&eacute;g van a helyazonos&iacute;t&oacute; cell&aacute;khoz vagy vektoros elemekhez t&aacute;rs&iacute;tott beszerz&eacute;si adatok meghat&aacute;roz&aacute;s&aacute;ra:
+            </p>
+            <ul>
+                <li> <b>Egyetlen mező vagy &eacute;rt&eacute;k</b> &ndash; Ha ezt a lehetős&eacute;get jel&ouml;li be, akkor a k&ouml;vetkező adatokat kell megadni:
+                    <ul>
+                        <li> <b>Dimenzi&oacute; mező vagy -&eacute;rt&eacute;k</b> &ndash; V&aacute;lasszon dimenzi&oacute;&eacute;rt&eacute;k mezőt a helyadatokb&oacute;l, vagy &iacute;rjon be konkr&eacute;t dimenzi&oacute;&eacute;rt&eacute;ket.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+                <li> <b>Egyetlen, relat&iacute;v &eacute;rt&eacute;keket tartalmaz&oacute; mező</b> &ndash; Ha be van jel&ouml;lve ez a lehetős&eacute;g, akkor az al&aacute;bbi inform&aacute;ci&oacute;kat kell megadni annak a tartom&aacute;nynak a meghat&aacute;roz&aacute;s&aacute;hoz, amelyen bel&uuml;l a rendszer statisztik&aacute;t sz&aacute;m&iacute;t a v&aacute;ltoz&oacute;kra:
+                    <ul>
+                        <li> <b>Dimenzi&oacute; mező vagy -&eacute;rt&eacute;k</b> &ndash; V&aacute;lasszon dimenzi&oacute;&eacute;rt&eacute;k mezőt a helyadatokb&oacute;l.
+                        </li>
+                        <li> <b>Relat&iacute;v &eacute;rt&eacute;k a k&ouml;vetkező előtt:</b> &ndash; Adja meg azt a nem negat&iacute;v sz&aacute;mot, amelyet ki kell vonni a <b>Dimenzi&oacute; mező vagy -&eacute;rt&eacute;k</b> param&eacute;terből a k&iacute;v&aacute;nt dimenzi&oacute;&eacute;rt&eacute;k-tartom&aacute;ny kezdet&eacute;nek meghat&aacute;roz&aacute;s&aacute;hoz. Ha a dimenzi&oacute; idő, akkor az &eacute;rt&eacute;k a napok sz&aacute;m&aacute;t jel&ouml;li.
+                        </li>
+                        <li> <b>Relat&iacute;v &eacute;rt&eacute;k a k&ouml;vetkező ut&aacute;n:</b> &ndash; Adja meg azt a nem negat&iacute;v sz&aacute;mot, amelyet hozz&aacute; kell adni a <b>Dimenzi&oacute; mező vagy -&eacute;rt&eacute;k</b> param&eacute;terhez a k&iacute;v&aacute;nt dimenzi&oacute;&eacute;rt&eacute;k-tartom&aacute;ny v&eacute;g&eacute;nek meghat&aacute;roz&aacute;s&aacute;hoz. Ha a dimenzi&oacute; idő, akkor az &eacute;rt&eacute;k a napok sz&aacute;m&aacute;t jel&ouml;li.
+                        </li>
+                    </ul>
+                    
+                </li>
+                <li> <b>Kezdő &eacute;s z&aacute;r&oacute; mezők vagy &eacute;rt&eacute;kek</b> &ndash; Ha be van jel&ouml;lve ez a lehetős&eacute;g, akkor az al&aacute;bbi inform&aacute;ci&oacute;t kell megadni annak a tartom&aacute;nynak a meghat&aacute;roz&aacute;s&aacute;hoz, amelyen bel&uuml;l a rendszer statisztik&aacute;t sz&aacute;m&iacute;t a v&aacute;ltoz&oacute;kra:
+                    <ul>
+                        <li> <b>Kezdő mező vagy &eacute;rt&eacute;kek</b> &ndash; V&aacute;lasszon dimenzi&oacute;&eacute;rt&eacute;k mezőt a helyadatokb&oacute;l, vagy &iacute;rjon be konkr&eacute;t dimenzi&oacute;&eacute;rt&eacute;ket a dimenzi&oacute;&eacute;rt&eacute;k-tartom&aacute;ny kezdet&eacute;nek meghat&aacute;roz&aacute;s&aacute;hoz.
+                        </li>
+                        <li> <b>Z&aacute;r&oacute; mező vagy &eacute;rt&eacute;kek</b> &ndash; V&aacute;lasszon dimenzi&oacute;&eacute;rt&eacute;k mezőt a helyadatokb&oacute;l, vagy &iacute;rjon be konkr&eacute;t dimenzi&oacute;&eacute;rt&eacute;ket a dimenzi&oacute;&eacute;rt&eacute;k-tartom&aacute;ny v&eacute;g&eacute;nek meghat&aacute;roz&aacute;s&aacute;hoz.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+            </ul>
+            
+            <p>Ez a param&eacute;ter csak akkor &aacute;ll rendelkez&eacute;sre, ha a  <b>Mintav&eacute;telezni k&iacute;v&aacute;nt k&eacute;pr&eacute;teg(ek) kiv&aacute;laszt&aacute;sa</b> param&eacute;ter egy t&ouml;bbdimenzi&oacute;s raszter.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div><h2>Buffertávolság mező vagy érték meghatározása</h2></div>
+        <hr/>
+        <div>
+            <p>A helyadat vektoros elemek k&ouml;r&uuml;l megadott t&aacute;vols&aacute;g. A buffert&aacute;vols&aacute;g a helyazonos&iacute;t&oacute; vektoros elem t&eacute;rbeli referenci&aacute;j&aacute;nak line&aacute;ris egys&eacute;geiben van megadva. Ha a vektoros elem f&ouml;ldrajzi referenci&aacute;t haszn&aacute;l, akkor az egys&eacute;g fok lesz.
+            </p>
+            <p>A rendszer a statisztik&aacute;kat e bufferter&uuml;leten bel&uuml;l sz&aacute;m&iacute;tja majd.
+            </p>
+            <p>Ez a param&eacute;ter csak akkor &aacute;ll rendelkez&eacute;sre, ha a  <b>Mintav&eacute;telezni k&iacute;v&aacute;nt k&eacute;pr&eacute;teg(ek) kiv&aacute;laszt&aacute;sa</b> egy t&ouml;bbdimenzi&oacute;s raszter.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div><h2>Statisztikatípus választása</h2></div>
+        <hr/>
+        <div>
+            <p>A sz&aacute;m&iacute;tand&oacute; statisztika t&iacute;pusa.
+            </p>
+            <ul>
+                <li> <b>Minimum</b> &ndash; A minimum&eacute;rt&eacute;k keres&eacute;se a megadott tartom&aacute;nyban.
+                </li>
+                <li> <b>Maximum</b> &ndash; A maxim&aacute;lis &eacute;rt&eacute;k keres&eacute;se a megadott tartom&aacute;nyban.
+                </li>
+                <li> <b>Medi&aacute;n</b> &ndash; A k&ouml;z&eacute;p&eacute;rt&eacute;k keres&eacute;se a megadott tartom&aacute;nyban.
+                </li>
+                <li> <b>&Aacute;tlag</b> &ndash; Az &aacute;tlag sz&aacute;m&iacute;t&aacute;sa a megadott tartom&aacute;nyra.
+                </li>
+                <li> <b>&Ouml;sszeg</b> &ndash; A megadott tartom&aacute;nyon bel&uuml;li v&aacute;ltoz&oacute;k &ouml;sszeg&eacute;nek sz&aacute;m&iacute;t&aacute;sa.
+                </li>
+                <li> <b>T&ouml;bbs&eacute;g</b> &ndash; A leggyakrabban előfordul&oacute; &eacute;rt&eacute;ket keresi meg.
+                </li>
+                <li> <b>Kisebbs&eacute;g</b> &ndash; A legritk&aacute;bban előfordul&oacute; &eacute;rt&eacute;ket keresi meg.
+                </li>
+                <li> <b>Sz&oacute;r&aacute;s</b> &ndash; A sz&oacute;r&aacute;st sz&aacute;m&iacute;tja ki.
+                </li>
+                <li> <b>Percentilis</b> &ndash; Meghat&aacute;rozott percentilist sz&aacute;m&iacute;t a megadott tartom&aacute;nyban.
+                </li>
+            </ul>
+            
+            <p>Ez a param&eacute;ter csak akkor &aacute;ll rendelkez&eacute;sre, ha a  <b>Mintav&eacute;telezni k&iacute;v&aacute;nt k&eacute;pr&eacute;teg(ek) kiv&aacute;laszt&aacute;sa</b> param&eacute;ter egy t&ouml;bbdimenzi&oacute;s raszter, &eacute;s a <b>Helyr&eacute;teg kiv&aacute;laszt&aacute;sa</b> param&eacute;terek vonall&aacute;ncok vagy polygonok, vagy a <b>Buffert&aacute;vols&aacute;g mező vagy &eacute;rt&eacute;k meghat&aacute;roz&aacute;sa (opcion&aacute;lis)</b> van kiv&aacute;lasztva.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Percentilis érték</h2></div>
+        <hr/>
+        <div>
+            <p>&Eacute;rt&eacute;ke a 0-t&oacute;l 100-ig tart&oacute; tartom&aacute;nyba eshet. Az alap&eacute;rtelmezett &eacute;rt&eacute;k 90.
+            </p>
+            <p>Ez a param&eacute;ter csak akkor &aacute;ll rendelkez&eacute;sre, ha a  <b>Statisztikat&iacute;pus v&aacute;laszt&aacute;sa</b> param&eacute;ter be&aacute;ll&iacute;t&aacute;sa <b>Percentilis</b>.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div><h2>Újra-mintavételezési technika meghatározása</h2></div>
+        <hr/>
+        <div>
+            <p>Raszter mintav&eacute;telez&eacute;sekor haszn&aacute;lt &uacute;jramintav&eacute;telez&eacute;si algoritmus.
+            </p>
+            <ul>
+                <li> <b>Legk&ouml;zelebbi</b> &ndash; Legk&ouml;zelebbi szomsz&eacute;d, amely a legk&ouml;zelebbi cella &eacute;rt&eacute;k&eacute;t haszn&aacute;lja a kimeneti cella &eacute;rt&eacute;k&eacute;nek hozz&aacute;rendel&eacute;s&eacute;hez az &uacute;jramintav&eacute;telez&eacute;sn&eacute;l. Ez az alap&eacute;rtelmez&eacute;s.
+                </li>
+                <li> <b>Biline&aacute;ris</b> &ndash; Biline&aacute;ris interpol&aacute;ci&oacute;, amely a cella &uacute;j &eacute;rt&eacute;k&eacute;t a n&eacute;gy legk&ouml;zelebbi bemeneti cella k&ouml;z&eacute;ppontja t&aacute;vols&aacute;g&aacute;nak s&uacute;lyozott &aacute;tlaga alapj&aacute;n hat&aacute;rozza meg.
+                </li>
+                <li> <b>K&ouml;b&ouml;s</b> &ndash; K&ouml;b&ouml;s konvol&uacute;ci&oacute;, amely az adott cella &uacute;j &eacute;rt&eacute;k&eacute;t a 16 legk&ouml;zelebbi bemeneti cella k&ouml;z&eacute;ppontj&aacute;n &aacute;thalad&oacute; sima g&ouml;rbe illeszt&eacute;s&eacute;vel hat&aacute;rozza meg.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="layout">
+        <div><h2>Kimenet elrendezésének meghatározása</h2></div>
+        <hr/>
+        <div>
+            <p>Azt adja meg, hogy a mintav&eacute;telezett &eacute;rt&eacute;kek sork&eacute;nt vagy oszlopk&eacute;nt szerepeljenek a t&aacute;bl&aacute;ban.
+            </p>
+            <ul>
+                <li> <b>Mintav&eacute;telezett &eacute;rt&eacute;kek megjelen&eacute;se sorokban</b> &ndash; A mintav&eacute;telezett &eacute;rt&eacute;kek k&uuml;l&ouml;n&aacute;ll&oacute; sorokk&eacute;nt jelennek meg a kimeneti t&aacute;bl&aacute;ban. Ez az alap&eacute;rtelmez&eacute;s.
+                </li>
+                <li> <b>Mintav&eacute;telezett &eacute;rt&eacute;kek megjelen&eacute;se oszlopokban</b> &ndash; A mintav&eacute;telezett &eacute;rt&eacute;kek k&uuml;l&ouml;n&aacute;ll&oacute; oszlopokban jelennek meg a kimeneti t&aacute;bl&aacute;ban.
+                </li>
+            </ul>
+            
+            <p>Ez a param&eacute;ter csak akkor &aacute;ll rendelkez&eacute;sre, ha a  <b>Mintav&eacute;telezni k&iacute;v&aacute;nt k&eacute;pr&eacute;teg(ek) kiv&aacute;laszt&aacute;sa</b> param&eacute;ter egy t&ouml;bbdimenzi&oacute;s raszter, mely egy v&aacute;ltoz&oacute;t &eacute;s egy dimenzi&oacute;t tartalmaz, &eacute;s mindegyik szelet egys&aacute;vos raszter.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div><h2>Kimenet típusának meghatározása</h2></div>
+        <hr/>
+        <div>
+            <p>Azt hat&aacute;rozza meg, hogy a rendszer pontszerű vektoroselem-oszt&aacute;lyt hozzon l&eacute;tre, amelynek a t&aacute;bl&aacute;zat&aacute;ban szerepelnek a mintav&eacute;telezett &eacute;rt&eacute;kek, vagy csak mintav&eacute;telezett &eacute;rt&eacute;keket tartalmaz&oacute; t&aacute;bl&aacute;zatot.
+            </p>
+            <ul>
+                <li> <b>T&aacute;bl&aacute;zat</b> &ndash; T&aacute;bl&aacute;zat l&eacute;trehoz&aacute;sa mintav&eacute;telezett &eacute;rt&eacute;kekkel. Ez az alap&eacute;rtelmez&eacute;s.
+                </li>
+                <li> <b>Funkci&oacute;k</b> &ndash; Pontszerű vektoroselem-oszt&aacute;ly mintav&eacute;telezett &eacute;rt&eacute;kekkel a t&aacute;bl&aacute;zat&aacute;ban. Ha a <b>Helyr&eacute;teg kiv&aacute;laszt&aacute;sa</b> param&eacute;terek vonall&aacute;ncok vagy polygonok, akkor a kimenet minden pontja a bemeneti helyazonos&iacute;t&oacute; vektoros elemek egyes geometri&aacute;inak centroidja. 
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputName">
+        <div><h2>Eredmény réteg neve</h2></div>
+        <hr/>
+        <div>
+            
+            <p>A  <b>Saj&aacute;t tartalom</b> alatt l&eacute;trej&ouml;vő &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adott r&eacute;teg neve. Az alap&eacute;rtelmezett n&eacute;v az eszk&ouml;z nev&eacute;n &eacute;s a bemenő r&eacute;teg nev&eacute;n alapul. Ha a r&eacute;teg m&aacute;r l&eacute;tezik, akkor a program megk&eacute;ri, hogy adjon meg egy m&aacute;sik nevet.
+            </p>
+            <p>Az Eredm&eacute;ny ment&eacute;si helye leg&ouml;rd&uuml;lő mezőben megadhatja a  <b>Saj&aacute;t tartalom</b>mapp&aacute;j&aacute;nak nev&eacute;t, ahov&aacute; az eszk&ouml;z <b>menti az eredm&eacute;nyt</b>.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

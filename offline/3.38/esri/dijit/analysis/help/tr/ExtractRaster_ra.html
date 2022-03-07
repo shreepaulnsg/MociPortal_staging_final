@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Raster Ayıkla</h2><p/>
+        <h2><img src="../images/GUID-DC9CBCB9-A07C-42D3-A0CB-2FB1483CBF4C-web.png" alt="Portal i&ccedil;in Raster Ayıklama aracı"></h2>
+        <hr/>
+    <p>Bu ara&ccedil; bir rasterı sınırına kadar, dikd&ouml;rtgen bir alana veya ekrandan etkileşimli olarak kendi tanımladığınız bir şekle kırpar. Haritanızda ge&ccedil;erli durumda g&ouml;r&uuml;nt&uuml;lediğiniz alan yayılımına kadar veya bir alan tarafından tanımlanan &ccedil;alışma alanı kadar kırpabilirsiniz.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div><h2>Ayıklanacak girdi verilerini seçin</h2></div>
+        <hr/>
+        <div>
+            <p>Kırpılacak girdi katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="clippingGeometry">
+        <div><h2>Kesilen geometriyi belirt</h2></div>
+        <hr/>
+        <div>
+            <p>Katman geometrisi kesilirken kullanılacak yayılım t&uuml;r&uuml;n&uuml; se&ccedil;in:
+                <ul>
+                    <li>Ge&ccedil;erli yayılımı kullan; istenen katmana kırpmak i&ccedil;in ge&ccedil;erli harita yayılımı kullanılır. Varsayılan değerdir.
+                        
+
+                    </li>
+                    <li>&Ccedil;alışma alanını se&ccedil;&mdash;&Ccedil;izim aracını kullanarak bir kesme geometrisi tanımlamanıza olanak tanır.
+                        
+
+                    </li>
+                    <li>Katman se&ccedil;&mdash;Yayılımı tanımlamak i&ccedil;in bir detay katmanı veya g&ouml;r&uuml;nt&uuml; katmanı se&ccedil;in ya da kesme geometrisini tanımlamak i&ccedil;in bir &ccedil;okgen detay katmanı se&ccedil;in. Bir &ccedil;okgen detay katmanı se&ccedil;ildiğinde, kesme geometrisi i&ccedil;in girdi detaylarının kullanılıp kullanılmayacağını belirtmek i&ccedil;in bir onay kutusu g&ouml;r&uuml;nt&uuml;lenir. Varsayılan olarak işaretlenmemiştir. Yayılımı tanımlamak i&ccedil;in girdi detay katmanının kullanıldığı anlamına gelir. İşaretlenmişse, kesme geometrisi i&ccedil;in girdi detaylarının kullanıldığı anlamına gelir.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="clippingType">
+        <div><h2>Kesme türünü belirt</h2></div>
+        <hr/>
+        <div>
+            <p>Kesme geometrinizin i&ccedil;inde veya dışında kalan alanı tutmak isteyip istemediğinizi belirtin:
+                <ul>
+                    <li>Geometrinin i&ccedil;indeki veriler&mdash;Kesme yayılımlarının i&ccedil;indeki g&ouml;r&uuml;nt&uuml;ler kaldırılır. Varsayılan değerdir.
+                        
+
+                    </li>
+                    <li>Geometrinin dışındaki veriler&mdash;Kesme yayılımlarının dışındaki g&ouml;r&uuml;nt&uuml;ler kaldırılır.
+                        
+
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLayer">
+        <div><h2>Sonuç katmanı adı</h2></div>
+        <hr/>
+        <div>
+            
+            <p> <b>İ&ccedil;eriğim</b>'de oluşturulacak ve haritaya eklenecek katmanın adı. Varsayılan ad, ara&ccedil; adına ve girdi katmanı adına dayanır. Katman zaten mevcutsa, başka bir ad sağlamanız istenir.
+            </p>
+            <p> <b>İ&ccedil;eriğim</b>&rsquo;de, <b>Sonu&ccedil;ları Kaydet</b> a&ccedil;ılır kutusunu kullanarak sonucun kaydedileceği klas&ouml;r&uuml;n adını belirleyebilirsiniz. Hem döşemeli hem de dinamik görüntü katmanları oluşturma ayrıcalıklarınız varsa, Sonucu farklı kaydet açılır kutusunu kullanarak çıktıda hangi katman türünün oluşturulacağını belirtebilirsiniz. </p>
+        </div>
+    </div>
+</div>
+</html>

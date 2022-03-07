@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/ca/TraceProximityEvents",{inputLayer:"Trieu la capa on se cercaran esdeveniments de proximitat",entityField:"Seleccioneu un camp per identificar esdeveniments",entityLayer:"Trieu la capa per especificar les entitats d'inter\u00e8s",defineDistanceLabel:"Defineix la dist\u00e0ncia de cerca espacial",distMethodLabel:"Trieu el m\u00e8tode per calcular la dist\u00e0ncia",temporalSearchLabel:"Definiu la dist\u00e0ncia de cerca temporal",optionsLabel:"Opcions avan\u00e7ades",
+maxTraceDepth:"Profunditat m\u00e0xima de rastreig",attributeMatchLabel:"Seleccioneu un o diversos atributs d'entitat que han de coincidir",includeTracksLayer:"Inclou la capa de recorreguts",itemDescription:"Capa d'entitats generada en executar la soluci\u00f3 Rastreja esdeveniments de proximitat per a ${inputLayername}.",itemTags:"Resultat de l'an\u00e0lisi, rastreja esdeveniments de proximitat, ${inputLayername}",itemSnippet:"Capa d'entitats generada des de Rastreja esdeveniments de proximitat.",
+outputLayerName:"Rastreja esdeveniments de proximitat per a ${inputLayername}",noEntityFieldMsg:"La capa d'esdeveniments de proximitat i la capa d'entitats d'inter\u00e8s no tenen camps en com\u00fa."});

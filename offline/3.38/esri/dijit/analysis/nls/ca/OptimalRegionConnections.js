@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/ca/OptimalRegionConnections",{inputRegionRasterOrFeatures:"Trieu el r\u00e0ster o l'entitat de regi\u00f3",inputCostRaster:"Trieu el r\u00e0ster de costos (opcional)",inputBarrierRasterOrFeatures:"Trieu el r\u00e0ster o l'entitat de barrera (opcional)",distanceMethod:"M\u00e8tode de dist\u00e0ncia (opcional)",connectionsWithinRegions:"Connexions dins de regions (opcional)",generateConnections:"Genera connexions",noConnections:"No hi ha connexions",planar:"Pla",geoDesic:"Geod\u00e8sic",
+outputOptimalLinesName:"Nom de la capa d'entitats de l\u00ednies de connectivitat \u00f2ptima de resultats",outputNeighborConnectionsName:"Nom de la capa d'entitats de connexions ve\u00efnes de resultats (opcional)",outputLayerName:"Connexions de regi\u00f3 \u00f2ptimes de ${layername}",drawSourcePointLayerName:"Punts d'origen",itemDescription:"Capa d'entitats generada en executar Connexions de regi\u00f3 \u00f2ptimes a ${layername}. ",itemTags:"Resultat de l'an\u00e0lisi, connexions de regi\u00f3 \u00f2ptimes, ${layername} ${fieldname}",
+itemSnippet:"Capa d'entitats generada a partir de Connexions de regi\u00f3 \u00f2ptimes.",noValueMessage:"Aquest valor \u00e9s obligatori"});

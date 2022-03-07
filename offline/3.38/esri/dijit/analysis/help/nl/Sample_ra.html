@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Voorbeeld</h2><p/>
+        <h2><img src="../images/GUID-3950CCA3-C1D0-493F-A33D-93673443ADD2-web.png" alt="Voorbeeld"></h2>
+        <hr/>
+    <p>Deze tool maakt een tabel of een puntobjectklasse die de waarden van cellen uit een raster, of een set rasters, voor gedefinieerde locaties laat zien. De locaties worden gedefinieerd door rastercellen, polygoonobjecten, polylijnobjecten of door een set van punten.
+    </p>
+    <p>Enkele voorbeelden van de toepassingen van deze tool zijn de volgende:
+        <ul>
+            <li> Extraheer attributen voor zendmastlocatie vanuit meerdere rasters, zoals landgebruik, grondsoort, hoogte en afstand tot weg.
+            </li>
+            <li>Extraheer grondtemperatuur op verschillende dieptes voor een bepaald aantal punten.
+            </li>
+            <li>Vat samen wanneer een diersoort is geobserveerd op dier locaties of binnen thuisgebieden voor een bepaalde tijd, aan de hand van 30 jaar gegevens inzake maandelijkse zee-oppervlaktetemperaturen.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Als de optie  <b>Huidige kaartextent gebruiken</b> is aangevinkt, worden variabelen of banden van de lagen die zichtbaar zijn in het huidige kaartextent geanalyseerd. Als de optie niet is aangevinkt, worden variabelen of banden van de volledige laag geanalyseerd, zelfs als deze zich buiten het huidige extent van de kaart bevinden.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div><h2>Kies de beeldlagen voor het voorbeeld</h2></div>
+        <hr/>
+        <div>
+            <p>Een enkele afbeelding of een lijst met afbeeldingen waarvan de waarden worden genomen op basis van de invoer locatiegegevens. 
+            </p>
+            <p>Om alle plakjes van een multidimensionale beeldlaag te nemen, moet het het enige invoerraster zijn.
+            </p>
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div><h2>Kies de locatielaag</h2></div>
+        <hr/>
+        <div>
+            <p>Gegevens ter identificatie van de posities die u wilt nemen.
+            </p>
+            <p>De invoerlocatie kan een raster, of een punt, polylijn of polygoonobjectklasse zijn.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div><h2>Geef het unieke Id-veld op</h2></div>
+        <hr/>
+        <div>
+            <p>Een veld dat een andere waarde bevat voor elke locatie of object in het ingevoerde locatieraster of objectklasse.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div><h2>Specificeer acquisitie-informatie van locatiegegevens (optioneel)</h2></div>
+        <hr/>
+        <div>
+            <p>Geef de tijd, diepte of andere acquisitiegegevens op die verband houden met de locatiecellen of objecten.
+            </p>
+            <p>Voor elke dimensie zijn er drie opties voor het specificeren van de acquisitie-informatie in verband met locatiecellen of objecten:
+            </p>
+            <ul>
+                <li> <b>Enkel veld of waarde</b>&mdash;Als deze optie is geselecteerd, moet de volgende informatie worden gespecificeerd:
+                    <ul>
+                        <li> <b>Dimensieveld of waarde</b>&mdash;Selecteer een veld met dimensiewaarden uit de locatiegegevens, of voer een specifieke dimensiewaarde in.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+                <li> <b>E&eacute;n veld of waarde met relatieve waarden</b>&mdash;Als deze optie is geselecteerd, moet de onderstaande informatie samen worden gespecificeerd om het bereik te defini&euml;ren waarbinnen de statistieken voor de variabelen zullen worden berekend:
+                    <ul>
+                        <li> <b>Dimensieveld of waarde</b>&mdash;Selecteer een veld met dimensiewaarden uit de locatiegegevens.
+                        </li>
+                        <li> <b>Relatieve waarde v&oacute;&oacute;r</b>&mdash;Specificeer een niet-negatief getal dat wordt gebruikt om af te trekken van <b>Dimensieveld of waarde</b> om het begin van een dimensiewaarde bereik te defini&euml;ren. Deze waarde vertegenwoordigt het aantal dagen als de dimensie tijd is.
+                        </li>
+                        <li> <b>Relatieve waarde na</b>&mdash;Specificeer een niet-negatief getal dat wordt gebruikt om toe te voegen aan <b>Dimensieveld of waarde</b> om het einde van een dimensiewaarde bereik te defini&euml;ren. Deze waarde vertegenwoordigt het aantal dagen als de dimensie tijd is.
+                        </li>
+                    </ul>
+                    
+                </li>
+                <li> <b>Begin- en eindvelden of -waarden</b>&mdash;Als deze optie is geselecteerd, moet de onderstaande informatie samen worden gespecificeerd om het bereik te defini&euml;ren waarbinnen de statistieken voor de variabelen zullen worden berekend:
+                    <ul>
+                        <li> <b>Startveld of -waarden</b>&mdash;Selecteer een veld met dimensiewaarden uit de locatiegegevens of voer een specifieke dimensiewaarde in om het begin van een dimensiewaarde bereik te defini&euml;ren.
+                        </li>
+                        <li> <b>Eindveld of -waarden</b>&mdash;Selecteer een veld met dimensiewaarden uit de locatiegegevens, of voer een specifieke dimensiewaarde in, om het einde van een dimensiewaarde bereik te defini&euml;ren.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+            </ul>
+            
+            <p>Deze parameter is alleen beschikbaar als de parameter  <b>Kies de beeldlagen voor het voorbeeld</b> een multidimensionaal raster is.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div><h2>Geef een bufferafstandveld of waarde op</h2></div>
+        <hr/>
+        <div>
+            <p>De opgegeven afstand rond de locatiedata-objecten. De bufferafstand wordt gespecificeerd in de lineaire eenheden van de ruimtelijke referentie van het locatieobject. Als de functie een geografische referentie gebruikt, zal de eenheid graden zijn.
+            </p>
+            <p>Binnen dit buffergebied worden de statistieken berekend.
+            </p>
+            <p>Deze parameter is alleen beschikbaar als  <b>Kies de beeldlagen voor het voorbeeld</b> een multidimensionaal raster is.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div><h2>Kies statistiektype</h2></div>
+        <hr/>
+        <div>
+            <p>Het type statistieken om uit te rekenen.
+            </p>
+            <ul>
+                <li> <b>Minimum</b>&mdash;Zoekt de minimumwaarde binnen het opgegeven bereik.
+                </li>
+                <li> <b>Maximum</b>&mdash;Zoekt de maximumwaarde binnen het opgegeven bereik.
+                </li>
+                <li> <b>Mediaan</b>&mdash;Zoekt de mediaanwaarde binnen het opgegeven bereik.
+                </li>
+                <li> <b>Gemiddelde</b>&mdash;Berekent het gemiddelde van het opgegeven bereik.
+                </li>
+                <li> <b>Som</b>&mdash;Berekent de som van de variabelen binnen het opgegeven bereik.
+                </li>
+                <li> <b>Meerderheid</b>&mdash;Zoekt de waarde die het meest voorkomt.
+                </li>
+                <li> <b>Minderheid</b>&mdash;Zoekt de waarde die het minst vaak voorkomt.
+                </li>
+                <li> <b>Standaardafwijking</b>&mdash;Berekent de standaardafwijking.
+                </li>
+                <li> <b>Percentiel</b>&mdash;Berekent een gedefinieerd percentiel binnen het opgegeven bereik.
+                </li>
+            </ul>
+            
+            <p>Deze parameter is alleen beschikbaar als de parameter  <b>Kies de beeldlagen voor het voorbeeld</b> een multidimensionaal raster is, en de parameters van <b>Kies de locatielaag</b> polylijnen of polygonen zijn, of als <b>Geef een bufferafstandveld of waarde op (optioneel)</b> is gespecificeerd.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Percentielwaarde</h2></div>
+        <hr/>
+        <div>
+            <p>Deze waarde kan tussen de 0 en 100 liggen. De standaardwaarde is 90.
+            </p>
+            <p>Deze parameter is alleen beschikbaar wanneer de parameter  <b>Kies statistiektype</b> is ingesteld op <b>Percentiel</b>.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div><h2>Specificeer de resamplingtechniek</h2></div>
+        <hr/>
+        <div>
+            <p>Resampling-algoritme dat wordt gebruikt bij het bemonsteren van een raster.
+            </p>
+            <ul>
+                <li> <b>Dichtstbijzijnd</b>&mdash;Nearest neighbor die de waarde van de dichtstbijzijnde cel gebruikt om een waarde toe te wijzen aan de uitvoercel bij het resamplen. Dit is de standaardinstelling.
+                </li>
+                <li> <b>Bilineair</b>&mdash;Bilineaire interpolatie die de nieuwe waarde van een cel bepaalt, gebaseerd op een gewogen afstandsgemiddelde van de vier dichtstbijzijnde invoercelcentra.
+                </li>
+                <li> <b>Kubiek</b>&mdash;Kubieke convolutie die de nieuwe waarde van een cel bepaalt op basis van het passen van een gladde curve door de 16 dichtstbijzijnde input pixelcentra.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="layout">
+        <div><h2>Geef de uitvoerindeling op</h2></div>
+        <hr/>
+        <div>
+            <p>Geeft aan of de waarden in rijen of kolommen in de uitvoertabel staan.
+            </p>
+            <ul>
+                <li> <b>Genomen waarden staan in een rij</b>&mdash;Genomen waarden staan in aparte rijen in de uitvoertabel. Dit is de standaardinstelling.
+                </li>
+                <li> <b>Genomen waarden staan in een kolom</b>&mdash;Genomen waarden staan in aparte kolommen in de uitvoertabel.
+                </li>
+            </ul>
+            
+            <p>Deze parameter is alleen beschikbaar wanneer de parameter <b>Kies de beeldlagen voor het voorbeeld</b> een multidimensionaal raster is met &eacute;&eacute;n variabele en &eacute;&eacute;n dimensie en elk stukje een enkelbandraster is.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div><h2>Geef het uitvoertype op</h2></div>
+        <hr/>
+        <div>
+            <p>Geeft aan of een puntobjectklasse met genomen waarden in de tabel moet worden gegenereerd, of alleen een tabel met genomen waarden.
+            </p>
+            <ul>
+                <li> <b>Tabel</b>&mdash;Genereert een tabel met genomen waarden. Dit is de standaardinstelling.
+                </li>
+                <li> <b>Objecten</b>&mdash;Genereert een puntobjectklasse met genomen waarden in een tabel. Als de parameters <b>Kies de locatielaag</b> polylijnen of polygonen zijn, is elk punt in de uitvoer het zwaartepunt van elke geometrie van de invoerlocatie objecten. 
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputName">
+        <div><h2>Resultaat laagnaam</h2></div>
+        <hr/>
+        <div>
+            
+            <p>De naam van de laag die in  <b>Mijn Content</b> wordt gemaakt en aan de kaart wordt toegevoegd. De standaardnaam is gebaseerd op de toolnaam en de naam van de invoerlaag. Als de laag al bestaat, wordt u gevraagd een nieuwe naam te geven.
+            </p>
+            <p>U kunt de naam van een map opgeven in  <b>Mijn Content</b>, waar het resultaat wordt opgeslagen met het vervolgkeuzemenu <b>Resultaat opslaan in</b>.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

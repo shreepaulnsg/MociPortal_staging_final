@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/cs/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Zvolit rastr nebo prvky z\u00f3ny",outputTableName:"N\u00e1zev v\u00fdsledn\u00e9 tabulky",zoneField:"Pole z\u00f3ny",inputValueRaster:"Zvolit rastr hodnoty",ignoreNodata:"Ignorovat ve v\u00fdpo\u010dtech hodnoty NoData (voliteln\u00e9)",ignore:"Ignorovat",statisticType:"Typ statistiky (voliteln\u00e9)",percentileValues:"Hodnoty percentilu (voliteln\u00e9)",percentileInterpolationType:"Typ interpolace percentilu (voliteln\u00e9)",
+processAsMultidimensional:"Zpracovat jako v\u00edcerozm\u011brn\u00e9 (voliteln\u00e9)",allSlices:"V\u0161echny \u0159ezy",outputZonalStatsName:"Zon\u00e1ln\u00ed statistika pro ${valuelayername} v r\u00e1mci ${layername}",itemDescription:"Tabulka prvk\u016f anal\u00fdzy vygenerovan\u00e1 n\u00e1strojem Zon\u00e1ln\u00ed statistika jako tabulka",itemTags:"V\u00fdsledek rastrov\u00e9 anal\u00fdzy, Zon\u00e1ln\u00ed statistika jako tabulka, ${layername}, ${valuelayername}",autoDetect:"Automatick\u00e1 detekce",
+nearest:"Nejbli\u017e\u0161\u00ed",linear:"P\u0159\u00edm\u00e1"});

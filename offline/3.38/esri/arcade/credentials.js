@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/arcade/credentials",["require","exports","./polyfill/promiseUtils"],function(f,g,e){return function(){function c(){this._password=this._username="";this._token=null}c.fromUserName=function(a,b){var d=new c;d._username=a;d._password=b;d._token=null;return d};c.fromArcadeDictionary=function(a){var b=new c;a.hasField("username")&&(b._username=a.field("username"));a.hasField("password")&&(b._password=a.field("password"));a.hasField("token")&&(b._token=a.field("token"));return b};c.fromToken=
+function(a){var b=new c;b._token=a;return b};Object.defineProperty(c.prototype,"username",{get:function(){return this._username},enumerable:!1,configurable:!0});Object.defineProperty(c.prototype,"password",{get:function(){return this._password},enumerable:!1,configurable:!0});c.prototype.getToken=function(){var a=this;return e.create(function(b,d){null===a._token?d("No Token Provided"):b(a._token)})};return c}()});

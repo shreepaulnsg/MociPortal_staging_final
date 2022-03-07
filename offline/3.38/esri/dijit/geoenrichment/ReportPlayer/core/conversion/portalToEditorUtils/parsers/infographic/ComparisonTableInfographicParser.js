@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/conversion/portalToEditorUtils/parsers/infographic/ComparisonTableInfographicParser",["../../../../sections/SectionTypes","../../../ConversionUtil"],function(k,c){return{portalToEditor:function(a,b){var f=a.attributes.name,g=b.templateJson.metadata.comparisonCalculatorsHash[f],d,h;a.tags.forEach(function(e){e.attributes.type===k.INFOGRAPHIC_HEADER?d=e:h=e});return{calculatorName:f,type:a.attributes.type,variablesInColumns:a.attributes.variablesInColumns,
+showThisAreas:a.attributes.showThisAreas,levels:g&&g.levels||[],style:{width:c.ptToPx(a.attributes.width),height:c.ptToPx(a.attributes.height),padding:a.attributes.padding?c.ptToPx(a.attributes.padding):void 0,backgroundColor:a.attributes.backgroundColor},titleSectionJson:d&&b.parsers.getParser("section").parseSection(d,b),dataSectionJson:b.parsers.getParser("section").parseSection(h,b)}}}});

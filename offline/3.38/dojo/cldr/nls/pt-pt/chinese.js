@@ -1,0 +1,12 @@
+/*
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+//>>built
+define("dojo/cldr/nls/pt-pt/chinese",{"months-format-abbr":"M1 M2 M3 M4 M5 M6 M7 M8 M9 M10 M11 M12".split(" "),"months-standAlone-abbr":"M1 M2 M3 M4 M5 M6 M7 M8 M9 M10 M11 M12".split(" "),"dateFormat-full":"EEEE, d 'de' MMMM 'de' U","dateFormat-long":"d 'de' MMMM 'de' U","dateFormat-medium":"d 'de' MMM 'de' U","dateFormat-short":"dd/MM/yy","field-quarter-relative+-1":"trimestre passado","field-quarter-relative+0":"este trimestre","field-quarter-relative+1":"pr\u00f3ximo trimestre","field-quarter-short-relative+-1":"trim. passado",
+"field-quarter-short-relative+0":"este trim.","field-quarter-short-relative+1":"pr\u00f3ximo trim.","field-quarter-narrow-relative+-1":"trim. passado","field-quarter-narrow-relative+0":"este trim.","field-quarter-narrow-relative+1":"pr\u00f3ximo trim.","field-day-short-relative+-1":"ontem","field-day-short-relative+0":"hoje","field-day-short-relative+1":"amanh\u00e3","field-day-narrow-relative+-1":"ontem","field-day-narrow-relative+0":"hoje","field-day-narrow-relative+1":"amanh\u00e3","field-sun-short-relative+-1":"domingo passado",
+"field-sun-short-relative+0":"este domingo","field-sun-short-relative+1":"pr\u00f3ximo domingo","field-mon-short-relative+-1":"segunda passada","field-mon-short-relative+0":"esta segunda","field-mon-short-relative+1":"pr\u00f3xima segunda","field-tue-short-relative+-1":"ter\u00e7a passada","field-tue-short-relative+0":"esta ter\u00e7a","field-tue-short-relative+1":"pr\u00f3xima ter\u00e7a","field-wed-short-relative+-1":"quarta passada","field-wed-short-relative+0":"esta quarta","field-wed-short-relative+1":"pr\u00f3xima quarta",
+"field-thu-short-relative+-1":"quinta passada","field-thu-short-relative+0":"esta quinta","field-thu-short-relative+1":"pr\u00f3xima quinta","field-fri-short-relative+-1":"sexta passada","field-fri-short-relative+0":"esta sexta","field-fri-short-relative+1":"pr\u00f3xima sexta","field-sat-short-relative+-1":"s\u00e1bado passado","field-sat-short-relative+0":"este s\u00e1bado","field-sat-short-relative+1":"pr\u00f3ximo s\u00e1bado","field-dayperiod-short":"am/pm","field-dayperiod":"am/pm","field-dayperiod-narrow":"am/pm",
+"field-minute-short":"min","field-minute-narrow":"min","field-second-short":"s","field-second-narrow":"s","field-zone-short":"fuso hor\u00e1rio","field-zone-narrow":"fuso hor\u00e1rio"});

@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/comparison/ComparisonUtil",["esri/dijit/geoenrichment/utils/ObjectUtil","../../dataProvider/supportClasses/data/AreaDataUtil","dojo/i18n!esri/nls/jsapi"],function(h,g,e){e=e.geoenrichment.dijit.ReportPlayer.ReportPlayer;var f={valueFormatFunction:function(a,b){return b&&b.isMissing?e.missingVariable:void 0===a||"string"===typeof a?a:h.formatNumber(a,{places:b.decimals,preserveTrailingZeroes:!0})},copyValueToCalculatorData:function(a,b){var c=f._findAttrsInCalcData(b,
+a);c&&(c[b.fieldName]=a[b.fieldName])},copyValueFromCalculatorData:function(a,b){var c=f._findAttrsInCalcData(b,a);c&&(a[b.fieldName]=c[b.fieldName])},_findAttrsInCalcData:function(a,b){a=a.isMultiFeature?(a=g.combineAreaDataObjectCalculators(a.fieldData.areaData,a.calculatorName))&&a.comparisonLevels||[]:(a=g.getAreaDataObjectCalculator(a.fieldData.areaData[a.currentFeatureIndex],a.calculatorName))&&a.comparisonLevels||[];var c;a.some(function(d){if(d.StdGeographyLevel&&d.StdGeographyLevel===b.StdGeographyLevel&&
+d.StdGeographyID===b.StdGeographyID)return c=d,!0});return c}};return f});

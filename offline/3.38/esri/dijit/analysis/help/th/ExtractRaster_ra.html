@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>ดึงข้อมูลราสเตอร์</h2><p/>
+        <h2><img src="../images/GUID-DC9CBCB9-A07C-42D3-A0CB-2FB1483CBF4C-web.png" alt="เครื่องมือตัดราสเตอร์สำหรับ portal"></h2>
+        <hr/>
+    <p>เครื่องมือนี้สามารถตัดราสเตอร์ไปเป็นขอบเขต ทั้งพื้นที่สี่เหลี่ยมหรือรูปทรงที่คุณกำหนดบนหน้าจอ คุณสามารถตัดขอบเขตพื้นที่ที่คุณกำลังมีการแสดงบนแผนที่ของคุณหรือโดยพื้นที่ศึกษาที่กำหนดโดยรูปหลายเหลี่ยม
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div><h2>เลือกข้อมูลอินพุทในการตัด</h2></div>
+        <hr/>
+        <div>
+            <p>ข้อมูลอินพุทที่ตัด
+            </p>
+        </div>
+    </div>
+    <div id="clippingGeometry">
+        <div><h2>ระบุรูปทรงเรขาคณิตที่ใช้ตัด</h2></div>
+        <hr/>
+        <div>
+            <p>เลือกประเภทขอบเขตที่จะใช้เมื่อตัดรูปทรงเรขาคณิตของชั้นข้อมูล:
+                <ul>
+                    <li>ใช้ขอบเขต-ขอบเขตแผนที่ปัจจุบันจะถูกใช้ในการตัดออกเป็นผลลัพธ์ของชั้นข้อมูล นี้คือค่าตั้งต้น
+                        
+
+                    </li>
+                    <li>เลือกพื้นที่ศึกษา&mdash;ช่วยให้คุณสามารถกำหนดเรขาคณิตการตัดโดยใช้เครื่องมือการวาดได้
+                        
+
+                    </li>
+                    <li>เลือกชั้นข้อมูล&mdash;เลือกชั้นข้อมูลฟีเจอร์หรือชั้นข้อมูลรูปภาพเพื่อกำหนดขอบเขต หรือเลือกชั้นข้อมูลฟีเจอร์โพลีกอนเพื่อกำหนดเรขาคณิตการตัด เมื่อเลือกชั้นข้อมูลฟีเจอร์โพลีกอนแล้ว ช่องทำเครื่องหมายจะปรากฏขึ้น เพื่อกำหนดว่าจะใช้อินพุทฟีเจอร์สำหรับเรขาคณิตการตัดหรือไม่ ตามค่าเริ่มต้นจะไม่ได้เลือกไว้ ซึ่งหมายความว่าจะใช้อินพุทชั้นข้อมูลฟีเจอร์ในการกำหนดขอบเขต หากเลือก หมายความว่าจะใช้อินพุทฟีเจอร์เป็นเราขาคณิตการตัดพื้นที่
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="clippingType">
+        <div><h2>กำหนดประเภทการตัดพื้นที่</h2></div>
+        <hr/>
+        <div>
+            <p>กำหนดว่าคุณต้องการคงพื้นที่ไว้ภายในหรือภายนอกเรขาคณิตการตัดพื้นที่ของคุณ:
+                <ul>
+                    <li>ข้อมูลภายในเรขาคณิต&mdash;จะทำการแยกรูปภาพภายในขอบเขตการตัดพื้นที่ นี้คือค่าตั้งต้น
+                        
+
+                    </li>
+                    <li>ข้อมูลภายนอกเรขาคณิต&mdash;จะทำการแยกรูปภาพภายนอกขอบเขตการตัดพื้นที่
+                        
+
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLayer">
+        <div><h2>ชื่อชั้นข้อมูลผลลัพธ์</h2></div>
+        <hr/>
+        <div>
+            
+            <p>ชื่อของชั้นข้อมูลที่จะถูกสร้างขึ้นใน  <b>เนื้อหาของฉัน</b> และเพิ่มไปยังแผนที่ ชื่อเริ่มต้นจะขึ้นอยู่กับชื่อเครื่องมือและชื่อชั้นข้อมูลอินพุท ถ้าชั้นข้อมูลนี้มีอยู่แล้ว คุณจะถูกขอให้ตั้งชื่อใหม่
+            </p>
+            <p>คุณสามารถระบุชื่อโฟลเดอร์ใน  <b>My Content</b> ที่ผลลัพธ์จะบันทึกโดยการใช้ <b>กล่อง drop-down</b> บันทึกผลใน หากคุณมีสิทธิ์ในการสร้างทั้งชั้นข้อมูลรูปภาพแบบไทล์และไดนามิก คุณจะสามารถระบุประเภทชั้นข้อมูลที่จะสร้างเอาท์พุทโดยใช้กล่องดรอปดาวน์ บันทึกผลลัพธ์เป็น ได้ </p>
+        </div>
+    </div>
+</div>
+</html>

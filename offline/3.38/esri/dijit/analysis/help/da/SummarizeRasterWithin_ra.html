@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Summér raster inden for</h2><p/>
+        <h2><img src="../images/GUID-D61C156C-2B2C-488C-BF28-B6CB9277BF4B-web.png" alt="Summ&eacute;r raster inden for-v&aelig;rkt&oslash;j"></h2>
+        <hr/>
+    <p>Dette v&aelig;rkt&oslash;j giver en oversigt over v&aelig;rdierne for en raster inden for et andet datas&aelig;ts zoner.
+    </p>
+    <p>Nogle eksempler p&aring; anvendelse af dette v&aelig;rkt&oslash;j omfatter f&oslash;lgende:
+        <ul>
+            <li>Ved angivelse af et lag med afvandingsomr&aring;der og et lag med gr&aelig;nser for arealanvendelse efter arealanvendelsestype beregnes f.eks. det samlede areal for anvendelsestype pr. afvandingsomr&aring;de.
+                
+
+            </li>
+            <li>Ved angivelse af et lag med parceller i et amt og et lag med bygr&aelig;nser opsummeres gennemsnitsv&aelig;rdien af ledige parceller inden for hver bygr&aelig;nse.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>Hvis  <b>Anvend aktuel kortudstr&aelig;kning</b> er markeret, er det kun objekterne i inputlaget og laget, som skal summeres, der er synlige inden for den aktuelle kortudstr&aelig;kning, der analyseres. Hvis umarkeret, analyseres alle objekter i b&aring;de inputlaget og laget, der skal summeres, ogs&aring; selvom de befinder sig uden for den aktuelle kortudstr&aelig;kning.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="sumWithinLayer">
+        <div><h2>Vælg områdelag for at summere et rasterlag inden for definerede grænser</h2></div>
+        <hr/>
+        <div>
+            <p>Det input, der definerer gr&aelig;nserne for de zoner, eller omr&aring;der, der skal opsummeres.
+            </p>
+            <p>Inputtet kan v&aelig;re en heltalsraster eller objektdata. For rasterlag defineres zonerne af alle de positioner i inputtet, som har samme cellev&aelig;rdi. For objekter kan zonerne v&aelig;re overlappende. Omr&aring;derne beh&oslash;ver ikke at st&oslash;de op til hinanden.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Vælg felt for at definere grænser</h2></div>
+        <hr/>
+        <div>
+            <p>Det felt, der indeholder de v&aelig;rdier, der definerer hver zone.
+            </p>
+            <p>Det kan v&aelig;re et heltal eller et strengfelt i zonedatas&aelig;ttet.
+            </p>
+        </div>
+    </div>
+    <div id="sumRasterLayer">
+        <div><h2>Vælg rasterlag at summere</h2></div>
+        <hr/>
+        <div>
+            <p>Den raster, der indeholder de v&aelig;rdier, der skal beregnes en statistik p&aring;.
+            </p>
+            <p>Den kan enten v&aelig;re heltal eller flydende komma. Men hvis rasteren er af typen flydende komma, vil mulighederne for at beregne majoritet, minoritet og variation ikke v&aelig;re tilg&aelig;ngelige.
+            </p>
+        </div>
+    </div>
+    <div id="sumStatistic">
+        <div><h2>Vælg statistik, der skal beregnes:</h2></div>
+        <hr/>
+        <div>
+            <p>Angiver den statistiktype, der skal beregnes.
+            </p>
+            <p> Inputtet kan v&aelig;re &eacute;n af f&oslash;lgende: <b>Gennemsnit</b>, <b>Majoritet</b>, <b>Maksimum</b>, Median <b>,</b> <b>Minimum</b>, <b>Minoritet</b>, <b>Percentil</b>, <b>Omr&aring;de</b>, <b>Standardafvigelse</b>, <b>Sum</b> og <b>Variation</b>. Standardv&aelig;rdien er <b>Gennemsnit</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Percentilværdi</h2></div>
+        <hr/>
+        <div>
+            <p>Percentil, der skal beregnes. Standardv&aelig;rdien er 90, hvilket angiver den 90. percentil.
+            </p>
+            <p>V&aelig;rdien kan v&aelig;re fra 0 til 100. Resultatet af at angive den 0. percentil svarer stort set til minimumsstatistikken, og den 100. percentil svarer til maksimum. En v&aelig;rdi p&aring; 50 vil stort set give det samme resultat som median-statistikken.
+            </p>
+            <p> Denne parameter underst&oslash;ttes kun, hvis parameteren <b>V&aelig;lg statistik, der skal beregnes</b> er indstillet til <b>Percentil</b>.
+            </p>
+        </div>
+    </div>
+    <div id="missingValues">
+        <div><h2>Ignorér manglende værdier i beregning</h2></div>
+        <hr/>
+        <div>
+            <p> Angiver, om manglende v&aelig;rdier ignoreres i analysen.
+            </p>
+            <ul>
+                <li>Markeret &ndash; Analysen vil inkludere de celler, der har en v&aelig;rdi i inputv&aelig;rdirasteren inden for en bestemt zone med henblik p&aring; at bestemme outputv&aelig;rdien for den p&aring;g&aelig;ldende zone. NoData-celler i v&aelig;rdirasteren vil blive tilsidesat i statistikberegningen. Dette er standardv&aelig;rdien.
+                </li>
+                <li>Ikke markeret &ndash; Analysen vil resultere i NoData, hvis der er NoData-v&aelig;rdier for v&aelig;rdirasterens celler inden for en bestemt zone.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Behandl som flerdimensional</h2></div>
+        <hr/>
+        <div>
+            <p>Angiver, hvordan input-billedtjenester skal behandles, hvis de er flerdimensionale.
+            </p>
+            <ul>
+                <li>Markeret &ndash; Statistiske data beregnes ud fra det aktuelle udsnit af det flerdimensionale inputdatas&aelig;t. Dette er standardv&aelig;rdien.
+                    
+
+                </li>
+                <li>Ikke markeret &ndash; Statistiske data beregnes for alle dimensioner af det flerdimensionale inputdatas&aelig;t.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Navn på resultatlag</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Navnet p&aring; det lag, som oprettes under  <b>Mit indhold</b> og f&oslash;jes til kortet. Standardnavnet er baseret p&aring; navnet p&aring; v&aelig;rkt&oslash;jet og navnet p&aring; inputlaget. Hvis laget allerede findes, vil du blive bedt om at angive et andet navn.
+            </p>
+            <p>Du kan angive navnet p&aring; en mappe i  <b>Mit indhold</b>, hvor resultatet bliver gemt ved at benytte rullelisten <b>Gem resultat i</b>. Hvis du har rettigheder til at oprette både tile-billedlag og dynamiske billedlag, kan du angive, hvilken type lag der skal genereres i outputtet ved hjælp af Gem resultat som-rullelisten. </p>
+        </div>
+    </div>
+</div>
+</html>

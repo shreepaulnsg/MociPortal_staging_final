@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/tsSupport/generatorHelper",[],function(){return function(k,l){function e(a){return function(f){return m([a,f])}}function m(a){if(g)throw new TypeError("Generator is already executing.");for(;c;)try{if(g=1,d&&(b=a[0]&2?d["return"]:a[0]?d["throw"]||((b=d["return"])&&b.call(d),0):d.next)&&!(b=b.call(d,a[1])).done)return b;if(d=0,b)a=[a[0]&2,b.value];switch(a[0]){case 0:case 1:b=a;break;case 4:return c.label++,{value:a[1],done:!1};case 5:c.label++;d=a[1];a=[0];continue;
+case 7:a=c.ops.pop();c.trys.pop();continue;default:if(!(b=c.trys,b=0<b.length&&b[b.length-1])&&(6===a[0]||2===a[0])){c=0;continue}if(3===a[0]&&(!b||a[1]>b[0]&&a[1]<b[3]))c.label=a[1];else if(6===a[0]&&c.label<b[1])c.label=b[1],b=a;else if(b&&c.label<b[2])c.label=b[2],c.ops.push(a);else{b[2]&&c.ops.pop();c.trys.pop();continue}}a=l.call(k,c)}catch(f){a=[6,f],d=0}finally{g=b=0}if(a[0]&5)throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}var c={label:0,sent:function(){if(b[0]&1)throw b[1];return b[1]},
+trys:[],ops:[]},g,d,b,h;return h={next:e(0),"throw":e(1),"return":e(2)},"function"===typeof Symbol&&(h[Symbol.iterator]=function(){return this}),h}});

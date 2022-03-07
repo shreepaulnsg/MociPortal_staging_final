@@ -1,0 +1,12 @@
+/*
+	Copyright (c) 2004-2016, The JS Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+//>>built
+define("dojo/Deferred",["./has","./_base/lang","./errors/CancelError","./promise/Promise","./promise/instrumentation"],function(B,C,w,x,t){var y=Object.freeze||function(){},q=function(c,a,d,b,f){2===a&&k.instrumentRejected&&0===c.length&&k.instrumentRejected(d,!1,b,f);for(f=0;f<c.length;f++)u(c[f],a,d,b)},u=function(c,a,d,b){var f=c[a],g=c.deferred;if(f)try{var l=f(d);if(0===a)"undefined"!==typeof l&&p(g,a,l);else{if(l&&"function"===typeof l.then){c.cancel=l.cancel;l.then(r(g,1),r(g,2),r(g,0));return}p(g,
+1,l)}}catch(m){p(g,2,m)}else p(g,a,d);2===a&&k.instrumentRejected&&k.instrumentRejected(d,!!f,b,g.promise)},r=function(c,a){return function(d){p(c,a,d)}},p=function(c,a,d){if(!c.isCanceled())switch(a){case 0:c.progress(d);break;case 1:c.resolve(d);break;case 2:c.reject(d)}},k=function(c){var a=this.promise=new x,d=this,b,f,g,l=!1,m=[];Error.captureStackTrace&&(Error.captureStackTrace(d,k),Error.captureStackTrace(a,k));this.isResolved=a.isResolved=function(){return 1===b};this.isRejected=a.isRejected=
+function(){return 2===b};this.isFulfilled=a.isFulfilled=function(){return!!b};this.isCanceled=a.isCanceled=function(){return l};this.progress=function(e,h){if(b){if(!0===h)throw Error("This deferred has already been fulfilled.");return a}q(m,0,e,null,d);return a};this.resolve=function(e,h){if(b){if(!0===h)throw Error("This deferred has already been fulfilled.");return a}q(m,b=1,f=e,null,d);m=null;return a};var v=this.reject=function(e,h){if(b){if(!0===h)throw Error("This deferred has already been fulfilled.");
+return a}Error.captureStackTrace&&Error.captureStackTrace(g={},v);q(m,b=2,f=e,g,d);m=null;return a};this.then=a.then=function(e,h,z){var n=[z,e,h];n.cancel=a.cancel;n.deferred=new k(function(A){return n.cancel&&n.cancel(A)});b&&!m?u(n,b,f,g):m.push(n);return n.deferred.promise};this.cancel=a.cancel=function(e,h){if(!b){c&&(h=c(e),e="undefined"===typeof h?e:h);l=!0;if(!b)return"undefined"===typeof e&&(e=new w),v(e),e;if(2===b&&f===e)return e}else if(!0===h)throw Error("This deferred has already been fulfilled.");
+};y(a)};k.prototype.toString=function(){return"[object Deferred]"};t&&t(k);return k});

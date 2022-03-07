@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/ca/ClassifyPixelsUsingDeepLearning",{toolDefine:"Classifica els p\u00edxels amb Aprenentatge profund",outputLayerName:"${layername}_classified",modelLabel:"Trieu el model d'aprenentatge profund utilitzat per classificar els p\u00edxels",modelArgsLabel:"Especifiqueu els arguments del model d'aprenentatge profund",nameLabel:"Nom",valueLabel:"Valor",queryModelArgsMsg:"S'estan consultant els arguments del model...",queryModelArgsErrMsg:"No s'han pogut consultar els arguments del model.",
+processingModeLabel:"Mode de processament",processAsMosaicLabel:"Processa com a imatge en mosaic",processAsItemsLabel:"Processa tots els elements de r\u00e0ster per separat",analysisLayerLabel:"Trieu la imatge utilitzada per classificar els p\u00edxels",itemDescription:"Servei d'imatges d'an\u00e0lisi generat amb l'opci\u00f3 Classifica els p\u00edxels amb Aprenentatge profund",itemTags:"Resultat de l'an\u00e0lisi del r\u00e0ster, Classifica els p\u00edxels amb Aprenentatge profund, ${layername}",
+itemSnippet:"Servei d'imatges d'an\u00e0lisi generat amb l'opci\u00f3 Classifica els p\u00edxels amb Aprenentatge profund"});

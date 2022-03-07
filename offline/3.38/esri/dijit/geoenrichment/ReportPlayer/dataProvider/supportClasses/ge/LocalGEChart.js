@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/dataProvider/supportClasses/ge/LocalGEChart",["dojo/_base/declare","dojo/_base/lang","./LocalGEBase","../data/AreaDataUtil"],function(g,h,k,l){return g(k,{_fieldNameToPointCache:null,constructor:function(b,f,a,c,e,m){this._fieldNameToPointCache={};b[0]&&b[0].points.forEach(function(d){d.fieldInfo&&(this._fieldNameToPointCache[d.fieldInfo.name]=d)},this);(this._skipThisArea=c)?(a=l.combineAreaDataObjectCalculators(a,f,{removeDuplicates:!0}),c=a.thisAreas.map(function(d,
+n){d=h.mixin({},d);d.StdGeographyName=e[n];d.isThisArea=!0;return d}),b={},b[f]={data:c.shift(),comparisonLevels:c.concat(a.comparisonLevels)}):b=a[m||0];this._initGE(null,b,f)},_createField:function(b,f){var a=this.inherited(arguments),c=this._fieldNameToPointCache[b];if(c&&c.fieldInfo){var e=c.fieldInfo;a.alias=c.label||e.alias;a.decimals="number"===typeof e.decimals?e.decimals:-1;a.units=e.showPercent?"pct":e.showCurrency?"currency":a.units;a.type=e.type||a.type}else a.noVariableField=!0;return a},
+_filterAttributeField:function(b){return!b.noVariableField}})});

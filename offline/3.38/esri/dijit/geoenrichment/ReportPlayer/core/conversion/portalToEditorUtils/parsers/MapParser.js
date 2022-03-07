@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/conversion/portalToEditorUtils/parsers/MapParser",["../../ConversionUtil","./AlignParser"],function(e,h){var g={getElement:function(f,d){var c=f.attributes,a=d.templateJson.metadata.mapImageInfosHash[c.name],b={id:"map",style:{top:e.ptToPx(c.top)||0,left:e.ptToPx(c.left)||0,width:e.ptToPx(c.width||a&&a.width||0),height:e.ptToPx(c.height||a&&a.height||0)}};a||c.webMapId||c.defaultBasemapId||(b.isMissing=!0);b.defaultBasemapId=a?a.defaultBasemapId:
+c.defaultBasemapId;b.defaultBasemapName=a&&a.defaultBasemapName;b.webMapId=a?a.webMapId:c.webMapId;b.webMapName=a&&a.webMapName;b.mapScale=a?a.mapScale:null;b.calculatorFieldName=a&&a.fieldName;b.additionalLayerInfos=a&&a.additionalLayerInfos;b.pinSymbolJson=a&&a.pinSymbolJson;b.areaSymbolJsons=a&&a.areaSymbolJsons;b.areaSymbolRamp=a&&a.areaSymbolRamp;b.showMapLegend=c.showMapLegend;h.parseAlign(c,b.style);d.postProcessMapJson&&d.postProcessMapJson(f,b);return b},parseMapImageDField:function(f,d){return g.getElement({name:"mapImage",
+attributes:{name:f}},d)}};return g});

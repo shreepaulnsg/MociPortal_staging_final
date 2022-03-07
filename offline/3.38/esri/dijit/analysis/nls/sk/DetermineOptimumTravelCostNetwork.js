@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sk/DetermineOptimumTravelCostNetwork",{inputLayerLabel:"Vyberte raster alebo vrstu umiestnenia prvkov pre ur\u010denie cestovn\u00fdch tr\u00e1s medzi",inputCostRasterLabel:"Vyberte cestovn\u00fa vrstvu s rastrom n\u00e1kladov",outputOptimumNetworkName:"N\u00e1zov v\u00fdslednej \u010diarovej vrstvy s optimalizovan\u00fdmi trasami",outputNeighborNetworkName:"N\u00e1zov v\u00fdslednej \u010diarovej vrstvy so susediacimi trasami (volite\u013en\u00e9)",outputLayerName:"Ur\u010di\u0165 optim\u00e1lne cestovn\u00e9 n\u00e1klady ${layername}",
+itemDescription:"Vrstvy prvkov generovan\u00e9 n\u00e1strojom Ur\u010di\u0165 sie\u0165 optim\u00e1lnych cestovn\u00fdch n\u00e1kladov na ${layerName}. ",itemTags:"V\u00fdsledok anal\u00fdzy, Ur\u010di\u0165 sie\u0165 optim\u00e1lnych cestovn\u00fdch n\u00e1kladov, ${layername}${fieldname}",itemSnippet:"Vrstvy prvkov generovan\u00e9 n\u00e1strojom Ur\u010di\u0165 sie\u0165 optim\u00e1lnych cestovn\u00fdch n\u00e1kladov."});

@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/conversion/portalToEditorUtils/metadata/ScriptsCalculatorsParser",["esri/dijit/geoenrichment/utils/JsonXmlConverter","./VariableScriptCollector"],function(d,e){return{parseScriptsCalculators:function(f,g,b){d.queryJson(f,"Scripts").forEach(function(a){b.variableProvider.isPlayerOnly&&(a=e.getObjects(a),a.variableObjects.forEach(function(c){b.variableProvider.addVariable(c)}),a.scriptObjects.forEach(function(c){b.variableProvider.addScriptVariable(c)}))})}}});

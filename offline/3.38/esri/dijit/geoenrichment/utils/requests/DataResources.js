@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/utils/requests/DataResources","dojo/_base/declare esri/dijit/geoenrichment/Deferred esri/dijit/geoenrichment/promise/all esri/dijit/geoenrichment/utils/DataUtil ./DataResource ./FileContent".split(" "),function(e,l,m,g,n,h){function k(c,a,d){d=d||function(b){return h.getContentConversionType(g.getContentType(b))};return a.getFileContent(!0).then(function(b){var f=d(c,b);if(f){switch(f){case "json":case "text":b=decodeURIComponent(escape(b.data));if("json"==f)try{b=
+JSON.parse(b)}catch(p){return l.reject(p)}break;case "base64":b=b.getBase64Data();break;default:b=b.data}return{name:c,data:b}}})}e=e(null,{items:null,constructor:function(){this.items=[]},addDataResource:function(c,a){this.items.push({name:c,resource:a})},addFileResource:function(c,a,d){"object"==typeof a&&(a instanceof ArrayBuffer||a.buffer instanceof ArrayBuffer)?a=a.buffer||a:(a=h.fromFileData(c,a,d).data,a=g.binaryStringToByteArray(a).buffer);this.addDataResource(c,new n(a))},getResourceFiles:function(c){return m(this.items.map(function(a){return k(a.name,
+a.resource,c)}))}});e.getResourceFile=k;return e});

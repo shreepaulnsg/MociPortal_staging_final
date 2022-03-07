@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Estadísticas zonales como tabla</h2><p/>
+        <h2><img src="../images/GUID-2847466F-BF22-4545-BDCE-7EB7B1D15F2D-web.png" alt="Diagrama Estad&iacute;sticas zonales como tabla"></h2>
+        <hr/>
+    <p>Esta herramienta resume los valores de un r&aacute;ster dentro de las zonas de otro dataset y notifica los resultados en una tabla.
+    </p>
+    <p>Estas son algunas aplicaciones de ejemplo de esta herramienta:
+        <ul>
+            <li>Dada una capa de l&iacute;mites de cuencas hidrogr&aacute;ficas y una capa de l&iacute;mites de uso del suelo, calcule la superficie total del tipo de uso del suelo para cada cuenca hidrogr&aacute;fica.
+                
+
+            </li>
+            <li>Dada una capa de parcelas de un condado y una capa de l&iacute;mites de ciudades, resuma el valor medio de las parcelas vac&iacute;as en cada l&iacute;mite de ciudad.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>Si se ha activado  <b>Usar la extensi&oacute;n del mapa actual</b>, solo se analizar&aacute;n las entidades de la capa de entrada y la capa que se va a resumir que est&eacute;n visibles en la extensi&oacute;n de mapa actual. Si la opci&oacute;n est&aacute; desactivada, se analizar&aacute;n todas las entidades de la capa de entrada y de la capa que se va a resumir, aunque est&eacute;n fuera de la extensi&oacute;n de mapa actual.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div><h2>Elegir entidades o ráster de zona</h2></div>
+        <hr/>
+        <div>
+            <p>La entrada que define los l&iacute;mites de las zonas, o &aacute;reas, que se resumir&aacute;n.
+            </p>
+            <p>La entrada puede ser un r&aacute;ster entero o datos de entidades. Para los r&aacute;steres, las zonas se definen mediante todas las ubicaciones de la entrada que tienen el mismo valor de celda. En el caso de las entidades, las zonas se pueden superponer. No es necesario que las &aacute;reas sean contiguas.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Campo de zona</h2></div>
+        <hr/>
+        <div>
+            <p>El campo que contiene los valores que definen cada zona.
+            </p>
+            <p>Puede ser un campo de enteros o de cadenas de caracteres del dataset zonal.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div><h2>Elegir ráster de valor</h2></div>
+        <hr/>
+        <div>
+            <p>El r&aacute;ster que contiene los valores en los cuales se calcula una estad&iacute;stica.
+            </p>
+            <p>Puede ser de tipo entero o punto flotante. Sin embargo, si es de tipo punto flotante, las opciones para calcular la mayor&iacute;a, la minor&iacute;a y la variedad no est&aacute;n disponibles.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div><h2>Ignorar los NoData en los cálculos (opcional)</h2></div>
+        <hr/>
+        <div>
+            <p> Especifica si los valores NoData se ignorar&aacute;n en el an&aacute;lisis.
+            </p>
+            <ul>
+                <li>Activado: el an&aacute;lisis incluir&aacute; las celdas que tienen un valor en el r&aacute;ster de valor de entrada dentro de una zona en particular para determinar el valor de salida de dicha zona. Las celdas NoData del r&aacute;ster de valores se ignorar&aacute;n en el c&aacute;lculo estad&iacute;stico. Esta es la opci&oacute;n predeterminada.
+                </li>
+                <li>Desactivado: el an&aacute;lisis dar&aacute; como resultado NoData si hay valores NoData para las celdas del r&aacute;ster de valores dentro de una zona determinada.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="statisticType">
+        <div><h2>Tipo de estadísticas (opcional)</h2></div>
+        <hr/>
+        <div>
+            <p>Especifica el tipo de estad&iacute;stica que se calcular&aacute;.
+            </p>
+            <p> La entrada puede ser una de las siguientes: <b>Todo</b>, <b>Media</b>, <b>Mayor&iacute;a</b>, <b>M&aacute;ximo</b>, <b>Mediana</b>, <b>M&iacute;nimo</b>, <b>Minor&iacute;a</b>, <b>Percentil</b>, <b>Rango</b>, <b>Desviaci&oacute;n est&aacute;ndar</b>, <b>Suma</b>, <b>Variedad</b>, <b>M&iacute;nimo y m&aacute;ximo</b>, <b>Media y desviaci&oacute;n est&aacute;ndar</b> o <b>M&iacute;nimo, m&aacute;ximo y valor medio</b>. El valor predeterminado es <b>Todo</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div><h2>Valores de percentil (opcional)</h2></div>
+        <hr/>
+        <div>
+            <p>El percentil que se va a calcular. El valor predeterminado es 90, que indica el 90.&ordm; percentil.
+            </p>
+            <p>El valor puede variar de 0 a 100. El resultado de especificar el percentil 0.&ordm; es esencialmente equivalente al de la estad&iacute;stica m&iacute;nima, y el percentil 100 es equivalente al m&aacute;ximo. Un valor de 50 generar&aacute; en esencia el mismo resultado que la estad&iacute;stica mediana.
+            </p>
+            <p> Este par&aacute;metro solo se admite si el par&aacute;metro <b>Tipo de estad&iacute;sticas</b> est&aacute; establecido en <b>Percentil</b> o <b>Todo</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div><h2>Tipo de interpolación de percentil (opcional)</h2></div>
+        <hr/>
+        <div>
+            <p>Especifica el m&eacute;todo de interpolaci&oacute;n percentil que se va a utilizar si el n&uacute;mero de valores del r&aacute;ster de entrada calculado es par.
+            </p>
+            <ul>
+                <li>  <b>Detectar autom&aacute;ticamente</b>: si el r&aacute;ster de valor de entrada es de tipo p&iacute;xel entero, se utiliza el m&eacute;todo <b>M&aacute;s cercano</b>. Si el r&aacute;ster de valor de entrada es de tipo p&iacute;xel de punto flotante, se utiliza el m&eacute;todo <b>Lineal</b>. Esta es la opci&oacute;n predeterminada.
+                </li>
+                <li> <b>M&aacute;s cercano</b>: se utiliza el valor disponible m&aacute;s cercano para el percentil deseado.
+                </li>
+                <li> <b>Lineal</b>: se utiliza la media ponderada de los dos valores circundantes del percentil deseado.
+                </li>
+            </ul>
+            
+            <p> Este par&aacute;metro solo se admite si el par&aacute;metro <b>Tipo de estad&iacute;sticas</b> est&aacute; establecido en <b>Percentil</b> o <b>Todo</b>.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Procesar como multidimensional (opcional)</h2></div>
+        <hr/>
+        <div>
+            <p>Especifica c&oacute;mo se procesar&aacute;n los servicios de im&aacute;genes multidimensionales de entrada si son multidimensionales.
+            </p>
+            <ul>
+                <li>Activado: se calculan estad&iacute;sticas de la parte actual de un dataset multidimensional. Esta es la opci&oacute;n predeterminada.
+                    
+
+                </li>
+                <li>Desactivado: las estad&iacute;sticas se calculan a partir de todas las dimensiones del dataset multidimensional de entrada.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div><h2>Nombre de tabla de resultados</h2></div>
+        <hr/>
+        <div>
+            <p>El nombre de la capa que se crear&aacute; en  <b>Mi contenido</b> y que se agregar&aacute; al mapa. El nombre predeterminado se basa en el nombre de la herramienta y en el nombre de la capa de entrada. Si la capa ya existe, se le pedir&aacute; que indique otro nombre.
+            </p>
+            <p>Puede especificar el nombre de una carpeta de  <b>Mi contenido</b> en la que se guardar&aacute; el resultado con el cuadro desplegable <b>Guardar el resultado en</b>.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

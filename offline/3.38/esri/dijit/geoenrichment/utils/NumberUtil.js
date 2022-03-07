@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/utils/NumberUtil",["./DateUtil","./ObjectUtil"],function(h,f){var e={},k=function(b){var a=e[b];if(!1===a)return null;if(a)return a;a="ar bs cs da en el et fi fr he hr hu id lv lt nl nb pl pt-br pt-pt ro ru sl sr sv th tr uk vi zh-hk de it ca es".split(" ");-1!==a.indexOf(b)||-1!==a.indexOf(b.substr(0,2))?(a=function(c){c=g(c,{locale:b});var d=c.match(/(\d|\.|,)+/)[0];return c.replace(d,"")},e[b]={kilo:a(1E4),mega:a(1E7),giga:a(1E10),tera:a(1E13)}):e[b]=!1;return e[b]},
+g=function(b,a){return(new Intl.NumberFormat(a.locale,{notation:"compact",compactDisplay:"short",minimumFractionDigits:a.places,maximumFractionDigits:a.places})).format(b)};return{formatNumberCompact:function(b,a){if(!window.Intl)return f.formatNumber(b,a);a.locale=a.locale||h.getDateNumberLocale();var c=k(a.locale);if(!a.unitPrefix||!c||!c[a.unitPrefix])return g(b,a);var d="";switch(a.unitPrefix){case "kilo":b/=1E3;d=c.kilo;break;case "mega":b/=1E6;d=c.mega;break;case "giga":b/=1E9;d=c.giga;break;
+case "tera":b/=1E12,d=c.tera}return f.formatNumber(b,{locale:a.locale,places:a.places,noSeparator:a.noSeparator,preserveTrailingZeroes:a.preserveTrailingZeroes})+(d?a.unitPrefixSymbol||d:"")}}});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/hr/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Odaberite raster zone ili geoobjekte",outputTableName:"Naziv tablice rezultata",zoneField:"Polje zone",inputValueRaster:"Odaberite raster vrijednosti",ignoreNodata:"Ignoriraj NoData u izra\u010dunima (opcionalno)",ignore:"Zanemari",statisticType:"Vrsta statistike (opcionalno)",percentileValues:"Vrijednosti postotaka (opcionalno)",percentileInterpolationType:"Vrsta interpolacije postotka (opcionalno)",processAsMultidimensional:"Procesuiraj kao vi\u0161edimenzionalno (opcionalno)",
+allSlices:"Svi isje\u010dci",outputZonalStatsName:"Zonalne statistike za ${valuelayername} unutar ${layername}",itemDescription:"Tabela geoobjekata analize generirana iz Zonalne statistike kao tablica",itemTags:"Rezultat rasterske analize, Zonalna statistika kao tablica, ${layername}, ${valuelayername}",autoDetect:"Automatsko otkrivanje",nearest:"Najbli\u017ee",linear:"Linearno"});

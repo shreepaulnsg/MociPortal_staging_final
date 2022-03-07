@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/supportClasses/images/DefaultLogoLoader",["require","esri/dijit/geoenrichment/Deferred","esri/dijit/geoenrichment/utils/ColorUtil"],function(d,e,b){return{_identifyDefaultLogoBackground:function(a){return!a||b.isTransparent(a.backgroundColor)?"transparent":b.isLightColor(a.backgroundColor)?"light":"dark"},_loadLogo:function(a){var c=new e;d(["./"+a],function(f){c.resolve(f)});return c.promise},getDefaultLogo:function(a){switch(this._identifyDefaultLogoBackground(a)){case "light":return this._loadLogo("DefaultLogoGraphicReportDark");
+case "dark":return this._loadLogo("DefaultLogoGraphicReportLight");default:return this._loadLogo("DefaultLogoGraphicReportGeneric")}}}});

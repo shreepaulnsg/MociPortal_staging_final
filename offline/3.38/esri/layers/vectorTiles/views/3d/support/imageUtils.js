@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/3d/support/imageUtils",["require","exports","../../../request"],function(h,d,f){Object.defineProperty(d,"__esModule",{value:!0});d.dataURItoBlob=function(a){var b=atob(a.split(",")[1]);a=a.split(",")[0].split(":")[1].split(";")[0];for(var e=new ArrayBuffer(b.length),g=new Uint8Array(e),c=0;c<b.length;c++)g[c]=b.charCodeAt(c);return new Blob([e],{type:a})};d.requestImage=function(a){return f(a,{responseType:"image",allowImageDataAccess:!0}).then(function(b){return b.data})}});

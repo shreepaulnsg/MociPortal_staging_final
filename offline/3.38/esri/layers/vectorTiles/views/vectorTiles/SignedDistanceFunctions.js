@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/vectorTiles/SignedDistanceFunctions",["require","exports","../3d/webgl-engine/lib/Util"],function(q,m,n){Object.defineProperty(m,"__esModule",{value:!0});m.computeSignedDistancefieldCicle=function(b,d){var h=new Uint8Array(4*b*b),k=b/2-.5;d/=2;for(var g=0;g<b;g++)for(var e=0;e<b;e++){var f=e+b*g,a=e-k,c=g-k;a=Math.sqrt(a*a+c*c)-d;a=a/b+.5;n.packFloatRGBA(a,h,4*f)}return h};m.computeSignedDistancefieldSquare=function(b,d,h){h&&(d/=Math.SQRT2);for(var k=1/Math.SQRT2,
+g=new Uint8Array(4*b*b),e=0;e<b;e++)for(var f=0;f<b;f++){var a=f-.5*(b-.5),c=e-.5*(b-.5),p=e*b+f;if(h){var l=(a+c)*k;c=(c-a)*k;a=l}a=Math.max(Math.abs(a),Math.abs(c))-.5*d;a=a/b+.5;n.packFloatRGBA(a,g,4*p)}return g};m.computeSignedDistancefieldCrossAndX=function(b,d,h){h&&(d*=Math.SQRT2);var k=1/Math.SQRT2;d*=.5;for(var g=new Uint8Array(4*b*b),e=0;e<b;e++)for(var f=0;f<b;f++){var a=f-.5*b,c=e-.5*b,p=e*b+f;if(h){var l=(a+c)*k;c=(c-a)*k;a=l}l=void 0;a=Math.abs(a);c=Math.abs(c);l=a>c?a>d?Math.sqrt((a-
+d)*(a-d)+c*c):c:c>d?Math.sqrt(a*a+(c-d)*(c-d)):a;l=l/b+.5;n.packFloatRGBA(l,g,4*p)}return g}});

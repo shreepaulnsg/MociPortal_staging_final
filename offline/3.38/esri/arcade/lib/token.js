@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/arcade/lib/token",["require","exports"],function(a,b){Object.defineProperty(b,"__esModule",{value:!0});b.TokenName=b.TokenType=void 0;a=b.TokenType||(b.TokenType={});a[a.BooleanLiteral=1]="BooleanLiteral";a[a.EOF=2]="EOF";a[a.Identifier=3]="Identifier";a[a.Keyword=4]="Keyword";a[a.NullLiteral=5]="NullLiteral";a[a.NumericLiteral=6]="NumericLiteral";a[a.Punctuator=7]="Punctuator";a[a.StringLiteral=8]="StringLiteral";a[a.RegularExpression=9]="RegularExpression";a[a.Template=10]="Template";
+b.TokenName={};b.TokenName[1]="Boolean";b.TokenName[2]="\x3cend\x3e";b.TokenName[3]="Identifier";b.TokenName[4]="Keyword";b.TokenName[5]="Null";b.TokenName[6]="Numeric";b.TokenName[7]="Punctuator";b.TokenName[8]="String";b.TokenName[9]="RegularExpression";b.TokenName[10]="Template"});

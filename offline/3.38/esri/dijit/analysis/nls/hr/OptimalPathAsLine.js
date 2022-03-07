@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/hr/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Odaberite odredi\u0161ni raster ili geoobjekte",destinationField:"Polje dredi\u0161ta (nije obavezno)",inputDistanceAccumulationRaster:"Odaberite raster akumulacije udaljenosti",inputBackDirectionRaster:"Odaberite raster pobratnog smjera ili smjera strujanja",pathType:"Vrsta putanje (izborno)",bestSingle:"Najbolja jedna",eachCell:"Svaka \u0107elija",eachZone:"Svaka zona",outputFeatureName:"Naziv sloja geoobjekta rezultata",
+outputLayerName:"Optimalni put kao linija od ${layername}",drawSourcePointLayerName:"To\u010dke izvora",itemDescription:"Sloj geoobjekata koji je generiran pokretanjem optimalnog puta kao linije na ${layername}. ",itemTags:"Analiza rezultata, Optimalni put kao linija, ${layername} ${fieldname}",itemSnippet:"Sloj geoobjekata koji je generiran iz optimalnog puta kao linije."});

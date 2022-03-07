@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/now",["require","exports","./global"],function(d,e,b){return function(){var a=b.performance||{};if(a.now)return function(){return a.now()};if(a.webkitNow)return function(){return a.webkitNow()};if(a.mozNow)return function(){return a.mozNow()};if(a.msNow)return function(){return a.msNow()};if(a.oNow)return function(){return a.oNow()};var c=a.timing&&a.timing.navigationStart?a.timing.navigationStart:Date.now();return function(){return Date.now()-c}}()});

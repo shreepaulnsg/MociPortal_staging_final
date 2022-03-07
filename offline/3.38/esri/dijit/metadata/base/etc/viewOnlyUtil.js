@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/base/etc/viewOnlyUtil",["dojo/_base/lang","dojo/_base/array","dojo/dom-class","dojo/has","../../../../kernel"],function(g,e,h,k,l){var f={applyViewOnly:function(a){this._walkNonTabs(a.rootDescriptor);this._walkTabs(a.rootDescriptor)},hasViewableContent:function(a){return a.hide||a._isOptionallyOff?!1:a._isGxeNode&&null!==a.checkXmlValue()?!0:e.some(a.getChildren(),function(c){return this.hasViewableContent(c)},this)},_walkNonTabs:function(a){if(a._isGxeNode||a._isGxeMultiplicityHeader){var c=
+this.hasViewableContent(a);c||(a.domNode.style.display="none")}e.forEach(a.getChildren(),function(b){this._walkNonTabs(b)},this)},_walkTabs:function(a){var c,b=[];a._isGxeTabs&&(e.forEach(a._tabButtons,function(d){(c=this.hasViewableContent(d.tabWgt))?b.push(d):d.domNode.style.display="none"},this),0<b.length&&(h.contains(b[0].domNode,"current")||a._activateTab(b[0])));e.forEach(a.getChildren(),function(d){this._walkTabs(d)},this)}};k("extend-esri")&&g.setObject("dijit.metadata.base.etc.viewOnlyUtil",
+f,l);return f});

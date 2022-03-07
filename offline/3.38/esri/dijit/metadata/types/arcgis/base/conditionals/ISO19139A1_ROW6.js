@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/types/arcgis/base/conditionals/ISO19139A1_ROW6","dojo/_base/declare dojo/_base/lang dojo/_base/array dojo/topic dojo/has ../../../../../../kernel dojo/i18n!../../../../nls/i18nArcGIS ../../../../base/Conditional".split(" "),function(c,f,n,g,h,k,l,m){c=c(m,{key:"ISO19139A1_ROW6",postCreate:function(){this.inherited(arguments);var d=this;this.own(g.subscribe("gxe/optional-content-toggled",function(a){try{if(d.parentXNode&&a&&a.src&&a.src.target){var b=a.src.target;"aggrDSIdent"!==
+b&&"aggrDSName"!==b||d.emitInteractionOccurred()}}catch(e){console.error(e)}}))},validateConditionals:function(d){var a=this.newStatus({message:l.conditionals[this.key]}),b=!0,e=this.parentXNode.domNode;this.isXNodeOff(this.parentXNode)||(b=!1,this.forActiveXNodes("/metadata/dataIdInfo/aggrInfo/aggrDSIdent,/metadata/dataIdInfo/aggrInfo/aggrDSName",e,function(p){return b=!0}));a.isValid=b;this.track(a,d);return a}});h("extend-esri")&&f.setObject("dijit.metadata.types.arcgis.base.conditionals.ISO19139A1_ROW6",
+c,k);return c});

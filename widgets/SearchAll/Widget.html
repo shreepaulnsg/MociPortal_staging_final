@@ -1,0 +1,117 @@
+<div class="secondary-pane ">
+  <div class="add-url-pane-container ">
+    <div class="add-url-pane-container--inner queries">
+      <div id="public" class="pub">
+          <span class="fact">${nls.IndustryClassification}</span>
+          <div  id="indCategory"></div>
+          <span class="fact">${nls.FirmName}</span>
+          <div  id="indName"></div>
+          <span class="fact">${nls.PlotIdentificationNumber}</span>
+          <div  id="pinNo"></div>
+          <span class="fact">${nls.LandStatus}</span>
+          <div  id="plotStatus"></div>
+      </div>
+        <div id="investors" class="invs"> 
+          <span class="fact">${nls.PlotNo}</span>
+          <div  id="plotNo"></div>
+          <span class="fact">${nls.ConstructionStatus}</span>
+          <div  id="constStatus"></div>
+        </div>
+
+        <div id="industraial" class="indus">
+            
+          <span class="fact">${nls.LicenseStatus}</span>
+          <div  id="firmStatus"></div>
+            <span class="fact">${nls.Products}</span>
+            <div  id="product"></div>
+            <span class="fact">${nls.LicenseNo}</span>
+            <div  id="licenseNo"></div>
+            <span class="fact">${nls.RegistrationNo}</span>
+            <div  id="regNo"></div>
+            <span class="fact">${nls.OwnerName}</span>
+            <div  id="ownerName"></div>
+        <div>
+              <div> <label class="fact">${nls.Firm}</label></div>
+              <table>
+                
+                <tr>
+                  <td class="noborder">
+                    <input  type="checkbox" class="connectedCheckBox" data-dojo-type="dijit/form/checkbox" id="chk_ConnectedToGas"   value="No"/> 
+                
+                  </td>
+                  <td class="noborder">
+                    <label for="chk_ConnectedToGas" class="lblconnected">${nls.ConnectedToGas}</label>
+                 
+                  </td>
+                  <td class="noborder">
+                    <input class="yesno" type="radio" data-dojo-type="dijit/form/RadioButton" id="radGasYes" name="radGas" checked value="Yes"/> <label class="yesnotext" for="radGasYes">Yes</label>
+                 
+                  </td>
+                  <td class="noborder">
+                    <input class="yesno" type="radio" data-dojo-type="dijit/form/RadioButton" id="radGasNo" name="radGas" value="No"/> <label class="yesnotext" for="radGasNo">No</label>
+             
+                  </td>
+                </tr>
+                <tr>
+                  <td class="noborder">
+                    <input   type="checkbox" class="connectedCheckBox" data-dojo-type="dijit/form/checkbox" id="chk_ConnectedToTSE"    value="No"/> 
+                   
+                  </td>
+                  <td class="noborder">
+                    <label for="chk_ConnectedToTSE" class="lblconnected">${nls.ConnectedToTSE}</label>
+                   </td>
+                   <td class="noborder">
+                    <input class="yesno" type="radio" data-dojo-type="dijit/form/RadioButton" id="radTseYes" name="radTse" checked value="Yes"/> <label class="yesnotext" for="radTseYes">Yes</label>
+                 
+                  </td>
+                  <td class="noborder">
+                     <input class="yesno" type="radio" data-dojo-type="dijit/form/RadioButton" id="radTseNo" name="radTse" value="No"/> <label class="yesnotext" for="radTseNo">No</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="noborder">
+                    <input   type="checkbox" class="connectedCheckBox" data-dojo-type="dijit/form/checkbox" id="chk_ConnectedToSEW"    value="No"/>  
+                
+                  </td>
+                  <td class="noborder">
+                    <label for="chk_ConnectedToSEW" class="lblconnected">${nls.ConnectedToSEW}</label>
+                 
+                  </td>
+                  <td class="noborder">
+                    <input class="yesno" type="radio" data-dojo-type="dijit/form/RadioButton" id="radSewYes" name="radSew" checked value="Yes"/> <label class="yesnotext" for="radSewYes">Yes</label>
+                
+                  </td>
+                  <td class="noborder">
+                    <input class="yesno" type="radio" data-dojo-type="dijit/form/RadioButton" id="radSewNo" name="radSew" value="No"/> <label class="yesnotext" for="radSewNo">No</label>
+              
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- <div class="connected"> 
+                  </div> 
+              <div class ="connected"> 
+                 </div>
+              <div class ="connected"> 
+                 </div> -->
+
+
+           </div>
+
+        </div>
+
+       
+
+      </div>
+          <div class="btnact" >
+            <div id="divSearch" class="selbtn btn-primary" >${nls.Search}</div>
+            <div id="divClear" class="selbtn btn-secondary" >${nls.Clear} </div>
+                <!-- <button class="actions bgcolor" id="btnSearch" data-dojo-type="dijit/form/Button" data-dojo-attach-point="searchValuesButton" data-dojo-attach-event="onClick:searchValues"  type="button">Search</button>
+                <button class="actions" id="btnRefresh"   data-dojo-type="dijit/form/Button" data-dojo-attach-point="reloadDataButton" data-dojo-attach-event="onClick:reloadData" type="button">Clear</button> -->
+          </div>
+          <div class="errSrcgrid">
+            <div id="errMsg" class="errmsg"></div>
+          </div>
+    </div>
+    
+  </div>

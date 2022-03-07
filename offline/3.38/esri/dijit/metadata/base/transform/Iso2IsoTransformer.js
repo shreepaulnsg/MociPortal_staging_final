@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/base/transform/Iso2IsoTransformer",["dojo/_base/declare","dojo/_base/lang","dojo/has","./Transformer","../../../../kernel"],function(b,g,h,k,m,l){b=b([k],{postCreate:function(){this.inherited(arguments)},checkTarget:function(c,a){var f=function(d,e){return-1!==d.indexOf(e,d.length-e.length)};c=c.gxePath;if("gmd:MD_Metadata"===a){if(this.toDocumentType.isGmi)return"gmi:MI_Metadata"}else if("gmi:MI_Metadata"===a){if(!this.toDocumentType.isGmi)return"gmd:MD_Metadata"}else if(this.toDocumentType.isService){if("gmd:MD_DataIdentification"===
+a)return"srv:SV_ServiceIdentification";if(f(c,"gmd:MD_DataIdentification/gmd:extent"))return"srv:extent"}else{if("srv:SV_ServiceIdentification"===a)return"gmd:MD_DataIdentification";if(f(c,"srv:SV_ServiceIdentification/srv:extent"))return"gmd:extent"}return a}});h("extend-esri")&&g.setObject("dijit.metadata.base.transform.Iso2IsoTransformer",b,l);return b});

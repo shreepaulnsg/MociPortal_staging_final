@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sk/ClipLayer",{inputLayerLabel:"Vybra\u0165 prvky pre orezanie",filterSelectLabel:"Oreza\u0165 v\u0161etky prvky alebo definova\u0165 podmno\u017einu (volite\u013en\u00e9)",targetArea:"Vybra\u0165 oblas\u0165 na orezanie",outputLayerName:"Oreza\u0165 ${inputLayerName} pod\u013ea ${clipLayerName}",itemDescription:"Vrstvy prvkov generovan\u00e9 z rie\u0161enia n\u00e1stroja Oreza\u0165. Prvky z ${inputLayerName} boli orezan\u00e9 pod\u013ea ${clipLayerName}.",itemTags:"V\u00fdsledok anal\u00fdzy, Oreza\u0165 vrstvu, ${inputLayerName}, ${clipLayerName}, ${outputLayerGeometry}",
+itemSnippet:"Vrstvy prvkov generovan\u00e9 n\u00e1strojom Oreza\u0165 vrstvu"});

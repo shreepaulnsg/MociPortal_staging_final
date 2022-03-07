@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="regularsize">
+        <h2>Zonal Statistics as Table</h2><p/>
+        <h2><img src="./images/GUID-2847466F-BF22-4545-BDCE-7EB7B1D15F2D-web.png" alt="Zonal Statistics as Table diagram"></h2>
+        <hr/>
+    <p>This tool summarizes the values of a raster within the zones of another dataset and reports the results to a table.
+    </p>
+    <p>Some example application of this tool includes the following:
+        <ul>
+            <li>Given a layer of watershed boundaries and a layer of land-use boundaries by land-use type, calculate total acreage of land-use type for each watershed.
+                
+
+            </li>
+            <li>Given a layer of parcels in a county and a layer of city boundaries, summarize the average value of vacant parcels within each city boundary.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>If  <b>Use current map extent</b> is checked, only those features in the input layer and the layer to be summarized that are visible within the current map extent will be analyzed. If unchecked, all features in both the input layer and the layer to be summarized will be analyzed, even if they are outside the current map extent.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div><h2>Choose zone raster or features</h2></div>
+        <hr/>
+        <div>
+            <p>The input that defines the boundaries of the zones, or areas, that will be summarized.
+            </p>
+            <p>The input can be an integer raster or feature data. For rasters, the zones are defined by all locations in the input that have the same cell value. For features, the zones can be overlapping. The areas do not have to be contiguous.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Zone field</h2></div>
+        <hr/>
+        <div>
+            <p>The
+field that contains the values that define each zone.
+            </p>
+            <p>It can
+be an integer or a string field of the zone dataset.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div><h2>Choose value raster</h2></div>
+        <hr/>
+        <div>
+            <p>The raster that contains the values on which to calculate a statistic.
+            </p>
+            <p>It can be either integer or floating point. However, when it is floating-point type, the options for calculating majority, minority, and variety will not be available.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div><h2>Ignore NoData in calculations (optional)</h2></div>
+        <hr/>
+        <div>
+            <p> Specifies whether NoData values are ignored in the analysis.
+            </p>
+            <ul>
+                <li>Checked&mdash;The analysis will include the cells that have a value in the input value raster within any particular zone to determine the output value for that zone. NoData cells in the value raster will be ignored in the statistic calculation. This is the default.
+                </li>
+                <li>Unchecked&mdash;The analysis will result in NoData if there are any NoData values for the cells of the value raster within a particular zone.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="statisticType">
+        <div><h2>Statistics type (optional)</h2></div>
+        <hr/>
+        <div>
+            <p>Specifies the statistic type to be calculated.
+            </p>
+            <p> The input can be one of the following: <b>All</b>, <b>Mean</b>, <b>Majority</b>, <b>Maximum</b>, <b>Median</b>, <b>Minimum</b>, <b>Minority</b>, <b>Percentile</b>, <b>Range</b>, <b>Standard deviation</b>, <b>Sum</b>, <b>Variety</b>, <b>Minimum and Maximum</b>, <b>Mean and Standard deviation</b>, or <b>Minimum, Maximum and Mean</b>. The default is <b>All</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div><h2>Percentile values (optional)</h2></div>
+        <hr/>
+        <div>
+            <p>The percentile to calculate. The default is 90, indicating the 90th percentile.
+            </p>
+            <p>The value can range from 0 to 100. The result of specifying the 0th percentile is essentially equivalent to that of the minimum statistic, and the 100th percentile is equivalent to maximum. A value of 50 will produce essentially the same result as the median statistic.
+            </p>
+            <p> This parameter is only supported if the <b>Statistics type</b> parameter is set to <b>Percentile</b> or <b>All</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div><h2>Percentile interpolation type (optional)</h2></div>
+        <hr/>
+        <div>
+            <p>Specifies the method of percentile interpolation to be used when the number of values from the input raster to be calculated is even.
+            </p>
+            <ul>
+                <li>  <b>Auto Detect</b>&mdash;If the input value raster is of integer pixel type, the <b>Nearest</b> method is used. If the input value raster is of floating-point pixel type, the <b>Linear</b> method is used. This is the default.
+                </li>
+                <li> <b>Nearest</b>&mdash;The nearest available value to the desired percentile is used.
+                </li>
+                <li> <b>Linear</b>&mdash;The weighted average of the two surrounding values from the desired percentile is used.
+                </li>
+            </ul>
+            
+            <p> This parameter is only supported if the <b>Statistics type</b> parameter is set to <b>Percentile</b> or <b>All</b>.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Process as multidimensional (optional)</h2></div>
+        <hr/>
+        <div>
+            <p>Specifies how the input multidimensional image services will be processed if they are multidimensional.
+            </p>
+            <ul>
+                <li>Checked&mdash;The statistics will be calculated from the current slice of the input multidimensional dataset. This is the default.
+                    
+
+                </li>
+                <li>Unchecked&mdash;The statistics will be calculated for all dimensions of the input multidimensional dataset.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div><h2>Result table name</h2></div>
+        <hr/>
+        <div>
+            <p>The name of the layer that will be created in  <b>My Content</b> and added to the map. The default name is based on the tool name and the input layer name. If the layer already exists, you will be prompted to provide another name.
+            </p>
+            <p>You can specify the name of a folder in  <b>My Content</b> where the result will be saved using the <b>Save result in</b> drop-down box.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

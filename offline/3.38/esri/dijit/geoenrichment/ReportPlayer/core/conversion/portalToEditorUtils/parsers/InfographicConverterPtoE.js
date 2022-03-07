@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/conversion/portalToEditorUtils/parsers/InfographicConverterPtoE","esri/dijit/geoenrichment/ReportPlayer/core/infographics/InfographicTypes ./infographic/SimpleInfographicParser ./infographic/DynamicInfographicParser ./infographic/AreaDetailsInfographicParser ./infographic/AttachmentsInfographicParser ./infographic/LocatorTableInfographicParser ./infographic/ComparisonTableInfographicParser".split(" "),function(a,h,d,k,l,m,n){var g={},b={};b[a.STATIC]=
+h;b[a.ATTACHMENTS]=l;b[a.AREA_DETAILS]=k;b[a.LOCATOR_TABLE]=m;b[a.COMPARISON_TABLE]=n;b[a.AGE_PYRAMID]=d;b[a.TAPESTRY]=d;b[a.PRIZM5]=d;b[a.RELATED_VARS]=d;b[a.ONE_VAR]=d;g.portalToEditor=function(e,c,f){c=a.fixTapestryNameToWidget(e.attributes.type);if(!a.isSupported(c))throw Error("Infographic type is not supported.");(c=b[c].portalToEditor(e,f))&&f.postProcessInfographicJson&&f.postProcessInfographicJson(e,c);return c};return g});

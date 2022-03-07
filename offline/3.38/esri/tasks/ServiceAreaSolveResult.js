@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/ServiceAreaSolveResult","dojo/_base/declare dojo/_base/lang dojo/_base/array dojo/has ../kernel ../graphic ../SpatialReference ./NAMessage".split(" "),function(c,f,e,g,h,k,l,m){c=c(null,{declaredClass:"esri.tasks.ServiceAreaSolveResult",constructor:function(a){a.saPolygons&&(this.serviceAreaPolygons=this._graphicsFromJson(a.saPolygons));a.saPolylines&&(this.serviceAreaPolylines=this._graphicsFromJson(a.saPolylines));a.facilities&&(this.facilities=this._graphicsFromJson(a.facilities));
+a.barriers&&(this.pointBarriers=this._graphicsFromJson(a.barriers));a.polylineBarriers&&(this.polylineBarriers=this._graphicsFromJson(a.polylineBarriers));a.polygonBarriers&&(this.polygonBarriers=this._graphicsFromJson(a.polygonBarriers));a.messages&&(this.messages=e.map(a.messages,function(d,b){return new m(d)}))},serviceAreaPolygons:null,serviceAreaPolylines:null,facilities:null,pointBarriers:null,polylineBarriers:null,polygonBarriers:null,messages:null,_graphicsFromJson:function(a){var d=new l(a.spatialReference);
+return e.map(a.features,function(b,n){b=new k(b);b.geometry.setSpatialReference(d);return b})}});g("extend-esri")&&f.setObject("tasks.ServiceAreaSolveResult",c,h);return c});

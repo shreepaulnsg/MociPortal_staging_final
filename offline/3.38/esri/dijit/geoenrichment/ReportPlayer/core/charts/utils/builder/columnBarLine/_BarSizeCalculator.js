@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/charts/utils/builder/columnBarLine/_BarSizeCalculator",["../../ChartTypes","../ChartPlots","./_ComparisonUtil","../../ChartBarThickness"],function(g,h,m,k){function n(a,c,d,b){var e=b.renderColumnBarsInOppositeDirections&&1<c;a=d/(a||1)/(b.isStacked?1:e?Math.round(c/2):c);a=Math.round(a);return a=b.columnBarGap?a-b.columnBarGap:b.columnThickness===k.SMALL?.25*a:b.columnThickness===k.LARGE?.75*a:.5*a}return{updateBarSize:function(a){var c=a.chart,
+d=a.visualProperties,b=a.seriesItems,e=a.chartType,l=a.numComparisonFeatures;if(c&&!g.isLineLike(e)){var p=a.chartSize||d[g.isColumnLike(e)?"width":"height"],f=0;b.forEach(function(q){f=Math.max(f,q.points.length)});l&&(f+=l);a=m.getEffectiveNumberOfSeries(b,e,a.comparisonInfo,a.isMultiFeatureChart,a.excludedSeriesHash);d=n(f,a,p,d);c.getPlot(h.PRIMARY).opt.maxBarSize=d;c.getPlot(h.PRIMARY).opt.minBarSize=d;c.dirty=!0}}}});

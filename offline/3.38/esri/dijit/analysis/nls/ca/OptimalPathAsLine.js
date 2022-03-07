@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/ca/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Trieu les entitats o el r\u00e0ster de destinaci\u00f3",destinationField:"Camp de destinaci\u00f3 (opcional)",inputDistanceAccumulationRaster:"Trieu el r\u00e0ster d'acumulaci\u00f3 de dist\u00e0ncia",inputBackDirectionRaster:"Trieu el r\u00e0ster de direcci\u00f3 del flux o de direcci\u00f3 inversa",pathType:"Tipus de ruta (opcional)",bestSingle:"L'\u00fanic millor",eachCell:"Cada cel\u00b7la",eachZone:"Cada zona",
+outputFeatureName:"Nom de la capa d'entitats de resultats",outputLayerName:"Ruta \u00f2ptima com a l\u00ednia de ${layername}",drawSourcePointLayerName:"Punts d'origen",itemDescription:"Capa d'entitats generada en executar la ruta \u00f2ptima com a l\u00ednia a ${layername}. ",itemTags:"Resultat de l'an\u00e0lisi, ruta \u00f2ptima com a l\u00ednia, ${layername} ${fieldname}",itemSnippet:"Capa d'entitats generada a partir de la ruta \u00f2ptima com a l\u00ednia."});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/ro/OptimalPathAsRaster",{inputDestinationRasterOrFeatures:"Alege\u021bi rasterul sau obiectele spa\u021biale de destina\u021bie",destinationField:"C\u00e2mp destina\u021bie (op\u021bional)",inputDistanceAccumulationRaster:"Alege\u021bi rasterul acumul\u0103rii distan\u021bei",inputBackDirectionRaster:"Alege\u021bi direc\u021bia \u00eenapoi sau rasterul direc\u021biei fluxului",pathType:"Tipul traseului (op\u021bional)",bestSingle:"Cel mai bun element unic",eachCell:"Fiecare celul\u0103",
+eachZone:"Fiecare zon\u0103",outputRasterName:"Nume strat tematic raster rezultat",outputLayerName:"Traseul optim ca raster al ${layername}",drawSourcePointLayerName:"Puncte surs\u0103",itemDescription:"Strat tematic de obiecte spa\u0163iale generat din rularea traseului optim ca raster pe ${layername}. ",itemTags:"Rezultatul analizei, traseul optim ca raster, ${layername} ${fieldname}",itemSnippet:"Strat tematic de obiecte spa\u0163iale generat din traseul optim ca raster."});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/types/arcgis/form/InputReportType","dojo/_base/declare dojo/_base/lang dojo/dom-class dojo/has ../../../../../kernel ../../../base/etc/docUtil ./InputSelectCode".split(" "),function(c,f,d,g,h,k,l){c=c([l],{postCreate:function(){this.inherited(arguments)},emitInteractionOccurred:function(a){this.inherited(arguments);try{var b=this.parentXNode.gxeDocument;!b.isViewOnly&&b.isAgsFGDC&&this._updateEvalMethod()}catch(e){console.error(e)}},_updateEvalMethod:function(){var a=this.getInputValue(),
+b=k.findInputWidget("/metadata/dqInfo/report/evalMethDesc",this.parentXNode.parentElement.domNode),e=!1;if("DQAbsExtPosAcc"===a||"DQQuanAttAcc"===a)e=!0;b&&(a=b.parentXNode.labelNode,e?(b.parentXNode.minOccurs=1,d.remove(a,"gxeOptionalLabel"),d.add(a,"gxeMandatoryLabel")):(b.parentXNode.minOccurs=0,d.remove(a,"gxeMandatoryLabel"),d.add(a,"gxeOptionalLabel")),b.emitInteractionOccurred())}});g("extend-esri")&&f.setObject("dijit.metadata.types.arcgis.form.InputReportType",c,h);return c});

@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sv/OptimalRegionConnections",{inputRegionRasterOrFeatures:"V\u00e4lj regionraster eller geoobjekt",inputCostRaster:"V\u00e4lj kostnadraster (valfritt)",inputBarrierRasterOrFeatures:"V\u00e4lj hinderraster eller geoobjekt (valfritt)",distanceMethod:"Avst\u00e5ndsmetod (valfritt)",connectionsWithinRegions:"Anslutningar inom regioner (valfritt)",generateConnections:"Generera anslutningar",noConnections:"Inga anslutningar",planar:"Plan",geoDesic:"Geodetisk",outputOptimalLinesName:"Resultat f\u00f6r geoobjektlagernamnet Optimala anslutningslinjer",
+outputNeighborConnectionsName:"Resultat f\u00f6r geoobjektlagernamnet Angr\u00e4nsande anslutningar (valfritt)",outputLayerName:"Optimala regionanslutningar f\u00f6r ${layername}",drawSourcePointLayerName:"K\u00e4llpunkter",itemDescription:"Geoobjektlager som genererats genom att k\u00f6ra Optimala regionanslutningar p\u00e5 ${layername}. ",itemTags:"Analysresultat, Optimala regionanslutningar, ${layername} ${fieldname}",itemSnippet:"Ett geoobjektlager har genererats fr\u00e5n Optimala regionanslutningar.",
+noValueMessage:"Detta v\u00e4rde \u00e4r obligatoriskt"});

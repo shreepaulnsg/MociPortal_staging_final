@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/it/OptimalPathAsRaster",{inputDestinationRasterOrFeatures:"Scegliere destinazione raster o feature",destinationField:"Campo di destinazione (opzionale)",inputDistanceAccumulationRaster:"Scegliere raster di accumulo della distanza",inputBackDirectionRaster:"Scegliere direzione contraria o raster di direzione del flusso",pathType:"Tipo percorso (facoltativo)",bestSingle:"Singolo migliore",eachCell:"Ogni cella",eachZone:"Ogni zona",outputRasterName:"Risultato nome raster layer",
+outputLayerName:"Percorso ottimale come raster di ${layername}",drawSourcePointLayerName:"Punti di origine",itemDescription:"Feature layer generato dall'esecuzione del percorso ottimale come raster su ${layername}. ",itemTags:"Risultato analisi, percorso ottimale come raster,${layername} ${fieldname}",itemSnippet:"Feature layer generato dal percorso ottimale come raster."});

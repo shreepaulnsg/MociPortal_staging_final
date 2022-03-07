@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/de/OptimalPathAsRaster",{inputDestinationRasterOrFeatures:"Ziel-Raster oder -Features ausw\u00e4hlen",destinationField:"Zielfeld (optional)",inputDistanceAccumulationRaster:"Entfernungs-Akkumulations-Raster ausw\u00e4hlen",inputBackDirectionRaster:"Gegenrichtungs- oder Flie\u00dfrichtungs-Raster ausw\u00e4hlen",pathType:"Pfadtyp (optional)",bestSingle:"Der Beste",eachCell:"Jede Zelle",eachZone:"Jede Zone",outputRasterName:"Name des Ergebnis-Raster-Layers",outputLayerName:"Optimaler Pfad als Raster von ${layername}",
+drawSourcePointLayerName:"Ausgangspunkte",itemDescription:'\u00dcber "Optimaler Pfad als Raster" f\u00fcr ${layername} erstellter Feature-Layer. ',itemTags:"Analyseergebnis, Optimaler Pfad als Raster, ${layername} ${fieldname}",itemSnippet:'\u00dcber "Optimaler Pfad als Raster" erstellter Feature-Layer.'});

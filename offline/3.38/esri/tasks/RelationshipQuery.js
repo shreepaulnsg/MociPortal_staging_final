@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/RelationshipQuery",["dojo/_base/declare","dojo/_base/lang","dojo/_base/json","dojo/has","../kernel"],function(b,g,h,k,l){b=b(null,{declaredClass:"esri.tasks.RelationshipQuery",definitionExpression:"",relationshipId:null,returnGeometry:!1,objectIds:null,outSpatialReference:null,outFields:null,orderByFields:null,toJson:function(){var a={definitionExpression:this.definitionExpression,relationshipId:this.relationshipId,returnGeometry:this.returnGeometry,maxAllowableOffset:this.maxAllowableOffset,
+geometryPrecision:this.geometryPrecision},d=this.objectIds,e=this.outFields,c=this.outSpatialReference,f=this.orderByFields;d&&(a.objectIds=d.join(","));e&&(a.outFields=e.join(","));c&&(a.outSR=c.wkid||h.toJson(c.toJson()));f&&(a.orderByFields=f.join(","));a._ts=this._ts;return a}});k("extend-esri")&&g.setObject("tasks.RelationshipQuery",b,l);return b});

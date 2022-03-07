@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/es/TraceProximityEvents",{inputLayer:"Seleccionar la capa para buscar eventos de proximidad de",entityField:"Seleccionar un campo para identificar eventos",entityLayer:"Seleccionar la capa para especificar entidades de inter\u00e9s",defineDistanceLabel:"Definir la distancia de b\u00fasqueda espacial",distMethodLabel:"Elegir el m\u00e9todo para calcular la distancia",temporalSearchLabel:"Definir la distancia de b\u00fasqueda temporal",optionsLabel:"Opciones avanzadas",
+maxTraceDepth:"Profundidad m\u00e1xima de trazado",attributeMatchLabel:"Seleccionar uno o m\u00e1s atributos de entidad para cotejar",includeTracksLayer:"Incluir capa de rastreos",itemDescription:"Capa de entidades generada al ejecutar la soluci\u00f3n de trazado de eventos de proximidad para ${inputLayername}.",itemTags:"Resultados del an\u00e1lisis, trazar eventos de proximidad, ${inputLayername}",itemSnippet:"Capa de entidades generada a partir del trazado de eventos de proximidad.",outputLayerName:"Trazar eventos de proximidad para ${inputLayername}",
+noEntityFieldMsg:"La capa de eventos de proximidad y la capa de entidades de inter\u00e9s no tienen ning\u00fan campo en com\u00fan."});

@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/grid/coreUtils/gridLayoutCalcUtils/columns/ColumnModifier",["../GridLayoutCalculatorQueryUtil","./ColumnDataUtil","./_ColumnModifierNormal","./_ColumnModifierLoose"],function(m,d,n,h){var g={},k={getColumnToChange:function(a,b,c,e){var f=m.getMovableColumn(a,b,c.field);f&&(a=d.calcFieldWidth(a,b,c.field,f.field),e-=a);return{column:f||c,width:e}}},p={finalResizeGridCells:function(a){a.getCells().forEach(function(b){b.setWidth(d.calcFieldWidth(a,b.row,
+b.column.field))});d.recalcGridWidth(a)}},q={recalcToStick:function(a){var b=a.columns[a.columns.length-1];a.rows.some(function(c,e){if(!a.looseResize&&e)return!0;var f=0;a.columns.forEach(function(l){l!==b&&(f+=d.getFieldWidth(a,c,l.field))});d.setFieldWidth(a,c,b.field,d.getAllowedWidth(a)-f)})}};g.adjustColumnWidth=function(a,b,c,e){c=k.getColumnToChange(a,b,c,e);(a.looseResize?h:n).adjustColumnWidth(a,b,c.column,c.width);a.stickToRight&&q.recalcToStick(a);p.finalResizeGridCells(a)};g.getAffectedCells=
+function(a,b,c){return a.looseResize?h.getAffectedCells(a,b,k.getColumnToChange(a,b,c).column):null};return g});

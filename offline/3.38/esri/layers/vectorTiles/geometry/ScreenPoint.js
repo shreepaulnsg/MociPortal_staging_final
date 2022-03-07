@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/geometry/ScreenPoint","require exports ../core/tsSupport/declareExtendsHelper ../core/tsSupport/decorateHelper ../core/Accessor ../core/accessorSupport/decorators".split(" "),function(l,m,h,e,k,d){return function(f){function b(){for(var a=[],c=0;c<arguments.length;c++)a[c]=arguments[c];a=f.apply(this,a)||this;a.x=0;a.y=0;a.z=void 0;return a}h(b,f);var g=b;b.prototype.normalizeCtorArgs=function(a,c){return"number"===typeof a?{x:a,y:c}:Array.isArray(a)?{x:a[0],y:a[1]}:
+a};b.prototype.clone=function(){return new g({x:this.x,y:this.y,z:this.z})};b.prototype.toArray=function(){return null==this.z?[this.x,this.y]:[this.x,this.y,this.z]};e([d.property({type:Number})],b.prototype,"x",void 0);e([d.property({type:Number})],b.prototype,"y",void 0);e([d.property({type:Number})],b.prototype,"z",void 0);return b=g=e([d.subclass("esri.geometry.ScreenPoint")],b)}(d.declared(k))});

@@ -1,0 +1,11 @@
+{
+	"userType":"industrial",
+	"plotStService" :"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/1",
+	"firmService" :"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/8",
+	"prodService" :"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/3",
+	"plotService" :"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/0",
+	"domainService":"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/7",
+	"utilityAllocService":"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/5",
+	"prodctsDB":"ISSGIS.DBO.Products.",
+	"productsDomainDB":"ISSGIS.dbo.dmn_Products_AR"
+}

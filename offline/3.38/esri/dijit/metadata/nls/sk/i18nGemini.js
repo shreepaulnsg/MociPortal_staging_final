@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/nls/sk/i18nGemini",{documentTypes:{data:{caption:"GEMINI (\u00fadaje)",description:""},service:{caption:"GEMINI (slu\u017eba)",description:""}},LanguageCode:{eng:"Angli\u010dtina",cym:"Wale\u0161tina",gle:"Gael\u0161tina (\u00edrska)",gla:"Gael\u0161tina (\u0161k\u00f3tska)",cor:"Cornwall\u010dina",sco:"Ulstersk\u00e1 \u0161k\u00f3t\u010dina"},verticalCRS:{reference:"Referencia (napr. urn:ogc:def:crs:EPSG::5701)"}});

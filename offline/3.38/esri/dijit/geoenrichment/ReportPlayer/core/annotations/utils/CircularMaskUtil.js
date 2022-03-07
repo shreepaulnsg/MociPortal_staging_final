@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/annotations/utils/CircularMaskUtil",["dojo/dom-construct","dojo/dom-style","dojox/gfx","dojox/gfx/matrix","esri/dijit/geoenrichment/utils/DomUtil"],function(g,e,n,p,h){return{setCircularMask:function(c,a,k,f){function l(){a&&a.__maskNode&&(g.destroy(a.__maskNode),delete a.__maskNode)}function q(){var b=e.get(a,"width"),d=e.get(a,"height"),r=e.get(a,"left"),t=e.get(a,"top");return{w:b,h:d,l:r,t:t,cr:Math.min(b,d)/2,cx:b/2,cy:d/2}}function u(b){var d=
+n.createSurface(a.__maskNode,b.w,b.h).createImage({x:0,y:0,width:b.w,height:b.h,src:k});d.setClip({cx:b.cx,cy:b.cy,rx:b.cr,ry:b.cr}).applyTransform(p.rotategAt(f,b.cx,b.cy));d.rawNode.setAttribute("preserveAspectRatio","xMidYMid meet")}f=f||0;if(c&&a){c=q();var m=[c.w,c.h,c.l,c.t,k,f].join("_");a.__maskNode&&a.__maskNode.__renderKey===m||(l(),a.__maskNode=g.create("div"),e.set(a.__maskNode,{position:"absolute",left:c.l+"px",top:c.t+"px"}),u(c),a.__maskNode.__renderKey=m);g.place(a.__maskNode,a,"after");
+h.hide(a)}else l(),h.show(a);return a&&a.__maskNode}}});

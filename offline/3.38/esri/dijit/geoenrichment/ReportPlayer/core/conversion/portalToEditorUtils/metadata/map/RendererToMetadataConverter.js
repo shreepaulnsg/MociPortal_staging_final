@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/conversion/portalToEditorUtils/metadata/map/RendererToMetadataConverter",["dojo/_base/lang","esri/dijit/geoenrichment/utils/JsonXmlTypedConverter","esri/dijit/geoenrichment/utils/JsonXmlConverter"],function(f,b,c){var e={convertRendererJson:function(a){switch(a.type){case "simple":"esriPMS"===a.symbol.type&&(a=f.clone(a),delete a.symbol.url)}return c.parseXml(b.parseJson(a,{rootName:"Renderer"}))},convertLabelRendererJson:function(a){a=a.uniqueValueInfos.map(function(d){return{labelExpressionInfo:{expression:"$feature.StdGeographyName"},
+where:"StdGeographyLevel\x3d'"+d.value+"'",labelPlacement:"esriServerPolygonPlacementAlwaysHorizontal",symbol:d.symbol}});return e.convertLabelingInfo(a)},convertLabelingInfo:function(a){return c.parseXml(b.parseJson(a,{rootName:"LabelingInfo"}))}};return e});

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Raster zusammenfassen (innerhalb)</h2><p/>
+        <h2><img src="../images/GUID-D61C156C-2B2C-488C-BF28-B6CB9277BF4B-web.png" alt="Werkzeug &quot;Raster zusammenfassen (innerhalb)&quot;"></h2>
+        <hr/>
+    <p>Mit diesem Werkzeug werden die Werte eines Rasters innerhalb der Zonen eines anderen Datasets zusammengefasst.
+    </p>
+    <p>Dieses Werkzeug umfasst das folgende Anwendungsgebiet:
+        <ul>
+            <li>Anhand eines Layers mit Grenzen von Wassereinzugsgebieten und eines Layers mit Grenzen von Landnutzungsfl&auml;chen nach Landnutzungstyp die Gesamtlandwirtschaftsfl&auml;che des Landnutzungstyps f&uuml;r jedes Ablussgebiet ermitteln.
+                
+
+            </li>
+            <li>Den durchschnittlichen Grundst&uuml;ckswert unbebauter Flurst&uuml;cke je Stadt anhand eines Flurst&uuml;cks-Layers in einem Landkreis und eines Stadtgrenzen-Layers zusammenfassen.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>Wenn die Option  <b>Aktuelle Kartenausdehnung verwenden</b> aktiviert ist, werden nur die Features im Eingabe-Layer und dem zusammenfassenden Layer analysiert, die in der aktuellen Kartenausdehnung sichtbar sind. Wenn diese Option deaktiviert ist, werden alle Features im Eingabe- und im zusammenfassenden Layer analysiert, auch wenn sie sich au&szlig;erhalb der aktuellen Ausdehnung befinden.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="sumWithinLayer">
+        <div><h2>Flächen-Layer auswählen, um einen Raster-Layer innerhalb definierter Grenzen zusammenzufassen</h2></div>
+        <hr/>
+        <div>
+            <p>Die Eingabe, die die Grenzen der zusammenzufassenden Zonen bzw. Fl&auml;chen definiert.
+            </p>
+            <p>Bei der Eingabe kann es sich um ein Integer-Raster oder um Feature-Daten handeln. F&uuml;r Raster werden die Zonen durch alle Positionen in der Eingabe definiert, die denselben Zellenwert haben. Bei Features kann es sich um &uuml;berlappende Zonen handeln. Die Fl&auml;chen m&uuml;ssen nicht zusammenh&auml;ngend sein.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Feld zum Definieren der Grenzen auswählen</h2></div>
+        <hr/>
+        <div>
+            <p>Das Feld, das die Werte enth&auml;lt, die die einzelnen Zonen definieren.
+            </p>
+            <p>Es kann sich dabei um ein Ganzzahl- oder ein Zeichenfolgefeld des Zonen-Datasets handeln.
+            </p>
+        </div>
+    </div>
+    <div id="sumRasterLayer">
+        <div><h2>Zusammenzufassenden Raster-Layer auswählen</h2></div>
+        <hr/>
+        <div>
+            <p>Das Raster, das die Werte f&uuml;r die Berechnung der Statistik enth&auml;lt.
+            </p>
+            <p>Dies kann eine ganze Zahl oder ein Gleitkommawert sein. Bei Gleitkomma-Rastern sind jedoch die Optionen f&uuml;r die Berechnung von Mehrheit, Minderheit und Varianz nicht verf&uuml;gbar.
+            </p>
+        </div>
+    </div>
+    <div id="sumStatistic">
+        <div><h2>Zu berechnende Statistik auswählen</h2></div>
+        <hr/>
+        <div>
+            <p>Gibt den zu berechnenden Statistiktyp an.
+            </p>
+            <p> Als Eingabe sind folgende Optionen m&ouml;glich: <b>Durchschnitt</b>, <b>Mehrheit</b>, <b>Maximum</b>, <b>Medianwert</b>, <b>Minimum</b>, <b>Minderheit</b>, <b>Perzentil</b>, <b>Bereich</b>, <b>Standardabweichung</b>, <b>Summe</b> oder <b>Varianz</b>. Die Standardeinstellung ist <b>Durchschnitt</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Perzentilwert</h2></div>
+        <hr/>
+        <div>
+            <p>Das zu berechnende Perzentil. Der Standardwert ist 90 und steht f&uuml;r das 90.&nbsp;Perzentil.
+            </p>
+            <p>Zul&auml;ssiger Wert kann zwischen 0 und 100 liegen. Grunds&auml;tzlich entspricht die Angabe eines Perzentilwertes von 0 dem Statistiktyp &quot;Minimum&quot; und ein Perzentilwert von 100 dem Typ &quot;Maximum&quot;. Der Wert&nbsp;50 ergibt im Wesentlichen dasselbe Ergebnis wie der Medianwert der Statistik.
+            </p>
+            <p> Dieser Parameter wird nur unterst&uuml;tzt, wenn f&uuml;r den Parameter <b>Zu berechnende Statistik ausw&auml;hlen</b> die Option <b>Perzentil</b> festgelegt wurde.
+            </p>
+        </div>
+    </div>
+    <div id="missingValues">
+        <div><h2>Fehlende Werte in Berechnung ignorieren</h2></div>
+        <hr/>
+        <div>
+            <p> Gibt an, ob fehlende Werte bei der Analyse ignoriert werden.
+            </p>
+            <ul>
+                <li>Aktiviert: In die Analyse werden die Zellen einbezogen, die in einer Zone &uuml;ber einen Wert im Eingabe-Werte-Raster verf&uuml;gen, um den Ausgabewert f&uuml;r die entsprechende Zone zu bestimmen. NoData-Zellen im Werte-Raster werden bei der Statistikberechnung ignoriert. Dies ist die Standardeinstellung.
+                </li>
+                <li>Deaktiviert: Wenn in einer der Zonen NoData-Werte f&uuml;r die Zellen im Werte-Raster vorhanden sind, wird bei der Analyse &quot;NoData&quot; zur&uuml;ckgegeben.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Als mehrdimensional verarbeiten</h2></div>
+        <hr/>
+        <div>
+            <p>Gibt an, wie die Eingabe-Image-Services verarbeitet werden, wenn sie multidimensional sind.
+            </p>
+            <ul>
+                <li>Aktiviert: Die Statistiken werden anhand des aktuellen Segments eines mehrdimensionalen Eingabe-Datasets berechnet. Dies ist die Standardeinstellung.
+                    
+
+                </li>
+                <li>Deaktiviert: Die Statistiken werden f&uuml;r alle Dimensionen des mehrdimensionalen Eingabe-Datasets berechnet.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Name des Ergebnis-Layers</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Der Name des Layers, der in  <b>Eigene Inhalte</b> erstellt und der Karte hinzugef&uuml;gt wird. Der Standardname basiert auf dem Werkzeugnamen und dem Namen des Eingabe-Layers. Wenn der Layer bereits vorhanden ist, werden Sie aufgefordert, einen anderen Namen einzugeben.
+            </p>
+            <p>Sie k&ouml;nnen den Namen eines Ordners in  <b>Eigene Inhalte</b> angeben, in dem das Ergebnis &uuml;ber das Dropdown-Feld <b>Ergebnis speichern in</b> gespeichert wird. Wenn Sie über Berechtigungen zum Erstellen gekachelter und dynamischer Bilddaten-Layer verfügen, können Sie angeben, welcher Layer-Typ in der Ausgabe generiert werden soll, indem Sie das Dropdown-Feld "Ergebnis speichern als" verwenden. </p>
+        </div>
+    </div>
+</div>
+</html>

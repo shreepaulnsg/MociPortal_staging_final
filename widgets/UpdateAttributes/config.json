@@ -1,0 +1,5 @@
+{
+	"planRegulation":"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/4",
+	"utilAllocation":"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/5",
+	"indPlots":"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/0"
+}

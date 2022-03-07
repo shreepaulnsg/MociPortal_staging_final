@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Raster Özetleme Aralığı</h2><p/>
+        <h2><img src="../images/GUID-D61C156C-2B2C-488C-BF28-B6CB9277BF4B-web.png" alt="Raster &Ouml;zetleme Aralığı aracı"></h2>
+        <hr/>
+    <p>Bu ara&ccedil;, başka bir veri k&uuml;mesinin b&ouml;lgeleri i&ccedil;indeki bir rasterın değerlerini &ouml;zetler.
+    </p>
+    <p>Bu aracın bazı &ouml;rnek uygulamaları aşağıdakileri i&ccedil;erir:
+        <ul>
+            <li>Boşaltma havzası sınırları katmanı ve arazi kullanım t&uuml;r&uuml;ne g&ouml;re bir arazi kullanım sınırları katmanı verildiğinde, her boşaltma havzası i&ccedil;in arazi kullanım t&uuml;r&uuml;n&uuml;n toplam y&uuml;z &ouml;l&ccedil;&uuml;m&uuml;n&uuml; hesaplayın.
+                
+
+            </li>
+            <li>Bir il&ccedil;edeki parsellerin bir katmanı ve şehir sınırlarının bir katmanı verildiğinde, her bir şehir sınırı dahilindeki boş parsellerin ortalama değerini &ouml;zetleyin.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p> <b>Ge&ccedil;erli harita yayılımını kullan</b> işaretli ise, yalnızca ge&ccedil;erli harita yayılımında g&ouml;r&uuml;n&uuml;r olan girdi katmanındaki ve &ouml;zetlenecek katmandaki ilgili detaylar analiz edilir. İşaretli değilse, hem girdi katmanı hem de &ouml;zetlenecek katmandaki t&uuml;m detaylar, ge&ccedil;erli harita yayılımının dışında olsa bile analiz edilir.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="sumWithinLayer">
+        <div><h2>Bir raster katmanını tanımlı sınırları içinde özetlemek için alan katmanı seçin</h2></div>
+        <hr/>
+        <div>
+            <p>&Ouml;zetlenecek b&ouml;lgelerin ya da alanların sınırlarını tanımlayan girdi.
+            </p>
+            <p>Girdi, bir tamsayı raster veya detay verisi olabilir. Rasterlar s&ouml;z konusu olduğunda b&ouml;lgeler, girdi i&ccedil;inde aynı h&uuml;cre değerine sahip olan t&uuml;m konumlar tarafından tanımlanır. Detaylar i&ccedil;in, b&ouml;lgeler &ccedil;akışabilir. Alanların s&uuml;rekli olması gerekmez.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Sınırları tanımlamak için alan seçin</h2></div>
+        <hr/>
+        <div>
+            <p>Her bir b&ouml;lgeyi tanımlayan değerleri i&ccedil;eren alan.
+            </p>
+            <p>B&ouml;lge veri k&uuml;mesinin bir dizi alanı veya bir tamsayı olabilir.
+            </p>
+        </div>
+    </div>
+    <div id="sumRasterLayer">
+        <div><h2>Özetlenecek raster katmanını seçin</h2></div>
+        <hr/>
+        <div>
+            <p>Bir istatistiğin hesaplanacağı değerleri i&ccedil;eren raster.
+            </p>
+            <p>Bu, bir tamsayı veya kayan nokta olabilir. Bununla birlikte kayan noktalı t&uuml;r olduğunda, &ccedil;oğunluk, azınlık ve &ccedil;eşitlilik hesaplama se&ccedil;enekleri kullanılabilir olmayacaktır.
+            </p>
+        </div>
+    </div>
+    <div id="sumStatistic">
+        <div><h2>Hesaplanacak istatistiği seçin</h2></div>
+        <hr/>
+        <div>
+            <p>Hesaplanacak istatistik t&uuml;r&uuml;n&uuml; belirtir.
+            </p>
+            <p> Girdi, şunlardan biri olabilir: <b>Ortalama</b>, <b>&Ccedil;oğunluk</b>, <b>Maksimum</b>, <b>Ortanca</b>, <b>Minimum</b>, <b>Azınlık</b>, <b>Y&uuml;zde</b>, <b>Aralık</b>, <b>Standart sapma</b>, <b>Toplam</b> veya <b>&Ccedil;eşitlilik</b>. Varsayılan <b>Ortalama</b>'dır.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Yüzde değeri</h2></div>
+        <hr/>
+        <div>
+            <p>Hesaplanacak olan y&uuml;zde. Varsayılan 90'dır ve 90. y&uuml;zdelik dilimi g&ouml;sterir.
+            </p>
+            <p>Değer, 0 - 100 arasında değişebilir. Temelde y&uuml;zde 0 hesaplamasının sonucu minimum istatistiğin sonucuna eşittir ve y&uuml;zde 100 ise maksimuma eşittir. 50 değeri temelde ortanca istatistiğiyle aynı sonucu &uuml;retir.
+            </p>
+            <p> Bu parametre sadece <b>Hesaplanacak istatistiği se&ccedil;</b> parametresi <b>Y&uuml;zde</b> olarak ayarlanmışsa desteklenir.
+            </p>
+        </div>
+    </div>
+    <div id="missingValues">
+        <div><h2>Hesaplamadaki eksik değerleri yoksay</h2></div>
+        <hr/>
+        <div>
+            <p> Eksik değerlerin analizde g&ouml;z ardı edilip edilmeyeceğini belirtir.
+            </p>
+            <ul>
+                <li>İşaretlendi&mdash;Analiz, ilgili b&ouml;lgenin &ccedil;ıktı değerini belirlemek &uuml;zere herhangi bir belirli b&ouml;lge i&ccedil;erisindeki girdi değeri rasterında bir değere sahip h&uuml;creleri kapsayacaktır. Değer rasterı i&ccedil;indeki NoData h&uuml;creleri, istatistik hesaplamasında g&ouml;z ardı edilecektir. Varsayılan değerdir.
+                </li>
+                <li>İşaretlenmedi&mdash;Belirli bir b&ouml;lge i&ccedil;erisindeki değer rasterının h&uuml;creleri i&ccedil;in herhangi bir NoData değerinin mevcut olması halinde, analiz NoData olarak sonu&ccedil;lanacaktır.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Çok boyutlu olarak işle</h2></div>
+        <hr/>
+        <div>
+            <p>&Ccedil;ok boyutlu olduklarında, girdi &ccedil;ok boyutlu g&ouml;r&uuml;nt&uuml; servislerinin nasıl işleneceğini belirtir.
+            </p>
+            <ul>
+                <li>İşaretlendi&mdash;İstatistikler girdi &ccedil;ok boyutlu veri k&uuml;mesinin ge&ccedil;erli diliminden hesaplanacaktır. Varsayılan değerdir.
+                    
+
+                </li>
+                <li>İşaretlenmedi&mdash;İstatistikler girdi &ccedil;ok boyutlu veri k&uuml;mesinin b&uuml;t&uuml;n boyutları i&ccedil;in hesaplanacaktır.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Sonuç katmanı adı</h2></div>
+        <hr/>
+        <div>
+            
+            <p> <b>İ&ccedil;eriğim</b>'de oluşturulacak ve haritaya eklenecek katmanın adı. Varsayılan ad, ara&ccedil; adına ve girdi katmanı adına dayanır. Katman zaten mevcutsa, başka bir ad sağlamanız istenir.
+            </p>
+            <p> <b>İ&ccedil;eriğim</b>&rsquo;de, <b>Sonu&ccedil;ları Kaydet</b> a&ccedil;ılır kutusunu kullanarak sonucun kaydedileceği klas&ouml;r&uuml;n adını belirleyebilirsiniz. Hem döşemeli hem de dinamik görüntü katmanları oluşturma ayrıcalıklarınız varsa, Sonucu farklı kaydet açılır kutusunu kullanarak çıktıda hangi katman türünün oluşturulacağını belirtebilirsiniz. </p>
+        </div>
+    </div>
+</div>
+</html>

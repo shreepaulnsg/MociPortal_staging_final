@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/lv/OptimalPathAsRaster",{inputDestinationRasterOrFeatures:"Izv\u0113lieties m\u0113r\u0137a rastru vai elementus",destinationField:"Galam\u0113r\u0137a lauks (p\u0113c izv\u0113les)",inputDistanceAccumulationRaster:"Izv\u0113lieties att\u0101luma akumul\u0113\u0161anas rastru",inputBackDirectionRaster:"Izv\u0113lieties atpaka\u013cvirziena vai pl\u016bsmas virziena rastru",pathType:"Ce\u013ca veids\u00a0(p\u0113c izv\u0113les)",bestSingle:"Viens piem\u0113rot\u0101kais",
+eachCell:"Katra \u0161\u016bna",eachZone:"Katra zona",outputRasterName:"Rezult\u0101tu rastra sl\u0101\u0146a nosaukums",outputLayerName:"Optim\u0101ls ce\u013c\u0161 k\u0101 ${layername} rastrs",drawSourcePointLayerName:"Avota punkti",itemDescription:"Elementu sl\u0101nis, kas \u0123ener\u0113ts, palai\u017eot risin\u0101jumu Optim\u0101ls ce\u013c\u0161 k\u0101 rastru sl\u0101nim ${layername}. ",itemTags:"Anal\u012bzes rezult\u0101ts, Optim\u0101ls ce\u013c\u0161 k\u0101 rastrs, ${layername}, ${fieldname}",
+itemSnippet:"Elementu sl\u0101nis, kas \u0123ener\u0113ts no risin\u0101juma Optim\u0101ls ce\u013c\u0161 k\u0101 rastrs."});

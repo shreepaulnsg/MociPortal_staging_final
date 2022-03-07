@@ -1,0 +1,463 @@
+
+{
+  "theme": {
+    "name": "FoldableTheme",
+    "styles": [
+      "default",
+      "black",
+      "blue",
+      "cyan",
+      "green",
+      "purple",
+      "red",
+      "yellow"
+    ],
+    "version": "2.20",
+    "sharedTheme": {
+      "isPortalSupport": false,
+      "useHeader": false,
+      "useLogo": false
+    }
+  },
+  "portalUrl": "http://gisstg.moci.gov.qa/geoportal",
+  "appId": "qxrZJOITv5SiD70A",
+  "authorizedCrossOriginDomains": [],
+  "title": "Industrial Estate Map Viewer",
+  "subtitle": "",
+  "keepAppState": true,
+  "logo": "images/app-logo.png", 
+  "geometryService": "https://utility.arcgisonline.com/arcgis/rest/services/Geometry/GeometryServer",
+  "links": [],
+  "widgetOnScreen": {
+    "widgets": [
+      {
+        "uri": "themes/FoldableTheme/widgets/HeaderController/Widget",
+        "position": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "height": 50,
+          "relativeTo": "browser"
+        },
+        "version": "2.20",
+        "id": "themes_FoldableTheme_widgets_HeaderController_Widget_1",
+        "name": "HeaderController"
+      },
+      {
+        "uri": "widgets/Search/Widget",
+        "position": {
+          "left": 14,
+          "top": 25,
+          "zIndex": 1,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_Search_Widget_22",
+        "name": "Search",
+        "config": "configs/Search/config__10.json"
+      }, 
+      {
+        "uri": "widgets/ZoomSlider/Widget",
+        "position": {
+          "top": 17,
+          "right": 7,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_ZoomSlider_Widget_15",
+        "name": "ZoomSlider"
+      },
+      {
+        "uri": "widgets/HomeButton/Widget",
+        "position": {
+          "right": 7,
+          "top": 82,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_HomeButton_Widget_11",
+        "name": "HomeButton"
+      },{
+        "position": {
+          "right": 7,
+          "top": 115,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_13",
+        "name": "ZoomIn",
+        "version": "2.20",
+        "closeable": false,
+        "IsController": false,
+        "uri": "widgets/ZoomIn/Widget"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 148,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_14",
+        "name": "ZoomOut",
+        "version": "2.20",
+        "closeable": false,
+        "IsController": false,
+        "uri": "widgets/ZoomOut/Widget"
+      },  
+      {
+        "position": {
+          "right": 7,
+          "top": 181,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_5",
+        "name": "Bookmark",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/Bookmark/Widget",
+        "config": "configs/Bookmark/config__5.json"
+      },
+      {
+        "position": {
+          "right": 7,
+          "top": 214,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_6",
+        "name": "Measurement",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/Measurement/Widget",
+        "config": "configs/Measurement/config__6.json"
+      }, 
+        {
+        "position": {
+          "right": 7,
+          "top": 247,
+          "height":340,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_16",
+        "name": "Identify",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/Identify/Widget"
+      },  
+      {
+        "position": {
+          "right": 7,
+          "top": 280, 
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_12",
+        "name": "GoToCoordinates",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/GoToCoordinates/Widget"
+      },   
+      {
+        "position": {
+          "right": 7,
+          "top": 313,
+          "height": 580,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_10",
+        "name": "SearchAll",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/SearchAll/Widget",
+        "config": "configs/SearchAll/Search_config.json"
+      },
+      {
+        "position": { 
+          "right": 7,
+          "top": 346,
+          "height": 400,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_11",
+        "name": "PlotFactoryInfo",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/PlotFactoryInfo/Widget",
+        "config": "configs/PlotFactoryInfo/config__11.json"
+      },{
+        "position": {
+          "right": 7,
+          "top": 379,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_18",
+        "name": "CustomReport",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/Print/Widget"
+      },
+      
+      
+      {
+        "position": {
+          "right":-1000,
+          "top": -1000
+        },
+        "placeholderIndex": 1,
+        "id": "_13",
+        "name": "UpdateAttributes",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false, 
+        "uri": "widgets/UpdateAttributes/Widget"
+      },  
+      {
+        "position": {
+          "right": 7,
+          "top": 412,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_20",
+        "name": "ClearButton",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": true,
+        "uri": "widgets/ClearButton/Widget"
+      },
+
+{
+  "a":" ABOVE ARE SIDE WIDGERTS"
+},
+
+
+
+      {
+        "uri": "widgets/Scalebar/Widget",
+        "position": {
+          "left": 220,
+          "bottom": 4,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_Scalebar_Widget_2",
+        "name": "Scalebar"
+      },
+       
+      
+      {
+        "uri": "widgets/Coordinate/Widget",
+        "position": {
+          "left": 7,
+          "bottom": 5,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_Coordinate_Widget_4",
+        "name": "Coordinate"
+      },      
+      {
+        "position": {
+          "right": 7,
+          "top": 30,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_9",
+        "name": "Test",
+        "version": "2.20",
+        "closeable": true,
+        "IsController": false,
+        "uri": "widgets/Test/Widget",
+        "config": "configs/Test/config__9.json"
+      }, 
+      {
+        "uri": "widgets/OverviewMap/Widget",
+        "position": {
+          "bottom": 0,
+          "right": 0,
+          "zIndex": 1,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_OverviewMap_Widget_10",
+        "name": "OverviewMap"
+      },
+     
+      {
+        "uri": "widgets/ExtentNavigate/Widget",
+        "visible": false,
+        "position": {
+          "top": 190,
+          "right": 7,
+          "relativeTo": "map"
+        },
+        "id": "widgets_ExtentNavigate_Widget_16",
+        "name": "ExtentNavigate",
+        "version": "2.20"
+      },
+      {
+        "uri": "widgets/FullScreen/Widget",
+        "visible": false,
+        "position": {
+          "top": 150,
+          "right": 7,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_FullScreen_Widget_17",
+        "name": "FullScreen"
+      }, {
+        "uri": "widgets/AttributeTable/Widget",
+        "position": {
+          "relativeTo": "browser"
+        },
+        "version": "2.20",
+        "id": "widgets_AttributeTable_Widget_13",
+        "name": "AttributeTable"
+      }
+    ],
+    "panel": {
+      "uri": "jimu/OnScreenWidgetPanel",
+      "position": {
+        "relativeTo": "map"
+      }
+    }
+  },
+  "map": {
+    "3D": false,
+    "2D": true,
+    "position": {
+      "left": 0,
+      "top": 40,
+      "right": 0,
+      "bottom": 0
+    },
+    "itemId": "7e496fef6e674b4a97219684fd3b19bf",
+    "mapOptions": {
+      "extent": {
+        "xmin": 51.3652,
+        "ymin": 25.1404,
+        "xmax": 51.4492,
+        "ymax": 25.1740,
+        "spatialReference": {
+          "wkid": 4326
+        }
+      }
+    },
+    "id": "map",
+    "portalUrl": "http://gisstg.moci.gov.qa/geoportal"
+  },
+  "widgetPool": {
+    "panel": {
+      "uri": "themes/FoldableTheme/panels/FoldablePanel/Panel",
+      "position": {
+        "top": 5,
+        "right": 5,
+        "bottom": 5,
+        "zIndex": 5,
+        "relativeTo": "map"
+      }
+    },
+    "widgets": [
+      
+      {
+        "uri": "widgets/EngArbLang/Widget",
+        "version": "2.20",
+        "id": "widgets_Legend_Widget_21",
+        "name": "English/Arabic",
+        "index": 0
+      },
+      
+      
+      {
+        "uri": "widgets/Legend/Widget",
+        "version": "2.20",
+        "id": "widgets_Legend_Widget_18",
+        "name": "Legend",
+        "index": 0
+      },
+      {
+        "uri": "widgets/BasemapGallery/Widget",
+        "version": "2.20",
+        "id": "widgets_Legend_Widget_20",
+        "config": "configs/BasemapGallery/config_widgets_BasemapGallery_Widget_20.json",
+        "name": "BasemapGallery",
+        "index": 0
+      },
+      {
+        "uri": "widgets/LayerList/Widget",
+        "version": "2.20",
+        "id": "widgets_LayerList_Widget_19",
+        "name": "LayerList",
+        "index": 1
+      },
+      {
+        "uri": "widgets/Logout/Widget",
+        "version": "2.20",
+        "id": "widgets_Logout_Widget_35",
+        "name": "Logout",
+        "index":2
+      }
+    ],
+    "groups": []
+  },
+  "mobileLayout": {
+    "widgetOnScreen": {
+      "widgets": {
+        "widgets/Scalebar/Widget": {
+          "position": {
+            "right": 7,
+            "bottom": 40
+          },
+          "version": "1.4"
+        },
+        "widgets/Coordinate/Widget": {
+          "position": {
+            "right": 7,
+            "bottom": 17
+          },
+          "version": "1.4"
+        }    
+
+        
+      }
+    }
+  },
+  "loadingPage": {
+    "backgroundColor": "#508dca",
+    "backgroundImage": {
+      "visible": false
+    },
+    "loadingGif": {
+      "visible": true,
+      "uri": "configs/loading/images/predefined_loading_1.gif",
+      "width": 58,
+      "height": 29
+    }
+  },
+  "wabVersion": "2.20",
+  "isTemplateApp": true,
+  "isWebTier": false,
+  "httpProxy": {
+    "useProxy": false,
+    "url": "https://nsgdev225.nsgindia.co.in:3344/proxy.js"
+  },
+  "dataSource": {
+    "dataSources": {},
+    "settings": {}
+  }
+}

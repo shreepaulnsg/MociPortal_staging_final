@@ -1,0 +1,7 @@
+{
+	"LandplanSurveyPlot":"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/0",
+	"plotDetails":"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/1",
+	"firmDetails":"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/8",
+	"domainDetails":"https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer/7",
+	"connectedDetails":"https://gisstg.moci.gov.qa/server/rest/services/Moci/TSE_GAS_SEWER_Connected_1/MapServer/0"
+}

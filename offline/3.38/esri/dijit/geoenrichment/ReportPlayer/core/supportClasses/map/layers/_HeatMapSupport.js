@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/supportClasses/map/layers/_HeatMapSupport",["dojo/_base/declare","esri/dijit/geoenrichment/when","esri/layers/HeatmapManager","esri/layers/FeatureLayer"],function(e,f,g,h){return e(null,{mode:h.MODE_AUTO,geometryType:"esriGeometryPoint",declaredClass:"esri.layers.FeatureLayer",onRendererChange:function(a){this.inherited(arguments);var b=this._map;this._heatmapManager&&!this._heatmapManager.sourceLayer&&(this._heatmapManager=null);a&&"colors"in a&&
+"blurRadius"in a&&"maxPixelIntensity"in a?this.graphics&&this.graphics.length&&"point"==this.graphics[0].geometry.type&&!this._heatmapManager&&b&&(this._heatmapManager=new g(this),this._heatmapManager.initialize(b)):this._heatmapManager=null},_canDoClientSideQuery:function(){return!0},queryFeatures:function(a,b){var d={features:this.graphics.filter(function(c){return c.visible&&(!a||a.geometry.getExtent().intersects(c.geometry))})};b&&b(d);return f(d)}})});

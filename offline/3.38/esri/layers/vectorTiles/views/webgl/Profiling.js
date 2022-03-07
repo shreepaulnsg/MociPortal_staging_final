@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/webgl/Profiling",["require","exports"],function(m,e){Object.defineProperty(e,"__esModule",{value:!0});e.startMeasurement=function(a){return(a=a.capabilities.disjointTimerQuery)?new l(a):null};e.getTimestamp=function(a,b,c){void 0===c&&(c=50);var d=a.capabilities.disjointTimerQuery;if(!d||0>=d.timestampBits())return null;var f=d.createQuery();d.createTimestamp(f);var k=function(){var g=d.resultAvailable(f),h=d.disjoint();g&&!h?(g=d.getResult(f),b(g/1E6)):h?b():
+setTimeout(k,c)};k()};e.supportsTimestamps=function(a){a=a.capabilities.disjointTimerQuery;if(!a)return!1;a=a.timestampBits();console.log({bits:a});return 0<a};var l=function(){function a(b){this.timer=b;this.query=b.createQuery();this.timer.beginTimeElapsed(this.query)}a.prototype.stop=function(b,c){void 0===c&&(c=50);this.cb=b;this.checkInterval=c;this.timer.endTimeElapsed();this.checkQueryResult()};a.prototype.checkQueryResult=function(){var b=this.timer.resultAvailable(this.query),c=this.timer.disjoint();
+b&&!c?(b=this.timer.getResult(this.query),this.cb(b/1E6)):c?this.cb():setTimeout(this.checkQueryResult.bind(this),this.checkInterval)};return a}()});

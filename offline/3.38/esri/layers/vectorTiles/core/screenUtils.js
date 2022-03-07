@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/screenUtils",["require","exports"],function(g,b){function e(a){return a?72*a/b.DPI:0}Object.defineProperty(b,"__esModule",{value:!0});var f=/^-?(\d+(\.\d+)?)\s*((px)|(pt))?$/i;b.DPI=96;b.pt2px=function(a){return a?a/72*b.DPI:0};b.px2pt=e;b.toPt=function(a){if("string"===typeof a){if(f.test(a)){var c=a.match(f),d=Number(c[1]);c=c[3]&&c[3].toLowerCase();a="-"===a.charAt(0);d="px"===c?e(d):d;return a?-d:d}console.warn("screenUtils.toPt: input not recognized!");return null}return a}});

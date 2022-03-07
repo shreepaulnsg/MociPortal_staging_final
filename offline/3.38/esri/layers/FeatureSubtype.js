@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/FeatureSubtype","dojo/_base/declare dojo/_base/lang dojo/has ../kernel ../lang ./support/domainUtils".split(" "),function(d,f,h,k,l,m){d=d(null,{declaredClass:"esri.layers.FeatureSubtype",constructor:function(a){if(a&&f.isObject(a)){this.code=a.code;this.name=a.name;this.defaultValues=a.defaultValues;a=a.domains;var e=this.domains={},b;for(b in a)a.hasOwnProperty(b)&&(e[b]=m.fromJson(a[b]))}},toJson:function(){var a=l.fixJson,e={code:this.code,name:this.name,defaultValues:a(f.clone(this.defaultValues))},
+b=this.domains;if(b){var g=e.domains={},c;for(c in b)b.hasOwnProperty(c)&&(g[c]=b[c]&&b[c].toJson());a(g)}return a(e)}});h("extend-esri")&&f.setObject("layers.FeatureSubtype",d,k);return d});

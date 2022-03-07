@@ -1,0 +1,16 @@
+{
+    "name": "Clear Graphics",
+    "platform": "HTML",
+    "version": "0.0.1",
+    "author": "Esri R&D Center Beijing",
+    "description": "This is ClearButton widget",
+    "copyright": "",
+    "license": "http://www.apache.org/licenses/LICENSE-2.0",
+    "properties": {
+      "hasConfig": false,
+      "hasStyle": false,
+      "hasLocale": false,
+      "hasUIFile": false,
+      "inPanel": false
+    }
+  }

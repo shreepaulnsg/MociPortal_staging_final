@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Vzorka</h2><p/>
+        <h2><img src="../images/GUID-3950CCA3-C1D0-493F-A33D-93673443ADD2-web.png" alt="Vzorka"></h2>
+        <hr/>
+    <p>Tento n&aacute;stroj vytv&aacute;ra tabuľku alebo bodov&uacute; triedu prvkov, ktor&aacute; zobrazuje hodnoty buniek z rastra alebo sady rastrov pre definovan&eacute; lokality. Lokality s&uacute; definovan&eacute; rastrov&yacute;mi bunkami, polyg&oacute;nov&yacute;mi alebo l&iacute;niov&yacute;mi prvkami alebo sadou bodov.
+    </p>
+    <p>Niektor&eacute; pr&iacute;klady aplik&aacute;ci&iacute; tohto n&aacute;stroja obsahuj&uacute; nasledovn&eacute;:
+        <ul>
+            <li> Extrakčn&eacute; atrib&uacute;ty pre polohy vysielacej veže z viacer&yacute;ch rastrov, ako je využitie p&ocirc;dy, typ zeme, nadmorsk&aacute; v&yacute;ska a vzdialenosť od cesty.
+            </li>
+            <li>Extrahovať teplotu zeme v r&ocirc;znych hĺbkach pre dan&uacute; sadu bodov.
+            </li>
+            <li>Z 30 rokov mesačn&yacute;ch d&aacute;t teploty morskej hladiny, sumarizovať na zvierac&iacute;ch poloh&aacute;ch alebo v r&aacute;mci dom&aacute;cich rozsahov pre dan&yacute; čas, keď bol zvierac&iacute; druh pozorovan&yacute;.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Ak je za&scaron;krtnut&eacute;  <b>Použiť aktu&aacute;lny rozsah mapy</b>, bud&uacute; analyzovan&eacute; iba premenn&eacute; alebo p&aacute;sma vrstvy, ktor&eacute; s&uacute; viditeľn&eacute; v aktu&aacute;lnom rozsahu mapy. Ak nie je za&scaron;krtnut&eacute;, bud&uacute; analyzovan&eacute; premenn&eacute; alebo p&aacute;sma cel&eacute;ho rozsahu vrstvy, aj pokiaľ sa nach&aacute;dzaj&uacute; mimo rozsahu mapy.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div><h2>Vybrať snímkové vrstvy na vzorkovanie</h2></div>
+        <hr/>
+        <div>
+            <p>Jedna sn&iacute;mka alebo zoznam sn&iacute;mok, ktor&yacute;ch hodnoty bud&uacute; vzorkovan&eacute; na z&aacute;klade vtupn&yacute;ch d&aacute;t polohy. 
+            </p>
+            <p>Na vzorkovanie v&scaron;etk&yacute;ch segmentov z viacrozmernej sn&iacute;mkovej vrstvy, mus&iacute; &iacute;sť o jedin&yacute; vstupn&yacute; raster.
+            </p>
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div><h2>Vyberte vrstvu lokalít</h2></div>
+        <hr/>
+        <div>
+            <p>D&aacute;ta identifikuj&uacute;ce poz&iacute;cie, ktor&eacute; chcete vzorkovať.
+            </p>
+            <p>Vstupn&eacute; d&aacute;ta lokal&iacute;t m&ocirc;žu byť vo forme rastra alebo bodovej, l&iacute;niovej alebo polyg&oacute;novej triedy prvkov.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div><h2>Špecifikovať pole jedinečného ID</h2></div>
+        <hr/>
+        <div>
+            <p>Stĺpec obsahuj&uacute;ci rozdielnu hodnotu pre každ&uacute; lokalitu alebo prvok vo vstupnom rastri lokal&iacute;t alebo triede prvkov.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div><h2>Špecifikovať informácie o získaní údajov o lokalite (voliteľné)</h2></div>
+        <hr/>
+        <div>
+            <p>&Scaron;pecifikovať čas, hĺbku a in&eacute; z&iacute;skan&eacute; d&aacute;ta asociovan&eacute; s lokalitou buniek alebo prvkov.
+            </p>
+            <p>Pre každ&uacute; dimenziu existuj&uacute; tri možnosti &scaron;pecifik&aacute;cie z&iacute;skan&yacute;ch inform&aacute;ci&iacute; asociovan&yacute;ch s bunkami alebo prvkami lokal&iacute;t:
+            </p>
+            <ul>
+                <li> <b>Jedno pole alebo hodnota</b>-Keď je vybran&aacute; t&aacute;to hodnota, musia byť &scaron;pecifikovan&eacute; nasledovn&eacute; inform&aacute;cie:
+                    <ul>
+                        <li> <b>Pole dimenzie alebo hodnota</b>--vybrať stĺpec s hodnotami dimenzi&iacute; z d&aacute;t lokal&iacute;t alebo zadať &scaron;pecifick&uacute; hodnotu dimenzie.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+                <li> <b>Jeden stĺpec alebo hodnota s relat&iacute;vnymi hodnotami</b>--Ak je vybran&aacute; t&aacute;to možnosť, inform&aacute;cie niž&scaron;ie musia byť &scaron;pecifikovan&eacute; spolu, aby definovali rozsah, v r&aacute;mci kotr&eacute;ho bud&uacute; vypoč&iacute;tan&eacute; &scaron;tatistiky pre premenn&eacute;:
+                    <ul>
+                        <li> <b>Pole dimenzie alebo hodnota</b>--vybrať stĺpec s hodnotami dimenzi&iacute; z d&aacute;t lokal&iacute;t.
+                        </li>
+                        <li> <b>Relat&iacute;vna hodnota pred</b>--&scaron;pecifikovať nez&aacute;porn&eacute; č&iacute;slo použit&eacute; na odč&iacute;tanie od <b>Pole dimenzie alebo hodnota</b> na definovanie počiatku rozsahu hodn&ocirc;t dimenzie. Ak je rozmerom čas, t&aacute;to hodnota reprezentuje počet dn&iacute;.
+                        </li>
+                        <li> <b>Relat&iacute;vna hodnota po</b>--&scaron;pecifikovať nez&aacute;porn&eacute; č&iacute;slo použit&eacute; na pridanie k <b>Pole dimenzie alebo hodnota</b> na definovanie konca rozsahu hodn&ocirc;t dimenzi&iacute;. Ak je rozmerom čas, t&aacute;to hodnota reprezentuje počet dn&iacute;.
+                        </li>
+                    </ul>
+                    
+                </li>
+                <li> <b>Počiatočn&eacute; a konečn&eacute; stĺpce alebo hodnoty</b>--Ak je vybran&aacute; t&aacute;to možnosť, inform&aacute;cie niž&scaron;ie musia byť &scaron;pecifikovan&eacute; spolu na definovanie rozsahu, v r&aacute;mci ktor&eacute;ho bude vypoč&iacute;tan&aacute; &scaron;tatistika pre premenn&eacute;:
+                    <ul>
+                        <li> <b>Počiatočn&yacute; stĺpec alebo hodnoty</b>--vybrať stĺpec s hodnotami dimenzi&iacute; z d&aacute;t lokal&iacute;t alebo zadať &scaron;pecifick&uacute; hodnotu dimenzie na definovanie počiatku rozsahu hodn&ocirc;t dimenzie.
+                        </li>
+                        <li> <b>Konečn&yacute; stĺpec alebo hodnoty</b>--vybrať stĺpec s hodnotami dimenzi&iacute; z d&aacute;t lokal&iacute;t alebo zadať &scaron;pecifick&uacute; hodnotu dimenzie na definovanie konca rozsahu hodn&ocirc;t dimenzi&iacute;.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+            </ul>
+            
+            <p>Tento parameter je dostupn&yacute; iba keď je parameter  <b>Vybrať sn&iacute;mkov&uacute; vrstvu(y) na vzorkovanie</b> je multidimenzion&aacute;lny raster.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div><h2>Špecifikovať stĺpec vzdialenosti alebo hodnotu obalovej zóny</h2></div>
+        <hr/>
+        <div>
+            <p>&Scaron;pecifikovan&aacute; vzdialenosť okolo prvkov lokal&iacute;t. Vzdialenosť obalovej z&oacute;ny je &scaron;pecifikovan&aacute; v line&aacute;rnych jednotk&aacute;ch priestorovej referencie podľa prvkov lokal&iacute;t. Ak prvok použ&iacute;va geografick&uacute; referenciu, jednotkou bud&uacute; stupne.
+            </p>
+            <p>&Scaron;tatistiky bud&uacute; vypoč&iacute;tan&eacute; v r&aacute;mci tejto obalovej z&oacute;ny.
+            </p>
+            <p>Tento parameter je dostupn&yacute; iba ked je  <b>Vybrať sn&iacute;mkov&uacute; vrtvu(y) na vzorkovanie</b> multidimenzion&aacute;lny raster.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div><h2>Vybrať typ štatistiky</h2></div>
+        <hr/>
+        <div>
+            <p>Typ &scaron;tatistiky, ktor&yacute; sa m&aacute; vypoč&iacute;tať.
+            </p>
+            <ul>
+                <li> <b>Minimum</b>--N&aacute;jde minim&aacute;lnu hodnotu v r&aacute;mci &scaron;pecifikovan&eacute;ho rozsahu.
+                </li>
+                <li> <b>Maximum</b>--N&aacute;jde maxim&aacute;lnu hodnotu v ŕamci &scaron;pecifikovan&eacute;ho rozsahu.
+                </li>
+                <li> <b>Medi&aacute;n</b>--N&aacute;jde hodnotu medi&aacute;nu v r&aacute;mci &scaron;pecifikovan&eacute;ho rozsahu.
+                </li>
+                <li> <b>Priemer</b>--Vypoč&iacute;ta priemer pre &scaron;pecifikovan&yacute; rozsah.
+                </li>
+                <li> <b>S&uacute;čet</b>--Vypoč&iacute;ta s&uacute;čet premenn&yacute;ch v r&aacute;mci &scaron;pecifikovan&eacute;ho rozsahu.
+                </li>
+                <li> <b>V&auml;č&scaron;ina</b>--N&aacute;jde hodnotu, ktor&aacute; sa vyskytuje najčastej&scaron;ie.
+                </li>
+                <li> <b>Men&scaron;ina</b>--N&aacute;jde hodnotu, ktor&aacute; sa vyskytuje najmenej.
+                </li>
+                <li> <b>&Scaron;tandardn&aacute; odch&yacute;lka</b>ˇ--Vypoč&iacute;ta &scaron;tandardn&uacute; odch&yacute;lku.
+                </li>
+                <li> <b>Percentil</b>--Vypoč&iacute;ta definovan&yacute; percentil v r&aacute;mci &scaron;pecifikovan&eacute;ho rozsahu.
+                </li>
+            </ul>
+            
+            <p>Tento parameter je dostupn&yacute; iba keď je parameter  <b>Vybrať sn&iacute;mkov&uacute; vrstvu(y) na vzorkovanie</b> multidimezion&aacute;lny raster, a parametre <b>Vybrať vrstvu polohy</b> s&uacute; polyl&iacute;nie alebo polyg&oacute;ny, alebo <b>&Scaron;pecifikovať pole vzdialenosti obalovej z&oacute;ny alebo hodnotu (voliteľn&eacute;)</b> je &scaron;pecifikovan&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Hodnota percentilu</h2></div>
+        <hr/>
+        <div>
+            <p>T&aacute;to hodnota sa m&ocirc;že pohybovať v rozsahu od 0 do 100. Predvolen&aacute; hodnota je 90.
+            </p>
+            <p>Tento parameter je dostupn&yacute; iba keď je parameter  <b>Vybrať typ &scaron;tatistiky</b> je nastaven&yacute; na <b>Percentil</b>.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div><h2>Špecifikovať metódu prevzorkovania</h2></div>
+        <hr/>
+        <div>
+            <p>Algoritmus prevzorkovania použit&yacute; pri vzorkovan&iacute; rastra.
+            </p>
+            <ul>
+                <li> <b>Najbliž&scaron;&iacute;</b>--Najbliž&scaron;&iacute; sused, ktor&yacute; použ&iacute;va hodnotu najbliž&scaron;ej bunky na priradenie hodnoty v&yacute;stupnej bunky pri prevzorkovan&iacute;. Toto je prednastaven&aacute; voľba.
+                </li>
+                <li> <b>Biline&aacute;rna</b>--Biline&aacute;rna interpol&aacute;cia, ktor&aacute; určuje nov&uacute; hodnotu bunky na z&aacute;klade priemeru v&aacute;ženej vzdialenosti &scaron;tyroch najbliž&scaron;&iacute;ch stredov vstupn&yacute;ch buniek.
+                </li>
+                <li> <b>Kubick&aacute;</b>--Kubick&aacute; konvol&uacute;ciak, ktor&aacute; určuje nov&uacute; hodnotu bunky na z&aacute;klade prisp&ocirc;sobenia hladkej krivky cez 16 najbliž&scaron;&iacute;ch stredov vstupn&yacute;ch buniek.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="layout">
+        <div><h2>Zadať rozvrhnutie výstupu</h2></div>
+        <hr/>
+        <div>
+            <p>&Scaron;pecifikovať, či sa vzorkovan&eacute; hodnoty zobrazia v riadkoch alebo stĺpcoch vo v&yacute;stupnej tabuľke.
+            </p>
+            <ul>
+                <li> <b>Vzorkovan&eacute; hodnoty sa zobrazuj&uacute; v riadku</b>--Vzorkovan&eacute; hodnoty sa zobrazuj&uacute; v oddelen&yacute;ch riadkoch vo v&yacute;stupnej tabuľke. Toto je prednastaven&aacute; voľba.
+                </li>
+                <li> <b>Vzorkovan&eacute; hodnoty sa zobrazuj&uacute; v stĺpci</b>--Vzorkovan&eacute; hodnoty sa zobrazuj&uacute; v oddelen&yacute;ch stĺpcoch vo v&yacute;stupnej tabuľke.
+                </li>
+            </ul>
+            
+            <p>Tento parameter je dostupn&yacute; iba keď je parameter  <b>Vybrať sn&iacute;mkov&uacute; vrstvu(y) na vzorkovanie</b> multidimenzion&aacute;lny raster a obsahuje jednu premenn&uacute; a jeden rozmer a každ&yacute; rez je jednop&aacute;smov&yacute; raster.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div><h2>Špecifikovať typ výstupu</h2></div>
+        <hr/>
+        <div>
+            <p>&Scaron;pecifikovať, či sa m&aacute; generovať trieda bodov&yacute;ch prvkov so vzorkovan&yacute;mi hodnotami v atrib&uacute;tovej tabuľke, alebo len tabuľka so vzorkovan&yacute;mi hodnotami.
+            </p>
+            <ul>
+                <li> <b>Tabuľka</b>--Generovať tabuľku so vzorkovan&yacute;mi hodnotami. Toto je prednastaven&aacute; voľba.
+                </li>
+                <li> <b>Prvky</b>--Generovať triedu bodov&yacute;ch prvkov so vzorkovan&yacute;mi hodnotami v atrib&uacute;tovej tabuľke. Ak parametre <b>Vybrať vrstvu polohy</b> s&uacute; polyl&iacute;nie alebo polyg&oacute;ny, každ&yacute; bod vo v&yacute;stupe je centroid každej geometrie vstupn&yacute;ch prvkov polohy. 
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputName">
+        <div><h2>Názov výslednej vrstvy</h2></div>
+        <hr/>
+        <div>
+            
+            <p>N&aacute;zov vrstvy, ktor&aacute; bude vytvoren&aacute; v zložke  <b>M&ocirc;j obsah</b> a pridan&aacute; do mapy. Predvolen&yacute; n&aacute;zov je založen&yacute; na n&aacute;zve n&aacute;stroja a n&aacute;zve vstupnej vrstvy. Ak vrstva už existuje, budete požiadan&yacute; zadať in&eacute; meno.
+            </p>
+            <p>M&ocirc;žete zmeniť n&aacute;zov zložky v zložke  <b>M&ocirc;j Obsah</b>, kde bude v&yacute;sledok uložen&yacute; pomocou <b>Uložiť v&yacute;sledok v</b> vo v&yacute;suvnom menu.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

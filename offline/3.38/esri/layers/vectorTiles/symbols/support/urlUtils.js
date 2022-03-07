@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/symbols/support/urlUtils",["require","exports","../../core/urlUtils"],function(m,d,e){function k(b,a,c){return a.imageData?e.makeData({mediaType:a.contentType||"image/png",isBase64:!0,data:a.imageData}):g(a.url,c)}function g(b,a){return!a||"service"!==a.origin&&"portal-item"!==a.origin||!a.layer||"feature"!==a.layer.type&&"stream"!==a.layer.type||e.isAbsolute(b)||!a.layer.parsedUrl?e.read(b,a):e.join(a.layer.parsedUrl.path,"images",b)}function l(b,a,c,f){e.isDataProtocol(b)?
+(b=e.dataComponents(b),a.contentType=b.mediaType,a.imageData=b.data,c&&c.imageData===a.imageData&&c.url&&(a.url=h(c.url,f))):a.url=h(b,f)}function h(b,a){return e.write(b,a)}Object.defineProperty(d,"__esModule",{value:!0});d.readImageDataOrUrl=k;d.read=g;d.writeImageDataAndUrl=l;d.write=h;d.urlPropertyDefinition={json:{read:{source:["imageData","url"],reader:k},write:{writer:function(b,a,c,f){l(b,a,this.source,f)}}}};d.sourcePropertyDefinition={readOnly:!0,json:{read:{source:["imageData","url"],reader:function(b,
+a,c){b={};a.imageData&&(b.imageData=a.imageData);a.contentType&&(b.contentType=a.contentType);a.url&&(b.url=g(a.url,c));return b}}}}});

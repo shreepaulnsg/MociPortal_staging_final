@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/workers/request",["require","exports","../tsSupport/assignHelper","../Error","../global"],function(r,h,k,l,q){Object.defineProperty(h,"__esModule",{value:!0});var f;h.execute=function(e,b){void 0===b&&(b={});var a=b.responseType;a?"json"!==a&&"text"!==a&&"blob"!==a&&"array-buffer"!==a&&(a="text"):a="json";return q.invokeStaticMessage("request",{url:e,options:b}).then(function(d){var g=d.data;if(g&&("json"===a||"text"===a||"blob"===a)){var m=new Blob([g]);if("json"===
+a||"text"===a){f||(f=new FileReaderSync);var n=f.readAsText(m);if("json"===a){try{var c=JSON.parse(n||null)}catch(p){throw d=k({},p,{url:e,requestOptions:b}),new l("request:server",p.message,d);}if(c.error)throw d=k({},c.error,{url:e,requestOptions:b}),new l("request:server",c.error.message,d);}}}switch(a){case "json":break;case "text":c=n;break;case "blob":c=m;break;default:c=g}return{data:c,requestOptions:b,ssl:d.ssl,url:e}})}});

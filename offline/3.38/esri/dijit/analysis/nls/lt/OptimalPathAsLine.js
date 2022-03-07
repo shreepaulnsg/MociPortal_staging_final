@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/lt/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Pasirinkti paskirties rastr\u0105 arba elementus",destinationField:"Paskirties vietos laukas (neprivaloma)",inputDistanceAccumulationRaster:"Pasirinkti atstumo kaupimo rastr\u0105",inputBackDirectionRaster:"Pasirinkti atgalin\u0117s krypties arba t\u0117km\u0117s krypties rastr\u0105",pathType:"Mar\u0161ruto tipas (neprivaloma)",bestSingle:"Geriausias atskiras",eachCell:"Kiekviena gardel\u0117",eachZone:"Kiekviena zona",
+outputFeatureName:"Rezultat\u0173 element\u0173 sluoksnio pavadinimas",outputLayerName:"Optimalus kelias kaip ${layername} linija",drawSourcePointLayerName:"\u0160altinio ta\u0161kai",itemDescription:"Element\u0173 sluoksnis sukurtas paleidus optimal\u0173 keli\u0105 kaip linij\u0105 sluoksnyje ${layername}. ",itemTags:"Analiz\u0117s rezultatas, Optimalus kelias kaip linija, ${layername} ${fieldname}",itemSnippet:"Element\u0173 sluoksnis, sugeneruotas funkcijos Optimalus kelias kaip linija."});

@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/utils/htmlToSvg/supportClasses/ElementBuilder",[],function(){return{_ommitableValues:{opacity:1,"stroke-opacity":1,"fill-opacity":1,rx:0,ry:0},buildElement:function(d,e,f){var c="\x3c"+d;for(b in e){var a=e[b],g=this._ommitableValues[b];if(void 0===g||a!==g){if("clipParams"===b){if(!a)continue;var b="clip-path";a="url(#"+a.clipId+")"}void 0!==a&&(c+=" "+b+'\x3d"'+a+'"')}}return f?c+("\x3e"+f+"\x3c/"+d+"\x3e"):c+"/\x3e"}}});

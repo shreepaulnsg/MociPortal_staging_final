@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/RouteResult","dojo/_base/declare dojo/_base/lang dojo/_base/array dojo/has ../kernel ../graphic ./DirectionsFeatureSet".split(" "),function(c,n,f,p,q,g,r){c=c(null,{declaredClass:"esri.tasks.RouteResult",constructor:function(a){var h=a.spatialReference,d=a.route;if(a.directions){var k=[],l=[],m=[];f.forEach(a.directions.features,function(b,e){l[e]=b.compressedGeometry;k[e]=b.strings;m[e]=b.events});a.directions.strings=k;a.directions.events=m;this.directions=new r(a.directions,
+l)}this.routeName=a.routeName;d&&(d.geometry&&(d.geometry.spatialReference=h),this.route=new g(d));if(a.stops){var t=this.stops=[];f.forEach(a.stops,function(b,e){b.geometry&&(b.geometry.spatialReference=h);t[b.attributes.Sequence-1]=new g(b)})}},routeName:null,directions:null,route:null,stops:null});p("extend-esri")&&n.setObject("tasks.RouteResult",c,q);return c});

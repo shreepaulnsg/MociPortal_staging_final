@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/UniqueValueDefinition",["dojo/_base/declare","dojo/_base/lang","dojo/has","../kernel","./ClassificationDefinition"],function(a,b,d,e,f){a=a(f,{declaredClass:"esri.tasks.UniqueValueDefinition",type:"uniqueValueDef",attributeField:null,attributeField2:null,attributeField3:null,fieldDelimiter:null,toJson:function(){var c=this.inherited(arguments);this.uniqueValueFields=[];this.attributeField&&this.uniqueValueFields.push(this.attributeField);this.attributeField2&&this.uniqueValueFields.push(this.attributeField2);
+this.attributeField3&&this.uniqueValueFields.push(this.attributeField3);b.mixin(c,{type:this.type,uniqueValueFields:this.uniqueValueFields});this.fieldDelimiter&&b.mixin(c,{fieldDelimiter:this.fieldDelimiter});return c}});d("extend-esri")&&b.setObject("tasks.UniqueValueDefinition",a,e);return a});

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="regularsize">
+        <h2>Ringkas Raster di Dalam</h2><p/>
+        <h2><img src="../images/GUID-D61C156C-2B2C-488C-BF28-B6CB9277BF4B-web.png" alt="Alat Ringkas Raster di Dalam"></h2>
+        <hr/>
+    <p>Alat ini merangkum nilai raster di dalam zona set data lain.
+    </p>
+    <p>Beberapa contoh aplikasi alat ini meliputi hal berikut:
+        <ul>
+            <li>Dengan layer batas Daerah Aliran Sungai dan batas penggunaan lahan berdasarkan jenis penggunaannya, dapat dihitung luas total penggunaan lahan untuk setiap Daerah Aliran Sungai.
+                
+
+            </li>
+            <li>Dengan mengetahui layer bagian persil di suatu daerah dan layer batas kota, ringkaslah nilai rata-rata dari bagian persil yang kosong di dalam setiap batas kota.
+                
+
+            </li>
+        </ul>
+        
+    </p>
+    <p>Jika  <b>Gunakan jangkauan peta saat ini</b> dicentang, hanya fitur-fitur pada layer input dan layer yang akan diringkas yang terlihat di jangkauan peta saat ini yang akan dianalisis. Jika tidak dicentang, semua fitur pada layer input dan layer yang akan diringkas akan dianalisis meskipun berada di luar jangkauan peta saat ini.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="sumWithinLayer">
+        <div><h2>Pilih area layer untuk meringkas layer raster di dalam batas yang ditentukan</h2></div>
+        <hr/>
+        <div>
+            <p>Input yang menentukan perbatasan zona, atau area, yang nantinya akan diringkas.
+            </p>
+            <p>Input dapat berupa raster bilangan bulat atau data fitur. Untuk raster, zona ditentukan oleh semua lokasi di input yang memiliki nilai sel yang sama. Untuk fitur, zona dapat tumpang-tindih. Area tersebut tidak perlu berdampingan.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div><h2>Pilih kolom untuk menentukan batas</h2></div>
+        <hr/>
+        <div>
+            <p>Kolom yang berisi nilai yang menentukan setiap zona.
+            </p>
+            <p>Dapat berupa bilangan bulat atau kolom string set data zona.
+            </p>
+        </div>
+    </div>
+    <div id="sumRasterLayer">
+        <div><h2>Pilih layer raster untuk diringkas</h2></div>
+        <hr/>
+        <div>
+            <p>Raster yang berisi nilai untuk menghitung statistik.
+            </p>
+            <p>Dapat berupa bilangan bulat atau titik ambang. Akan tetapi, jika raster adalah jenis titik ambang, opsi untuk menghitung mayoritas, minoritas, dan keragaman tidak akan tersedia.
+            </p>
+        </div>
+    </div>
+    <div id="sumStatistic">
+        <div><h2>Pilih statistik yang akan dihitung</h2></div>
+        <hr/>
+        <div>
+            <p>Menentukan jenis statistik yang akan dihitung.
+            </p>
+            <p> Input dapat berupa salah satu dari berikut: <b>Rata-rata</b>, <b>Mayoritas</b>, <b>Maksimal</b>, <b>Median</b>, <b>Minimal</b>, <b>Minoritas</b>, <b>Persentil</b>, <b>Rentang</b>, <b>Simpangan baku</b>, <b>Jumlah</b>, atau <b>Keragaman</b>. Defaultnya adalah <b>Rata-rata</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Nilai Persentil</h2></div>
+        <hr/>
+        <div>
+            <p>Persentil yang dihitung. Defaultnya adalah 90, yang menunjukkan persentil ke-90.
+            </p>
+            <p>Nilai dapat berkisar antara 0 hingga 100. Hasil dari menentukan persentil ke-0 pada intinya setara dengan hasil statistik minimal, dan persentil ke-100 setara dengan hasil statistik maksimal. Nilai 50 pada dasarnya akan menghasilkan hasil yang sama dengan statistik median.
+            </p>
+            <p> Parameter ini hanya akan didukung jika parameter <b>Pilih statistik untuk menghitung</b> diatur ke <b>Persentil</b>.
+            </p>
+        </div>
+    </div>
+    <div id="missingValues">
+        <div><h2>Abaikan nilai yang hilang dalam penghitungan</h2></div>
+        <hr/>
+        <div>
+            <p> Menentukan apakah nilai yang hilang diabaikan dalam analisis.
+            </p>
+            <ul>
+                <li>Dicentang&mdash;Analisis akan menyertakan sel yang memiliki nilai di raster nilai input dalam zona tertentu untuk menentukan nilai output zona tersebut. Sel NoData di raster nilai akan diabaikan di dalam penghitungan statistik. Ini adalah default.
+                </li>
+                <li>Tidak dicentang&mdash;Analisis akan menghasilkan NoData, jika ada nilai NoData untuk sel raster nilai di dalam zona tertentu.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div><h2>Proses sebagai multidimensional</h2></div>
+        <hr/>
+        <div>
+            <p>Menentukan cara pemrosesan layanan gambar multidimensional input jika layanan tersebut bersifat multidimensional.
+            </p>
+            <ul>
+                <li>Dicentang&mdash;Statistik akan dihitung dari irisan set data multidimensional input saat ini. Ini adalah default.
+                    
+
+                </li>
+                <li>Tidak Dicentang&mdash;Statistik akan dihitung untuk semua dimensi set data multidimensional input.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Nama layer hasil</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Nama layer yang akan dibuat di  <b>Konten Saya</b> dan ditambahkan ke peta. Nama default ditetapkan berdasarkan nama alat dan nama layer input. Jika layer tersebut sudah ada, Anda akan diminta untuk memberi nama lain.
+            </p>
+            <p>Anda dapat menentukan nama folder di  <b>Konten Saya</b> tempat hasil akan disimpan menggunakan kotak drop-down <b>Simpan hasil di</b>. Jika Anda memiliki hak istimewa untuk membuat layer citra dinamis dan tile, Anda dapat menentukan jenis layer yang akan dihasilkan dalam output menggunakan kotak drop-down Simpan hasil sebagai. </p>
+        </div>
+    </div>
+</div>
+</html>

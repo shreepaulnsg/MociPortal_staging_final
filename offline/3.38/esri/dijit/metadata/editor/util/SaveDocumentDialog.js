@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/editor/util/SaveDocumentDialog","dojo/_base/declare dojo/_base/lang dojo/dom-class dojo/dom-construct dojo/has dijit/_WidgetBase dojo/i18n!../../nls/i18nBase dijit/Dialog ./SaveDocumentPane ../../../../kernel".split(" "),function(c,a,g,e,h,k,l,m,n,p){c=c([k],{dialog:null,dialogTitle:l.editor.save.dialogTitle,editor:null,gxeDocument:null,postCreate:function(){this.inherited(arguments)},hide:function(){this.dialog&&this.dialog.hide()},onSave:function(d,f,b){},show:function(){var d=
+e.create("div",{}),f=new n({dialogBroker:this,editor:this.editor,gxeDocument:this.gxeDocument,onCancel:a.hitch(this,function(){this.dialog&&this.dialog.hide()}),onSave:a.hitch(this,function(q,r){if(this.dialog)this.onSave(this.dialog,q,r)})},e.create("div",{},d)),b=this.dialog=new m({"class":"gxeDialog  gxePopupDialog",title:this.dialogTitle,content:d,autofocus:!1});this.isLeftToRight()||g.add(b.domNode,"gxeRtl");this.own(b.on("hide",a.hitch(this,function(){setTimeout(a.hitch(this,function(){f.destroyRecursive(!1);
+b.destroyRecursive(!1);this.destroyRecursive(!1)}),300)})));b.show()}});h("extend-esri")&&a.setObject("dijit.metadata.editor.util.SaveDocumentDialog",c,p);return c});

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>流域</h2><p/>
+        <h2><img src="../images/GUID-AF749369-8C2D-46FF-9D74-2CF7CAB7C7B0-web.png" alt="流域任務"></h2>
+        <hr/>
+    <p>此工具可決定一個點陣中一組儲存格上方的貢獻區域。
+    </p>
+    <p> 路易西安那州密西西比河的輸入點將會建立流域圖徵，並延伸以涵蓋紐約州到蒙大拿州的區域，再進入加拿大。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputFlowDirectionRaster">
+        <div><h2>選擇流動方向圖層</h2></div>
+        <hr/>
+        <div>
+            <p>顯示每個儲存格之流出方向的輸入點陣。
+            </p>
+            <p>可使用「流動方向」點陣函數建立流動方向點陣，其中預設的流動方向類型為  <b>D8</b>。
+            </p>
+        </div>
+    </div>
+    <div id="inPourPointRasterOrFeatures">
+        <div><h2>指定輸入傾點位置</h2></div>
+        <hr/>
+        <div>
+            <p>輸入傾點位置。
+            </p>
+            <p>這可以是點陣或點圖徵。 對於點陣，這表示儲存格，將在儲存格上方決定貢獻區域或集水區。 會將非 NoData 的所有儲存格作為來源儲存格。 對於點輸入，這表示位置，將在位置上方決定貢獻區域或集水區。
+            </p>
+        </div>
+    </div>
+    <div id="pourPointField">
+        <div><h2>選擇傾點欄位</h2></div>
+        <hr/>
+        <div>
+            <p>用來將值指派給傾點位置的欄位。
+            </p>
+            <p>如果輸入傾點圖層是點陣，則使用  <i>Value</i>。 若是圖徵則使用數值欄位。 如果欄位包含浮點值，則會將它們截斷為整數。
+            </p>
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>結果圖層名稱</h2></div>
+        <hr/>
+        <div>
+            
+            <p>在 <b>我的內容</b>中建立並新增到地圖中的圖層的名稱。 預設名稱參照工具名稱以及輸入圖層名稱。 如果已存在該名稱的圖層，系統將提示您提供其他名稱。
+            </p>
+            <p>您可以使用 <b>將結果儲存到</b>下拉式方塊，在 <b>我的內容</b>中指定將儲存結果的資料夾名稱。 如果您有權限可建立圖磚和動態影像圖層，就可以使用「將結果儲存為」下拉式方塊指定要在輸出中產生的圖層類型。 </p>
+        </div>
+    </div>
+</div>
+</html>

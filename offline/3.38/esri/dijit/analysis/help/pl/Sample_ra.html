@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Próbka</h2><p/>
+        <h2><img src="../images/GUID-3950CCA3-C1D0-493F-A33D-93673443ADD2-web.png" alt="Pr&oacute;bka"></h2>
+        <hr/>
+    <p>To narzędzie tworzy tabelę lub klasę obiekt&oacute;w punktowych, kt&oacute;ra pokazuje wartości kom&oacute;rek z rastra lub zestawu rastr&oacute;w dla zdefiniowanych lokalizacji. Lokalizacje są zdefiniowane przez kom&oacute;rki rastra, obiekty poligonowe, obiekty poliliniowe lub zbi&oacute;r punkt&oacute;w.
+    </p>
+    <p>Poniżej przedstawiono następujące przykładowe zastosowania tego narzędzia:
+        <ul>
+            <li> Wyodrębnienie atrybut&oacute;w dla lokalizacji przekaźnika z wielu rastr&oacute;w, takich jak użytkowanie grunt&oacute;w, typ gleby, dane wysokościowe i odległość od drogi.
+            </li>
+            <li>Wyodrębnienie dla danego zestawu punkt&oacute;w temperatury gleby na r&oacute;żnych głębokościach.
+            </li>
+            <li>Sumowanie lokalizacji zwierząt lub zasięgu ich występowania dla danego czasu, kiedy zaobserwowano dany gatunek zwierząt, na podstawie zbieranych przez 30 lat miesięcznych danych o temperaturze powierzchni morza.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Jeśli zaznaczono opcję  <b>Użyj bieżącego zasięgu mapy</b>, analizowane będą zmienne lub pasma warstwy widoczne w bieżącym zasięgu mapy. Jeśli ta opcja nie jest zaznaczona, analizowane będą zmienne lub pasma pełnej warstwy, nawet jeśli znajdują się poza bieżącym zasięgiem mapy.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div><h2>Wybierz warstwy zobrazowań do próbkowania</h2></div>
+        <hr/>
+        <div>
+            <p>Jeden obraz lub lista obraz&oacute;w, kt&oacute;rych wartości będą pr&oacute;bkowane na podstawie wejściowych danych dotyczących lokalizacji. 
+            </p>
+            <p>Aby można było pr&oacute;bkować wszystkie przekroje wielowymiarowej warstwy zobrazowań, musi ona być jedynym rastrem wejściowym.
+            </p>
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div><h2>Wybierz warstwę lokalizacji</h2></div>
+        <hr/>
+        <div>
+            <p>Pozycje identyfikujące dane, kt&oacute;re chcesz pr&oacute;bkować.
+            </p>
+            <p>Wejściowe dane dotyczące lokalizacji mogą być rastrem albo klasą obiekt&oacute;w punktowych, poliliniowych lub poligonowych.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div><h2>Wypełnij pole unikalnego identyfikatora</h2></div>
+        <hr/>
+        <div>
+            <p>Pole zawierające inną wartość w przypadku każdej lokalizacji lub obiektu w wejściowym rastrze lokalizacji albo klasie obiekt&oacute;w.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div><h2>Podaj informacje o pozyskaniu danych dotyczących lokalizacji (opcjonalnie)</h2></div>
+        <hr/>
+        <div>
+            <p>Wpisz czas, głębokość lub inne dane o pozyskaniu powiązane z obiektami albo kom&oacute;rkami lokalizacji.
+            </p>
+            <p>W przypadku każdego wymiaru istnieją trzy opcje definiowania informacji o pozyskaniu powiązanych z obiektami albo kom&oacute;rkami lokalizacji:
+            </p>
+            <ul>
+                <li> <b>Jedno pole lub jedna wartość</b> &mdash; gdy ta opcja jest wybrana, należy podać następujące informacje:
+                    <ul>
+                        <li> <b>Pole lub wartość wymiaru</b> &mdash; wybierz pole wartości wymiaru z danych dotyczących lokalizacji lub wpisz odpowiednią wartość wymiaru.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+                <li> <b>Jedno pole lub jedna wartość z wartościami względnymi</b> &mdash; jeśli ta opcja jest wybrana, należy podać poniższe informacje razem, aby zdefiniować zakres, w kt&oacute;rym statystyki będą obliczane dla zmiennych:
+                    <ul>
+                        <li> <b>Pole lub wartość wymiaru</b> &mdash; wybierz pole wartości wymiaru z danych dotyczących lokalizacji.
+                        </li>
+                        <li> <b>Wartość względna przed</b> &mdash; podaj nieujemną liczbę, kt&oacute;ra zostanie odjęta od <b>Pola lub wartości wymiaru</b> w celu zdefiniowania wartości początkowej zakresu wartości wymiaru. Ta wartość oznacza liczbę dni, jeśli wymiarem jest czas.
+                        </li>
+                        <li> <b>Wartość względna po</b> &mdash; podaj nieujemną liczbę, kt&oacute;ra zostanie dodana do <b>Pola lub wartości wymiaru</b> w celu zdefiniowania wartości końcowej zakresu wartości wymiaru. Ta wartość oznacza liczbę dni, jeśli wymiarem jest czas.
+                        </li>
+                    </ul>
+                    
+                </li>
+                <li> <b>Początkowe i końcowe pola lub wartości</b> &mdash; jeśli ta opcja jest wybrana, należy podać poniższe informacje razem, aby zdefiniować zakres, w kt&oacute;rym statystyki będą obliczane dla zmiennych:
+                    <ul>
+                        <li> <b>Pole lub wartości początkowe</b> &mdash; wybierz pole wartości wymiaru z danych dotyczących lokalizacji lub wpisz odpowiednią wartość wymiaru, aby zdefiniować wartość początkową zakresu wartości wymiaru.
+                        </li>
+                        <li> <b>Pole lub wartości końcowe</b> &mdash; wybierz pole wartości wymiaru z danych dotyczących lokalizacji lub wpisz odpowiednią wartość wymiaru, aby zdefiniować wartość końcową zakresu wartości wymiaru.
+                        </li>
+                    </ul>
+                    
+                    
+
+                </li>
+            </ul>
+            
+            <p>Ten parametr jest dostępny tylko wtedy, gdy parametrem  <b>Wybierz warstwy zobrazowań do pr&oacute;bkowania</b> jest raster wielowymiarowy.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div><h2>Podaj pole lub wartość odległości buforowania</h2></div>
+        <hr/>
+        <div>
+            <p>Zdefiniowana odległość wok&oacute;ł obiekt&oacute;w danych dotyczących lokalizacji. Odległość buforowania jest zdefiniowana w jednostkach liniowych odniesienia przestrzennego obiektu lokalizacji. Jeśli obiekt używa odniesienia geograficznego, jednostką będą stopnie.
+            </p>
+            <p>Statystyki będą obliczane w tym obszarze buforowym.
+            </p>
+            <p>Ten parametr jest dostępny tylko wtedy, gdy w polu  <b>Wybierz warstwy zobrazowań do pr&oacute;bkowania</b> jest wybrany raster wielowymiarowy.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div><h2>Wybierz typ statystyk</h2></div>
+        <hr/>
+        <div>
+            <p>Typ statystyki do obliczenia.
+            </p>
+            <ul>
+                <li> <b>Minimum</b> &mdash; znajduje wartość minimalną w podanym zakresie.
+                </li>
+                <li> <b>Maksimum</b> &mdash; znajduje wartość maksymalną w podanym zakresie.
+                </li>
+                <li> <b>Mediana</b> &mdash; znajduje wartość mediany w podanym zakresie.
+                </li>
+                <li> <b>Średnia</b> &mdash; oblicza wartość średnią w podanym zakresie.
+                </li>
+                <li> <b>Suma</b> &mdash; oblicza sumę zmiennych w podanym zakresie.
+                </li>
+                <li> <b>Większość</b> &mdash; znajduje wartość, kt&oacute;ra występuje najczęściej.
+                </li>
+                <li> <b>Mniejszość</b> &mdash; znajduje wartość, kt&oacute;ra występuje najrzadziej.
+                </li>
+                <li> <b>Odchylenie standardowe</b> &mdash; oblicza odchylenie standardowe.
+                </li>
+                <li> <b>Percentyl</b> &mdash; oblicza zdefiniowany percentyl w podanym zakresie.
+                </li>
+            </ul>
+            
+            <p>Ten parametr jest dostępny tylko wtedy, gdy parametrem  <b>Wybierz warstwy zobrazowań do pr&oacute;bkowania</b> jest raster wielowymiarowy, a parametrami <b>Wybierz warstwę lokalizacji</b> są polilinie lub poligony, albo podano wartość w parametrze <b>Podaj pole lub wartość odległości buforowania (opcjonalnie)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div><h2>Wartość percentylowa</h2></div>
+        <hr/>
+        <div>
+            <p>Ta wartość należy do zakresu od 0 do 100. Wartość domyślna to 90.
+            </p>
+            <p>Ten parametr jest dostępny tylko wtedy, gdy parametr  <b>Wybierz typ statystyk</b> skonfigurowano na wartość <b>Percentyl</b>.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div><h2>Podaj technikę ponownego próbkowania</h2></div>
+        <hr/>
+        <div>
+            <p>Algorytm ponownego pr&oacute;bkowania używany podczas pr&oacute;bkowania rastra.
+            </p>
+            <ul>
+                <li> <b>Najbliższe</b> &mdash; najbliższy sąsiad. W celu przypisania wartości do kom&oacute;rki danych wynikowych podczas ponownego pr&oacute;bkowania używana jest wartość najbliższej kom&oacute;rki. Jest to opcja domyślna.
+                </li>
+                <li> <b>Dwuliniowe</b> &mdash; interpolacja dwuliniowa. Nowa wartość kom&oacute;rki jest wyznaczana na podstawie ważonej średniej odległości środk&oacute;w czterech najbliższych kom&oacute;rek wejściowych.
+                </li>
+                <li> <b>Sześcienne</b> &mdash; splatanie sześcienne. Nowa wartość kom&oacute;rki jest wyznaczana na podstawie dopasowania wygładzonej krzywej przechodzącej przez środki 16 najbliższych kom&oacute;rek wejściowych.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="layout">
+        <div><h2>Podaj kompozycję wynikową</h2></div>
+        <hr/>
+        <div>
+            <p>Decyduje, czy pr&oacute;bkowane wartości pojawiają się w wierszach czy w kolumnach tabeli wynikowej.
+            </p>
+            <ul>
+                <li> <b>Pr&oacute;bkowane wartości pojawiają się w wierszu</b> &mdash; pr&oacute;bkowane wartości pojawiają się w oddzielnych wierszach tabeli wynikowej. Jest to opcja domyślna.
+                </li>
+                <li> <b>Pr&oacute;bkowane wartości pojawiają się w kolumnie</b> &mdash; pr&oacute;bkowane wartości pojawiają się w oddzielnych kolumnach tabeli wynikowej.
+                </li>
+            </ul>
+            
+            <p>Ten parametr jest dostępny tylko wtedy, gdy parametrem  <b>Wybierz warstwy zobrazowań do pr&oacute;bkowania</b> jest raster wielowymiarowy zawierający jedną zmienną i jeden wymiar, a każdy jego przekr&oacute;j to raster jednopasmowy.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div><h2>Podaj typ danych wynikowych</h2></div>
+        <hr/>
+        <div>
+            <p>Decyduje, czy należy wygenerować klasę obiekt&oacute;w punktowych z pr&oacute;bkowanymi wartościami w tabeli czy tylko tabelę z pr&oacute;bkowanymi wartościami.
+            </p>
+            <ul>
+                <li> <b>Tabela</b> &mdash; wygeneruj tabelę z pr&oacute;bkowanymi wartościami. Jest to opcja domyślna.
+                </li>
+                <li> <b>Obiekty</b> &mdash; wygeneruj klasę obiekt&oacute;w punktowych z pr&oacute;bkowanymi wartościami w tabeli. Jeśli parametrami <b>Wybierz warstwę lokalizacji</b> są polilinie lub poligony, każdy punkt w danych wynikowych to centroid każdej geometrii wejściowych obiekt&oacute;w lokalizacji. 
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputName">
+        <div><h2>Nazwa warstwy wynikowej</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona w obszarze  <b>Moje zasoby</b> i dodana do mapy. Nazwa domyślna jest tworzona w oparciu o nazwę narzędzia i&nbsp;nazwę warstwy wejściowej. Jeśli warstwa już istnieje, wyświetlony zostanie komunikat z monitem o podanie innej nazwy.
+            </p>
+            <p>Za pomocą listy rozwijanej  <b>Zapisz wynik w</b> można podać nazwę folderu w obszarze <b>Moje zasoby</b>, gdzie zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/metadata/types/arcgis/form/BandUnitsElement","dojo/_base/declare dojo/_base/lang dojo/aspect dojo/has ../../../../../kernel ../../../base/etc/docUtil ../../../form/OpenElement dojo/i18n!../../../nls/i18nBase".split(" "),function(b,c,g,h,k,l,m,f){b=b([m],{postCreate:function(){this.inherited(arguments)},startup:function(){if(!this._started){this.inherited(arguments);var a=this._findMinInputWgt();a&&this.own(g.after(a,"emitInteractionOccurred",c.hitch(this,function(){this.inputWidget&&
+this.inputWidget.emitInteractionOccurred()})))}},beforeValidateValue:function(a,e,d){if(null===d||0===c.trim(d).length)a=this._findMinInputWgt().getInputValue(),null!==a&&0!==c.trim(a).length&&(a=f.validation.pattern,d=f.validation.empty,e.isValid=!1,e.message=a.replace("{label}",e.label).replace("{message}",d))},_findMinInputWgt:function(){var a=this.parentElement.parentElement;return l.findInputWidget(a.parentElement.gxePath+"/minVal",a.domNode.parentNode)}});h("extend-esri")&&c.setObject("dijit.metadata.types.arcgis.form.BandUnitsElement",
+b,k);return b});

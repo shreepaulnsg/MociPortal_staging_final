@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/fr/ClassifyPixelsUsingDeepLearning",{toolDefine:"Classer des pixels \u00e0 l\u2019aide du Deep Learning",outputLayerName:"${layername}_class\u00e9e",modelLabel:"Choisir le mod\u00e8le de Deep Learning utilis\u00e9 pour classer les pixels",modelArgsLabel:"Sp\u00e9cifier les arguments du mod\u00e8le de Deep Learning",nameLabel:"Nom",valueLabel:"Valeur",queryModelArgsMsg:"Interrogation des arguments du mod\u00e8le...",queryModelArgsErrMsg:"\u00c9chec de l\u2019interrogation des arguments du mod\u00e8le.",
+processingModeLabel:"Mode de traitement",processAsMosaicLabel:"Traiter comme une image mosa\u00efqu\u00e9e",processAsItemsLabel:"Traiter tous les \u00e9l\u00e9ments raster s\u00e9par\u00e9ment",analysisLayerLabel:"Choisir l\u2019image utilis\u00e9e pour classer les pixels",itemDescription:"Service d\u2019imagerie d\u2019analyse g\u00e9n\u00e9r\u00e9 avec Classer les pixels \u00e0 l\u2019aide du Deep Learning",itemTags:"R\u00e9sultat d\u2019analyse raster, Classer les pixels \u00e0 l\u2019aide du Deep Learning, ${layername}",
+itemSnippet:"Service d\u2019imagerie d\u2019analyse g\u00e9n\u00e9r\u00e9 avec Classer les pixels \u00e0 l\u2019aide du Deep Learning"});

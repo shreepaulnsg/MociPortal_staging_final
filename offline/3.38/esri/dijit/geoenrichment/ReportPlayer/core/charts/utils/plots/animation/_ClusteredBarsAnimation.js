@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/charts/utils/plots/animation/_ClusteredBarsAnimation",["dojo/_base/declare","esri/dijit/geoenrichment/utils/animation/Animator","esri/dijit/geoenrichment/ReportPlayer/ReportPlayerState","./_defaults"],function(e,f,g,c){return e(null,{_animateBar:function(a){if(!a.isAnimating&&!g.isAnimationSuspended){var h=a.shape,d=a.hoffset,b=a.hsize;0===b&&(b=1);f.animateTransform({shape:h,duration:this.animate.duration||c.duration,easing:c.easingFunc,transform:[{name:"translate",
+start:[d-d/b,0],end:[0,0]},{name:"scale",start:[1/b,1],end:[1,1]}],onEnd:function(){a.isAnimating=!1}})}},renderAnimation:function(){this._animationInfos&&this._animationInfos.forEach(function(a){this._animateBar(a)},this)}})});

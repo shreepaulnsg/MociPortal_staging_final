@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/MapImage","dojo/_base/declare dojo/_base/lang dojo/dom-style dojo/has ../kernel ../domUtils ../geometry/Extent".split(" "),function(c,e,g,h,k,f,l){c=c(null,{declaredClass:"esri.layers.MapImage",constructor:function(a){e.mixin(this,a);this.extent=new l(this.extent)},visible:!0,opacity:1,getLayer:function(){return this._layer},getNode:function(){return this._node},show:function(){if(!this.visible){this.visible=!0;var a=this._node,b=this._layer,d;if(a){if(d=b&&b._div)b.suspended||
+b._setPos(a,d._left,d._top),(b._active||d).appendChild(a);f.show(a)}}},hide:function(){if(this.visible){this.visible=!1;var a=this._node;a&&(f.hide(a),a.parentNode&&a.parentNode.removeChild(a))}},setOpacity:function(a){var b=this._node;this.opacity=a;b&&g.set(b,"opacity",a)}});h("extend-esri")&&e.setObject("layers.MapImage",c,k);return c});

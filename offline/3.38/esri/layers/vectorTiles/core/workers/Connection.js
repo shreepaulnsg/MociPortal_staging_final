@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/core/workers/Connection",["require","exports","../promiseUtils"],function(k,l,h){return function(){function e(a){this._clientIdx=0;this._clients=a}e.prototype.broadcast=function(a,d,g){for(var c=[],b=0,f=this._clients;b<f.length;b++)c.push(f[b].invoke(a,d,g));return c};e.prototype.close=function(){for(var a=0,d=this._clients;a<d.length;a++)d[a].close();this._clients=[]};e.prototype.invoke=function(a,d,g,c){var b=c&&c.client;if(!this._clients||!this._clients.length)return h.reject(Error("Connection closed"));
+null!=b&&-1!==this._clients.indexOf(b)||this._clients.some(function(f){return f.isBusy()?!1:(b=f,!0)})||(this._clientIdx=(this._clientIdx+1)%this._clients.length,b=this._clients[this._clientIdx]);a=b.invoke(a,d,g);c&&(c.client=b);return a};e.prototype.openPorts=function(){return h.all(this._clients.map(function(a){return a.openPort()}))};return e}()});

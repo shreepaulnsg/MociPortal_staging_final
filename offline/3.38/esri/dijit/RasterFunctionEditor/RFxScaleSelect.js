@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/RasterFunctionEditor/RFxScaleSelect","dojo/_base/declare dojo/_base/lang dojo/has ../../kernel dojo/store/Memory dojo/data/ObjectStore dijit/form/Select".split(" "),function(a,e,f,g,h,k,l){a=a([l],{declaredClass:"esri.dijit.RasterFunctionEditor.RFxScaleSelect",startup:function(){this.inherited(arguments);this.setScaleOptions()},setScaleOptions:function(){!this.evalValues||2!==this.evalValues.length||isNaN(parseInt(this.evalValues[0],10))||isNaN(parseInt(this.evalValues[1],10))||
+this.evalValues[0]>this.evalValues[1]||(this.set("labelAttr","name"),this.set("store",this._getScaleStore(this.evalValues)),this.reset())},_getScaleStore:function(b){var c=parseInt(b[0],10);b=parseInt(b[1],10);for(var d=[];c<=b;c++)d.push({name:c.toString(),value:c});d.push({name:"NODATA",value:"NODATA"});return new k(new h({data:d,idProperty:"name"}))}});f("extend-esri")&&e.setObject("dijit.RasterFunctionEditor.RFxRasterInput",a,g);return a});

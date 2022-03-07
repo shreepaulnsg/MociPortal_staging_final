@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/pt-pt/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Selecione o raster ou elementos de destino",destinationField:"Campo de destino (opcional)",inputDistanceAccumulationRaster:"Selecione o raster de acumula\u00e7\u00e3o de dist\u00e2ncia",inputBackDirectionRaster:"Selecione o raster de dire\u00e7\u00e3o de retorno ou de dire\u00e7\u00e3o de fluxo",pathType:"Tipo de percurso (opcional)",bestSingle:"Melhor \u00fanico",eachCell:"Cada c\u00e9lula",eachZone:"Cada zona",
+outputFeatureName:"Nome da camada de elementos resultante",outputLayerName:"Melhor percurso como linha de ${layername}",drawSourcePointLayerName:"Pontos de origem",itemDescription:"Camada de elementos gerada atrav\u00e9s da execu\u00e7\u00e3o do melhor percurso como linha em ${layername}. ",itemTags:"Resultado da An\u00e1lise, Melhor percurso Como linha, ${layername} ${fieldname}",itemSnippet:"Camada de elementos gerada atrav\u00e9s do melhor percurso como linha."});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/GeneralizeParameters","dojo/_base/declare dojo/_base/lang dojo/_base/array dojo/_base/json dojo/has ../kernel ../geometry/jsonUtils".split(" "),function(b,d,e,c,f,g,h){b=b(null,{declaredClass:"esri.tasks.GeneralizeParameters",geometries:null,deviationUnit:null,maxDeviation:null,toJson:function(){var l=e.map(this.geometries,function(k){return k.toJson()}),a={};this.geometries&&0<this.geometries.length&&(a.geometries=c.toJson({geometryType:h.getJsonType(this.geometries[0]),geometries:l}),
+a.sr=c.toJson(this.geometries[0].spatialReference.toJson()));this.deviationUnit&&(a.deviationUnit=this.deviationUnit);this.maxDeviation&&(a.maxDeviation=this.maxDeviation);return a}});f("extend-esri")&&d.setObject("tasks.GeneralizeParameters",b,g);return b});

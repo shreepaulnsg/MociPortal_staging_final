@@ -1,0 +1,617 @@
+{
+  "identifylayeroption": "visible",
+  "identifytolerance": 5,
+  "defaultzoomscale": 5000,
+  "keepidentifyactive": true,
+  "returngeometryforzoom": true,
+  "enablelineselect": true,
+  "enablefreehandlineselect": true,
+  "enablepolylineselect": true,
+  "enableextentselect": true,
+  "enabletriangleselect": false,
+  "enablepolyselect": true,
+  "enablefreehandpolyselect": true,
+  "enablecircleselect": true,
+  "enableellipseselect": true,
+  "enablegraphicclickinfo": true,
+  "usemaptime": false,
+  "infoautoclosemilliseconds": 0,
+  "autoactivatedtool": "point",
+  "disablelayerdropdown": false,
+  "disablealllayerschoice": true,
+  "replacenullswithemptystring": true,
+  "enablemouseoverrecordinfo": true,
+  "enablemouseovergraphicsinfo": true,
+  "enableHighlight": true,
+  "layers": {
+    "onlythese": false,
+    "layer": [
+      {
+        "name": "Landplan Survey Plot",
+        "url": "https://gisstg.moci.gov.qa/server/rest/services/Moci/IndustrialPlot/MapServer",
+        "id": 0,
+        "zoomscale": "",
+        "forcescale": false,
+        "fields": {
+          "all": false,
+          "field": [
+            {
+              "name": "ENDDATE",
+              "alias": "ENDDATE",
+              "isdate": true
+            },
+            {
+              "name": "PDSM",
+              "alias": "PDSM"
+            },
+            {
+              "name": "GFCODE",
+              "alias": "GFCODE"
+            },
+            {
+              "name": "CDST_KEY",
+              "alias": "CDST_KEY",
+              "isnumber": true
+            },
+            {
+              "name": "PIN",
+              "alias": "PIN",
+              "isnumber": true
+            },
+            {
+              "name": "JOB",
+              "alias": "JOB",
+              "isnumber": true
+            },
+            {
+              "name": "PDAREA",
+              "alias": "PDAREA",
+              "isnumber": true
+            },
+            {
+              "name": "STARTDATE",
+              "alias": "STARTDATE",
+              "isdate": true
+            },
+            {
+              "name": "EMP_NUM",
+              "alias": "EMP_NUM",
+              "isnumber": true
+            },
+            {
+              "name": "GLOBALID",
+              "alias": "GLOBALID"
+            },
+            {
+              "name": "Shape.STArea()",
+              "alias": "Shape.STArea()",
+              "isnumber": true
+            },
+            {
+              "name": "Shape.STLength()",
+              "alias": "Shape.STLength()",
+              "isnumber": true
+            }
+          ]
+        },
+        "links": {}
+      },
+      {
+        "name": "Plot Firm Details",
+        "url": "https://gisstg.moci.gov.qa/server/rest/services/Moci/AllocationStatus/MapServer",
+        "id": 0,
+        "zoomscale": "",
+        "forcescale": false,
+        "fields": {
+          "all": false,
+          "field": [
+            {
+              "name": "ISSGIS.dbo.dmn_ISIC_AR.Domain_value",
+              "alias": "Domain_value"
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.PLOT_NO",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.PLOT_NO"
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.PLOT_AREA",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.PLOT_AREA",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.PLOT_STATUS",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.PLOT_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.LOCATION_AR",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.LOCATION_AR",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.LOCATIONS_EN",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.LOCATIONS_EN",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.OBJECTID",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.OBJECTID",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.GlobalID",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.GlobalID"
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.Sub_Location_EN",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.Sub_Location_EN",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.PDAREA",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.PDAREA",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.CANCEL_STATUS",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.CANCEL_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.FIRM_AR_NAME",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.FIRM_AR_NAME"
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.ALLOCATION_DATE",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.ALLOCATION_DATE",
+              "isdate": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.FIRM_STATUS_AR",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.FIRM_STATUS_AR",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.PHASE_DESCRIPTION",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.PHASE_DESCRIPTION",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.ISIC_MAIN_EN",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.ISIC_MAIN_EN",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.ISIC_MAIN_AR",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.ISIC_MAIN_AR",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.ISIC_SUBGROUP_I_AR",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.ISIC_SUBGROUP_I_AR",
+              "isnumber": true
+            },
+            {
+              "name": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.ISIC_SUBGROUP_II_AR",
+              "alias": "ISSGIS.DBO.%Plot_Firm_Details_SV_3.ISIC_SUBGROUP_II_AR",
+              "isnumber": true
+            }
+          ]
+        },
+        "links": {}
+      },
+      {
+        "name": "Payment Delayed Plots",
+        "url": "https://gisstg.moci.gov.qa/server/rest/services/Moci/DelayedPayments/MapServer",
+        "id": 0,
+        "zoomscale": "",
+        "forcescale": false,
+        "fields": {
+          "all": false,
+          "field": [
+            {
+              "name": "ALLOCATION_DATE",
+              "alias": "ALLOCATION_DATE",
+              "isdate": true
+            },
+            {
+              "name": "ISIC_MAIN_AR",
+              "alias": "ISIC_MAIN_AR",
+              "isnumber": true
+            },
+            {
+              "name": "FIRM_STATUS_AR",
+              "alias": "FIRM_STATUS_AR",
+              "isnumber": true
+            },
+            {
+              "name": "PLOT_NO",
+              "alias": "PLOT_NO"
+            },
+            {
+              "name": "PLOT_AREA",
+              "alias": "PLOT_AREA",
+              "isnumber": true
+            },
+            {
+              "name": "COUNT_PAYMENTS_DUE",
+              "alias": "COUNT_PAYMENTS_DUE",
+              "isnumber": true
+            },
+            {
+              "name": "SUM_PAY_VALUE",
+              "alias": "SUM_PAY_VALUE",
+              "isnumber": true
+            }
+          ]
+        },
+        "links": {}
+      },
+      {
+        "name": "Plot Factory Report",
+        "url": "https://gisstg.moci.gov.qa/server/rest/services/Moci/FactoryReport/MapServer",
+        "id": 0,
+        "zoomscale": "",
+        "forcescale": false,
+        "fields": {
+          "all": false,
+          "field": [
+            {
+              "name": "PLOT_NO",
+              "alias": "PLOT_NO"
+            },
+            {
+              "name": "PLOT_AREA",
+              "alias": "PLOT_AREA",
+              "isnumber": true
+            },
+            {
+              "name": "PLOT_STATUS",
+              "alias": "PLOT_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "LOCATION_AR",
+              "alias": "LOCATION_AR",
+              "isnumber": true
+            },
+            {
+              "name": "LICENSE_NO",
+              "alias": "LICENSE_NO"
+            },
+            {
+              "name": "INDUSTRIAL_REG_NO",
+              "alias": "INDUSTRIAL_REG_NO"
+            },
+            {
+              "name": "OWNER_NAME",
+              "alias": "OWNER_NAME"
+            },
+            {
+              "name": "FIRM_AR_NAME",
+              "alias": "FIRM_AR_NAME"
+            },
+            {
+              "name": "FIRM_STATUS_AR",
+              "alias": "FIRM_STATUS_AR",
+              "isnumber": true
+            },
+            {
+              "name": "PHASE_DESCRIPTION",
+              "alias": "PHASE_DESCRIPTION",
+              "isnumber": true
+            },
+            {
+              "name": "ISIC_MAIN_EN",
+              "alias": "ISIC_MAIN_EN",
+              "isnumber": true
+            },
+            {
+              "name": "ISIC_MAIN_AR",
+              "alias": "ISIC_MAIN_AR",
+              "isnumber": true
+            }
+          ]
+        },
+        "links": {}
+      },
+      {
+        "name": "Plot Project Status",
+        "url": "https://gisstg.moci.gov.qa/server/rest/services/Moci/ProjectStatus/MapServer",
+        "id": 0,
+        "zoomscale": "",
+        "forcescale": false,
+        "fields": {
+          "all": false,
+          "field": [
+            {
+              "name": "PIN",
+              "alias": "PIN",
+              "isnumber": true
+            },
+            {
+              "name": "PLOT_NO",
+              "alias": "PLOT_NO"
+            },
+            {
+              "name": "PLOT_AREA",
+              "alias": "PLOT_AREA",
+              "isnumber": true
+            },
+            {
+              "name": "CANCEL_STATUS",
+              "alias": "CANCEL_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "FIRM_AR_NAME",
+              "alias": "FIRM_AR_NAME"
+            },
+            {
+              "name": "ALLOCATION_DATE",
+              "alias": "ALLOCATION_DATE",
+              "isdate": true
+            },
+            {
+              "name": "FIRM_STATUS_AR",
+              "alias": "FIRM_STATUS_AR",
+              "isnumber": true
+            },
+            {
+              "name": "PHASE_DESCRIPTION",
+              "alias": "PHASE_DESCRIPTION",
+              "isnumber": true
+            },
+            {
+              "name": "ISIC_SUBGROUP_I_AR",
+              "alias": "ISIC_SUBGROUP_I_AR",
+              "isnumber": true
+            },
+            {
+              "name": "ISIC_SUBGROUP_II_AR",
+              "alias": "ISIC_SUBGROUP_II_AR",
+              "isnumber": true
+            },
+            {
+              "name": "CONTRACTOR_NAME_AR",
+              "alias": "CONTRACTOR_NAME_AR"
+            },
+            {
+              "name": "ENGINEER_NAME",
+              "alias": "ENGINEER_NAME"
+            },
+            {
+              "name": "FIRM_NAME_AR",
+              "alias": "FIRM_NAME_AR"
+            },
+            {
+              "name": "FIRM_NAME_EN",
+              "alias": "FIRM_NAME_EN"
+            },
+            {
+              "name": "PREPARE_START_DATE",
+              "alias": "PREPARE_START_DATE",
+              "isdate": true
+            },
+            {
+              "name": "PREPARE_END_DATE",
+              "alias": "PREPARE_END_DATE",
+              "isdate": true
+            },
+            {
+              "name": "PREPARE_COMPLETION_STATUS",
+              "alias": "PREPARE_COMPLETION_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "EXCAVATIONS_START_DATE",
+              "alias": "EXCAVATIONS_START_DATE",
+              "isdate": true
+            },
+            {
+              "name": "EXCAVATIONS_END_DATE",
+              "alias": "EXCAVATIONS_END_DATE",
+              "isdate": true
+            },
+            {
+              "name": "EXCAVATIONS_COMPLETION_STATUS",
+              "alias": "EXCAVATIONS_COMPLETION_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "CONCRETING_START_DATE",
+              "alias": "CONCRETING_START_DATE",
+              "isdate": true
+            },
+            {
+              "name": "CONCRETING_END_DATE",
+              "alias": "CONCRETING_END_DATE",
+              "isdate": true
+            },
+            {
+              "name": "CONCRETING_COMPLETION_STATUS",
+              "alias": "CONCRETING_COMPLETION_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "HANGAR_CONSTRUCTION_START_DATE",
+              "alias": "HANGAR_CONSTRUCTION_START_DATE",
+              "isdate": true
+            },
+            {
+              "name": "HANGAR_CONSTRUCTION_END_DATE",
+              "alias": "HANGAR_CONSTRUCTION_END_DATE",
+              "isdate": true
+            },
+            {
+              "name": "HANGAR_CONSTRUCTION_STATUS",
+              "alias": "HANGAR_CONSTRUCTION_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "WALL_CONSTRUCTION_START_DATE",
+              "alias": "WALL_CONSTRUCTION_START_DATE",
+              "isdate": true
+            },
+            {
+              "name": "WALL_CONSTRUCTION_END_DATE",
+              "alias": "WALL_CONSTRUCTION_END_DATE",
+              "isdate": true
+            },
+            {
+              "name": "WALL_CONSTRUCTION_STATUS",
+              "alias": "WALL_CONSTRUCTION_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "EXTERNAL_WORK_START_DATE",
+              "alias": "EXTERNAL_WORK_START_DATE",
+              "isdate": true
+            },
+            {
+              "name": "EXTERNAL_WORK_END_DATE",
+              "alias": "EXTERNAL_WORK_END_DATE",
+              "isdate": true
+            },
+            {
+              "name": "EXTERNAL_WORK_STATUS",
+              "alias": "EXTERNAL_WORK_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "INITIAL_OPERATION_START_DATE",
+              "alias": "INITIAL_OPERATION_START_DATE",
+              "isdate": true
+            },
+            {
+              "name": "INITIAL_OPERATION_END_DATE",
+              "alias": "INITIAL_OPERATION_END_DATE",
+              "isdate": true
+            },
+            {
+              "name": "INITIAL_OPERATION_STATUS",
+              "alias": "INITIAL_OPERATION_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "OPERATION_START_DATE",
+              "alias": "OPERATION_START_DATE",
+              "isdate": true
+            },
+            {
+              "name": "OPERATION_STATUS",
+              "alias": "OPERATION_STATUS",
+              "isnumber": true
+            },
+            {
+              "name": "PIN_NO",
+              "alias": "PIN_NO",
+              "isnumber": true
+            },
+            {
+              "name": "GlobalID",
+              "alias": "GlobalID"
+            },
+            {
+              "name": "LR_F_KEY",
+              "alias": "LR_F_KEY",
+              "isnumber": true
+            }
+          ]
+        },
+        "links": {}
+      }
+    ],
+    "excludelayer": []
+  },
+  "symbols": {
+    "simplemarkersymbol": {
+      "color": [
+        68,
+        140,
+        203,
+        153
+      ],
+      "size": 8,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "type": "esriSMS",
+      "style": "esriSMSCircle",
+      "outline": {
+        "color": [
+          255,
+          255,
+          255,
+          153
+        ],
+        "width": 1,
+        "type": "esriSLS",
+        "style": "esriSLSSolid"
+      }
+    },
+    "picturemarkersymbol": {
+      "url": "images/i_info.png",
+      "height": "20",
+      "width": "20",
+      "type": "esriPMS",
+      "angle": "0"
+    },
+    "simplelinesymbol": {
+      "type": "esriSLS",
+      "style": "esriSLSSolid",
+      "color": [
+        68,
+        140,
+        203,
+        153
+      ],
+      "width": 2
+    },
+    "simplefillsymbol": {
+      "color": [
+        68,
+        140,
+        203,
+        153
+      ],
+      "outline": {
+        "color": [
+          68,
+          140,
+          203,
+          153
+        ],
+        "width": 2,
+        "type": "esriSLS",
+        "style": "esriSLSSolid"
+      },
+      "type": "esriSFS",
+      "style": "esriSFSSolid"
+    }
+  },
+  "resultFormat": {
+    "attTitlesymbol": {
+      "bold": false,
+      "italic": true,
+      "underline": false,
+      "color": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "attValuesymbol": {
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "color": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  }
+}

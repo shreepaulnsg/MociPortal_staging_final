@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/dataProvider/commands/createHTML/HTMLPageBuilder",[],function(){return{composeHtmlStringFromParts:function(b){var a='\x3c!DOCTYPE html\x3e\n\x3chtml xmlns\x3d"http://www.w3.org/1999/xhtml"\x3e\n\x3chead\x3e\n\x3cmeta http-equiv\x3d"Content-Type" content\x3d"text/html; charset\x3dutf-8"\x3e\n\x3cmeta name\x3d"viewport" content\x3d"initial-scale\x3d1, maximum-scale\x3d1,user-scalable\x3dno"\x3e\n\x3ctitle\x3e'+b.reportTitle+"\x3c/title\x3e\n";b.links&&b.links.forEach(function(c){a+=
+'\x3clink href\x3d"'+c+'" rel\x3d"stylesheet" /\x3e\n'});b.cssFiles&&b.cssFiles.forEach(function(c){a+="\x3cstyle\x3e\n";a+=c+"\n";a+="\x3c/style\x3e\n"});b.additionalStyleNodes&&b.additionalStyleNodes.length&&(a+="\x3cstyle\x3e\n",b.additionalStyleNodes.forEach(function(c){a+=c.innerHTML+"\n"}),a+="\x3c/style\x3e\n");b.scripts&&b.scripts.forEach(function(c){if("object"===typeof c){a+="\x3cscript";for(var d in c)a+=" "+d+'\x3d"'+c[d]+'"';a+="\x3e\x3c/script\x3e\n"}else a+="\x3cscript\x3e\n",a+=c+
+"\n",a+="\x3c/script\x3e\n"});a+='\x3c/head\x3e\n\x3cbody class\x3d"claro" style\x3d"margin:0px;"\x3e\n';a+=b.contentString+"\n";return a+="\x3c/body\x3e\n\x3c/html\x3e"}}});

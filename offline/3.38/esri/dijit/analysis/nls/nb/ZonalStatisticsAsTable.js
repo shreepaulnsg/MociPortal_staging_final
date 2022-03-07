@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/nb/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Velg soneraster eller geoobjekter",outputTableName:"Navn p\u00e5 resultattabell",zoneField:"Sonefelt",inputValueRaster:"Velg verdiraster",ignoreNodata:"Ignorer NoData i beregninger (valgfritt)",ignore:"Ignorer",statisticType:"Statistikktype (valgfritt)",percentileValues:"Persentilverdier (valgfritt)",percentileInterpolationType:"Type interpolasjon av persentil (valgfritt)",processAsMultidimensional:"Behandle som flerdimensjonal (valgfritt)",
+allSlices:"Alle sektorer",outputZonalStatsName:"Sonestatistikk for ${valuelayername} innenfor ${layername}",itemDescription:"Geoobjekttabell for analyse generert fra Sonestatistikk som tabell",itemTags:"Rasteranalyseresultat, Sonestatistikk som tabell, ${layername}, ${valuelayername}",autoDetect:"Auto-detekter",nearest:"N\u00e6rmeste",linear:"Line\u00e6r"});

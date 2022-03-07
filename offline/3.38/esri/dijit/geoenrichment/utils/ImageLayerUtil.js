@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/utils/ImageLayerUtil",["esri/graphic","esri/symbols/PictureMarkerSymbol","esri/geometry/Extent","esri/geometry/ScreenPoint","./ImageUtil"],function(r,t,u,v,g){function w(h,e,b){var a=Math.ceil(e/150),c=Math.ceil(b/150),d=[];return g.imageFromUrl(h).then(function(k){for(var l=0;l<a;l++)for(var m=0;m<c;m++){var n=Math.round(150*l),p=Math.round(150*m),q=g.imageToDataURL(k,{width:150,height:150,pos:{x:-n,y:-p}}),f=new t;f.setWidth(150);f.setHeight(150);f.setOffset(75,
+-75);f.setUrl(q);f.contentType=g.getImageContentType(q)||"image/png";d.push({symbol:f,x:n,y:p})}return d})}return{dataURLToPictureMarkers:function(h,e,b,a){return w(e,b,a).then(function(c){return c.map(function(d){return new r(h.toMap(new v(d.x,d.y)),d.symbol)})})},clipImageByExtent:function(h,e,b){return b?g.imageFromUrl(h).then(function(a){e.toJson||(e=new u(e));var c=e.intersects(b),d=b.getWidth(),k=b.getHeight();a=g.imageToDataURL(a,{width:a.width*(c.getWidth()/d),height:a.height*(c.getHeight()/
+k),pos:{x:(b.xmin-c.xmin)/d*a.width,y:(c.ymax-b.ymax)/k*a.height}});return{extent:c.toJson(),dataURL:a}}):null}}});

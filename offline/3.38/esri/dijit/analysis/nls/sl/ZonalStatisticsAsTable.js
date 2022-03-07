@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sl/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Izberi raster obmo\u010dja ali geoobjektov",outputTableName:"Ime tabele z rezultati",zoneField:"Polje obmo\u010dja",inputValueRaster:"Izberi raster vrednosti",ignoreNodata:"Prezri vrednosti brez podatkov v izra\u010dunih (izbirno)",ignore:"Prezri",statisticType:"Tip statistike (izbirno)",percentileValues:"Vrednosti percentila (izbirno)",percentileInterpolationType:"Tip interpolacije percentila (izbirno)",processAsMultidimensional:"Obdelaj kot ve\u010ddimenzionalno (izbirno)",
+allSlices:"Vse rezine",outputZonalStatsName:"Obmo\u010dna statistika za ${valuelayername} znotraj ${layername}",itemDescription:"Analiza tabele geoobjektov ustvarjena iz obmo\u010dne statistike kot tabele",itemTags:"Rezultat rastrske analize, obmo\u010dna statistika kot tabela, ${layername}, ${valuelayername}",autoDetect:"Samodejno zaznavanje",nearest:"Najbli\u017eji",linear:"Linearno"});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/tr/OptimalPathAsLine",{inputDestinationRasterOrFeatures:"Hedef raster\u0131 veya detaylar\u0131 se\u00e7",destinationField:"Hedef alan\u0131 (iste\u011fe ba\u011fl\u0131)",inputDistanceAccumulationRaster:"Mesafe birikim raster\u0131n\u0131 se\u00e7",inputBackDirectionRaster:"Geri y\u00f6n\u00fc veya ak\u0131\u015f y\u00f6n\u00fc raster\u0131n\u0131 se\u00e7",pathType:"Yol t\u00fcr\u00fc (iste\u011fe ba\u011fl\u0131)",bestSingle:"En iyi tek",eachCell:"Her h\u00fccre",
+eachZone:"Her b\u00f6lge",outputFeatureName:"Sonu\u00e7 detay katman\u0131 ad\u0131",outputLayerName:"${layername} \u00e7izgisi olarak optimum yol",drawSourcePointLayerName:"Kaynak noktalar",itemDescription:"Detay katman\u0131 ${layername} \u00e7izgisi olarak optimum yolun \u00e7al\u0131\u015ft\u0131r\u0131lmas\u0131yla olu\u015fturuldu. ",itemTags:"Analiz Sonucu, \u00c7izgi olarak Optimum Yol, ${layername} ${fieldname}",itemSnippet:"Detay katman\u0131 \u00e7izgi olarak optimum yoldan olu\u015fturuldu."});

@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/opsdashboard/featureActionProxy",["dojo/_base/declare","dojo/_base/lang","../tasks/FeatureSet","./core/ExtensionBase"],function(c,d,e,f){return new (c([f],{_messageReceived:function(a){"execute"===a.functionName.toLowerCase()&&this.getDataSourceProxy(a.args.dataSourceId).then(d.hitch(this,function(b){this._execute(b,new e(a.args.featureSet),a.args.configuration||a.args.config)}))},_execute:function(a,b,g){this.emit("execute",{dataSourceProxy:a,featureSet:b,config:g})}}))});

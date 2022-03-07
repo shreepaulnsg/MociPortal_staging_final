@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/sk/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Vybra\u0165 raster z\u00f3n alebo prvkov",outputTableName:"N\u00e1zov v\u00fdslednej tabu\u013eky",zoneField:"Pole z\u00f3ny",inputValueRaster:"Vybra\u0165 raster hodnoty",ignoreNodata:"Ignorova\u0165 NoData vo v\u00fdpo\u010dtoch (volite\u013en\u00e9)",ignore:"Ignorova\u0165",statisticType:"Typ \u0161tatistiky (volite\u013en\u00e9)",percentileValues:"Hodnota percentilu (volite\u013en\u00e9)",percentileInterpolationType:"Percentiln\u00fd typ interpol\u00e1cie (volite\u013en\u00e9)",
+processAsMultidimensional:"Spracova\u0165 ako viacrozmern\u00e9 (volite\u013en\u00e9)",allSlices:"V\u0161etky segmenty",outputZonalStatsName:"Zon\u00e1lna \u0161tatistika pre ${valuelayername} v r\u00e1mci ${layername}",itemDescription:"Anal\u00fdza prvkov tabu\u013eky vygenerovan\u00e1 zo Zon\u00e1lnej \u0161tatistiky ako tabu\u013eka",itemTags:"V\u00fdsledok rastrovej anal\u00fdzy, zon\u00e1lna \u0161tatistika ako tabu\u013eka, ${layername}, ${valuelayername}",autoDetect:"Automatick\u00e1 detekcia",
+nearest:"Najbli\u017e\u0161\u00ed",linear:"Line\u00e1rny"});

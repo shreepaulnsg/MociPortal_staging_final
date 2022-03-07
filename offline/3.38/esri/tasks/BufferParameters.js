@@ -1,0 +1,6 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/tasks/BufferParameters","dojo/_base/declare dojo/_base/lang dojo/_base/array dojo/_base/json dojo/has ../kernel ../geometry/Polygon ../geometry/jsonUtils".split(" "),function(d,k,l,e,m,n,p,q){d=d(null,{declaredClass:"esri.tasks.BufferParameters",geometries:null,outSpatialReference:null,bufferSpatialReference:null,distances:null,unit:null,unionResults:!1,geodesic:!1,toJson:function(){var b={unit:this.unit,unionResults:this.unionResults,geodesic:this.geodesic},h=this.distances,f=this.outSpatialReference,
+g=this.bufferSpatialReference,r=l.map(this.geometries,function(c){c="extent"===c.type?p.fromExtent(c):c;return c.toJson()},this),a=this.geometries;if(a&&0<a.length){var t="extent"===a[0].type?"esriGeometryPolygon":q.getJsonType(a[0]);b.geometries=e.toJson({geometryType:t,geometries:r});b.inSR=a[0].spatialReference.wkid?a[0].spatialReference.wkid:e.toJson(a[0].spatialReference.toJson())}h&&(b.distances=h.join(","));f&&(b.outSR=f.wkid?f.wkid:e.toJson(f.toJson()));g&&(b.bufferSR=g.wkid?g.wkid:e.toJson(g.toJson()));
+return b}});m("extend-esri")&&k.setObject("tasks.BufferParameters",d,n);return d});

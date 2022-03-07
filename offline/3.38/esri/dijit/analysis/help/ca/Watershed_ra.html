@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Cuenca hidrográfica</h2><p/>
+        <h2><img src="../images/GUID-AF749369-8C2D-46FF-9D74-2CF7CAB7C7B0-web.png" alt="Tasca de conca hidrogr&agrave;fica"></h2>
+        <hr/>
+    <p>Aquesta eina determina l'&agrave;rea de contribuci&oacute; sobre un conjunt de cel&middot;les d'un r&agrave;ster.
+    </p>
+    <p> Un punt d'entrada del riu Mississip&iacute; de Louisiana crear&agrave; una entitat de conca hidrogr&agrave;fica que s'estendr&agrave; per incloure les &agrave;rees de Nova York fins a Montana i fins al Canad&agrave;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputFlowDirectionRaster">
+        <div><h2>Trieu la capa de direcció del flux</h2></div>
+        <hr/>
+        <div>
+            <p>R&agrave;ster d'entrada que mostra la direcci&oacute; de sortida del flux de cada cel&middot;la.
+            </p>
+            <p>El r&agrave;ster de direcci&oacute; del flux es pot crear mitjan&ccedil;ant la funci&oacute; de r&agrave;ster Direcci&oacute; del flux, amb el tipus de direcci&oacute; de flux per defecte  <b>D8</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inPourPointRasterOrFeatures">
+        <div><h2>Especifiqueu les ubicacions dels punts de fluïdesa d'entrada</h2></div>
+        <hr/>
+        <div>
+            <p>Las ubicaciones de punto de fluidez de entrada.
+            </p>
+            <p>Pot ser un r&agrave;ster o una entitat de punt. Para un r&aacute;ster, esto representa las celdas por sobre las que se determinar&aacute; el &aacute;rea de contribuci&oacute;n o la cuenca. Todas las celdas que no son NoData se utilizar&aacute;n como celdas de origen. Per a una entrada de punts, aix&ograve; representa les ubicacions sobre les quals es determinar&agrave; l'&agrave;rea de contribuci&oacute; (o captaci&oacute;).
+            </p>
+        </div>
+    </div>
+    <div id="pourPointField">
+        <div><h2>Trieu el camp de punt de fluïdesa</h2></div>
+        <hr/>
+        <div>
+            <p>Camp utilitzat per assignar valors a les ubicacions de punts de flu&iuml;desa.
+            </p>
+            <p>Si la capa de punts de flu&iuml;desa &eacute;s un r&agrave;ster, s'utilitza  <i>Value</i>. Si &eacute;s una entitat, s'utilitza un camp num&egrave;ric. Si el camp cont&eacute; valors de punt flotant, es truncaran en enters.
+            </p>
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Nom de la capa de resultats</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Nom de la capa que es crear&agrave; a  <b>El meu contingut</b> i s'afegir&agrave; al mapa. El nombre predeterminado se basa en el nombre de la herramienta y en el nombre de la capa de entrada. Si la capa ja existeix, se us demanar&agrave; que proporcioneu un altre nom.
+            </p>
+            <p>Podeu especificar el nom d'una carpeta de  <b>El meu contingut</b> on es desar&agrave; el resultat mitjan&ccedil;ant el quadre desplegable <b>Desa el resultat a</b>. Si teniu permisos per crear capes d'imatges tant de tessel·les com dinàmiques, podeu especificar des de la llista desplegable Anomena i desa el resultat el tipus de capa que cal generar. </p>
+        </div>
+    </div>
+</div>
+</html>

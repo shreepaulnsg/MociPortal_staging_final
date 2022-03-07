@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/VisibleScaleRangeSlider/_SlideEvent",["dojo/_base/array","dojo/_base/declare"],function(h,k){return k(null,{declaredClass:"esri.dijit.VisibleScaleRangeSlider._SlideEvent",_events:["onMouseMove","onFirstMove",{name:"onMoveStop",hookTo:"destroy"}],postCreate:function(){this.inherited(arguments);this._extendMover(this._movable);this._extendMover(this._movableBar,"rangebar");this._extendMover(this._movableMax,"max")},_extendMover:function(c,l){if(c){var d=c.mover,e={};h.forEach(this._events,
+function(a){if("object"===typeof a){var b=a.name;var f=a.hookTo}else b=a;var m=d.prototype[b]||function(){};var n="slide"+(l||"")+"-"+b.toLowerCase();var g=function(){m.apply(this,arguments);this.widget.emit(n,{movable:c})};if(f){var p=d.prototype[f];e[f]=function(){p.apply(this,arguments);g.apply(this,arguments)}}e[b]=g});d.extend(e)}}})});

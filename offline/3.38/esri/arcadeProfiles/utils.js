@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/arcadeProfiles/utils",["dojo/_base/lang","dojo/_base/array","dojo/has","../kernel","../support/expressionUtils"],function(k,c,l,m,d){var f=/(\/(MapServer|FeatureServer)).*/ig,h={hasGeometryOperations:function(b){return c.some(b,function(a){return a.hasGeometryOperations?a.hasGeometryOperations():d.hasGeometryOperations(a)})},hasFeatureSetOperations:function(b){return c.some(b,function(a){return a.hasFeatureSetOperations?a.hasFeatureSetOperations():d.hasFeatureSetOperations(a)})},hasVariables:function(b,
+a){return c.some(b,function(e){return c.some(a,function(g){return e.hasVariable?e.hasVariable(g):d.hasVariable(e,g)})})},isAsync:function(b){return c.some(b,function(a){return a.async})},getServiceUrl:function(b){return f.test(b)?b.replace(f,"$1"):null}};l("extend-esri")&&k.setObject("arcadeProfiles.utils",h,m);return h});

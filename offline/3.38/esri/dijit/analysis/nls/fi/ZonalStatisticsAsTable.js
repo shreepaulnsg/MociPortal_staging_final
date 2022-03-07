@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/fi/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Valitse vy\u00f6hykerasteri tai -kohteet",outputTableName:"Tulostaulukon nimi",zoneField:"Vy\u00f6hykekentt\u00e4",inputValueRaster:"Valitse arvorasteri",ignoreNodata:"Ohita NoData-tiedot laskelmissa (valinnainen)",ignore:"Ohita",statisticType:"Tilastojen tyyppi (valinnainen)",percentileValues:"Prosenttipistearvot (valinnainen)",percentileInterpolationType:"Prosenttipisteen interpolaatiotyyppi (valinnainen)",processAsMultidimensional:"K\u00e4sittele moniulotteisena (valinnainen)",
+allSlices:"Kaikki viipaleet",outputZonalStatsName:"Karttatason ${valuelayername} vy\u00f6hyketilastot karttatasolla ${layername}",itemDescription:"Analyysin kohdetaulukko on luotu vy\u00f6hyketilastoista taulukkona",itemTags:"Rasterianalyysin tulos, vy\u00f6hyketilastot taulukkona, ${layername}, ${valuelayername}",autoDetect:"Tunnista automaattisesti",nearest:"L\u00e4hin",linear:"Lineaarinen"});

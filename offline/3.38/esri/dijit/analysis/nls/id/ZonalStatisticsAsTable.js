@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/analysis/nls/id/ZonalStatisticsAsTable",{inputZoneRasterOrFeatures:"Pilih raster atau fitur zona",outputTableName:"Nama tabel hasil",zoneField:"Kolom zona",inputValueRaster:"Pilih raster nilai",ignoreNodata:"Abaikan NoData dalam penghitungan (opsional)",ignore:"Abaikan",statisticType:"Jenis statistik (opsional)",percentileValues:"Nilai persentil (opsional)",percentileInterpolationType:"Jenis interpolasi persentil (opsional)",processAsMultidimensional:"Proses sebagai multidimensional (opsional)",
+allSlices:"Semua irisan",outputZonalStatsName:"Statistik zona untuk ${valuelayername} dalam ${layername}",itemDescription:"Tabel fitur analisis dibuat dari Statistik Zona sebagai Tabel",itemTags:"Hasil Analisis Raster, Statistik Zona sebagai Tabel, ${layername}, ${valuelayername}",autoDetect:"Deteksi otomatis",nearest:"Terdekat",linear:"Linear"});

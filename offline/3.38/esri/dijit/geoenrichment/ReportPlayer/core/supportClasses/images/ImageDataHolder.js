@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/supportClasses/images/ImageDataHolder",["esri/dijit/geoenrichment/utils/CacheUtil"],function(g){function f(){return g.get("ImageDataHolder.imageData")}function h(){return g.get("ImageDataHolder.fileNameToOriginal")}var e={},c;e.setImageDataHolder4x=function(a){c=a;a=f();for(var b in a)c.putImageData(b,a[b])};e.putImageData=function(a,b){if(c)c.putImageData(a,b);else if("string"===typeof a&&b){var d=a.toLowerCase();h()[d]=a;f()[d]=b}else console.error("Invalid image filename or data!")};
+e.getImageData=function(a){return c?c.getImageData(a):"string"!==typeof a?null:f()[a.toLowerCase()]};e.findFileNameByData=function(a){if(c)return c.findFileNameByData(a);var b=f(),d;for(d in b)if(a===b[d])return h()[d];return null};return e});

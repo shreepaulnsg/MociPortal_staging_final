@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/layers/vectorTiles/views/2d/engine/webgl/color",["require","exports","./number"],function(l,c,h){function k(a,b){Array.isArray(b)?(a[0]=b[0],a[1]=b[1],a[2]=b[2],a[3]=b[3]):(a[0]=b.r,a[1]=b.g,a[2]=b.b,a[3]=b.a);return a}function e(a,b,f){void 0===b&&(b=0);void 0===f&&(f=!1);var g=a[b+3];a[b+0]*=g;a[b+1]*=g;a[b+2]*=g;f||(a[b+3]*=255);return a}Object.defineProperty(c,"__esModule",{value:!0});c.white=[255,255,255,1];var d=[0,0,0,0];c.premultiplyAlpha=e;c.copyAndPremultiply=function(a){return e(k([],
+a))};c.premultiplyAlphaUint32=function(a){e(k(d,a));return h.i8888to32(d[0],d[1],d[2],d[3])};c.premultiplyAlphaRGBA=function(a){if(!a)return 0;var b=a.a;return h.i8888to32(a.r*b,a.g*b,a.b*b,255*b)}});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+var __extends=this&&this.__extends||function(){var g=function(e,a){g=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(b,d){b.__proto__=d}||function(b,d){for(var f in d)Object.prototype.hasOwnProperty.call(d,f)&&(b[f]=d[f])};return g(e,a)};return function(e,a){function b(){this.constructor=e}if("function"!==typeof a&&null!==a)throw new TypeError("Class extends value "+String(a)+" is not a constructor or null");g(e,a);e.prototype=null===a?Object.create(a):(b.prototype=a.prototype,new b)}}();
+define("esri/arcade/Attachment",["require","exports","./Dictionary"],function(g,e,a){return function(b){function d(f,h,k,l,m,n){var c=b.call(this)||this;c.attachmentUrl=m;c.immutable=!1;c.setField("id",f);c.setField("name",h);c.setField("contenttype",k);c.setField("size",l);c.setField("exifinfo",n);c.immutable=!0;return c}__extends(d,b);return d}(a)});

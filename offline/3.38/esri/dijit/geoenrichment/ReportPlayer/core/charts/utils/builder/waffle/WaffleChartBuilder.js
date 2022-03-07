@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See https://js.arcgis.com/3.38/esri/copyright.txt for details.
+//>>built
+define("esri/dijit/geoenrichment/ReportPlayer/core/charts/utils/builder/waffle/WaffleChartBuilder","dojo/_base/declare dojo/_base/lang ../../plots/waffle/Waffle ../../plots/_TouchPlotEvents ../ChartPlots ./_SeriesCalculator".split(" "),function(b,c,d,e,f,g){return{configureChart:function(a){var k=c.mixin({type:b([d,e]),labelFunc:function(h){return ChartDataLabelBuilder.formatDataLabel(h,a.visualProperties)},animate:a.viewModel.isAnimationAllowed()});a.chart.addPlot(f.PRIMARY,k)},calcSeries:function(a){return g.calcSeries(a)}}});

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Zlewnia</h2><p/>
+        <h2><img src="../images/GUID-AF749369-8C2D-46FF-9D74-2CF7CAB7C7B0-web.png" alt="Zadanie Zlewnia"></h2>
+        <hr/>
+    <p>To narzędzie oblicza obszar spływu powyżej zestawu kom&oacute;rek w rastrze.
+    </p>
+    <p> Punkt wejściowy na Missisipi w Luizjanie utworzy obiekt zlewni rozciągający się na obszary od Nowego Jorku do Montany i Kanady.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputFlowDirectionRaster">
+        <div><h2>Wybierz warstwę kierunku przepływu</h2></div>
+        <hr/>
+        <div>
+            <p>Raster wejściowy, kt&oacute;ry pokazuje kierunek przepływu od każdej kom&oacute;rki.
+            </p>
+            <p>Raster kierunku przepływu można utworzyć za pomocą funkcji Kierunek przepływu, używając domyślnego kierunku przepływu o typie  <b>D8</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inPourPointRasterOrFeatures">
+        <div><h2>Określ lokalizacje wejściowych punktów wylewu</h2></div>
+        <hr/>
+        <div>
+            <p>Lokalizacje wejściowych punkt&oacute;w wylewu.
+            </p>
+            <p>Może to być raster lub obiekt punktowy. W przypadku rastra reprezentuje kom&oacute;rki, powyżej kt&oacute;rych zostanie określony obszar spływu (zlewnia). Jako kom&oacute;rki źr&oacute;dłowe zostaną użyte wszystkie kom&oacute;rki, kt&oacute;re nie mają wartości Brak danych. W przypadku danych wejściowych w postaci punkt&oacute;w reprezentuje lokalizacje, powyżej kt&oacute;rych zostanie określony obszar spływu (zlewnia).
+            </p>
+        </div>
+    </div>
+    <div id="pourPointField">
+        <div><h2>Wybierz pole punktów wylewu</h2></div>
+        <hr/>
+        <div>
+            <p>Pole służące do przypisywania wartości do lokalizacji punkt&oacute;w wylewu.
+            </p>
+            <p>Jeśli punktowa warstwa wejściowa wylewu jest warstwą rastrową, używane jest pole  <i>Value</i>. Jeśli jest warstwą obiektową, używane jest pole liczbowe. Jeśli pole zawiera wartości zmiennoprzecinkowe, zostaną one obcięte do liczb całkowitych.
+            </p>
+        </div>
+    </div>
+    <div id="resultLayer">
+        <div><h2>Nazwa warstwy wynikowej</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona w obszarze  <b>Moje zasoby</b> i dodana do mapy. Nazwa domyślna jest tworzona w oparciu o nazwę narzędzia i&nbsp;nazwę warstwy wejściowej. Jeśli warstwa już istnieje, wyświetlony zostanie komunikat z monitem o podanie innej nazwy.
+            </p>
+            <p>Za pomocą listy rozwijanej  <b>Zapisz wynik w</b> można podać nazwę folderu w obszarze <b>Moje zasoby</b>, gdzie zostanie zapisany wynik. Jeśli masz uprawnienia do tworzenia zarówno kafelkowych, jak i dynamicznych warstw zobrazowań, możesz zdecydować, który typ warstwy ma być używany go generowania danych wynikowych, używając pola rozwijanego Zapisz wyniki jako. </p>
+        </div>
+    </div>
+</div>
+</html>
